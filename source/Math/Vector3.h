@@ -20,7 +20,7 @@ namespace GDK
         {
             float x, y, z;
             
-            float length(void);
+            float length(void) const;
             void normalize(void);
             //void normalizeAndScale(const float &aScalar);
             

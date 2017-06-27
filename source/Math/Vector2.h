@@ -19,7 +19,7 @@ namespace GDK
             float x, y;
             
             // Non mutating operations
-            float length(void);
+            float length(void) const;
             float getAspectRatio(void);
             
             // Mutating operations

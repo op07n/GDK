@@ -105,7 +105,7 @@ void Vector3::operator*=(const float &aScalar)
     
 }
 
-float Vector3::length(void)
+float Vector3::length(void) const
 {
     return sqrt( (x*x) + (y*y) + (z*z) );
     

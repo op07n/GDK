@@ -97,7 +97,7 @@ std::ostream& GDK::Math::operator<<(std::ostream& stream, const Math::Vector2& a
     return stream;
 }
 
-float Vector2::length(void)
+float Vector2::length(void) const
 {
     return sqrt( (x*x) + (y*y) );
     
