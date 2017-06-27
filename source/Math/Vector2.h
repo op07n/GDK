@@ -18,24 +18,27 @@ namespace GDK
         {
             float x, y;
             
+            // Non mutating operations
             float length(void);
-            void normalize(void);
-            /*void normalizeAndScale(const float &aScalar);*/
             float getAspectRatio(void);
             
-            //Non mutating operators
+            // Mutating operations
+            void normalize(void);
+            /*void normalizeAndScale(const float &aScalar);*/
+            
+            // Non mutating operators
             Vector2 operator+(const Vector2 &aVector);
             Vector2 operator-(const Vector2 &aVector);
             Vector2 operator*(const float &aScalar);
             Vector2 operator*(const float &aScalar) const;
             
-            //Mutating operators
+            // Mutating operators
             void operator+=(const Vector2 &aVector);
             void operator-=(const Vector2 &aVector);
             void operator*=(const float &aScalar);
             Vector2& operator=(const Vector2 &aVector) = default;
             
-            //Constructors & Destructors
+            // Constructors & Destructors
             Vector2();
             Vector2(const float &aScalar);
             Vector2(const float &aX, const float &aY);
@@ -43,7 +46,7 @@ namespace GDK
             Vector2(const Vector2&) = default;
             ~Vector2() = default;
             
-            //Special values
+            // Special values
             static const Vector2 Up;
             static const Vector2 Down;
             static const Vector2 Left;

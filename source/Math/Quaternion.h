@@ -24,11 +24,11 @@ namespace GDK
         {
             float x, y, z, w;
             
-            //Euler convenience
+            // Euler convenience
             void setFromEuler(const Vector3 &aEulerAngles);
             Math::Vector3 getEuler(void);
             
-            //Constructors & Destructors
+            // Constructors & Destructors
             Quaternion();
             Quaternion(const Vector3 &aEulerAngles);
             Quaternion(const btQuaternion &aBulletQuaternion);
@@ -36,7 +36,7 @@ namespace GDK
             Quaternion(const Quaternion&) = default;
             ~Quaternion() = default;
             
-            //Special values
+            // Special values
             static const Quaternion Identity;
             
         };

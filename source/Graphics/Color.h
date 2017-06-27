@@ -26,6 +26,9 @@ namespace GDK
             Color(const Color&) = default;
             ~Color() = default;
             
+            // Mutating operators
+            Color& operator=(const Color &aColor) = default;
+            
             // Special colors
             static const Color Black;
             static const Color White;
