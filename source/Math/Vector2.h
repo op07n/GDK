@@ -35,18 +35,20 @@ namespace GDK
             void operator*=(const float &aScalar);
             Vector2& operator=(const Vector2 &aVector) = default;
             
-            static const Vector2 Up;
-            static const Vector2 Down;
-            static const Vector2 Left;
-            static const Vector2 Right;
-            static const Vector2 Zero;
-            
+            //Constructors & Destructors
             Vector2();
             Vector2(const float &aScalar);
             Vector2(const float &aX, const float &aY);
             /*Vector2(const b2Vec2 &aBox2DVector);*/
             Vector2(const Vector2&) = default;
             ~Vector2() = default;
+            
+            //Special values
+            static const Vector2 Up;
+            static const Vector2 Down;
+            static const Vector2 Left;
+            static const Vector2 Right;
+            static const Vector2 Zero;
             
         };
         

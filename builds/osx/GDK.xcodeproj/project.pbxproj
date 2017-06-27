@@ -16,6 +16,8 @@
 		48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4CC1F01DEFA003932BA /* Vector3.cpp */; };
 		48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4CF1F01E2A2003932BA /* Vector2.cpp */; };
 		48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4D01F01E2A2003932BA /* Vector2.h */; };
+		48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4D31F01EC0C003932BA /* Quaternion.cpp */; };
+		48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4D41F01EC0C003932BA /* Quaternion.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		48FFC4CC1F01DEFA003932BA /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = ../../source/Math/Vector3.cpp; sourceTree = "<group>"; };
 		48FFC4CF1F01E2A2003932BA /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = ../../source/Math/Vector2.cpp; sourceTree = "<group>"; };
 		48FFC4D01F01E2A2003932BA /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2.h; path = ../../source/Math/Vector2.h; sourceTree = "<group>"; };
+		48FFC4D31F01EC0C003932BA /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Quaternion.cpp; path = ../../source/Math/Quaternion.cpp; sourceTree = "<group>"; };
+		48FFC4D41F01EC0C003932BA /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quaternion.h; path = ../../source/Math/Quaternion.h; sourceTree = "<group>"; };
 		E2639950190D148400B6251A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E2639AE7190D169200B6251A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		E2639AFB190D16FF00B6251A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -80,6 +84,8 @@
 		48FFC4CA1F01DEF4003932BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				48FFC4D41F01EC0C003932BA /* Quaternion.h */,
+				48FFC4D31F01EC0C003932BA /* Quaternion.cpp */,
 				48FFC4D01F01E2A2003932BA /* Vector2.h */,
 				48FFC4CF1F01E2A2003932BA /* Vector2.cpp */,
 				48FFC4CB1F01DEFA003932BA /* Vector3.h */,
@@ -127,6 +133,7 @@
 			files = (
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
+				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
 				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
@@ -194,6 +201,7 @@
 				48FFC4C81F01DB88003932BA /* Window.cpp in Sources */,
 				48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */,
 				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
+				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

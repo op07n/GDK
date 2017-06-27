@@ -36,6 +36,15 @@ namespace GDK
             void operator*=(const float &aScalar);
             Vector3& operator=(const Vector3 &aVector) = default;
             
+            //Constructors & Destructors
+            Vector3();
+            Vector3(const float &aScalar);
+            Vector3(const float &aX, const float &aY, const float &aZ);
+            /*Vector3(const btVector3 &aBulletVector);*/
+            Vector3(const Vector3&) = default;
+            ~Vector3() = default;
+            
+            //Special values
             static const Vector3 Up;
             static const Vector3 Down;
             static const Vector3 Left;
@@ -43,13 +52,6 @@ namespace GDK
             static const Vector3 Forward;
             static const Vector3 Backward;
             static const Vector3 Zero;
-            
-            Vector3();
-            Vector3(const float &aScalar);
-            Vector3(const float &aX, const float &aY, const float &aZ);
-            /*Vector3(const btVector3 &aBulletVector);*/
-            Vector3(const Vector3&) = default;
-            ~Vector3() = default;
             
         };
         
