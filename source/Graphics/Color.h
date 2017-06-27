@@ -21,8 +21,8 @@ namespace GDK
             float r,g,b,a;
             
             // instancing rules
-            Color(const float &aR = 0, const float &aG = 0, const float &aB = 0, const float &aA = 0);
-            //Color() = delete;
+            Color();
+            Color(const float &aR, const float &aG, const float &aB, const float &aA = 1.);
             Color(const Color&) = default;
             ~Color() = default;
             
