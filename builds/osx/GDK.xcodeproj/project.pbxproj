@@ -10,8 +10,12 @@
 		4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5B1F008EE0009B4E73 /* Macros.h */; };
 		4899AF601F009239009B4E73 /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5E1F009239009B4E73 /* Color.h */; };
 		4899AF611F009239009B4E73 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4899AF5F1F009239009B4E73 /* Color.cpp */; };
-		4899AF641F00935F009B4E73 /* Graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF621F00935F009B4E73 /* Graphics.h */; };
-		4899AF651F00935F009B4E73 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4899AF631F00935F009B4E73 /* Graphics.cpp */; };
+		48FFC4C81F01DB88003932BA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4C61F01DB88003932BA /* Window.cpp */; };
+		48FFC4C91F01DB88003932BA /* Window.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4C71F01DB88003932BA /* Window.h */; };
+		48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4CB1F01DEFA003932BA /* Vector3.h */; };
+		48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4CC1F01DEFA003932BA /* Vector3.cpp */; };
+		48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4CF1F01E2A2003932BA /* Vector2.cpp */; };
+		48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4D01F01E2A2003932BA /* Vector2.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,9 +24,13 @@
 		4899AF5B1F008EE0009B4E73 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ../../source/Utilities/Macros.h; sourceTree = "<group>"; };
 		4899AF5E1F009239009B4E73 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = ../../source/Graphics/Color.h; sourceTree = "<group>"; };
 		4899AF5F1F009239009B4E73 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Color.cpp; path = ../../source/Graphics/Color.cpp; sourceTree = "<group>"; };
-		4899AF621F00935F009B4E73 /* Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Graphics.h; path = ../../source/Graphics/Graphics.h; sourceTree = "<group>"; };
-		4899AF631F00935F009B4E73 /* Graphics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Graphics.cpp; path = ../../source/Graphics/Graphics.cpp; sourceTree = "<group>"; };
 		48B2494B1EFF6DA800A70F35 /* libGDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		48FFC4C61F01DB88003932BA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../source/Graphics/Window.cpp; sourceTree = "<group>"; };
+		48FFC4C71F01DB88003932BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = ../../source/Graphics/Window.h; sourceTree = "<group>"; };
+		48FFC4CB1F01DEFA003932BA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = ../../source/Math/Vector3.h; sourceTree = "<group>"; };
+		48FFC4CC1F01DEFA003932BA /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = ../../source/Math/Vector3.cpp; sourceTree = "<group>"; };
+		48FFC4CF1F01E2A2003932BA /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = ../../source/Math/Vector2.cpp; sourceTree = "<group>"; };
+		48FFC4D01F01E2A2003932BA /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2.h; path = ../../source/Math/Vector2.h; sourceTree = "<group>"; };
 		E2639950190D148400B6251A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E2639AE7190D169200B6251A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		E2639AFB190D16FF00B6251A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -51,8 +59,8 @@
 		4899AF5D1F00921D009B4E73 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				4899AF621F00935F009B4E73 /* Graphics.h */,
-				4899AF631F00935F009B4E73 /* Graphics.cpp */,
+				48FFC4C71F01DB88003932BA /* Window.h */,
+				48FFC4C61F01DB88003932BA /* Window.cpp */,
 				4899AF5E1F009239009B4E73 /* Color.h */,
 				4899AF5F1F009239009B4E73 /* Color.cpp */,
 			);
@@ -62,10 +70,22 @@
 		48B2491B1EFF678C00A70F35 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				48FFC4CA1F01DEF4003932BA /* Math */,
 				4899AF5D1F00921D009B4E73 /* Graphics */,
 				4899AF5A1F008ED4009B4E73 /* Utilities */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		48FFC4CA1F01DEF4003932BA /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				48FFC4D01F01E2A2003932BA /* Vector2.h */,
+				48FFC4CF1F01E2A2003932BA /* Vector2.cpp */,
+				48FFC4CB1F01DEFA003932BA /* Vector3.h */,
+				48FFC4CC1F01DEFA003932BA /* Vector3.cpp */,
+			);
+			name = Math;
 			sourceTree = "<group>";
 		};
 		E2639942190D145C00B6251A = {
@@ -106,7 +126,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
-				4899AF641F00935F009B4E73 /* Graphics.h in Headers */,
+				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
+				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
+				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,7 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4899AF651F00935F009B4E73 /* Graphics.cpp in Sources */,
+				48FFC4C81F01DB88003932BA /* Window.cpp in Sources */,
+				48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */,
+				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
