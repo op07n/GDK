@@ -4,7 +4,6 @@
 //
 //  Created by Joseph Cameron on 2017-06-25.
 //
-
 #ifndef GDK_GRAPHICS_WINDOW_H
 #define GDK_GRAPHICS_WINDOW_H
 

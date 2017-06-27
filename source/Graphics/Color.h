@@ -4,7 +4,6 @@
 //
 //  Created by Joseph Cameron on 2017-06-25.
 //
-
 #ifndef GDK_GFX_COLOR_H
 #define GDK_GFX_COLOR_H
 

@@ -1,9 +1,12 @@
+//
+//  Vector3.h
+//  GDK
+//
+//  Created by Joseph Cameron on 2017-06-26.
+//
 #ifndef GDK_MATH_VECTOR3_H
 #define GDK_MATH_VECTOR3_H
-/*
- * Vector3
- *
- */
+
 //std inc
 #include <iosfwd>
 
@@ -19,7 +22,7 @@ namespace GDK
             
             float length(void);
             void normalize(void);
-            void normalizeAndScale(const float &aScalar);
+            //void normalizeAndScale(const float &aScalar);
             
             //Non mutating operators
             Vector3 operator+(const Vector3 &aVector);
