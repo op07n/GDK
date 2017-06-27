@@ -1,5 +1,8 @@
 #include "Color.h"
 
+//std inc
+#include <iostream>
+
 using namespace GDK;
 using namespace GFX;
 
@@ -24,3 +27,10 @@ const Color Color::CornflowerBlue
  0.92941176470588235294117647058824f,
  1.0f
 );
+
+std::ostream& GDK::GFX::operator<< (std::ostream& stream, const GFX::Color& aColor)
+{
+    stream << "{" << aColor.r << ", " << aColor.g << ", " << aColor.b << ", " << aColor.a << "}";
+    return stream;
+    
+}

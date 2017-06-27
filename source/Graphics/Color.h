@@ -7,6 +7,9 @@
 #ifndef GDK_GFX_COLOR_H
 #define GDK_GFX_COLOR_H
 
+//std inc
+#include <iosfwd>
+
 namespace GDK
 {
     namespace GFX
@@ -19,7 +22,7 @@ namespace GDK
             
             // instancing rules
             Color(const float &aR = 0, const float &aG = 0, const float &aB = 0, const float &aA = 0);
-            Color() = delete;
+            //Color() = delete;
             Color(const Color&) = default;
             ~Color() = default;
             
@@ -33,11 +36,9 @@ namespace GDK
             static const Color DeathlyPink;
             static const Color CornflowerBlue;
             
-            /*
-            @Override public String toString(){return "Color: { r: "+r+", g: "+g+", b: "+b+", a: "+a+" }";}
-            */
-            
         };
+        
+        std::ostream& operator<< (std::ostream& stream, const GFX::Color& aColor);
         
     }
     
