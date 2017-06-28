@@ -28,10 +28,10 @@ namespace GDK
             /*void normalizeAndScale(const float &aScalar);*/
             
             // Non mutating operators
-            Vector2 operator+(const Vector2 &aVector);
-            Vector2 operator-(const Vector2 &aVector);
-            Vector2 operator*(const float &aScalar);
-            Vector2 operator*(const float &aScalar) const;
+            Vector2 operator+(const Vector2 &);
+            Vector2 operator-(const Vector2 &);
+            Vector2 operator*(const float &);
+            Vector2 operator*(const float &) const;
             
             // Mutating operators
             Vector2& operator+=(const Vector2 &aVector);
