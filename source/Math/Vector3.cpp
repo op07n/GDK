@@ -56,19 +56,23 @@ Vector3 Vector3::operator-(const Vector3 &aVector)
     
 }
 
-void Vector3::operator+=(const Vector3 &aVector)
+Vector3& Vector3::operator+=(const Vector3 &aVector)
 {
     x += aVector.x;
     y += aVector.y;
     z += aVector.z;
     
+    return *this;
+    
 }
 
-void Vector3::operator-=(const Vector3 &aVector)
+Vector3& Vector3::operator-=(const Vector3 &aVector)
 {
     x -= aVector.x;
     y -= aVector.y;
     z -= aVector.z;
+    
+    return *this;
     
 }
 
@@ -97,11 +101,13 @@ Vector3 Vector3::operator*(const float &aScalar) const
     
 }
 
-void Vector3::operator*=(const float &aScalar)
+Vector3& Vector3::operator*=(const float &aScalar)
 {
     x *= aScalar;
     y *= aScalar;
     z *= aScalar;
+    
+    return *this;
     
 }
 

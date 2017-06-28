@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4898E4561F03261700825E3E /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4541F03261700825E3E /* Vector4.cpp */; };
+		4898E4571F03261700825E3E /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4551F03261700825E3E /* Vector4.h */; };
+		4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4581F03262200825E3E /* Mat4x4.cpp */; };
+		4898E45B1F03262200825E3E /* Mat4x4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4591F03262200825E3E /* Mat4x4.h */; };
 		4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5B1F008EE0009B4E73 /* Macros.h */; };
 		4899AF601F009239009B4E73 /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5E1F009239009B4E73 /* Color.h */; };
 		4899AF611F009239009B4E73 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4899AF5F1F009239009B4E73 /* Color.cpp */; };
@@ -23,6 +27,10 @@
 /* Begin PBXFileReference section */
 		481644451EFF63BC004DA647 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../Includes/OSX/libglfw3.a; sourceTree = "<group>"; };
 		481644471EFF63CC004DA647 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = ../../Includes/Common/glew/src/glew.c; sourceTree = "<group>"; };
+		4898E4541F03261700825E3E /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = ../../source/Math/Vector4.cpp; sourceTree = "<group>"; };
+		4898E4551F03261700825E3E /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = ../../source/Math/Vector4.h; sourceTree = "<group>"; };
+		4898E4581F03262200825E3E /* Mat4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4.cpp; path = ../../source/Math/Mat4x4.cpp; sourceTree = "<group>"; };
+		4898E4591F03262200825E3E /* Mat4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mat4x4.h; path = ../../source/Math/Mat4x4.h; sourceTree = "<group>"; };
 		4899AF5B1F008EE0009B4E73 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ../../source/Utilities/Macros.h; sourceTree = "<group>"; };
 		4899AF5E1F009239009B4E73 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = ../../source/Graphics/Color.h; sourceTree = "<group>"; };
 		4899AF5F1F009239009B4E73 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Color.cpp; path = ../../source/Graphics/Color.cpp; sourceTree = "<group>"; };
@@ -84,12 +92,16 @@
 		48FFC4CA1F01DEF4003932BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				48FFC4D41F01EC0C003932BA /* Quaternion.h */,
-				48FFC4D31F01EC0C003932BA /* Quaternion.cpp */,
 				48FFC4D01F01E2A2003932BA /* Vector2.h */,
 				48FFC4CF1F01E2A2003932BA /* Vector2.cpp */,
 				48FFC4CB1F01DEFA003932BA /* Vector3.h */,
 				48FFC4CC1F01DEFA003932BA /* Vector3.cpp */,
+				4898E4551F03261700825E3E /* Vector4.h */,
+				4898E4541F03261700825E3E /* Vector4.cpp */,
+				48FFC4D41F01EC0C003932BA /* Quaternion.h */,
+				48FFC4D31F01EC0C003932BA /* Quaternion.cpp */,
+				4898E4591F03262200825E3E /* Mat4x4.h */,
+				4898E4581F03262200825E3E /* Mat4x4.cpp */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -131,7 +143,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4898E45B1F03262200825E3E /* Mat4x4.h in Headers */,
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
+				4898E4571F03261700825E3E /* Vector4.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
 				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
@@ -199,8 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				48FFC4C81F01DB88003932BA /* Window.cpp in Sources */,
+				4898E4561F03261700825E3E /* Vector4.cpp in Sources */,
 				48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */,
 				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
+				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 			);

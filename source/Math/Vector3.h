@@ -18,6 +18,7 @@ namespace GDK
     {
         struct Vector3
         {
+            // Data members
             float x, y, z;
             
             float length(void) const;
@@ -31,9 +32,9 @@ namespace GDK
             Vector3 operator*(const float &aScalar) const;
             
             // Mutating operators
-            void operator+=(const Vector3 &aVector);
-            void operator-=(const Vector3 &aVector);
-            void operator*=(const float &aScalar);
+            Vector3& operator+=(const Vector3 &aVector);
+            Vector3& operator-=(const Vector3 &aVector);
+            Vector3& operator*=(const float &aScalar);
             Vector3& operator=(const Vector3 &aVector) = default;
             
             // Constructors & Destructors

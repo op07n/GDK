@@ -16,6 +16,7 @@ namespace GDK
     {
         struct Vector2
         {
+            // Data members
             float x, y;
             
             // Non mutating operations
@@ -33,9 +34,9 @@ namespace GDK
             Vector2 operator*(const float &aScalar) const;
             
             // Mutating operators
-            void operator+=(const Vector2 &aVector);
-            void operator-=(const Vector2 &aVector);
-            void operator*=(const float &aScalar);
+            Vector2& operator+=(const Vector2 &aVector);
+            Vector2& operator-=(const Vector2 &aVector);
+            Vector2& operator*=(const float &aScalar);
             Vector2& operator=(const Vector2 &aVector) = default;
             
             // Constructors & Destructors

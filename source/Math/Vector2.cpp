@@ -47,17 +47,21 @@ Vector2 Vector2::operator-(const Vector2 &aVector)
     
 }
 
-void Vector2::operator+=(const Vector2 &aVector)
+Vector2& Vector2::operator+=(const Vector2 &aVector)
 {
     x += aVector.x;
     y += aVector.y;
     
+    return *this;
+    
 }
 
-void Vector2::operator-=(const Vector2 &aVector)
+Vector2& Vector2::operator-=(const Vector2 &aVector)
 {
     x -= aVector.x;
     y -= aVector.y;
+    
+    return *this;
     
 }
 
@@ -83,10 +87,12 @@ Vector2 Vector2::operator*(const float &aScalar) const
     
 }
 
-void Vector2::operator*=(const float &aScalar)
+Vector2& Vector2::operator*=(const float &aScalar)
 {
     x *= aScalar;
     y *= aScalar;
+    
+    return *this;
     
 }
 
@@ -95,6 +101,7 @@ std::ostream& GDK::Math::operator<<(std::ostream& stream, const Math::Vector2& a
     stream.clear();
     stream << "{" << aVector2.x << ", " << aVector2.y << ", " << "}";
     return stream;
+    
 }
 
 float Vector2::length(void) const
