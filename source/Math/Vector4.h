@@ -2,15 +2,13 @@
 //  Vector3.h
 //  GDK
 //
-//  Created by Joseph Cameron on 2017-06-26.
+//  Created by Joseph Cameron on 2017-06-27.
 //
 #ifndef GDK_MATH_VECTOR4_H
 #define GDK_MATH_VECTOR4_H
 
 //std inc
 #include <iosfwd>
-//math inc
-
 
 namespace GDK
 {

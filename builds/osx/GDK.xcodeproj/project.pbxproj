@@ -11,6 +11,8 @@
 		4898E4571F03261700825E3E /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4551F03261700825E3E /* Vector4.h */; };
 		4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4581F03262200825E3E /* Mat4x4.cpp */; };
 		4898E45B1F03262200825E3E /* Mat4x4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4591F03262200825E3E /* Mat4x4.h */; };
+		4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E45C1F0330B600825E3E /* IntVector2.cpp */; };
+		4898E45F1F0330B600825E3E /* IntVector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E45D1F0330B600825E3E /* IntVector2.h */; };
 		4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5B1F008EE0009B4E73 /* Macros.h */; };
 		4899AF601F009239009B4E73 /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5E1F009239009B4E73 /* Color.h */; };
 		4899AF611F009239009B4E73 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4899AF5F1F009239009B4E73 /* Color.cpp */; };
@@ -31,6 +33,8 @@
 		4898E4551F03261700825E3E /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = ../../source/Math/Vector4.h; sourceTree = "<group>"; };
 		4898E4581F03262200825E3E /* Mat4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4.cpp; path = ../../source/Math/Mat4x4.cpp; sourceTree = "<group>"; };
 		4898E4591F03262200825E3E /* Mat4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mat4x4.h; path = ../../source/Math/Mat4x4.h; sourceTree = "<group>"; };
+		4898E45C1F0330B600825E3E /* IntVector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IntVector2.cpp; path = ../../source/Math/IntVector2.cpp; sourceTree = "<group>"; };
+		4898E45D1F0330B600825E3E /* IntVector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntVector2.h; path = ../../source/Math/IntVector2.h; sourceTree = "<group>"; };
 		4899AF5B1F008EE0009B4E73 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ../../source/Utilities/Macros.h; sourceTree = "<group>"; };
 		4899AF5E1F009239009B4E73 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = ../../source/Graphics/Color.h; sourceTree = "<group>"; };
 		4899AF5F1F009239009B4E73 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Color.cpp; path = ../../source/Graphics/Color.cpp; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		48FFC4CA1F01DEF4003932BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				4898E45D1F0330B600825E3E /* IntVector2.h */,
+				4898E45C1F0330B600825E3E /* IntVector2.cpp */,
 				48FFC4D01F01E2A2003932BA /* Vector2.h */,
 				48FFC4CF1F01E2A2003932BA /* Vector2.cpp */,
 				48FFC4CB1F01DEFA003932BA /* Vector3.h */,
@@ -148,6 +154,7 @@
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
+				4898E45F1F0330B600825E3E /* IntVector2.h in Headers */,
 				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
@@ -219,6 +226,7 @@
 				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
+				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

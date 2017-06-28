@@ -2,7 +2,7 @@
 //  Quaternion.h
 //  GDK
 //
-//  Created by Joseph Cameron on 2017-06-26.
+//  Created by Joseph Cameron on 2017-06-27.
 //
 #ifndef GDK_MATH_QUATERNION_H
 #define GDK_MATH_QUATERNION_H
