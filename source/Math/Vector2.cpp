@@ -104,13 +104,13 @@ std::ostream& GDK::Math::operator<<(std::ostream& stream, const Math::Vector2& a
     
 }
 
-float Vector2::length(void) const
+float Vector2::length() const
 {
     return sqrt( (x*x) + (y*y) );
     
 }
 
-void Vector2::normalize(void)
+void Vector2::normalize()
 {
     float magnitude = Vector2::length();
     
@@ -122,7 +122,7 @@ void Vector2::normalize(void)
     
 }
 
-float Vector2::getAspectRatio(void)
+float Vector2::getAspectRatio() const
 {
     return x / y;
     

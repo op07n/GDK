@@ -22,20 +22,20 @@ namespace GDK
             float x, y, z, w;
             
             //Mutating operators
-            Vector4& operator+=(const Vector4 &aVector);
-            Vector4& operator*=(const float &aScalar);
-            Vector4& operator=(const Vector4 &) = default;
+            Vector4& operator+=(const Vector4&);
+            Vector4& operator*=(const float&);
+            Vector4& operator=(const Vector4&) = default;
             
             // Constructors & Destructors
             Vector4();
-            Vector4(const Vector3 &, const float &aW = 1.);
-            Vector4(const float&);
+            Vector4(const Vector3& aVector3, const float &aW = 1.);
+            Vector4(const float &aX, const float &aY, const float &aZ, const float &aW);
             Vector4(const Vector4&) = default;
             ~Vector4() = default;
             
         };
         
-        std::ostream& operator<< (std::ostream& stream, const Math::Vector4& aVector4);
+        std::ostream& operator<< (std::ostream&, const Math::Vector4&);
         
     }
     

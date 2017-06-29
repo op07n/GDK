@@ -25,12 +25,6 @@ Vector3::Vector3(const float &aX, const float &aY, const float &aZ)
 , z(aZ)
 {}
 
-Vector3::Vector3(const float &aScalar)
-: x(aScalar)
-, y(aScalar)
-, z(aScalar)
-{}
-
 Vector3::Vector3()
 : x(0)
 , y(0)

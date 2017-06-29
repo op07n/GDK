@@ -20,28 +20,28 @@ namespace GDK
             float x, y;
             
             // Non mutating operations
-            float length(void) const;
-            float getAspectRatio(void);
+            float length() const;
+            float getAspectRatio() const;
             
             // Mutating operations
-            void normalize(void);
+            void normalize();
             /*void normalizeAndScale(const float &aScalar);*/
             
             // Non mutating operators
-            Vector2 operator+(const Vector2 &);
-            Vector2 operator-(const Vector2 &);
-            Vector2 operator*(const float &);
-            Vector2 operator*(const float &) const;
+            Vector2 operator+(const Vector2&);
+            Vector2 operator-(const Vector2&);
+            Vector2 operator*(const float&);
+            Vector2 operator*(const float&) const;
             
             // Mutating operators
-            Vector2& operator+=(const Vector2 &aVector);
-            Vector2& operator-=(const Vector2 &aVector);
-            Vector2& operator*=(const float &aScalar);
-            Vector2& operator=(const Vector2 &aVector) = default;
+            Vector2& operator+=(const Vector2&);
+            Vector2& operator-=(const Vector2&);
+            Vector2& operator*=(const float&);
+            Vector2& operator=(const Vector2&) = default;
             
             // Constructors & Destructors
             Vector2();
-            Vector2(const float &aScalar);
+            Vector2(const float&);
             Vector2(const float &aX, const float &aY);
             /*Vector2(const b2Vec2 &aBox2DVector);*/
             Vector2(const Vector2&) = default;
@@ -56,7 +56,7 @@ namespace GDK
             
         };
         
-        std::ostream& operator<< (std::ostream& stream, const Math::Vector2& aVector2);
+        std::ostream& operator<< (std::ostream&, const Math::Vector2&);
         
     }
     

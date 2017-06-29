@@ -24,16 +24,16 @@ namespace GDK
             Vector2 toVector2();
             
             // Non mutating operators
-            IntVector2 operator+(const IntVector2 &);
-            IntVector2 operator-(const IntVector2 &);
+            IntVector2 operator+(const IntVector2&);
+            IntVector2 operator-(const IntVector2&);
             IntVector2 operator*(const float &aScalar);
             IntVector2 operator*(const float &aScalar) const;
             
             // Mutating operators
-            IntVector2& operator+=(const IntVector2 &);
-            IntVector2& operator-=(const IntVector2 &);
-            IntVector2& operator*=(const float &);
-            IntVector2& operator=(const IntVector2 &) = default;
+            IntVector2& operator+=(const IntVector2&);
+            IntVector2& operator-=(const IntVector2&);
+            IntVector2& operator*=(const float&);
+            IntVector2& operator=(const IntVector2&) = default;
             
             // Constructors & Destructors
             IntVector2() = default;
@@ -50,7 +50,7 @@ namespace GDK
             
         };
         
-        std::ostream& operator<< (std::ostream& stream, const Math::IntVector2& aIntVector2);
+        std::ostream& operator<< (std::ostream&, const Math::IntVector2&);
         
     }
     

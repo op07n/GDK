@@ -26,23 +26,22 @@ namespace GDK
             //void normalizeAndScale(const float &aScalar);
             
             // Non mutating operators
-            Vector3 operator+(const Vector3 &aVector);
-            Vector3 operator-(const Vector3 &aVector);
-            Vector3 operator*(const float &aScalar);
-            Vector3 operator*(const float &aScalar) const;
+            Vector3 operator+(const Vector3&);
+            Vector3 operator-(const Vector3&);
+            Vector3 operator*(const float&);
+            Vector3 operator*(const float&) const;
             
             // Mutating operators
-            Vector3& operator+=(const Vector3 &aVector);
-            Vector3& operator-=(const Vector3 &aVector);
-            Vector3& operator*=(const float &aScalar);
-            Vector3& operator=(const Vector3 &aVector) = default;
+            Vector3& operator+=(const Vector3&);
+            Vector3& operator-=(const Vector3&);
+            Vector3& operator*=(const float&);
+            Vector3& operator=(const Vector3&) = default;
             
             // Constructors & Destructors
             Vector3();
-            Vector3(const float &aScalar);
             Vector3(const float &aX, const float &aY, const float &aZ);
             /*Vector3(const btVector3 &aBulletVector);*/
-            Vector3(const Vector3&) = default;
+            Vector3(const Vector3& aVector3) = default;
             ~Vector3() = default;
             
             // Special values
@@ -56,7 +55,7 @@ namespace GDK
             
         };
         
-        std::ostream& operator<< (std::ostream& stream, const Math::Vector3& aVector3);
+        std::ostream& operator<< (std::ostream&, const Math::Vector3&);
         
     }
     

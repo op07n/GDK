@@ -16,17 +16,17 @@ Vector4::Vector4()
 , w(1.)
 {}
 
-Vector4::Vector4(const float &aScalar)
-: x(aScalar)
-, y(aScalar)
-, z(aScalar)
-, w(aScalar)
-{}
-
 Vector4::Vector4(const Vector3 &aVector3, const float &aW)
 : x(aVector3.x)
 , y(aVector3.y)
 , z(aVector3.z)
+, w(aW)
+{}
+
+Vector4::Vector4(const float &aX, const float &aY, const float &aZ, const float &aW)
+: x(aX)
+, y(aY)
+, z(aZ)
 , w(aW)
 {}
 
