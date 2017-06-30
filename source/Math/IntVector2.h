@@ -1,9 +1,9 @@
-//
-//  IntVector2.h
-//  GDK
-//
-//  Created by Joseph Cameron on 2017-06-27.
-//
+/*!
+ IntVector2.h
+ GDK
+ 
+ Created by Joseph Cameron on 2017-06-27.
+*/
 #ifndef GDK_MATH_INTVECTOR2_H
 #define GDK_MATH_INTVECTOR2_H
 
@@ -21,6 +21,9 @@ namespace GDK
             // Data members
             int x,y;
             
+            /*!
+             \brief Converts IntVector2 to a (float) Vector2
+             */
             Vector2 toVector2();
             
             // Non mutating operators

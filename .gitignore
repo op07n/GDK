@@ -1,4 +1,6 @@
-# Build outputs #
+# Ignore build outputs #
 builds/osx/Build
 # add more platforms here...
 
+# Ignore Doxygen output #
+docs/html
