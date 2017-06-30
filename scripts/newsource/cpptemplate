@@ -1,0 +1,7 @@
+#include "${CLASSNAME}.h"
+
+//inc
+//...
+
+using namespace ${PROJECTNAME};
+using namespace ${NAMESPACE};

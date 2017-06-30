@@ -1,0 +1,26 @@
+#ifndef ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
+#define ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
+
+namespace ${PROJECTNAME}
+{
+	namespace ${NAMESPACE}
+	{
+		class ${CLASSNAME}
+		{
+		
+		public:
+			// Mutating operators
+			${CLASSNAME}& operator=(const ${CLASSNAME}&) = default;
+			
+			// Constructors, destructors
+			${CLASSNAME}() = default;
+			${CLASSNAME}(const ${CLASSNAME}&) = default;
+			~${CLASSNAME}() = default;
+			
+		};
+		
+	}
+
+}
+
+#endif /* ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H  */
