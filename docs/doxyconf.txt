@@ -112,7 +112,8 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = /Users/joseph.cameron/Workspace/GDK/source
+INPUT                  = ../docs/mainpage.txt \
+			 ../source
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
