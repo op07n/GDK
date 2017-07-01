@@ -54,11 +54,16 @@ namespace GDK
                 concatLog(s,std::forward<Rest>(rest)...);
                 
             }
-        
-        public:
+            
+            // Mutating operators
+            Logger& operator=(const Logger&) = default;
+            
+            // Constructors & destructors
             /// Change log behavior by passing a function pointer to your own logging function.
             /// Default behaviour is for the logger to display the debug message via std::cout
             Logger(const std::function<void(const std::string&)> &aLoggingBehaviourCallback = nullptr);
+            Logger(const Logger&) = default;
+            ~Logger() = default;
             
         };
         

@@ -8,6 +8,9 @@
 //gdk
 #include "Color.h"
 
+using namespace GDK;
+using namespace GFX;
+
 const glm::vec2 SCREEN_SIZE(800, 600);
 GLFWwindow* gWindow = NULL;
 
@@ -16,9 +19,6 @@ void OnError(int errorCode, const char* msg)
     throw std::runtime_error(msg);
     
 }
-
-using namespace GDK;
-using namespace GFX;
 
 Window::Window()
 {

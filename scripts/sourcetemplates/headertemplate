@@ -4,6 +4,9 @@
 #ifndef ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
 #define ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
 
+//std inc
+#include <iosfwd>
+
 namespace ${PROJECTNAME}
 {
 	namespace ${NAMESPACE}
