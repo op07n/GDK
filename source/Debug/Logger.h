@@ -22,23 +22,42 @@ namespace GDK
         {
             std::function<void(const std::string&)> m_LoggingBehaviourCallback;
             
+            void concatLog() {}
+            template<typename First, typename ...Rest>
+            void concatLog(std::ostringstream& s, First && first, Rest && ...rest)
+            {
+                s << first;
+                
+                if (sizeof...(Rest) <= 0)
+                    m_LoggingBehaviourCallback(s.str());
+                
+            }
+            
         public:
             void log() {}
-            template<typename First, typename ...Rest>
-            void log(First && first, Rest && ...rest)
+            
+            template<typename First>
+            void log(First && first)
             {
-                //TODO: Implement
                 std::ostringstream s;
-                //s << first;
-                
-                //for(int i = 0, s =sizeof...(rest); i<s; i++)
-                //    s << std::forward<First>(first);
-                 
-                
+                s << first;
                 m_LoggingBehaviourCallback(s.str());
                 
             }
             
+            template<typename First, typename ...Rest>
+            void log(First && first, Rest && ...rest)
+            {
+                std::ostringstream s;
+                s << first;
+                
+                concatLog(s,std::forward<Rest>(rest)...);
+                
+            }
+        
+        public:
+            /// Change log behavior by passing a function pointer to your own logging function.
+            /// Default behaviour is for the logger to display the debug message via std::cout
             Logger(const std::function<void(const std::string&)> &aLoggingBehaviourCallback = nullptr);
             
         };
