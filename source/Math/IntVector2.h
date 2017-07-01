@@ -1,3 +1,4 @@
+//© 2017 Joseph Cameron - All Rights Reserved
 #ifndef GDK_MATH_INTVECTOR2_H
 #define GDK_MATH_INTVECTOR2_H
 
@@ -11,7 +12,12 @@ namespace GDK
         struct Vector2;
         
 
-        /*! A test class. */
+        /*! 
+         Behaves like a Vector2 but uses integers for storage rather than floats.
+         Useful for describing such things as non-normalized texel position,
+         tilegrid position,
+         window size, etc.
+         */
         struct IntVector2
         {
             // Data members

@@ -1,3 +1,6 @@
+//© ${YEAR} Joseph Cameron - All Rights Reserved
+// Project: ${PROJECTNAME}
+// Created on ${DATE} at ${TIME}
 #ifndef ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
 #define ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
 
@@ -5,6 +8,9 @@ namespace ${PROJECTNAME}
 {
 	namespace ${NAMESPACE}
 	{
+		/*!
+		 No description provided for ${CLASSNAME}
+    	 */
 		class ${CLASSNAME}
 		{
 		

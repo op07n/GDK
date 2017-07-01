@@ -7,8 +7,8 @@ elif [ -e $3.h ] || [ -e $3.cpp ]; then
 	echo "Source files for $3 already exists!"
 
 else
-    parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-    cd "$parent_path"
+    #parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+    #cd "$parent_path"
 
     #Prep substitution values
     projectName=$1
@@ -33,6 +33,10 @@ else
     headerTemplateData="${headerTemplateData//\$\{NAMESPACE\}/$namespace}"
     headerTemplateData="${headerTemplateData//\$\{CLASSNAME\}/$className}"
     
+    headerTemplateData="${headerTemplateData//\$\{YEAR\}/$(date +%Y)}"
+    headerTemplateData="${headerTemplateData//\$\{DATE\}/$(date +"%y-%m-%d")}"
+    headerTemplateData="${headerTemplateData//\$\{TIME\}/$(date +%T)}"
+
     echo "$parent_path/$headerTemplateData" >> $PWD/$className.h
 
     #   Generate The CPP
