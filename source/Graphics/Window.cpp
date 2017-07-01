@@ -1,5 +1,4 @@
 #include "Window.h"
-
 //std
 #include <iostream>
 //third-party

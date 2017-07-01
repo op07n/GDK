@@ -1,5 +1,4 @@
 #include "Quaternion.h"
-
 //math inc
 #include "Vector3.h"
 //implementation inc
@@ -46,7 +45,7 @@ void Quaternion::setFromEuler(const Vector3 &aEulerAngles)
     
 }
 
-Vector3 Quaternion::getEuler(void)
+Vector3 Quaternion::toEuler(void)
 {
     glm::quat quaternion(w, x, y, z);
     glm::vec3 euler = glm::eulerAngles(quaternion);

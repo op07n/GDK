@@ -1,9 +1,6 @@
-//
-//  Mat4x4.h
-//  GDK
-//
-//  Created by Joseph Cameron on 2017-06-28.
-//
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-28.
 #ifndef GDK_MATH_MAT4x4_H
 #define GDK_MATH_MAT4x4_H
 
@@ -14,6 +11,9 @@ namespace GDK
 {
     namespace Math
     {
+        /*!
+         used to store 3D transformations.
+         */
         struct Mat4x4
         {
             // Data members
@@ -22,8 +22,6 @@ namespace GDK
             m10, m11, m12, m13,
             m20, m21, m22, m23,
             m30, m31, m32, m33;
-            
-            // Non mutating operators
             
             // Mutating operators
             Mat4x4& operator=(const Mat4x4&) = default;

@@ -22,7 +22,7 @@ else
 
     #   Generate The Header
     #Copy template header to buffer
-    headerTemplateData=`cat headertemplate`
+    headerTemplateData=`cat sourcetemplates/headertemplate`
 
     #Apply symbols to buffer
     headerTemplateData="${headerTemplateData//\$\{PROJECTNAMEUPPER\}/$projectName_Upper}"
@@ -35,13 +35,13 @@ else
     
     headerTemplateData="${headerTemplateData//\$\{YEAR\}/$(date +%Y)}"
     headerTemplateData="${headerTemplateData//\$\{DATE\}/$(date +"%y-%m-%d")}"
-    headerTemplateData="${headerTemplateData//\$\{TIME\}/$(date +%T)}"
+    #headerTemplateData="${headerTemplateData//\$\{TIME\}/$(date +%T)}"
 
-    echo "$parent_path/$headerTemplateData" >> $PWD/$className.h
+    echo "$parent_path$headerTemplateData" >> $className.h
 
     #   Generate The CPP
     #Copy template cpp to buffer
-    cppTemplateData=`cat cpptemplate`
+    cppTemplateData=`cat sourcetemplates/cpptemplate`
 
     #Apply symbols to buffer
     cppTemplateData="${cppTemplateData//\$\{PROJECTNAMEUPPER\}/$projectName_Upper}"

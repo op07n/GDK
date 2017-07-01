@@ -1,6 +1,6 @@
-//© ${YEAR} Joseph Cameron - All Rights Reserved
+// © ${YEAR} Joseph Cameron - All Rights Reserved
 // Project: ${PROJECTNAME}
-// Created on ${DATE} at ${TIME}
+// Created on ${DATE}.
 #ifndef ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
 #define ${PROJECTNAMEUPPER}_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
 
@@ -24,7 +24,9 @@ namespace ${PROJECTNAME}
 			~${CLASSNAME}() = default;
 			
 		};
-		
+
+		std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
+        
 	}
 
 }

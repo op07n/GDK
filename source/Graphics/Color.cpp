@@ -1,5 +1,4 @@
 #include "Color.h"
-
 //std inc
 #include <iostream>
 

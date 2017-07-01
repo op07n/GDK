@@ -1,9 +1,6 @@
-//
-//  Vector3.h
-//  GDK
-//
-//  Created by Joseph Cameron on 2017-06-26.
-//
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-26.
 #ifndef GDK_MATH_VECTOR3_H
 #define GDK_MATH_VECTOR3_H
 
@@ -16,6 +13,9 @@ namespace GDK
 {
     namespace Math
     {
+        /*!
+         Used to represent 3d position, scale, euler angles, etc. in a human friendly way.
+         */
         struct Vector3
         {
             // Data members

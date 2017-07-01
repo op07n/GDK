@@ -1,9 +1,6 @@
-//
-//  Quaternion.h
-//  GDK
-//
-//  Created by Joseph Cameron on 2017-06-27.
-//
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-27.
 #ifndef GDK_MATH_QUATERNION_H
 #define GDK_MATH_QUATERNION_H
 
@@ -18,6 +15,9 @@ namespace GDK
     {
         struct Vector3;
         
+        /*!
+         Used to represent 3d rotations in a way insusceptible to gimblal lock (unlike Vector3)
+         */
         struct Quaternion
         {
             //Data members
@@ -25,7 +25,7 @@ namespace GDK
             
             // Euler convenience
             void setFromEuler(const Vector3& aEulers);
-            Math::Vector3 getEuler(void);
+            Math::Vector3 toEuler(void);
             
             // Constructors & Destructors
             Quaternion();

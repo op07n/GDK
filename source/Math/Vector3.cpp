@@ -1,5 +1,4 @@
 #include "Vector3.h"
-
 //Implementation inc
 /*#include <Bullet\btBulletDynamicsCommon.h>*/
 //std inc

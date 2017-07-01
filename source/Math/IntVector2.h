@@ -1,4 +1,6 @@
-//© 2017 Joseph Cameron - All Rights Reserved
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-26.
 #ifndef GDK_MATH_INTVECTOR2_H
 #define GDK_MATH_INTVECTOR2_H
 
@@ -11,7 +13,6 @@ namespace GDK
     {
         struct Vector2;
         
-
         /*! 
          Behaves like a Vector2 but uses integers for storage rather than floats.
          Useful for describing such things as non-normalized texel position,

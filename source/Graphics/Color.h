@@ -1,9 +1,6 @@
-//
-//  Color.h
-//  GDK
-//
-//  Created by Joseph Cameron on 2017-06-25.
-//
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on on 2017-06-25.
 #ifndef GDK_GFX_COLOR_H
 #define GDK_GFX_COLOR_H
 
@@ -14,6 +11,9 @@ namespace GDK
 {
     namespace GFX
     {
+        /*!
+         Represents a 4 channel color: {Red, Green, Blue, Alpha}.
+         */
         struct Color
         {
         public:

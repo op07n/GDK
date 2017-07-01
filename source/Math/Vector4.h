@@ -1,9 +1,6 @@
-//
-//  Vector3.h
-//  GDK
-//
-//  Created by Joseph Cameron on 2017-06-27.
-//
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created 2017-06-27.
 #ifndef GDK_MATH_VECTOR4_H
 #define GDK_MATH_VECTOR4_H
 
@@ -16,6 +13,9 @@ namespace GDK
     {
         struct Vector3;
         
+        /*!
+         Like Vector3 but allows w to != 1. Used in Vector vs Mat4x4 operations
+         */
         struct Vector4
         {
             // Data members

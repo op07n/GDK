@@ -1,0 +1,14 @@
+#include "${CLASSNAME}.h"
+//inc
+//...
+
+using namespace ${PROJECTNAME};
+using namespace ${NAMESPACE};
+
+std::ostream& ${PROJECTNAME}::${NAMESPACE}::operator<<(std::ostream& stream, const ${NAMESPACE}::${CLASSNAME}& a${CLASSNAME})
+{
+    stream.clear();
+    stream << "{" << "UNIMPLEMENTED" << "}";
+    return stream;
+
+}

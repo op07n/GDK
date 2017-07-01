@@ -1,5 +1,4 @@
 #include "Logger.h"
-
 //std inc
 #include <iostream>
 
