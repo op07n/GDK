@@ -1,22 +1,3 @@
-/**
- * @file   example_action.h
- * @Author Me (me@example.com)
- * @date   September, 2008
- * @brief  Brief description of file.
- *
- * Detailed description of file.
- */
-
-//!  A test class.
-/*!
- \IntVector2.h
- \GDK
- \
- \Created by Joseph Cameron on 2017-06-27.
-*/
-/** Brief description which ends at this dot. Details follow
- *  here.
- */
 #ifndef GDK_MATH_INTVECTOR2_H
 #define GDK_MATH_INTVECTOR2_H
 
@@ -29,16 +10,13 @@ namespace GDK
     {
         struct Vector2;
         
+
+        /*! A test class. */
         struct IntVector2
         {
             // Data members
-            //! An enum.
-            /*! More detailed enum description. */
             int x,y;
             
-            /*!
-             \brief Converts IntVector2 to a (float) Vector2
-             */
             Vector2 toVector2();
             
             // Non mutating operators

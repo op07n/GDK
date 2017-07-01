@@ -1,12 +1,9 @@
-/*! \mainpage My Personal Index Page
+/*! \mainpage Mainpage
  *
  * \section intro_sec Introduction
  *
- * This is the introduction.
+ * GDK stands for Game Development Kit. It is a collection of objects useful for the development of video games.
+ * It helps solve problems related to 3D mathematics, keeping time, handling input devices, drawing 3D graphics.
+ * It aims to be crossplatform. Currently It supports modern OSX, Linux, and Windows desktop platforms.
  *
- * \section install_sec Installation
- *
- * \subsection step1 Step 1: Opening the box
- *
- * etc...
  */
