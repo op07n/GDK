@@ -7,6 +7,8 @@
 //GDK inc
 #include "../Utilities/Macros.h"
 
+class GLFWwindow;
+
 namespace GDK
 {
     namespace GFX
@@ -16,8 +18,16 @@ namespace GDK
          */
         class Window
         {
+            GLFWwindow* gWindow;
+            
         public:
+            // Mutating operators
+            Window& operator=(const Window&) = delete;
+            
+            // Constructors & Destructors
             Window();
+            Window(const Window&) = delete;
+            ~Window();
         
         };
         

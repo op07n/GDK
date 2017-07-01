@@ -1,6 +1,6 @@
 #include "${CLASSNAME}.h"
-//inc
-//...
+//std inc
+#include <iostream>
 
 using namespace ${PROJECTNAME};
 using namespace ${NAMESPACE};

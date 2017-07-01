@@ -1,33 +1,35 @@
 #include "Window.h"
 //std
-#include <iostream>
+//#include <iostream>
 //third-party
 #include <glew/include/GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 //gdk
 #include "Color.h"
+#include "../Utilities/Exception.h"
+#include "../Debug/Logger.h"
 
 using namespace GDK;
 using namespace GFX;
 
 const glm::vec2 SCREEN_SIZE(800, 600);
-GLFWwindow* gWindow = NULL;
+//GLFWwindow* gWindow = NULL;
 
-void OnError(int errorCode, const char* msg)
+void initGLFW()
 {
-    throw std::runtime_error(msg);
+    //Debug::log("Initializing GLFW");
+    
+    // initialise GLFW
+    glfwSetErrorCallback([] (int,const char* msg) {throw GDK::Exception(msg);});
+    if(!glfwInit())
+        throw GDK::Exception("glfwInit failed");
     
 }
 
-Window::Window()
+GLFWwindow* initGLFWWindow()
 {
-    std::cout << "GDK::Graphics::Graphics()\n";
-    
-    // initialise GLFW
-    glfwSetErrorCallback(OnError);
-    if(!glfwInit())
-        throw std::runtime_error("glfwInit failed");
+    GLFWwindow* aGLFWWindow = nullptr;
     
     // open a window with GLFW
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -35,9 +37,21 @@ Window::Window()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-    gWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y, "OpenGL Tutorial", NULL, NULL);
-    if(!gWindow)
-        throw std::runtime_error("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
+    
+    aGLFWWindow = glfwCreateWindow((int)SCREEN_SIZE.x, (int)SCREEN_SIZE.y, "OpenGL Tutorial", NULL, NULL);
+    if(!aGLFWWindow)
+        throw GDK::Exception("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
+    
+    return aGLFWWindow;
+    
+}
+
+Window::Window()
+//: gWindow(initGLFWWindow())
+{
+    initGLFW();
+    
+    gWindow = initGLFWWindow();
     
     // GLFW settings
     glfwMakeContextCurrent(gWindow);
@@ -45,17 +59,17 @@ Window::Window()
     // initialise GLEW
     glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
     if(glewInit() != GLEW_OK)
-        throw std::runtime_error("glewInit failed");
+        throw GDK::Exception("glewInit failed");
     
     // print out some info about the graphics drivers
-    std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
-    std::cout << "GLSL version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
-    std::cout << "Vendor: " << glGetString(GL_VENDOR) << std::endl;
-    std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
-    
+    /*Debug::log("OpenGL version: ", glGetString(GL_VERSION));
+    Debug::log("GLSL version: ", glGetString(GL_SHADING_LANGUAGE_VERSION));
+    Debug::log("Vendor: ", glGetString(GL_VENDOR));
+    Debug::log("Renderer: ", glGetString(GL_RENDERER));
+    */
     // make sure OpenGL version 3.2 API is available
     if(!GLEW_VERSION_3_2)
-        throw std::runtime_error("OpenGL 3.2 API is not available.");
+        throw GDK::Exception("OpenGL 3.2 API is not available.");
     
     glClearColor(GFX::Color::CornflowerBlue.r, GFX::Color::CornflowerBlue.g, GFX::Color::CornflowerBlue.b, GFX::Color::CornflowerBlue.a); // Tradtion since XNA
     
@@ -74,5 +88,11 @@ Window::Window()
     
     // clean up and exit
     glfwTerminate();
+    
+}
+
+Window::~Window()
+{
+    
     
 }
