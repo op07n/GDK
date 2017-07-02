@@ -1,12 +1,12 @@
 #include "Window.h"
-//thirdpart inc
-#include <glew/include/GL/glew.h>
-#include <GLFW/glfw3.h>
 //gdk inc
+#include "GL.h"
 #include "Color.h"
 #include "../Utilities/Exception.h"
 #include "../Debug/Logger.h"
 #include "../Math/IntVector2.h"
+//thirdparty inc
+#include <GLFW/glfw3.h> // must come after GL
 
 using namespace GDK;
 using namespace GFX;
@@ -74,7 +74,7 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     if (s_InstanceCount <= 0)
         initGLEW();
     
-    glClearColor(GFX::Color::CornflowerBlue.r, GFX::Color::CornflowerBlue.g, GFX::Color::CornflowerBlue.b, GFX::Color::CornflowerBlue.a); // Tradtion since XNA
+    glClearColor(GFX::Color::CornflowerBlue);
     
     return aGLFWWindow;
     
