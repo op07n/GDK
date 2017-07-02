@@ -132,27 +132,14 @@ Window::~Window()
     
 }
 
-bool Window::operator==(const Window& aOther)
+/*bool Window::operator==(const Window& aOther)
 {
     if (m_HandleToGLFWWindow == aOther.m_HandleToGLFWWindow)
         return true;
     
     return false;
     
-}
-
-Window& Window::operator=(Window&& aOther)
-{
-    m_HandleToGLFWWindow = aOther.m_HandleToGLFWWindow;
-    m_OnUpdate = aOther.m_OnUpdate;
-    m_OnDraw = aOther.m_OnDraw;
-    m_OnWantsToClose = aOther.m_OnWantsToClose;
-    
-    aOther.m_HandleToGLFWWindow = nullptr;
-    
-    return *this;
-    
-}
+}*/
 
 void Window::draw()
 {
@@ -168,7 +155,7 @@ void Window::draw()
 
 void Window::update()
 {
-    if(m_HandleToGLFWWindow == nullptr || glfwWindowShouldClose(m_HandleToGLFWWindow))
+    if(m_HandleToGLFWWindow == nullptr || glfwWindowShouldClose(m_HandleToGLFWWindow))//glfwWindowShouldClose(m_HandleToGLFWWindow)
     {
         if (m_OnWantsToClose != nullptr)
             m_OnWantsToClose(this);

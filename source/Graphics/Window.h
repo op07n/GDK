@@ -25,7 +25,7 @@ namespace GDK
          */
         class Window
         {
-            GLFWwindow *m_HandleToGLFWWindow;
+            GLFWwindow* m_HandleToGLFWWindow;
             
             std::function<void(void)> m_OnUpdate;
             std::function<void(void)> m_OnDraw;
@@ -36,11 +36,11 @@ namespace GDK
             void draw();
             
             // Nonmutating operators
-            bool operator==(const Window&);
+            bool operator==(const Window&) = delete;
             
             // Mutating operators
             Window& operator=(Window&) = delete;
-            Window& operator=(Window&&);
+            Window& operator=(Window&&) = delete;
             
             /*!
              POD for constructing new Windows
