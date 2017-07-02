@@ -16,6 +16,7 @@ namespace ${PROJECTNAME}
     	 */
 		class ${CLASSNAME}
 		{
+			friend std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
 		
 		public:
 			// Mutating operators

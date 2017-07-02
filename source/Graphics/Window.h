@@ -29,6 +29,8 @@ namespace GDK
          */
         class Window final
         {
+            friend std::ostream& operator<< (std::ostream& stream, const GFX::Window&);
+            
             GLFWwindow* m_HandleToGLFWWindow;
             
             std::string m_Title;
@@ -68,7 +70,6 @@ namespace GDK
                 Math::IntVector2 windowSize;
                 
                 ConstructionParameters();
-                //ConstructionParameters(const std::function<void(Window*)> &aWantsToCloseCallback);
                 
             };
             
@@ -79,6 +80,8 @@ namespace GDK
             ~Window();
             
         };
+        
+        std::ostream& operator<< (std::ostream& stream, const GFX::Window&);
         
     }
     

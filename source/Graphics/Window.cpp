@@ -13,6 +13,13 @@ using namespace GFX;
 
 int s_InstanceCount = 0;
 
+std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& w)
+{
+    s << "{" << w.m_Title << "}";
+    return s;
+
+}
+
 void initGLFW()
 {
     Debug::log("Initializing GLFW");

@@ -8,7 +8,7 @@ using namespace ${NAMESPACE};
 std::ostream& ${PROJECTNAME}::${NAMESPACE}::operator<<(std::ostream& stream, const ${NAMESPACE}::${CLASSNAME}& a${CLASSNAME})
 {
     stream.clear();
-    stream << "{" << "UNIMPLEMENTED" << "}";
+    stream << "{" << "{CLASSNAME}'s operator<< has not been implemented" << "}";
     return stream;
 
 }
