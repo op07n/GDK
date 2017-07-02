@@ -16,7 +16,7 @@ namespace GDK
         /*!
          Used to represent 3d position, scale, euler angles, etc. in a human friendly way.
          */
-        struct Vector3
+        struct Vector3 final
         {
             // Data members
             float x, y, z;

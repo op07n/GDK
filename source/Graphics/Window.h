@@ -27,7 +27,7 @@ namespace GDK
          call draw whenver you want to update the window's graphics.
          
          */
-        class Window
+        class Window final
         {
             GLFWwindow* m_HandleToGLFWWindow;
             

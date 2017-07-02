@@ -16,7 +16,7 @@ namespace GDK
         /*!
          Describes an infinite plane in 3space.
          */
-        struct Plane
+        struct Plane final
         {
             Vector3 position, normal;
             

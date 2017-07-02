@@ -14,7 +14,7 @@ namespace GDK
         /*!
          Represents a 4 channel color: {Red, Green, Blue, Alpha}.
          */
-        struct Color
+        struct Color final
         {
         public:
             // Data

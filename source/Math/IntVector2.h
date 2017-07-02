@@ -19,7 +19,7 @@ namespace GDK
          tilegrid position,
          window size, etc.
          */
-        struct IntVector2
+        struct IntVector2 final
         {
             // Data members
             int x,y;

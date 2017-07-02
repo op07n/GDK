@@ -14,7 +14,7 @@ namespace GDK
         /*!
          Useful for storing 2D position, speed, direction, normalized coordinates.
          */
-        struct Vector2
+        struct Vector2 final
         {
             // Data members
             float x, y;

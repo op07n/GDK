@@ -18,7 +18,7 @@ namespace GDK
         /*!
          Used to represent 3d rotations in a way insusceptible to gimblal lock (unlike Vector3)
          */
-        struct Quaternion
+        struct Quaternion final
         {
             //Data members
             float x, y, z, w;

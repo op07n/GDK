@@ -14,7 +14,7 @@ namespace GDK
         /*!
          used to store 3D transformations.
          */
-        struct Mat4x4
+        struct Mat4x4 final
         {
             // Data members
             float

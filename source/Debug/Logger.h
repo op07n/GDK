@@ -24,7 +24,7 @@ namespace GDK
          This header also declares the free standing functions Debug::log and Debug::error, which are GDK wrappers for
          std::clog and std::cerr respectively.
          */
-        class Logger
+        class Logger final
         {
             template<typename ...Args> friend void GDK::Debug::log(Args && ...args);
             template<typename ...Args> friend void GDK::Debug::error(Args && ...args);

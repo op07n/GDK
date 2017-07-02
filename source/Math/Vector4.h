@@ -16,7 +16,7 @@ namespace GDK
         /*!
          Like Vector3 but allows w to != 1. Used in Vector vs Mat4x4 operations
          */
-        struct Vector4
+        struct Vector4 final
         {
             // Data members
             float x, y, z, w;

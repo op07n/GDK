@@ -67,10 +67,6 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     if (s_InstanceCount <= 0)
         initGLEW();
     
-    // make sure OpenGL version 3.2 API is available
-    //if(!GLEW_VERSION_3_2)
-    //    throw GDK::Exception("OpenGL 3.2 API is not available.");
-    
     glClearColor(GFX::Color::CornflowerBlue.r, GFX::Color::CornflowerBlue.g, GFX::Color::CornflowerBlue.b, GFX::Color::CornflowerBlue.a); // Tradtion since XNA
     
     return aGLFWWindow;
@@ -121,6 +117,7 @@ Window::~Window()
 }
 
 std::string Window::getTitle(){return m_Title;}
+
 void Window::setTitle(const std::string& aTitle)
 {
     m_Title = aTitle;
@@ -142,13 +139,7 @@ void Window::draw()
 
 void Window::update()
 {
-    if(m_HandleToGLFWWindow == nullptr || glfwWindowShouldClose(m_HandleToGLFWWindow))//glfwWindowShouldClose(m_HandleToGLFWWindow)
-    {
-        if (m_OnWantsToClose != nullptr)
-            m_OnWantsToClose(this);
-        
-    }
-    else
+    if(!glfwWindowShouldClose(m_HandleToGLFWWindow))
     {
         glfwMakeContextCurrent(m_HandleToGLFWWindow);
         
@@ -156,6 +147,12 @@ void Window::update()
             m_OnUpdate();
         
         glfwPollEvents();
+        
+    }
+    else
+    {
+        if (m_OnWantsToClose != nullptr)
+            m_OnWantsToClose(this);
         
     }
     
