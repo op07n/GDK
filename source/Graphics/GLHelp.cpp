@@ -1,6 +1,6 @@
 #include "GLHelp.h"
-//std inc
-//#include <iostream>
+//gdk inc
+#include "Color.h"
 
 using namespace GDK;
 using namespace Graphics;

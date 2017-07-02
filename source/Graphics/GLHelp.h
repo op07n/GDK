@@ -11,9 +11,11 @@ namespace GDK
 {
 	namespace Graphics
 	{
-        namespace GLHelp
+        class Color;
+        
+        namespace GLH
         {
-            //void
+            //void ClearColor(const Color&);
             
         }
         

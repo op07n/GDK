@@ -33,8 +33,6 @@ void destroyGLFW()
 
 void initGLEW()
 {
-    // initialise GLEW
-    glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
     if(glewInit() != GLEW_OK)
         throw GDK::Exception("glewInit failed");
     
@@ -60,32 +58,28 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, true);
     
-    static int s_InstanceCounter = 0;
-    s_InstanceCounter++;
-    
     aGLFWWindow = glfwCreateWindow(aScreenSize.x, aScreenSize.y, aName.c_str(), nullptr, nullptr);
     if(!aGLFWWindow)
         throw GDK::Exception("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
     
     glfwMakeContextCurrent(aGLFWWindow);
     
-    initGLEW();
+    if (s_InstanceCount <= 0)
+        initGLEW();
     
     // make sure OpenGL version 3.2 API is available
-    if(!GLEW_VERSION_3_2)
-        throw GDK::Exception("OpenGL 3.2 API is not available.");
+    //if(!GLEW_VERSION_3_2)
+    //    throw GDK::Exception("OpenGL 3.2 API is not available.");
     
-    if (s_InstanceCounter == 0)
     glClearColor(GFX::Color::CornflowerBlue.r, GFX::Color::CornflowerBlue.g, GFX::Color::CornflowerBlue.b, GFX::Color::CornflowerBlue.a); // Tradtion since XNA
-    else
-        glClearColor(1,0,0,1);
     
     return aGLFWWindow;
     
 }
 
 Window::ConstructionParameters::ConstructionParameters()
-: onUpdate(nullptr)
+: onInit(nullptr)
+, onUpdate(nullptr)
 , onDraw(nullptr)
 , onWantsToClose(nullptr)
 , fullscreen(false)
@@ -96,6 +90,8 @@ Window::ConstructionParameters::ConstructionParameters()
 
 Window::Window(const ConstructionParameters& aParams)
 : m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name))
+, m_Title(aParams.name)
+, m_OnInit(aParams.onInit)
 , m_OnUpdate(aParams.onUpdate)
 , m_OnDraw(aParams.onDraw)
 , m_OnWantsToClose(aParams.onWantsToClose)
@@ -103,18 +99,10 @@ Window::Window(const ConstructionParameters& aParams)
     if (aParams.onWantsToClose == nullptr)
         throw GDK::Exception("A GFX::Window's wantsToClose event was not handled!");
     
+    if (m_OnInit != nullptr)
+        m_OnInit();
+    
     ++s_InstanceCount;
-    
-}
-
-Window::Window(Window&& aOther)
-{
-    m_HandleToGLFWWindow = aOther.m_HandleToGLFWWindow;
-    m_OnUpdate = aOther.m_OnUpdate;
-    m_OnDraw = aOther.m_OnDraw;
-    m_OnWantsToClose = aOther.m_OnWantsToClose;
-    
-    aOther.m_HandleToGLFWWindow = nullptr;
     
 }
 
@@ -132,14 +120,13 @@ Window::~Window()
     
 }
 
-/*bool Window::operator==(const Window& aOther)
+std::string Window::getTitle(){return m_Title;}
+void Window::setTitle(const std::string& aTitle)
 {
-    if (m_HandleToGLFWWindow == aOther.m_HandleToGLFWWindow)
-        return true;
-    
-    return false;
-    
-}*/
+    m_Title = aTitle;
+    glfwSetWindowTitle(m_HandleToGLFWWindow,aTitle.c_str());
+
+}
 
 void Window::draw()
 {
