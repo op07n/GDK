@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		48839BA11F07FEFF00D5CEE0 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */; };
 		48839BA21F07FEFF00D5CEE0 /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BA01F07FEFF00D5CEE0 /* Exception.h */; };
+		48839BA91F0857F800D5CEE0 /* GLHelp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839BA71F0857F800D5CEE0 /* GLHelp.cpp */; };
+		48839BAA1F0857F800D5CEE0 /* GLHelp.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BA81F0857F800D5CEE0 /* GLHelp.h */; };
 		4898E4561F03261700825E3E /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4541F03261700825E3E /* Vector4.cpp */; };
 		4898E4571F03261700825E3E /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4551F03261700825E3E /* Vector4.h */; };
 		4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4581F03262200825E3E /* Mat4x4.cpp */; };
@@ -37,6 +39,8 @@
 		481644471EFF63CC004DA647 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = ../../Includes/Common/glew/src/glew.c; sourceTree = "<group>"; };
 		48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = ../../source/Utilities/Exception.cpp; sourceTree = "<group>"; };
 		48839BA01F07FEFF00D5CEE0 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = ../../source/Utilities/Exception.h; sourceTree = "<group>"; };
+		48839BA71F0857F800D5CEE0 /* GLHelp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLHelp.cpp; path = ../../source/Graphics/GLHelp.cpp; sourceTree = "<group>"; };
+		48839BA81F0857F800D5CEE0 /* GLHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLHelp.h; path = ../../source/Graphics/GLHelp.h; sourceTree = "<group>"; };
 		4898E4541F03261700825E3E /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = ../../source/Math/Vector4.cpp; sourceTree = "<group>"; };
 		4898E4551F03261700825E3E /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = ../../source/Math/Vector4.h; sourceTree = "<group>"; };
 		4898E4581F03262200825E3E /* Mat4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4.cpp; path = ../../source/Math/Mat4x4.cpp; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 		4899AF5D1F00921D009B4E73 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				48839BA81F0857F800D5CEE0 /* GLHelp.h */,
+				48839BA71F0857F800D5CEE0 /* GLHelp.cpp */,
 				48FFC4C71F01DB88003932BA /* Window.h */,
 				48FFC4C61F01DB88003932BA /* Window.cpp */,
 				4899AF5E1F009239009B4E73 /* Color.h */,
@@ -183,6 +189,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48839BAA1F0857F800D5CEE0 /* GLHelp.h in Headers */,
 				4898E45B1F03262200825E3E /* Mat4x4.h in Headers */,
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
@@ -267,6 +274,7 @@
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,
+				48839BA91F0857F800D5CEE0 /* GLHelp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

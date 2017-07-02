@@ -12,8 +12,8 @@ TypeName(const TypeName&) = delete; \
 void operator =(const TypeName&) = delete;
 
 /* deletes the copy constructor and assignment operator */
-#define GDK_DISALLOW_COPY_AND_ASSIGN(TypeName) \
-TypeName(const TypeName&);   \
-void operator=(const TypeName&)
+#define GDK_NO_COPY_OR_ASSIGN(TypeName) \
+TypeName(const TypeName&) = delete;   \
+void operator=(const TypeName&) = delete;
 
 #endif /* GDK_UTILITIES_MACROS_H */
