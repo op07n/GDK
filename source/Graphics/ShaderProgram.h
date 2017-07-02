@@ -6,8 +6,9 @@
 
 //std inc
 #include <iosfwd>
-//gkd inc
-#include "GraphicsResource.h"
+#include <string>
+//gfx inc
+#include "DataTypes.h"
 
 namespace GDK
 {
@@ -17,16 +18,22 @@ namespace GDK
 		 ShaderProgram specifies drawing behaviours at the programmable stages in the OpenGL
          programmable pipeline.
     	 */
-        class ShaderProgram : public GraphicsResource
+        class ShaderProgram
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
-		
+            
+            // Data members
+            std::string m_Name;
+            GFXuint m_ProgramHandle;
+            
+            
 		public:
 			// Mutating operators
 			ShaderProgram& operator=(const ShaderProgram&) = default;
 			
 			// Constructors, destructors
-			ShaderProgram() = default;
+            ShaderProgram() = delete;
+            ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource);
 			ShaderProgram(const ShaderProgram&) = default;
 			~ShaderProgram() = default;
 			
