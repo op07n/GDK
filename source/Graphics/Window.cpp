@@ -74,7 +74,7 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     if (s_InstanceCount <= 0)
         initGLEW();
     
-    glClearColor(GFX::Color::CornflowerBlue);
+    GLH::ClearColor(GFX::Color::CornflowerBlue);
     
     return aGLFWWindow;
     

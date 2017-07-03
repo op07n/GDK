@@ -39,7 +39,8 @@ Color::Color(const float &aR, const float &aG, const float &aB, const float &aA)
 //operators
 std::ostream& GDK::GFX::operator<< (std::ostream& stream, const GFX::Color& aColor)
 {
-    stream << "{" << aColor.r << ", " << aColor.g << ", " << aColor.b << ", " << aColor.a << "}";
+    stream
+    << "{" << aColor.r << ", " << aColor.g << ", " << aColor.b << ", " << aColor.a << "}";
     return stream;
     
 }

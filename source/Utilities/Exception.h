@@ -20,7 +20,7 @@ namespace GDK
 	public:
         // Mutating operators
 		Exception& operator=(const Exception&) = default;
-			
+        
 		// Constructors, destructors
         Exception(const std::string &aMessage = "");
 		Exception(const Exception&) = default;

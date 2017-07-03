@@ -6,27 +6,29 @@
 
 /*!
  OpenGL header for GDK
- includes gl functions from glew and creates useful overloads
+ includes gl functions from glew and declares C++ friendly helpers in the GLH namespace
  */
-
-//dep inc
 #include <glew/include/GL/glew.h>
+#include <string>
 
 namespace GDK{namespace GFX{struct Color;}}
 
-void glClearColor(const GDK::GFX::Color &aColor);
-
-/*namespace GLHelp
+namespace GLH
 {
-    namespace Diagnostics
+    void ClearColor(const GDK::GFX::Color &aColor);
+    
+    std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);
+    std::string GetProgramInfoLog(const GLuint &aShaderProgramHandle);
+    
+    /*namespace Diagnostics
     {
         void checkGLErrors(void);
         void checkGLSLErrors(const GLuint &aShaderHandle);
         void clearGLErrors(void);
         
-    }
+    }*/
     
-    namespace Uniforms
+    /*namespace Uniforms
     {
         //Floats
         void load1Foat(const GLuint &aShaderHandle, const char* &aUniformName, const float &aValue);
@@ -41,8 +43,8 @@ void glClearColor(const GDK::GFX::Color &aColor);
         void loadMatrix4x4(const GLuint &aShaderHandle, const char* &aUniformName, const float* aMatrix4x4);
         void loadMatrix3x3(const GLuint &aShaderHandle, const char* &aUniformName, const float* aMatrix3x3);
         
-    }
+    }*/
     
-}*/
+}
 
 #endif /* GDK_GFX_GL_H  */

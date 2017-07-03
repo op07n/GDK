@@ -9,7 +9,8 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for DataTypes
+         Sizes of datatypes used throughout GDK::Graphics.
+         These should match their OpenGL equivalents.
     	 */
         using GFXint   = int;
         using GFXuint  = unsigned int;
