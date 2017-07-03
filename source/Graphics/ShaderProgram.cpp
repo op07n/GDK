@@ -29,6 +29,8 @@ std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::ShaderProgra
 
 }
 
+
+
 ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource)
 : m_Name(aName)
 {
@@ -68,7 +70,7 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
         << std::endl << "fragment shader compilation log: " << GLH::GetShaderInfoLog(fs);
         
         Debug::error(message.str());
-        throw GDK::Exception(shortMessage);
+        //throw GDK::Exception(shortMessage);
         
     }
     
@@ -76,6 +78,7 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
 
 ShaderProgram::~ShaderProgram()
 {
-    
+    if (m_ProgramHandle > 0)
+        glDeleteProgram(m_ProgramHandle);
     
 }

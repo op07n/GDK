@@ -57,7 +57,7 @@ namespace GDK
             
             // Constructors & destructors
             /// Change log behavior by passing a function pointer to your own logging function.
-            /// Default behaviour is for the logger to display the debug message via std::cout
+            /// Default behaviour is for the logger to display the debug message via std::clog
             Logger(const std::function<void(const std::string&)> &aLoggingBehaviourCallback = nullptr);
             Logger(const Logger&) = default;
             ~Logger() = default;

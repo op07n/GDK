@@ -29,12 +29,12 @@ namespace GDK
             
 		public:
 			// Mutating operators
-			ShaderProgram& operator=(const ShaderProgram&) = default;
+			ShaderProgram& operator=(const ShaderProgram&) = delete;
 			
 			// Constructors, destructors
             ShaderProgram() = delete;
             ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource);
-			ShaderProgram(const ShaderProgram&) = default;
+			ShaderProgram(const ShaderProgram&) = delete;
 			~ShaderProgram();
 			
 		};
