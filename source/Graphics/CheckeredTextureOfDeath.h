@@ -5,7 +5,7 @@
 #define GDK_GFX_CHECKEREDTEXTUREOFDEATH_H
 
 //gdk inc
-//#include "Texture.h"
+#include "Texture.h"
 
 namespace GDK
 {
@@ -18,7 +18,7 @@ namespace GDK
              Very low resolution tiled texture, alternating white a blue.
              Useful as a fallback when the intended texture has failed to load.
              */
-            //Texture createCheckeredTextureOfDeath();
+            Texture createCheckeredTextureOfDeath();
             
         }
 		

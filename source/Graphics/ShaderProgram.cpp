@@ -1,7 +1,7 @@
 #include "ShaderProgram.h"
 //std inc
 #include <iostream>
-#include <vector>
+//#include <vector>
 //gdk inc
 #include "../Debug/Logger.h"
 #include "GL.h"
@@ -82,3 +82,6 @@ ShaderProgram::~ShaderProgram()
         glDeleteProgram(m_ProgramHandle);
     
 }
+
+std::string ShaderProgram::getName(){return m_Name;}
+GFXuint ShaderProgram::getHandle(){return m_ProgramHandle;}

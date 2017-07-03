@@ -28,6 +28,10 @@ namespace GDK
             
             
 		public:
+            // Accessors
+            std::string getName();
+            GFXuint getHandle();
+            
 			// Mutating operators
 			ShaderProgram& operator=(const ShaderProgram&) = delete;
 			

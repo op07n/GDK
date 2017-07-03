@@ -4,27 +4,39 @@
 #ifndef GDK_GFX_TEXTURE_H
 #define GDK_GFX_TEXTURE_H
 
+//gdk inc
+#include "DataTypes.h"
 //std inc
 #include <iosfwd>
+#include <string>
 
 namespace GDK
 {
 	namespace GFX
 	{
 		/*!
-		 No description provided for Texture
+		 Texture represents an image. RGBA, 2D.
     	 */
 		class Texture
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::Texture&);
+            
+            // Data members
+            std::string m_Name;
+            GFXuint m_Handle;
 		
 		public:
+            // Accessors
+            std::string getName();
+            GFXuint getHandle();
+            
 			// Mutating operators
-			Texture& operator=(const Texture&) = default;
+			Texture& operator=(const Texture&) = delete;
 			
 			// Constructors, destructors
-			Texture() = default;
-			Texture(const Texture&) = default;
+			Texture() = delete;
+            Texture(const std::vector<const unsigned char>& aTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
+			Texture(const Texture&) = delete;
 			~Texture() = default;
 			
 		};
