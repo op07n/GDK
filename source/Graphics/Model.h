@@ -4,6 +4,9 @@
 #ifndef GDK_GFX_MODEL_H
 #define GDK_GFX_MODEL_H
 
+//gdk inc
+#include "DataTypes.h"
+#include "VertexFormat.h"
 //std inc
 #include <iosfwd>
 
@@ -12,12 +15,17 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 Vertex based polygonal mesh. Animation data. Texture data
-    	 */
+         Represents a 3D object. Contains a Mesh, a set of uniform collections, a shader, animations, a skeleton.
+         */
 		class Model
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::Model&);
-		
+            
+            // Data members
+            int m_VertexBufferHandle;
+            int m_VertexCount;
+            VertexFormat m_VertexFormat;
+            
 		public:
 			// Mutating operators
 			Model& operator=(const Model&) = delete;
