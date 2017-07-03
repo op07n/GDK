@@ -10,15 +10,21 @@
  */
 #include <glew/include/GL/glew.h>
 #include <string>
+#include <vector>
 
 namespace GDK{namespace GFX{struct Color;}}
 
 namespace GLH
 {
+    //GetError();
+    
     void ClearColor(const GDK::GFX::Color &aColor);
     
     std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);
     std::string GetProgramInfoLog(const GLuint &aShaderProgramHandle);
+    std::string GetError();
+    std::vector<std::string> GetErrors();
+    void LogErrors();
     
     bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);
     

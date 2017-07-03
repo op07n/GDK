@@ -43,6 +43,9 @@ void initGLEW()
     if(glewInit() != GLEW_OK)
         throw GDK::Exception("glewInit failed");
     
+    
+    while (glGetError()); //Clear errors.
+    
     // log device info
     Debug::log("OpenGL version: ", glGetString(GL_VERSION));
     Debug::log("GLSL version: "  , glGetString(GL_SHADING_LANGUAGE_VERSION));

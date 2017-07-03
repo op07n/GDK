@@ -36,19 +36,17 @@ namespace GDK
             std::ostringstream m_StringBuffer;
             
         public:
-            void log() {}
+            void log()
+            {
+                m_LoggingBehaviourCallback(m_StringBuffer.str());
+                m_StringBuffer.str(std::string());
+            
+            }
             template<typename First, typename ...Rest>
             void log(First && first, Rest && ...rest)
             {
                 m_StringBuffer << first;
                 log(std::forward<Rest>(rest)...);
-                
-                if (sizeof...(Rest) <= 0)
-                {
-                    m_LoggingBehaviourCallback(m_StringBuffer.str());
-                    m_StringBuffer.str(std::string());
-                    
-                }
                 
             }
             
