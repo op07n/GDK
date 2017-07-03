@@ -29,7 +29,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::VertexFormat
 
 VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
 {
-    m_NumberOfAttributes = aAttributes.size();
+    m_NumberOfAttributes = (int)aAttributes.size();
     int attributeComponentCount = 0;
 
     //Process attribute data
@@ -45,7 +45,7 @@ VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
     
 }
 
-int VertexFormat::getSumOfAttributeComponents(){return m_TotalNumberOfAttributeComponents;}
+int VertexFormat::getSumOfAttributeComponents() const {return m_TotalNumberOfAttributeComponents;}
 int VertexFormat::getNumberOfAttributes(){return m_NumberOfAttributes;}
 int VertexFormat::getAttributeSize(const std::string &aAttributeName){return m_Format.at(aAttributeName);}
 

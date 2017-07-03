@@ -33,18 +33,18 @@ namespace GDK
             
 		public:
             // Accessors
-            int getSumOfAttributeComponents();
+            int getSumOfAttributeComponents() const;
             int getNumberOfAttributes();
             int getAttributeSize(const std::string &aAttributeName);
             std::vector<std::string> getNames();
             
 			// Mutating operators
-			VertexFormat& operator=(const VertexFormat&) = delete;
+			VertexFormat& operator=(const VertexFormat&) = default;
 			
 			// Constructors, destructors
             VertexFormat(const std::vector<VertexAttribute> &aAttributes);
-            VertexFormat() = delete;
-			VertexFormat(const VertexFormat&) = delete;
+            VertexFormat() = default; // TODO: I think this should be deleted.
+			VertexFormat(const VertexFormat&) = default;
 			~VertexFormat() = default;
             
             // Special values

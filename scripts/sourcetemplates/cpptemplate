@@ -5,10 +5,12 @@
 using namespace ${PROJECTNAME};
 using namespace ${NAMESPACE};
 
-std::ostream& ${PROJECTNAME}::${NAMESPACE}::operator<<(std::ostream& stream, const ${NAMESPACE}::${CLASSNAME}& a${CLASSNAME})
+std::ostream& ${PROJECTNAME}::${NAMESPACE}::operator<<(std::ostream& s, const ${NAMESPACE}::${CLASSNAME}& a)
 {
-    stream.clear();
-    stream << "{" << "${CLASSNAME}'s operator<< has not been implemented" << "}";
-    return stream;
+    s.clear();
+    s << "{" 
+    << "${CLASSNAME}'s operator<< has not been implemented" 
+    << "}";
+    return s;
 
 }

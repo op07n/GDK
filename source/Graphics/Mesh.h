@@ -9,6 +9,7 @@
 #include "VertexFormat.h"
 //std inc
 #include <iosfwd>
+#include <string>
 
 namespace GDK
 {
@@ -22,24 +23,40 @@ namespace GDK
 			friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
             
             // Data members
+            std::string m_Name;
             GFXuint m_VertexBufferHandle;
             int m_VertexCount;
             VertexFormat m_VertexFormat;
             
 		public:
+            /*!
+             Hint to the graphics device about how the vertex data will be used.
+             Generally, dynamic data (data that is likely to be frequently rewritten) will be placed
+             in video memory with fast read write speeds while static will be placed in slower (and more plentiful)
+             video memory. Exact behaviours are implementation specific.
+             */
+            enum class Type
+            {
+                Static,
+                Dynamic
+            };
+            
             // Accessors
             GFXuint getHandle();
             int getVertexCount();
             
+            // Public functions
             void draw(const GFXuint aShaderProgramHandle);
+            void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic);
             
 			// Mutating operators
 			Mesh& operator=(const Mesh&) = default;
 			
 			// Constructors, destructors
-			Mesh() = default;
+            Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, const VertexFormat &aVertexFormat, const Mesh::Type &aType);
+			Mesh() = delete;
 			Mesh(const Mesh&) = default;
-			~Mesh() = default;
+			~Mesh();
 			
 		};
 

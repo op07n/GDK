@@ -20,6 +20,8 @@ namespace GLH
     std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);
     std::string GetProgramInfoLog(const GLuint &aShaderProgramHandle);
     
+    bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);
+    
     /*namespace Diagnostics
     {
         void checkGLErrors(void);
