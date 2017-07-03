@@ -12,7 +12,7 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for Mesh
+		 Vertex data representing a 3D graphical object
     	 */
 		class Mesh
 		{
