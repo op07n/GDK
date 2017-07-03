@@ -11,8 +11,8 @@ namespace GDK
 		/*!
 		 No description provided for DataTypes
     	 */
-        using GFXint   = long int;
-        using GFXuint  = unsigned long int;
+        using GFXint   = int;
+        using GFXuint  = unsigned int;
         using GFXfloat = float;
         
 	}

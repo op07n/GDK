@@ -35,7 +35,7 @@ namespace GDK
             ShaderProgram() = delete;
             ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource);
 			ShaderProgram(const ShaderProgram&) = default;
-			~ShaderProgram() = default;
+			~ShaderProgram();
 			
 		};
 
