@@ -16,6 +16,10 @@
 		483C31B51F0A0040002A7870 /* CheckeredTextureOfDeath.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31B31F0A0040002A7870 /* CheckeredTextureOfDeath.h */; };
 		483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31B61F0A00F1002A7870 /* Texture.cpp */; };
 		483C31B91F0A00F1002A7870 /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31B71F0A00F1002A7870 /* Texture.h */; };
+		483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31BA1F0A0ED5002A7870 /* Model.cpp */; };
+		483C31BD1F0A0ED5002A7870 /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31BB1F0A0ED5002A7870 /* Model.h */; };
+		483C31C01F0A1202002A7870 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31BE1F0A1202002A7870 /* Mesh.cpp */; };
+		483C31C11F0A1202002A7870 /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31BF1F0A1202002A7870 /* Mesh.h */; };
 		48839BA11F07FEFF00D5CEE0 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */; };
 		48839BA21F07FEFF00D5CEE0 /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BA01F07FEFF00D5CEE0 /* Exception.h */; };
 		48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839BAB1F08C4CB00D5CEE0 /* GL.cpp */; };
@@ -55,6 +59,10 @@
 		483C31B31F0A0040002A7870 /* CheckeredTextureOfDeath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckeredTextureOfDeath.h; path = ../../source/Graphics/CheckeredTextureOfDeath.h; sourceTree = "<group>"; };
 		483C31B61F0A00F1002A7870 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Texture.cpp; path = ../../source/Graphics/Texture.cpp; sourceTree = "<group>"; };
 		483C31B71F0A00F1002A7870 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = ../../source/Graphics/Texture.h; sourceTree = "<group>"; };
+		483C31BA1F0A0ED5002A7870 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../../source/Graphics/Model.cpp; sourceTree = "<group>"; };
+		483C31BB1F0A0ED5002A7870 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../../source/Graphics/Model.h; sourceTree = "<group>"; };
+		483C31BE1F0A1202002A7870 /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = ../../source/Graphics/Mesh.cpp; sourceTree = "<group>"; };
+		483C31BF1F0A1202002A7870 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mesh.h; path = ../../source/Graphics/Mesh.h; sourceTree = "<group>"; };
 		48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = ../../source/Utilities/Exception.cpp; sourceTree = "<group>"; };
 		48839BA01F07FEFF00D5CEE0 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = ../../source/Utilities/Exception.h; sourceTree = "<group>"; };
 		48839BAB1F08C4CB00D5CEE0 /* GL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GL.cpp; path = ../../source/Graphics/GL.cpp; sourceTree = "<group>"; };
@@ -132,6 +140,10 @@
 				483C31AF1F09FB9A002A7870 /* PinkShaderOfDeath.h */,
 				483C31AE1F09FB9A002A7870 /* PinkShaderOfDeath.cpp */,
 				483C31AA1F09A2B2002A7870 /* DataTypes.h */,
+				483C31BF1F0A1202002A7870 /* Mesh.h */,
+				483C31BE1F0A1202002A7870 /* Mesh.cpp */,
+				483C31BB1F0A0ED5002A7870 /* Model.h */,
+				483C31BA1F0A0ED5002A7870 /* Model.cpp */,
 				483C31B71F0A00F1002A7870 /* Texture.h */,
 				483C31B61F0A00F1002A7870 /* Texture.cpp */,
 				48839BAC1F08C4CB00D5CEE0 /* GL.h */,
@@ -221,6 +233,7 @@
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
 				48839BA21F07FEFF00D5CEE0 /* Exception.h in Headers */,
+				483C31C11F0A1202002A7870 /* Mesh.h in Headers */,
 				483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */,
 				483C31B91F0A00F1002A7870 /* Texture.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
@@ -229,6 +242,7 @@
 				4898E45F1F0330B600825E3E /* IntVector2.h in Headers */,
 				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
+				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
 				483C31B11F09FB9A002A7870 /* PinkShaderOfDeath.h in Headers */,
 				483C31B51F0A0040002A7870 /* CheckeredTextureOfDeath.h in Headers */,
@@ -295,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483C31C01F0A1202002A7870 /* Mesh.cpp in Sources */,
 				48FFC4C81F01DB88003932BA /* Window.cpp in Sources */,
 				48839BA11F07FEFF00D5CEE0 /* Exception.cpp in Sources */,
 				48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */,
@@ -304,6 +319,7 @@
 				4898E4621F03378D00825E3E /* Plane.cpp in Sources */,
 				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
 				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
+				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				483C31B01F09FB9A002A7870 /* PinkShaderOfDeath.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
