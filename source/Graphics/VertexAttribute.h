@@ -16,7 +16,7 @@ namespace GDK
 		 A vertex attribute is a component of a vertex (eg: position, uv, normal, color).
          Vertexes are made up of an arbitrary set of components.
     	 */
-		struct VertexAttribute
+		struct VertexAttribute final
 		{
             // Data members
             const std::string name;

@@ -12,3 +12,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::Mesh& aMesh)
     return stream;
 
 }
+
+// Accessors
+GFXuint Mesh::getHandle(){return m_VertexBufferHandle;}
+int Mesh::getVertexCount(){return m_VertexCount;}

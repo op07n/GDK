@@ -22,7 +22,7 @@ namespace GDK
          something like this: {Position,UV,Normal,Tangent}. The important thing is that this matches
          the actual vertex data in the mesh's vertex buffer.
     	 */
-		class VertexFormat
+		class VertexFormat final
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&);
 		
