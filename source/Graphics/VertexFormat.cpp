@@ -19,11 +19,19 @@ VertexFormat VertexFormat::Pos3(
 
 });
 
-std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::VertexFormat& aVertexFormat)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexFormat& a)
 {
-    stream.clear();
-    stream << "{" << "VertexFormat's operator<< has not been implemented" << "}";
-    return stream;
+    s << "{";
+    const auto secondLast = std::prev(a.m_Format.end(), 1);
+    for(auto iter = a.m_Format.begin(); iter != a.m_Format.end(); ++iter)
+    {
+        s << iter->first << ": " << iter->second;
+        if (iter != secondLast)
+            s << ", ";
+        
+    }
+    s << "}";
+    return s;
 
 }
 
@@ -36,7 +44,6 @@ VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
     for(int i = 0, s = m_NumberOfAttributes; i < s; i++)
     {
         m_Format.insert(std::pair<std::string,int>(aAttributes[i].name, aAttributes[i].size));
-        
         attributeComponentCount+= aAttributes[i].size;
         
     }

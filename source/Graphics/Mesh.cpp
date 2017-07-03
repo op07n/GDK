@@ -7,16 +7,16 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::Mesh& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a)
 {
-    stream.clear();
-    stream << "{"
-    << a.m_Name
-    << a.m_VertexBufferHandle
-    << a.m_VertexCount
-    << a.m_VertexFormat
+    s.clear();
+    s << "{"
+    << "Name: " << a.m_Name << ", "
+    << "Handle: " << a.m_VertexBufferHandle << ", "
+    << "VertexCount: " << a.m_VertexCount << ", "
+    << "VertexFormat: " << a.m_VertexFormat
     << "}";
-    return stream;
+    return s;
 
 }
 

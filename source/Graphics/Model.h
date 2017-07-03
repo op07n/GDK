@@ -4,6 +4,9 @@
 #ifndef GDK_GFX_MODEL_H
 #define GDK_GFX_MODEL_H
 
+//gdk inc
+#include "ShaderProgram.h"
+#include "Mesh.h"
 //std inc
 #include <iosfwd>
 
@@ -18,13 +21,17 @@ namespace GDK
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::Model&);
             
+            // Data members
+            //TODO: refer to G2Dj GraphicsObject
+            
 		public:
             
 			// Mutating operators
 			Model& operator=(const Model&) = delete;
 			
 			// Constructors, destructors
-			Model() = default;
+            Model(const Model&, const ShaderProgram&);
+			Model() = delete;
 			Model(const Model&) = delete;
 			~Model() = default;
 			
