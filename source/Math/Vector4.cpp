@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created 2017-06-27.
 #include "Vector4.h"
 //GDK inc
 #include "Vector3.h"

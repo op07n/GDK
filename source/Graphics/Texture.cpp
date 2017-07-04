@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 17-07-03.
 #include "Texture.h"
 //std inc
 #include <iostream>

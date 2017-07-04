@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-26.
 #include "Vector2.h"
 //std inc
 #include <math.h>

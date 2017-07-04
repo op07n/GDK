@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 17-07-02.
 #include "GL.h"
 //gdk inc
 #include "Color.h"
@@ -53,7 +56,6 @@ bool GLH::EnableVertexAttribute(const std::string &aAttributeName, const GLuint 
     glEnableVertexAttribArray(attribute);
     
     //Create vertex attribute pointers..
-    //Position attribute pointer
     glVertexAttribPointer
     (
         attribute, //Position attribute index
@@ -123,7 +125,12 @@ void GLH::LogErrors()
     
     ss << "OpenGL errors: ";
     
-    for(size_t i=0,s=errors.size();i<s;i++)
+    size_t s = errors.size();
+    
+    if (s > 1) //do not print GL_NO_ERROR if there are more errors
+        s--;
+    
+    for(size_t i=0;i<s;i++)
     {
         ss << errors[i];
         

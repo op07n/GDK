@@ -1,3 +1,6 @@
+// © ${YEAR} Joseph Cameron - All Rights Reserved
+// Project: ${PROJECTNAME}
+// Created on ${DATE}.
 #include "${CLASSNAME}.h"
 //std inc
 #include <iostream>

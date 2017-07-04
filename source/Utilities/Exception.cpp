@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 17-07-01.
 #include "Exception.h"
 //std inc
 #include <iostream>

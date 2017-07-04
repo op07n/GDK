@@ -1,4 +1,4 @@
-// © 2017 Joseph Cameron - &all Rights Reserved
+// © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
 // Created on 17-07-02.
 #ifndef GDK_GFX_GL_H
@@ -16,42 +16,18 @@ namespace GDK{namespace GFX{struct Color;}}
 
 namespace GLH
 {
-    //GetError();
-    
     void ClearColor(const GDK::GFX::Color &aColor);
     
     std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);
     std::string GetProgramInfoLog(const GLuint &aShaderProgramHandle);
+    
     std::string GetError();
     std::vector<std::string> GetErrors();
+    ///Write all the errors to Debug::error()
     void LogErrors();
     
+    ///Enable vertex attribute buffer and create the attribute pointer
     bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);
-    
-    /*namespace Diagnostics
-    {
-        void checkGLErrors(void);
-        void checkGLSLErrors(const GLuint &aShaderHandle);
-        void clearGLErrors(void);
-        
-    }*/
-    
-    /*namespace Uniforms
-    {
-        //Floats
-        void load1Foat(const GLuint &aShaderHandle, const char* &aUniformName, const float &aValue);
-        
-        //Vectors
-        void loadVector3f(const GLuint &aShaderHandle, const char* &aUniformName, float* &aValue);
-        
-        //Texture
-        void loadTexture(const GLuint &aShaderHandle, const char* aUniformName, const GLuint &aTextureHandle, const GLuint &aTextureUnit = 0, const GLenum &aTextureType = GL_TEXTURE_2D);
-        
-        //Matricies
-        void loadMatrix4x4(const GLuint &aShaderHandle, const char* &aUniformName, const float* aMatrix4x4);
-        void loadMatrix3x3(const GLuint &aShaderHandle, const char* &aUniformName, const float* aMatrix3x3);
-        
-    }*/
     
 }
 

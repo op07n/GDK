@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-27.
 #include "Quaternion.h"
 //math inc
 #include "Vector3.h"

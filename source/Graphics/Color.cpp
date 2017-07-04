@@ -1,3 +1,6 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on 2017-06-25.
 #include "Color.h"
 //std inc
 #include <iostream>
