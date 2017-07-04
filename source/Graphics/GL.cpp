@@ -1,6 +1,7 @@
 #include "GL.h"
 //gdk inc
 #include "Color.h"
+#include "../Debug/Logger.h"
 //std inc
 #include <vector>
 
@@ -72,10 +73,6 @@ std::string GLH::GetError()
 {
     switch (glGetError())
     {
-        case(GL_NO_ERROR):
-            return "GL_NO_ERROR";
-        break;
-        
         case(GL_INVALID_ENUM):
             return "GL_INVALID_ENUM";
         break;
@@ -98,7 +95,7 @@ std::string GLH::GetError()
             
     }
     
-    return "";
+    return "GL_NO_ERROR";
     
 }
 
@@ -106,8 +103,14 @@ std::vector<std::string> GLH::GetErrors()
 {
     std::vector<std::string> errors;
     
-    for(std::string error=GetError();!error.empty();error=GetError())
+    for(std::string error=GetError();;error=GetError())
+    {
         errors.push_back(error);
+        
+        if (errors.back()=="GL_NO_ERROR")
+            break;
+        
+    }
     
     return errors;
     
@@ -115,6 +118,20 @@ std::vector<std::string> GLH::GetErrors()
 
 void GLH::LogErrors()
 {
+    std::vector<std::string> errors = GetErrors();
+    std::ostringstream ss;
     
+    ss << "OpenGL errors: ";
+    
+    for(size_t i=0,s=errors.size();i<s;i++)
+    {
+        ss << errors[i];
+        
+        if (i != s-1)
+            ss << ", ";
+        
+    }
+    
+    Debug::error(ss.str());
     
 }

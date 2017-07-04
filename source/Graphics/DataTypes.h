@@ -9,9 +9,10 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-         Sizes of datatypes used throughout GDK::Graphics.
-         These should match their OpenGL equivalents.
-    	 */
+         Sizes of datatypes used throughout GDK::Graphics headers.
+         These must match their OpenGL equivalents, so definitions should be platform specific.
+         GFX types are used instead of GL to avoid unnecessary propegation of gl headers.
+         */
         using GFXint   = int;
         using GFXuint  = unsigned int;
         using GFXfloat = float;
