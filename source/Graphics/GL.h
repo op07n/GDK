@@ -23,8 +23,8 @@ namespace GLH
     
     std::string GetError();
     std::vector<std::string> GetErrors();
-    ///Write all the errors to Debug::error()
-    void LogErrors();
+    ///Write all the errors to Debug::error(). Can optionally suppress GL_NO_ERROR logs
+    void LogErrors(const bool &aDoNotLogIfNoErrors = false);
     
     ///Enable vertex attribute buffer and create the attribute pointer
     bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);

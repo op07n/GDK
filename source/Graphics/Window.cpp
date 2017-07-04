@@ -43,6 +43,8 @@ void destroyGLFW()
 
 void initGLEW()
 {
+    glewExperimental = GL_TRUE; //VAO gen and bind were unavailable in non experimental.
+    
     if(glewInit() != GLEW_OK)
         throw GDK::Exception("glewInit failed");
     
@@ -78,7 +80,14 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     glfwMakeContextCurrent(aGLFWWindow);
     
     if (s_InstanceCount <= 0)
+    {
         initGLEW();
+        
+        GLuint vao = 0;
+        glGenVertexArrays(1,&vao);
+        glBindVertexArray(vao);
+    
+    }
     
     GLH::ClearColor(GFX::Color::CornflowerBlue);
     

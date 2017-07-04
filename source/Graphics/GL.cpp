@@ -118,16 +118,18 @@ std::vector<std::string> GLH::GetErrors()
     
 }
 
-void GLH::LogErrors()
+void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
 {
     std::vector<std::string> errors = GetErrors();
-    std::ostringstream ss;
-    
-    ss << "OpenGL errors: ";
-    
     size_t s = errors.size();
     
-    if (s > 1) //do not print GL_NO_ERROR if there are more errors
+    if (aDoNotLogIfNoErrors == true && s <= 1)
+        return;
+    
+    std::ostringstream ss;
+    ss << "OpenGL errors: ";
+    
+    if (s > 1) //removes GL_NO_ERROR from begin written at the end of the log
         s--;
     
     for(size_t i=0;i<s;i++)
