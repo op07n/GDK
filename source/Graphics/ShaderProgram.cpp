@@ -86,5 +86,12 @@ ShaderProgram::~ShaderProgram()
     
 }
 
+void ShaderProgram::draw()
+{
+    glUseProgram(m_ProgramHandle);
+    //glDrawCalls();
+    
+}
+
 std::string ShaderProgram::getName(){return m_Name;}
 GFXuint ShaderProgram::getHandle(){return m_ProgramHandle;}

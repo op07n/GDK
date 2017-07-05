@@ -6,6 +6,7 @@
 #include <iostream>
 //gdk inc
 #include "GL.h"
+#include "../Debug/Logger.h"
 
 using namespace GDK;
 using namespace GFX;
@@ -48,6 +49,14 @@ Mesh::Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, c
 {
     GLint type = MeshTypeToOpenGLDrawType(aType);
     
+    
+    std::ostringstream ss;
+    
+    for(size_t i=0,s=aVertexData.size();i<s;i++)
+        ss << aVertexData[i] << ", ";
+    
+    Debug::log(ss.str());
+    
     // Create and populate a VBO
     glGenBuffers(1, &m_VertexBufferHandle);
     glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferHandle);
@@ -80,6 +89,8 @@ void Mesh::draw(const GFXuint aShaderProgramHandle)
         attributeOffset+=attributeSize;
         
     }
+    
+    glDrawArrays( GL_TRIANGLES, 0, m_VertexCount );
     
 }
 

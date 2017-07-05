@@ -151,11 +151,12 @@ void Window::draw()
 {
     glfwMakeContextCurrent(m_HandleToGLFWWindow);
     
+    
     if (m_OnDraw != nullptr)
         m_OnDraw();
     
-    glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(m_HandleToGLFWWindow);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
 }
 
