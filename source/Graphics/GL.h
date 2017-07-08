@@ -13,9 +13,11 @@
 #include <vector>
 
 namespace GDK{namespace GFX{struct Color;}}
+namespace GDK{namespace Math{struct IntVector2;}}
 
 namespace GLH
 {
+    void Viewport(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize);
     void ClearColor(const GDK::GFX::Color &aColor);
     
     std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);

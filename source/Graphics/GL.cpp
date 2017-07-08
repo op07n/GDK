@@ -5,11 +5,18 @@
 //gdk inc
 #include "Color.h"
 #include "../Debug/Logger.h"
+#include "../Math/IntVector2.h"
 //std inc
 #include <vector>
 
 using namespace GDK;
 using namespace GFX;
+
+void GLH::Viewport(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize)
+{
+    glViewport(aPos.x,aPos.y,aSize.x,aSize.y);
+    
+}
 
 void GLH::ClearColor(const GDK::GFX::Color &aColor)
 {
