@@ -16,10 +16,12 @@ using namespace GFX;
 
 int s_InstanceCount = 0;
 
-std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& w)
+std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a)
 {
-    s << "{" << w.m_Title << "}";
-    return s;
+    s.clear(); s << "{"
+    << "m_Title: " << a.m_Title << ", "
+    << "m_Handle: " << a.m_HandleToGLFWWindow
+    << "}"; return s;
 
 }
 

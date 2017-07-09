@@ -71,6 +71,12 @@ Mesh::~Mesh()
     
 }
 
+/*inline void enableAttributes()
+{
+    
+ 
+}*/
+
 void Mesh::draw(const GFXuint aShaderProgramHandle)
 {
     glBindBuffer( GL_ARRAY_BUFFER, m_VertexBufferHandle);

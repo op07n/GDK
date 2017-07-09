@@ -20,6 +20,17 @@ const Vector3 Vector3::Forward  = Vector3( 0.f, 0.f, 1.f);
 const Vector3 Vector3::Backward = Vector3( 0.f, 0.f,-1.f);
 const Vector3 Vector3::Zero     = Vector3( 0.f, 0.f, 0.f);
 
+//stringify
+std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a)
+{
+    s.clear(); s << "{"
+    << "x: " << a.x << ", "
+    << "y: " << a.y << ", "
+    << "z: " << a.z
+    << "}"; return s;
+    
+}
+
 //ctors
 Vector3::Vector3(const float &aX, const float &aY, const float &aZ)
 : x(aX)
@@ -132,10 +143,3 @@ void Vector3::normalize(void)
     operator*=(aScalar);
     
 }*/
-
-std::ostream& GDK::Math::operator<<(std::ostream& stream,const Math::Vector3& aVector3)
-{
-    stream.clear();
-    stream << "{" << aVector3.x << ", " << aVector3.y << ", " << aVector3.z << "}";
-    return stream;
-}

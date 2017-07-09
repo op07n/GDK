@@ -24,6 +24,15 @@ const Color Color::CornflowerBlue
  1.0f
  );
 
+//operators
+std::ostream& GDK::GFX::operator<< (std::ostream& stream, const GFX::Color& aColor)
+{
+    stream
+    << "{" << aColor.r << ", " << aColor.g << ", " << aColor.b << ", " << aColor.a << "}";
+    return stream;
+    
+}
+
 //ctors
 Color::Color()
 : r(0.)
@@ -38,12 +47,3 @@ Color::Color(const float &aR, const float &aG, const float &aB, const float &aA)
 , b(aB)
 , a(aA)
 {}
-
-//operators
-std::ostream& GDK::GFX::operator<< (std::ostream& stream, const GFX::Color& aColor)
-{
-    stream
-    << "{" << aColor.r << ", " << aColor.g << ", " << aColor.b << ", " << aColor.a << "}";
-    return stream;
-    
-}

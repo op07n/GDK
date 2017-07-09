@@ -16,6 +16,18 @@ using namespace Math;
 //static const
 const Quaternion Quaternion::Identity = Quaternion();
 
+//stringify
+std::ostream& GDK::Math::operator<< (std::ostream& s, const Math::Quaternion& a)
+{
+    s.clear(); s << "{"
+    << "x: " << a.x << ", "
+    << "y: " << a.y << ", "
+    << "z: " << a.z << ", "
+    << "w: " << a.w
+    << "}"; return s;
+    
+}
+
 //ctors
 Quaternion::Quaternion() : x(0.), y(0.), z(0.), w(1.)
 {}
@@ -62,11 +74,3 @@ Vector3 Quaternion::toEuler(void)
      );
     
 }
-
-std::ostream& GDK::Math::operator<< (std::ostream& stream, const Math::Quaternion& aQuaternion)
-{
-    stream << "{" << aQuaternion.x << ", " << aQuaternion.y << ", " << aQuaternion.z << ", " << aQuaternion.w << "}";
-    return stream;
-    
-}
-

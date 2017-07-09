@@ -11,6 +11,20 @@ using namespace Math;
 //static const
 const Mat4x4 Mat4x4::Identity = Mat4x4();
 
+//Stringify
+std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
+{
+    s.clear();
+    s
+    << "{" << aMat.m00 << ", " << aMat.m01 << ", " << aMat.m02 << ", " << aMat.m03 << "}\n"
+    << "{" << aMat.m10 << ", " << aMat.m11 << ", " << aMat.m12 << ", " << aMat.m13 << "}\n"
+    << "{" << aMat.m20 << ", " << aMat.m21 << ", " << aMat.m22 << ", " << aMat.m23 << "}\n"
+    << "{" << aMat.m30 << ", " << aMat.m31 << ", " << aMat.m32 << ", " << aMat.m33 << "}\n";
+    
+    return s;
+    
+}
+
 // Constructors
 Mat4x4::Mat4x4()
 : m00(1.), m01(0.), m02(0.), m03(0.)
@@ -31,16 +45,3 @@ Mat4x4::Mat4x4
 , m20(a20), m21(a21), m22(a22), m23(a23)
 , m30(a30), m31(a31), m32(a32), m33(a33)
 {}
-
-std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
-{
-    s.clear();
-    s
-    << "{" << aMat.m00 << ", " << aMat.m01 << ", " << aMat.m02 << ", " << aMat.m03 << "}\n"
-    << "{" << aMat.m10 << ", " << aMat.m11 << ", " << aMat.m12 << ", " << aMat.m13 << "}\n"
-    << "{" << aMat.m20 << ", " << aMat.m21 << ", " << aMat.m22 << ", " << aMat.m23 << "}\n"
-    << "{" << aMat.m30 << ", " << aMat.m31 << ", " << aMat.m32 << ", " << aMat.m33 << "}\n";
-    
-    return s;
-    
-}

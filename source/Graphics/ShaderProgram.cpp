@@ -13,21 +13,19 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::ShaderProgram& aShaderProgram)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgram& a)
 {
     GFXint activeAttribs = 0, activeUniforms = 0;
-    glGetProgramiv(aShaderProgram.m_ProgramHandle, GL_ACTIVE_ATTRIBUTES, &activeAttribs);
-    glGetProgramiv(aShaderProgram.m_ProgramHandle, GL_ACTIVE_UNIFORMS, &activeUniforms);
+    glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_ATTRIBUTES, &activeAttribs);
+    glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_UNIFORMS, &activeUniforms);
     
-    stream.clear();
-    stream
+    s.clear(); s
     << "{"
-    << "Name: " << aShaderProgram.m_Name
-    << ", Active attributes: " << activeAttribs
-    << ", Active uniforms: " << activeUniforms
+    << "Name: " << a.m_Name << ", "
+    << "Active attributes: " << activeAttribs << ", "
+    << "Active uniforms: " << activeUniforms
     << "}";
-    
-    return stream;
+    return s;
 
 }
 
@@ -92,10 +90,12 @@ ShaderProgram::~ShaderProgram()
     
 }
 
-void ShaderProgram::draw()
+GFXuint ShaderProgram::draw()
 {
     glUseProgram(m_ProgramHandle);
     //glDrawCalls();
+    
+    return m_ProgramHandle;
     
 }
 

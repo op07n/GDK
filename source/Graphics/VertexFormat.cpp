@@ -35,7 +35,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexFormat& a)
     }
     s << "}";
     return s;
-
+    
 }
 
 VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)

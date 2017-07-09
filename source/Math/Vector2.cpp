@@ -16,6 +16,16 @@ const Vector2 Vector2::Left  = Vector2(-1.f, 0.f);
 const Vector2 Vector2::Right = Vector2( 1.f, 0.f);
 const Vector2 Vector2::Zero  = Vector2( 0.f, 0.f);
 
+//stringify
+std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector2& a)
+{
+    s.clear(); s << "{"
+    << "x: " << a.x << ", "
+    << "y: " << a.y
+    << "}"; return s;
+    
+}
+
 //ctors
 Vector2::Vector2(const float &aX, const float &aY)
 : x(aX)
@@ -96,14 +106,6 @@ Vector2& Vector2::operator*=(const float &aScalar)
     y *= aScalar;
     
     return *this;
-    
-}
-
-std::ostream& GDK::Math::operator<<(std::ostream& stream, const Math::Vector2& aVector2)
-{
-    stream.clear();
-    stream << "{" << aVector2.x << ", " << aVector2.y << ", " << "}";
-    return stream;
     
 }
 

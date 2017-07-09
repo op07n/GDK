@@ -8,11 +8,14 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::VertexAttribute& a)
+
+
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexAttribute& a)
 {
-    stream.clear();
-    stream << "{" << "Name: " << a.name << ", Size: " << a.size << "}";
-    return stream;
+    s.clear(); s << "{"
+    << "Name: " << a.name << ", "
+    << "Size: " << a.size
+    << "}"; return s;
 
 }
 

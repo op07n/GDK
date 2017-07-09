@@ -13,12 +13,13 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::Texture& aTexture)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Texture& a)
 {
-    stream.clear();
-    stream << "{" << "Texture's operator<< has not been implemented" << "}";
-    return stream;
-
+    s.clear(); s << "{"
+    << "m_Name: " << a.m_Name << ", "
+    << "m_Handle: " << a.m_Handle
+    << "}"; return s;
+    
 }
 
 Texture::Texture(const std::string &aName, std::vector<GFXbyte>& aTextureData)

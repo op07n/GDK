@@ -28,7 +28,8 @@ namespace GDK
             
 		public:
             // Public interface
-            void draw();
+            ///Setup the shader for drawing, emit a handle for use by meshes
+            GFXuint draw();
             
             // Accessors
             std::string getName();

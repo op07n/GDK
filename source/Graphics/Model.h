@@ -9,6 +9,7 @@
 #include "Mesh.h"
 //std inc
 #include <iosfwd>
+#include <memory>
 
 namespace GDK
 {
@@ -23,8 +24,8 @@ namespace GDK
             
             // Data members
             std::string m_Name;
-            Mesh m_Mesh;
-            ShaderProgram m_ShaderProgram;
+            std::shared_ptr<Mesh> m_Mesh;
+            std::shared_ptr<ShaderProgram> m_ShaderProgram;
             
             //TODO: refer to G2Dj GraphicsObject
             
@@ -35,7 +36,7 @@ namespace GDK
 			Model& operator=(const Model&) = delete;
 			
 			// Constructors, destructors
-            Model(const std::string &aName, const Mesh&, ShaderProgram&);
+            Model(const std::string &aName, const std::shared_ptr<Mesh>&, const std::shared_ptr<ShaderProgram>&);
 			Model() = delete;
 			Model(const Model&) = delete;
 			~Model() = default;

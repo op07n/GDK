@@ -17,6 +17,16 @@ const IntVector2 IntVector2::Left  = IntVector2(-1, 0);
 const IntVector2 IntVector2::Right = IntVector2( 1, 0);
 const IntVector2 IntVector2::Zero  = IntVector2( 0, 0);
 
+// Stringify
+std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::IntVector2& a)
+{
+    s.clear(); s << "{"
+    << "x: " << a.x << ", "
+    << "y: " << a.y
+    << "}"; return s;
+    
+}
+
 //Contructors
 IntVector2::IntVector2(const int &aX, const int &aY)
 : x(aX)
@@ -99,13 +109,5 @@ IntVector2& IntVector2::operator*=(const float &aScalar)
     y *= aScalar;
     
     return *this;
-    
-}
-
-std::ostream& GDK::Math::operator<<(std::ostream& stream, const Math::IntVector2& aIntVector2)
-{
-    stream.clear();
-    stream << "{" << aIntVector2.x << ", " << aIntVector2.y << ", " << "}";
-    return stream;
     
 }

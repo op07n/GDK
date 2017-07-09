@@ -14,11 +14,13 @@ using namespace GFX;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a)
 {
-    s.clear();
-    s << "{" 
-    << "Camera's operator<< has not been implemented" 
-    << "}";
-    return s;
+    s.clear(); s << "{"
+    << "m_ViewportPosition: " << a.m_ViewportPosition << ", "
+    << "m_ViewportSize: " << a.m_ViewportSize << ", "
+    << "m_FieldOfView: " << a.m_FieldOfView << ", "
+    << "m_NearClippingPlane: " << a.m_NearClippingPlane << ", "
+    << "m_FarClippingPlane: " << a.m_FarClippingPlane << ", "
+    << "}"; return s;
 
 }
 

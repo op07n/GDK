@@ -11,6 +11,18 @@
 using namespace GDK;
 using namespace Math;
 
+//Stringify
+std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector4& a)
+{
+    s.clear(); s << "{"
+    << "x: " << a.x << ", "
+    << "y: " << a.y << ", "
+    << "z: " << a.z << ", "
+    << "w: " << a.w
+    << "}"; return s;
+    
+}
+
 //Constructors
 Vector4::Vector4()
 : x(0.)
@@ -54,12 +66,4 @@ Vector4& Vector4::operator*=(const float &aScalar)
     
     return *this;
     
-}
-
-std::ostream& GDK::Math::operator<<(std::ostream& stream, const Math::Vector4& aVector4)
-{
-    stream.clear();
-    stream << "{" << aVector4.x << ", " << aVector4.y << ", " << aVector4.z << aVector4.z << "}";
-    return stream;
-
 }
