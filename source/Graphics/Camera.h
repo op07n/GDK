@@ -54,6 +54,16 @@ namespace GDK
             //RenderTexture m_RenderTexture;
             
 		public:
+            // Accessors
+            void setViewportPosition(const Math::IntVector2&);
+            void setViewportPosition(const int &x, const int &y);
+            Math::IntVector2 getViewportPosition();
+            
+            void setViewportSize(const Math::IntVector2&);
+            void setViewportSize(const int &x, const int &y);
+            Math::IntVector2 getViewportSize();
+            
+            
             // Public methods
             void draw();
             

@@ -35,7 +35,7 @@ namespace GDK
 			
 			// Constructors, destructors
 			Texture() = delete;
-            Texture(const std::vector<const unsigned char>& aTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
+            Texture(const std::vector<const GFXbyte>& aTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
 			Texture(const Texture&) = delete;
 			~Texture() = delete;
 			

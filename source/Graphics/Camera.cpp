@@ -64,3 +64,11 @@ void Camera::draw()
     }
     
 }
+
+void Camera::setViewportPosition(const Math::IntVector2 &a){m_ViewportPosition=a;}
+void Camera::setViewportPosition(const int &x, const int &y){m_ViewportPosition.x=x;m_ViewportPosition.y=y;}
+Math::IntVector2 Camera::getViewportPosition(){return m_ViewportPosition;}
+
+void Camera::setViewportSize(const Math::IntVector2 &a){m_ViewportSize=a;}
+void Camera::setViewportSize(const int &x, const int &y){m_ViewportSize.x=x;m_ViewportSize.y=y;}
+Math::IntVector2 Camera::getViewportSize(){return m_ViewportSize;}
