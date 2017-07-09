@@ -63,7 +63,6 @@ namespace GDK
             void setViewportSize(const int &x, const int &y);
             Math::IntVector2 getViewportSize();
             
-            
             // Public methods
             void draw();
             

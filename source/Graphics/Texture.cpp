@@ -29,7 +29,7 @@ Texture::Texture(const std::string &aName, std::vector<GFXbyte>& aTextureData)
     unsigned char *res_data, *decodedData;
     int width, height, components;
     res_data = &aTextureData[0];
-    decodedData = stbi_load_from_memory(res_data, (int)aTextureData.size(), &width, &height, &components, 0);
+    decodedData = stbi_load_from_memory(res_data, (int)aTextureData.size(), &width, &height, &components, 4);
     
     //Put the texture data in video memory
     glGenTextures(1, &m_Handle);

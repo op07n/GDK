@@ -52,6 +52,9 @@ else
     cppTemplateData="${cppTemplateData//\$\{NAMESPACE\}/$namespace}"
     cppTemplateData="${cppTemplateData//\$\{CLASSNAME\}/$className}"
 
+    cppTemplateData="${cppTemplateData//\$\{YEAR\}/$(date +%Y)}"
+    cppTemplateData="${cppTemplateData//\$\{DATE\}/$(date +"%y-%m-%d")}"
+    
     echo "$cppTemplateData" >> $PWD/$className.cpp
 
 fi

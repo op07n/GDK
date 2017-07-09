@@ -27,6 +27,12 @@ Model::Model(const std::string &aName, const std::shared_ptr<Mesh> &aMesh, const
 
 void Model::draw()
 {
-    m_Mesh.get()->draw(m_ShaderProgram.get()->draw());
+    GFXuint programHandle = m_ShaderProgram.get()->draw();
+    
+    m_Textures.bind(programHandle);
+    
+    m_Mesh.get()->draw(programHandle);
     
 }
+
+void Model::setTexture(const std::string &aUniformName, const std::shared_ptr<Texture> &aTexture){m_Textures.put(aUniformName, aTexture);}

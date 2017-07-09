@@ -157,3 +157,32 @@ void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
     Debug::error(ss.str());
     
 }
+
+bool GLH::BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GLuint &aTextureHandle, const int aTextureUnit/*, final GLenum &aTextureType*/)
+{
+    int uniformHandle  = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    int theTextureType = GL_TEXTURE_2D;
+    
+    if (uniformHandle == -1)
+        return false;
+    
+    switch (aTextureUnit)
+    {
+        case  1:glActiveTexture( GL_TEXTURE1);break;
+        case  2:glActiveTexture( GL_TEXTURE2);break;
+        case  3:glActiveTexture( GL_TEXTURE3);break;
+        case  4:glActiveTexture( GL_TEXTURE4);break;
+        case  5:glActiveTexture( GL_TEXTURE5);break;
+        case  6:glActiveTexture( GL_TEXTURE6);break;
+        case  7:glActiveTexture( GL_TEXTURE7);break;
+            
+        default:glActiveTexture( GL_TEXTURE0);break;
+            
+    }
+    
+    glBindTexture(theTextureType, aTextureHandle);
+    glUniform1i(uniformHandle, aTextureUnit);
+    
+    return true;
+    
+}

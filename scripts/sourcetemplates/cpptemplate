@@ -11,7 +11,7 @@ using namespace ${NAMESPACE};
 std::ostream& ${PROJECTNAME}::${NAMESPACE}::operator<<(std::ostream& s, const ${NAMESPACE}::${CLASSNAME}& a)
 {
     s.clear(); s << "{"
-    //<< "m_Member: " << a.m_Member << ", "
+    // << "m_Member: " << a.m_Member << ", "
     << "${CLASSNAME}'s: " << "operator<< has not been implemented"
     << "}"; return s;
 

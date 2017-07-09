@@ -17,14 +17,21 @@ namespace ${PROJECTNAME}
 		class ${CLASSNAME} final
 		{
 			friend std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
-		
+			
+			// Data members
+
 		public:
+			// Accessors
+			
+			// Public methods
+			
 			// Mutating operators
 			${CLASSNAME}& operator=(const ${CLASSNAME}&) = delete;
 			
 			// Constructors, destructors
 			${CLASSNAME}() = delete;
 			${CLASSNAME}(const ${CLASSNAME}&) = delete;
+			${CLASSNAME}(${CLASSNAME}&&) = delete;
 			~${CLASSNAME}() = delete;
 			
 		};

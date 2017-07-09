@@ -30,7 +30,12 @@ namespace GLH
     std::string GetError();
     std::vector<std::string> GetErrors();
     void LogErrors(const bool &aDoNotLogIfNoErrors = false);
+    
+    // Vertex binding
     bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);
+    
+    //Uniform binding
+    bool BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GLuint &aTextureHandle, const int aTextureUnit/*, final GLenum &aTextureType*/);
     
 }
 

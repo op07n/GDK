@@ -7,6 +7,7 @@
 //gdk inc
 #include "ShaderProgram.h"
 #include "Mesh.h"
+#include "TextureUniformCollection.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -16,7 +17,8 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-         Represents a 3D object. Contains a Mesh, a set of uniform collections, a shader, animations, a skeleton.
+         Represents an observable 3D object. 
+         Contains a Mesh, a set of uniform collections, a shader, animations, a skeleton.
          */
 		class Model final
 		{
@@ -27,9 +29,14 @@ namespace GDK
             std::shared_ptr<Mesh> m_Mesh;
             std::shared_ptr<ShaderProgram> m_ShaderProgram;
             
-            //TODO: refer to G2Dj GraphicsObject
+            TextureUniformCollection m_Textures;
+            // etc...
             
 		public:
+            // Accessors
+            void setTexture(const std::string &aUniformName, const std::shared_ptr<Texture> &aTexture);
+            
+            // public methods
             void draw();
             
 			// Mutating operators
