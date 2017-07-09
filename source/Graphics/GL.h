@@ -8,7 +8,9 @@
  OpenGL header for GDK
  includes gl functions from glew and declares C++ friendly helpers in the GLH namespace
  */
+//Thirdparty inc
 #include <glew/include/GL/glew.h>
+//std inc
 #include <string>
 #include <vector>
 
@@ -17,18 +19,17 @@ namespace GDK{namespace Math{struct IntVector2;}}
 
 namespace GLH
 {
+    // GDK-type friendly conveniences
     void Viewport(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize);
+    void Scissor(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize);
     void ClearColor(const GDK::GFX::Color &aColor);
     
+    // Error detection & logging
     std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);
     std::string GetProgramInfoLog(const GLuint &aShaderProgramHandle);
-    
     std::string GetError();
     std::vector<std::string> GetErrors();
-    ///Write all the errors to Debug::error(). Can optionally suppress GL_NO_ERROR logs
     void LogErrors(const bool &aDoNotLogIfNoErrors = false);
-    
-    ///Enable vertex attribute buffer and create the attribute pointer
     bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);
     
 }

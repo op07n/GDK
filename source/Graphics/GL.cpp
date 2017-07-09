@@ -18,6 +18,12 @@ void GLH::Viewport(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector
     
 }
 
+void GLH::Scissor(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize)
+{
+    glScissor(aPos.x,aPos.y,aSize.x,aSize.y);
+    
+}
+
 void GLH::ClearColor(const GDK::GFX::Color &aColor)
 {
     glClearColor(aColor.r,aColor.g,aColor.b,aColor.a);

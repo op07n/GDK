@@ -20,9 +20,7 @@ namespace GDK
 		class Camera final
 		{
         public:
-            /*!
-             Describes camera clear behaviour
-             */
+            /// Describes camera clear behaviour
             enum class ClearMode
             {
                 Nothing,
@@ -30,10 +28,7 @@ namespace GDK
                 DepthOnly
                 
             };
-            
-            /*!
-             The camera's projection mode
-             */
+            /// The camera's projection mode
             enum class ProjectionMode
             {
                 Perspective,
@@ -59,13 +54,16 @@ namespace GDK
             //RenderTexture m_RenderTexture;
             
 		public:
+            // Public methods
+            void draw();
+            
 			// Mutating operators
 			Camera& operator=(const Camera&) = delete;
 			
 			// Constructors, destructors
-			Camera() = delete;
+			Camera();
 			Camera(const Camera&) = delete;
-			~Camera() = delete;
+			~Camera() = default;
             
 		};
 
