@@ -71,6 +71,48 @@ ShaderProgram DefaultResources::createPinkShaderOfDeath()
     
 }
 
+ShaderProgram DefaultResources::createAlphaCutOff()
+{
+    const std::string vertexShaderSource = R"V0G0N(
+    #version 150
+    //Uniforms
+    uniform mat4 _MVP;
+    //VertIn
+    in vec3 a_Position;
+    in vec2 a_UV;
+    //VertOut
+    out vec2 v_UV;
+    
+    void main ()
+    {
+        v_UV = a_UV;
+        gl_Position = /*_MVP **/ vec4(a_Position,1.0);
+        
+    }
+
+    )V0G0N";
+    
+    const std::string fragmentShaderSource = R"V0G0N(
+    #version 150
+    //Uniforms
+    uniform sampler2D _Texture;
+    //FragIn
+    in vec2 v_UV;
+    //FragOut
+    out vec4 out_Frag;
+    
+    void main()
+    {
+        out_Frag = texture(_Texture, v_UV);
+        
+    }
+
+    )V0G0N";
+    
+    return ShaderProgram("AlphaCutOff",vertexShaderSource,fragmentShaderSource);
+    
+}
+
 Mesh DefaultResources::createQuad()
 {
     float size = 1.;

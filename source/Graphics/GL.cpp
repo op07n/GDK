@@ -6,6 +6,10 @@
 #include "Color.h"
 #include "../Debug/Logger.h"
 #include "../Math/IntVector2.h"
+#include "../Math/Vector2.h"
+#include "../Math/Vector3.h"
+#include "../Math/Vector4.h"
+#include "../Math/Mat4x4.h"
 //std inc
 #include <vector>
 
@@ -160,7 +164,7 @@ void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
 
 bool GLH::BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GLuint &aTextureHandle, const int aTextureUnit/*, final GLenum &aTextureType*/)
 {
-    int uniformHandle  = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    GLint uniformHandle  = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     int theTextureType = GL_TEXTURE_2D;
     
     if (uniformHandle == -1)
@@ -182,6 +186,73 @@ bool GLH::BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUn
     
     glBindTexture(theTextureType, aTextureHandle);
     glUniform1i(uniformHandle, aTextureUnit);
+    
+    return true;
+    
+}
+
+bool GLH::Bind1FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const float &aValue)
+{
+    GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    
+    if (uniformHandle == -1)
+        return false;
+    
+    glUniform1f(uniformHandle, aValue);
+    
+    return true;
+    
+}
+
+bool GLH::Bind2FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector2 &aVector2)
+{
+    GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    
+    if (uniformHandle == -1)
+        return false;
+    
+    //glUniform2f(uniformHandle, aVector2.x);
+    
+    return true;
+    
+}
+
+bool GLH::Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector3 &aVector3)
+{
+    GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    
+    if (uniformHandle == -1)
+        return false;
+    
+    //glUniform3f(uniformHandle, aVector2.x);
+    
+    return true;
+    
+    
+}
+
+bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector4 &aVector4)
+{
+    GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    
+    if (uniformHandle == -1)
+        return false;
+    
+    //glUniform4f(uniformHandle, aVector2.x);
+    
+    return true;
+    
+    
+}
+
+bool GLH::BindMatrix4x4(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Mat4x4 &aMatrix4x4)
+{
+    GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
+    
+    if (uniformHandle == -1)
+        return false;
+    
+    //glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, aMatrix4x4);
     
     return true;
     

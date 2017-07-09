@@ -4,6 +4,8 @@
 #ifndef GDK_GFX_UNIFORMCOLLECTION_H
 #define GDK_GFX_UNIFORMCOLLECTION_H
 
+//gdk inc
+#include "DataTypes.h"
 //std inc
 #include <iosfwd>
 #include <string>
@@ -15,11 +17,14 @@ namespace GDK
 	{
 		/*!
          UniformCollection is used to supply data to shaderprograms.
-		 It is a baseclass that manages, bind and unbinds a collection of T.
+		 It is a baseclass that manages, binds and unbinds a collection of T to a
+         shaderprogram
     	 */
         template<typename T>
 		class UniformCollection
 		{
+            
+            
         protected:
 			// Data members
             std::map<std::string,T> m_Map;
@@ -40,8 +45,8 @@ namespace GDK
                 
             }
             
-            virtual void bind(const int &aProgramHandle) = 0;
-            virtual void unbind(const int &aProgramHandle) = 0;
+            virtual void bind(const GFXuint &aProgramHandle) = 0;
+            virtual void unbind(const GFXuint &aProgramHandle) = 0;
             
             
 			// Mutating operators
@@ -54,7 +59,7 @@ namespace GDK
             virtual ~UniformCollection() = default;
 			
 		};
-
+        
 	}
 
 }

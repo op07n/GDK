@@ -28,6 +28,7 @@ namespace GDK
              Useful as a fallback shader.
              */
             ShaderProgram createPinkShaderOfDeath();
+            ShaderProgram createAlphaCutOff();
             
             /*!
              Make a basic quad

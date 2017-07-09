@@ -25,6 +25,14 @@
 		483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C51F0A1D6E002A7870 /* VertexFormat.h */; };
 		484B41241F12C4A100CE92B4 /* TextureUniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */; };
 		484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */; };
+		484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */; };
+		484B412F1F12DD0E00CE92B4 /* FloatUniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B41271F12DD0E00CE92B4 /* FloatUniformCollection.h */; };
+		484B41301F12DD0E00CE92B4 /* Vector2UniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41281F12DD0E00CE92B4 /* Vector2UniformCollection.cpp */; };
+		484B41311F12DD0E00CE92B4 /* Vector2UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B41291F12DD0E00CE92B4 /* Vector2UniformCollection.h */; };
+		484B41321F12DD0E00CE92B4 /* Vector3UniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B412A1F12DD0E00CE92B4 /* Vector3UniformCollection.cpp */; };
+		484B41331F12DD0E00CE92B4 /* Vector3UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B412B1F12DD0E00CE92B4 /* Vector3UniformCollection.h */; };
+		484B41341F12DD0E00CE92B4 /* Vector4UniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B412C1F12DD0E00CE92B4 /* Vector4UniformCollection.cpp */; };
+		484B41351F12DD0E00CE92B4 /* Vector4UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B412D1F12DD0E00CE92B4 /* Vector4UniformCollection.h */; };
 		485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 485908BC1F11D42F00F7A86F /* Camera.cpp */; };
 		485908BF1F11D42F00F7A86F /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 485908BD1F11D42F00F7A86F /* Camera.h */; };
 		48839BA11F07FEFF00D5CEE0 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */; };
@@ -76,6 +84,14 @@
 		483C31C51F0A1D6E002A7870 /* VertexFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexFormat.h; path = ../../source/Graphics/VertexFormat.h; sourceTree = "<group>"; };
 		484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureUniformCollection.cpp; path = ../../source/Graphics/TextureUniformCollection.cpp; sourceTree = "<group>"; };
 		484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureUniformCollection.h; path = ../../source/Graphics/TextureUniformCollection.h; sourceTree = "<group>"; };
+		484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FloatUniformCollection.cpp; path = ../../source/Graphics/FloatUniformCollection.cpp; sourceTree = "<group>"; };
+		484B41271F12DD0E00CE92B4 /* FloatUniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloatUniformCollection.h; path = ../../source/Graphics/FloatUniformCollection.h; sourceTree = "<group>"; };
+		484B41281F12DD0E00CE92B4 /* Vector2UniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2UniformCollection.cpp; path = ../../source/Graphics/Vector2UniformCollection.cpp; sourceTree = "<group>"; };
+		484B41291F12DD0E00CE92B4 /* Vector2UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2UniformCollection.h; path = ../../source/Graphics/Vector2UniformCollection.h; sourceTree = "<group>"; };
+		484B412A1F12DD0E00CE92B4 /* Vector3UniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3UniformCollection.cpp; path = ../../source/Graphics/Vector3UniformCollection.cpp; sourceTree = "<group>"; };
+		484B412B1F12DD0E00CE92B4 /* Vector3UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3UniformCollection.h; path = ../../source/Graphics/Vector3UniformCollection.h; sourceTree = "<group>"; };
+		484B412C1F12DD0E00CE92B4 /* Vector4UniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4UniformCollection.cpp; path = ../../source/Graphics/Vector4UniformCollection.cpp; sourceTree = "<group>"; };
+		484B412D1F12DD0E00CE92B4 /* Vector4UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4UniformCollection.h; path = ../../source/Graphics/Vector4UniformCollection.h; sourceTree = "<group>"; };
 		485908BC1F11D42F00F7A86F /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = ../../source/Graphics/Camera.cpp; sourceTree = "<group>"; };
 		485908BD1F11D42F00F7A86F /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = ../../source/Graphics/Camera.h; sourceTree = "<group>"; };
 		48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = ../../source/Utilities/Exception.cpp; sourceTree = "<group>"; };
@@ -159,6 +175,14 @@
 				4818CB071F12BDB900D33510 /* UniformCollection.h */,
 				484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */,
 				484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */,
+				484B41271F12DD0E00CE92B4 /* FloatUniformCollection.h */,
+				484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */,
+				484B41291F12DD0E00CE92B4 /* Vector2UniformCollection.h */,
+				484B41281F12DD0E00CE92B4 /* Vector2UniformCollection.cpp */,
+				484B412B1F12DD0E00CE92B4 /* Vector3UniformCollection.h */,
+				484B412A1F12DD0E00CE92B4 /* Vector3UniformCollection.cpp */,
+				484B412D1F12DD0E00CE92B4 /* Vector4UniformCollection.h */,
+				484B412C1F12DD0E00CE92B4 /* Vector4UniformCollection.cpp */,
 				485908BD1F11D42F00F7A86F /* Camera.h */,
 				485908BC1F11D42F00F7A86F /* Camera.cpp */,
 				483C31C31F0A1D6E002A7870 /* VertexAttribute.h */,
@@ -259,20 +283,24 @@
 				483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
 				48839BA21F07FEFF00D5CEE0 /* Exception.h in Headers */,
+				484B41351F12DD0E00CE92B4 /* Vector4UniformCollection.h in Headers */,
 				483C31C11F0A1202002A7870 /* Mesh.h in Headers */,
 				483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */,
 				483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */,
 				483C31B91F0A00F1002A7870 /* Texture.h in Headers */,
+				484B41331F12DD0E00CE92B4 /* Vector3UniformCollection.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
 				48C6539F1F05D1090001EDD6 /* Logger.h in Headers */,
 				483C31AC1F09A2B2002A7870 /* DataTypes.h in Headers */,
 				4898E45F1F0330B600825E3E /* IntVector2.h in Headers */,
 				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
+				484B41311F12DD0E00CE92B4 /* Vector2UniformCollection.h in Headers */,
 				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
 				483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
+				484B412F1F12DD0E00CE92B4 /* FloatUniformCollection.h in Headers */,
 				484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */,
 				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
@@ -343,6 +371,8 @@
 				48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */,
 				483C31891F098C53002A7870 /* ShaderProgram.cpp in Sources */,
 				4898E4561F03261700825E3E /* Vector4.cpp in Sources */,
+				484B41341F12DD0E00CE92B4 /* Vector4UniformCollection.cpp in Sources */,
+				484B41301F12DD0E00CE92B4 /* Vector2UniformCollection.cpp in Sources */,
 				48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */,
 				4898E4621F03378D00825E3E /* Plane.cpp in Sources */,
 				484B41241F12C4A100CE92B4 /* TextureUniformCollection.cpp in Sources */,
@@ -351,8 +381,10 @@
 				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */,
+				484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */,
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
+				484B41321F12DD0E00CE92B4 /* Vector3UniformCollection.cpp in Sources */,
 				485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,

@@ -33,6 +33,9 @@ namespace GDK
             Vector4(const Vector4&) = default;
             ~Vector4() = default;
             
+            // Special values
+            static const Vector4 Zero;
+            
         };
         
         std::ostream& operator<< (std::ostream&, const Math::Vector4&);

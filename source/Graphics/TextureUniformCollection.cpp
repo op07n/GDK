@@ -12,14 +12,15 @@ using namespace GFX;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCollection& a)
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "TextureUniformCollection's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    s.clear(); s << "{";
+    int i = 0;
+    for (auto& pair : a.m_Map)
+        s << i << ": " << "{Name: " << pair.first << ", " << "Texture: " << *pair.second.get() << "}";
+    s << "}"; return s;
 
 }
 
-void TextureUniformCollection::bind(const int &aProgramHandle)
+void TextureUniformCollection::bind(const GFXuint &aProgramHandle)
 {
     int i = 0;
     for (auto& pair : m_Map)
@@ -27,7 +28,7 @@ void TextureUniformCollection::bind(const int &aProgramHandle)
     
 }
 
-void TextureUniformCollection::unbind(const int &aProgramHandle)
+void TextureUniformCollection::unbind(const GFXuint &aProgramHandle)
 {
     int i = 0;
     for (auto& pair : m_Map)

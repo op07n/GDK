@@ -16,6 +16,10 @@
 
 namespace GDK{namespace GFX{struct Color;}}
 namespace GDK{namespace Math{struct IntVector2;}}
+namespace GDK{namespace Math{struct Vector2;}}
+namespace GDK{namespace Math{struct Vector3;}}
+namespace GDK{namespace Math{struct Vector4;}}
+namespace GDK{namespace Math{struct Mat4x4;}}
 
 namespace GLH
 {
@@ -36,6 +40,11 @@ namespace GLH
     
     //Uniform binding
     bool BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GLuint &aTextureHandle, const int aTextureUnit/*, final GLenum &aTextureType*/);
+    bool Bind1FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const float &aScalar);
+    bool Bind2FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector2 &aVector2);
+    bool Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector3 &aVector3);
+    bool Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector4 &aVector4);
+    bool BindMatrix4x4(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Mat4x4 &aMatrix4x4);
     
 }
 

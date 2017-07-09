@@ -8,6 +8,10 @@
 #include "ShaderProgram.h"
 #include "Mesh.h"
 #include "TextureUniformCollection.h"
+#include "FloatUniformCollection.h"
+#include "Vector2UniformCollection.h"
+#include "Vector3UniformCollection.h"
+#include "Vector4UniformCollection.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -30,11 +34,18 @@ namespace GDK
             std::shared_ptr<ShaderProgram> m_ShaderProgram;
             
             TextureUniformCollection m_Textures;
-            // etc...
+            FloatUniformCollection   m_Floats;
+            Vector2UniformCollection m_Vector2s;
+            Vector3UniformCollection m_Vector3s;
+            Vector4UniformCollection m_Vector4s;
             
 		public:
             // Accessors
             void setTexture(const std::string &aUniformName, const std::shared_ptr<Texture> &aTexture);
+            void setFloat  (const std::string &aUniformName, const std::shared_ptr<float> &aFloat);
+            void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2);
+            void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3);
+            void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4);
             
             // public methods
             void draw();

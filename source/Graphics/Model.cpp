@@ -12,9 +12,14 @@ using namespace GFX;
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Model& a)
 {
     s.clear(); s << "{"
-    << "Name: " << a.m_Name << ", "
-    << "Mesh: " << *a.m_Mesh.get() << ", "
-    << "ShaderProgram: " << *a.m_ShaderProgram.get()
+    << "Name: "          << a.m_Name                 << ", "
+    << "Mesh: "          << *a.m_Mesh.get()          << ", "
+    << "ShaderProgram: " << *a.m_ShaderProgram.get() << ", "
+    << "m_Textures: "    << a.m_Textures             << ", "
+    << "m_Floats: "      << a.m_Floats               << ", "
+    << "m_Vector2s: "    << a.m_Vector2s             << ", "
+    << "m_Vector3s: "    << a.m_Vector3s             << ", "
+    << "m_Vector4s: "    << a.m_Vector4s
     << "}"; return s;
 
 }

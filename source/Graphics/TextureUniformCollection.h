@@ -26,8 +26,8 @@ namespace GDK
 			// Accessors
 			
 			// Public methods
-            void bind(const int &aProgramHandle);
-            void unbind(const int &aProgramHandle);
+            void bind(const GFXuint &aProgramHandle) override;
+            void unbind(const GFXuint &aProgramHandle) override;
 			
 			// Mutating operators
 			TextureUniformCollection& operator=(const TextureUniformCollection&) = delete;

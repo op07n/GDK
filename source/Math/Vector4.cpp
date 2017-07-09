@@ -11,6 +11,9 @@
 using namespace GDK;
 using namespace Math;
 
+//static const
+const Vector4 Vector4::Zero = Vector4( 0.,0.,0.,0.);
+
 //Stringify
 std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector4& a)
 {

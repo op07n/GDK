@@ -52,10 +52,10 @@ Mesh::Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, c
     
     std::ostringstream ss;
     
-    for(size_t i=0,s=aVertexData.size();i<s;i++)
+    /*for(size_t i=0,s=aVertexData.size();i<s;i++)
         ss << aVertexData[i] << ", ";
     
-    Debug::log(ss.str());
+    Debug::log(ss.str());*/
     
     // Create and populate a VBO
     glGenBuffers(1, &m_VertexBufferHandle);
