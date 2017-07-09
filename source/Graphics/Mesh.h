@@ -18,7 +18,7 @@ namespace GDK
 		/*!
 		 Vertex data representing a 3D graphical object
     	 */
-		class Mesh
+		class Mesh final
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
             

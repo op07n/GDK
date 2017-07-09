@@ -18,7 +18,7 @@ namespace GDK
 		 ShaderProgram specifies drawing behaviours at the programmable stages in the OpenGL
          programmable pipeline.
     	 */
-        class ShaderProgram
+        class ShaderProgram final
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
             

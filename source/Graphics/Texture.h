@@ -17,7 +17,7 @@ namespace GDK
 		/*!
 		 Texture represents an image. RGBA, 2D.
     	 */
-		class Texture
+		class Texture final
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::Texture&);
             

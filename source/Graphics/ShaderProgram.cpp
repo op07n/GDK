@@ -18,7 +18,6 @@ std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::ShaderProgra
     GFXint activeAttribs = 0, activeUniforms = 0;
     glGetProgramiv(aShaderProgram.m_ProgramHandle, GL_ACTIVE_ATTRIBUTES, &activeAttribs);
     glGetProgramiv(aShaderProgram.m_ProgramHandle, GL_ACTIVE_UNIFORMS, &activeUniforms);
-    //Debug::log("Success! Handle: ",m_ProgramHandle,", Active attributes: ",activeAttribs,", Active uniforms: ",activeUniforms);
     
     stream.clear();
     stream
@@ -31,8 +30,6 @@ std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::ShaderProgra
     return stream;
 
 }
-
-
 
 ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource)
 : m_Name(aName)

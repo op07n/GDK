@@ -14,18 +14,18 @@ namespace ${PROJECTNAME}
 		/*!
 		 No description provided for ${CLASSNAME}
     	 */
-		class ${CLASSNAME}
+		class ${CLASSNAME} final
 		{
 			friend std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
 		
 		public:
 			// Mutating operators
-			${CLASSNAME}& operator=(const ${CLASSNAME}&) = default;
+			${CLASSNAME}& operator=(const ${CLASSNAME}&) = delete;
 			
 			// Constructors, destructors
-			${CLASSNAME}() = default;
-			${CLASSNAME}(const ${CLASSNAME}&) = default;
-			~${CLASSNAME}() = default;
+			${CLASSNAME}() = delete;
+			${CLASSNAME}(const ${CLASSNAME}&) = delete;
+			~${CLASSNAME}() = delete;
 			
 		};
 
