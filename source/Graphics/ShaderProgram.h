@@ -25,8 +25,6 @@ namespace GDK
             // Data members
             std::string m_Name;
             GFXuint m_ProgramHandle;
-            //DRAWCALLS FUNCTIONCALLBACK??
-            
             
 		public:
             // Public interface

@@ -21,12 +21,9 @@ uniform mat4 _MVP;
 //VertIn
 in vec3 a_Position;
 
-//VertOut
-out vec4 out_Position;
-
 void main ()
 {
-    out_Position = _MVP * vec4(a_Position,1.0);
+    gl_Position = _MVP * vec4(a_Position,1.0);
     
 }
 
