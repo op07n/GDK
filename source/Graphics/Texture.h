@@ -37,7 +37,7 @@ namespace GDK
 			Texture() = delete;
             Texture(const std::vector<const unsigned char>& aTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
 			Texture(const Texture&) = delete;
-			~Texture() = default;
+			~Texture() = delete;
 			
 		};
 

@@ -23,7 +23,7 @@ in vec3 a_Position;
 
 void main ()
 {
-    gl_Position = _MVP * vec4(a_Position,1.0);
+    gl_Position = /*_MVP **/ vec4(a_Position,1.0);
     
 }
 
@@ -46,8 +46,8 @@ void main()
 
 )V0G0N";
 
-/*ShaderProgram createPinkShaderOfDeath()
+ShaderProgram Fallbacks::createPinkShaderOfDeath()
 {
     return ShaderProgram("PinkShaderOfDeath",vertexShaderSource,fragmentShaderSource);
     
-}*/
+}

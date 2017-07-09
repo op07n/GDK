@@ -24,6 +24,8 @@
 		483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C31F0A1D6E002A7870 /* VertexAttribute.h */; };
 		483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31C41F0A1D6E002A7870 /* VertexFormat.cpp */; };
 		483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C51F0A1D6E002A7870 /* VertexFormat.h */; };
+		485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 485908BC1F11D42F00F7A86F /* Camera.cpp */; };
+		485908BF1F11D42F00F7A86F /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 485908BD1F11D42F00F7A86F /* Camera.h */; };
 		48839BA11F07FEFF00D5CEE0 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */; };
 		48839BA21F07FEFF00D5CEE0 /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BA01F07FEFF00D5CEE0 /* Exception.h */; };
 		48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839BAB1F08C4CB00D5CEE0 /* GL.cpp */; };
@@ -71,6 +73,8 @@
 		483C31C31F0A1D6E002A7870 /* VertexAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexAttribute.h; path = ../../source/Graphics/VertexAttribute.h; sourceTree = "<group>"; };
 		483C31C41F0A1D6E002A7870 /* VertexFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VertexFormat.cpp; path = ../../source/Graphics/VertexFormat.cpp; sourceTree = "<group>"; };
 		483C31C51F0A1D6E002A7870 /* VertexFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexFormat.h; path = ../../source/Graphics/VertexFormat.h; sourceTree = "<group>"; };
+		485908BC1F11D42F00F7A86F /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = ../../source/Graphics/Camera.cpp; sourceTree = "<group>"; };
+		485908BD1F11D42F00F7A86F /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = ../../source/Graphics/Camera.h; sourceTree = "<group>"; };
 		48839B9F1F07FEFF00D5CEE0 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = ../../source/Utilities/Exception.cpp; sourceTree = "<group>"; };
 		48839BA01F07FEFF00D5CEE0 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = ../../source/Utilities/Exception.h; sourceTree = "<group>"; };
 		48839BAB1F08C4CB00D5CEE0 /* GL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GL.cpp; path = ../../source/Graphics/GL.cpp; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				483C31AF1F09FB9A002A7870 /* PinkShaderOfDeath.h */,
 				483C31AE1F09FB9A002A7870 /* PinkShaderOfDeath.cpp */,
 				483C31AA1F09A2B2002A7870 /* DataTypes.h */,
+				485908BD1F11D42F00F7A86F /* Camera.h */,
+				485908BC1F11D42F00F7A86F /* Camera.cpp */,
 				483C31C31F0A1D6E002A7870 /* VertexAttribute.h */,
 				483C31C21F0A1D6E002A7870 /* VertexAttribute.cpp */,
 				483C31C51F0A1D6E002A7870 /* VertexFormat.h */,
@@ -261,6 +267,7 @@
 				483C31B11F09FB9A002A7870 /* PinkShaderOfDeath.h in Headers */,
 				483C31B51F0A0040002A7870 /* CheckeredTextureOfDeath.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
+				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +346,7 @@
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,
 				483C31B01F09FB9A002A7870 /* PinkShaderOfDeath.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
+				485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,

@@ -76,6 +76,15 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
     
 }
 
+ShaderProgram::ShaderProgram(ShaderProgram&& aShaderProgram)
+{
+    m_Name = aShaderProgram.m_Name;
+    m_ProgramHandle = aShaderProgram.m_ProgramHandle;
+    
+    aShaderProgram.m_ProgramHandle = 0;
+    
+}
+
 ShaderProgram::~ShaderProgram()
 {
     if (m_ProgramHandle > 0)
