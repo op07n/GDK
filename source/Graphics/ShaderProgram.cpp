@@ -21,7 +21,8 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgram& a)
     
     s.clear(); s
     << "{"
-    << "Name: " << a.m_Name << ", "
+    << "m_Name: " << a.m_Name << ", "
+    << "m_Handle: " << a.m_ProgramHandle << ", "
     << "Active attributes: " << activeAttribs << ", "
     << "Active uniforms: " << activeUniforms
     << "}";
@@ -87,7 +88,7 @@ ShaderProgram::~ShaderProgram()
 {
     if (m_ProgramHandle > 0)
         glDeleteProgram(m_ProgramHandle);
-    
+     
 }
 
 GFXuint ShaderProgram::draw()

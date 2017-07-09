@@ -57,7 +57,8 @@ Texture::Texture(Texture&& other)
 
 Texture::~Texture()
 {
-    glDeleteBuffers(1, &m_Handle);
+    if (m_Handle > 0)
+        glDeleteBuffers(1, &m_Handle);
     
 }
 

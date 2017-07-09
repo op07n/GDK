@@ -55,7 +55,7 @@ namespace GDK
 			// Constructors, destructors
             Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, const VertexFormat &aVertexFormat, const Mesh::Type &aType);
 			Mesh() = delete;
-			Mesh(const Mesh&) = default;
+			Mesh(Mesh&&);
 			~Mesh();
 			
 		};

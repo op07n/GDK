@@ -72,7 +72,7 @@ namespace GDK
 			
 			// Constructors, destructors
 			Camera();
-			Camera(const Camera&) = delete;
+			Camera(const Camera&) = default;
 			~Camera() = default;
             
 		};

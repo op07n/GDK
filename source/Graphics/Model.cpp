@@ -29,6 +29,4 @@ void Model::draw()
 {
     m_Mesh.get()->draw(m_ShaderProgram.get()->draw());
     
-    Debug::log("Model: ",m_Mesh.get()->getHandle(),", ",m_ShaderProgram.get()->getHandle());
-    
 }
