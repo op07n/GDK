@@ -15,3 +15,9 @@ std::ostream& GDK::GFX::operator<<(std::ostream& stream, const GFX::Model& aMode
     return stream;
 
 }
+
+Model::Model(const std::string &aName, const Mesh &aMesh, ShaderProgram &aShaderProgram)
+: m_Name(aName)
+, m_Mesh(aMesh)
+, m_ShaderProgram(aShaderProgram)
+{}

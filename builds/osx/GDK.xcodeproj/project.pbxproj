@@ -10,10 +10,8 @@
 		483C31891F098C53002A7870 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31851F098C53002A7870 /* ShaderProgram.cpp */; };
 		483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31861F098C53002A7870 /* ShaderProgram.h */; };
 		483C31AC1F09A2B2002A7870 /* DataTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31AA1F09A2B2002A7870 /* DataTypes.h */; };
-		483C31B01F09FB9A002A7870 /* PinkShaderOfDeath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31AE1F09FB9A002A7870 /* PinkShaderOfDeath.cpp */; };
-		483C31B11F09FB9A002A7870 /* PinkShaderOfDeath.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31AF1F09FB9A002A7870 /* PinkShaderOfDeath.h */; };
-		483C31B41F0A0040002A7870 /* CheckeredTextureOfDeath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31B21F0A0040002A7870 /* CheckeredTextureOfDeath.cpp */; };
-		483C31B51F0A0040002A7870 /* CheckeredTextureOfDeath.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31B31F0A0040002A7870 /* CheckeredTextureOfDeath.h */; };
+		483C31B41F0A0040002A7870 /* DefaultResources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31B21F0A0040002A7870 /* DefaultResources.cpp */; };
+		483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31B31F0A0040002A7870 /* DefaultResources.h */; };
 		483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31B61F0A00F1002A7870 /* Texture.cpp */; };
 		483C31B91F0A00F1002A7870 /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31B71F0A00F1002A7870 /* Texture.h */; };
 		483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31BA1F0A0ED5002A7870 /* Model.cpp */; };
@@ -43,6 +41,7 @@
 		4899AF611F009239009B4E73 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4899AF5F1F009239009B4E73 /* Color.cpp */; };
 		48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48C6539C1F05D1090001EDD6 /* Logger.cpp */; };
 		48C6539F1F05D1090001EDD6 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 48C6539D1F05D1090001EDD6 /* Logger.h */; };
+		48E1E4D01F12023400D01A6E /* stb_implementation.c in Sources */ = {isa = PBXBuildFile; fileRef = 48E1E4CF1F12023400D01A6E /* stb_implementation.c */; };
 		48FFC4C81F01DB88003932BA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4C61F01DB88003932BA /* Window.cpp */; };
 		48FFC4C91F01DB88003932BA /* Window.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4C71F01DB88003932BA /* Window.h */; };
 		48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4CB1F01DEFA003932BA /* Vector3.h */; };
@@ -59,10 +58,8 @@
 		483C31851F098C53002A7870 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgram.cpp; path = ../../source/Graphics/ShaderProgram.cpp; sourceTree = "<group>"; };
 		483C31861F098C53002A7870 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgram.h; path = ../../source/Graphics/ShaderProgram.h; sourceTree = "<group>"; };
 		483C31AA1F09A2B2002A7870 /* DataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataTypes.h; path = ../../source/Graphics/DataTypes.h; sourceTree = "<group>"; };
-		483C31AE1F09FB9A002A7870 /* PinkShaderOfDeath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PinkShaderOfDeath.cpp; path = ../../source/Graphics/PinkShaderOfDeath.cpp; sourceTree = "<group>"; };
-		483C31AF1F09FB9A002A7870 /* PinkShaderOfDeath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinkShaderOfDeath.h; path = ../../source/Graphics/PinkShaderOfDeath.h; sourceTree = "<group>"; };
-		483C31B21F0A0040002A7870 /* CheckeredTextureOfDeath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CheckeredTextureOfDeath.cpp; path = ../../source/Graphics/CheckeredTextureOfDeath.cpp; sourceTree = "<group>"; };
-		483C31B31F0A0040002A7870 /* CheckeredTextureOfDeath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckeredTextureOfDeath.h; path = ../../source/Graphics/CheckeredTextureOfDeath.h; sourceTree = "<group>"; };
+		483C31B21F0A0040002A7870 /* DefaultResources.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DefaultResources.cpp; path = ../../source/Graphics/DefaultResources.cpp; sourceTree = "<group>"; };
+		483C31B31F0A0040002A7870 /* DefaultResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultResources.h; path = ../../source/Graphics/DefaultResources.h; sourceTree = "<group>"; };
 		483C31B61F0A00F1002A7870 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Texture.cpp; path = ../../source/Graphics/Texture.cpp; sourceTree = "<group>"; };
 		483C31B71F0A00F1002A7870 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = ../../source/Graphics/Texture.h; sourceTree = "<group>"; };
 		483C31BA1F0A0ED5002A7870 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../../source/Graphics/Model.cpp; sourceTree = "<group>"; };
@@ -93,6 +90,7 @@
 		48B2494B1EFF6DA800A70F35 /* libGDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		48C6539C1F05D1090001EDD6 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = ../../source/Debug/Logger.cpp; sourceTree = "<group>"; };
 		48C6539D1F05D1090001EDD6 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../../source/Debug/Logger.h; sourceTree = "<group>"; };
+		48E1E4CF1F12023400D01A6E /* stb_implementation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stb_implementation.c; path = ../../includes/Common/stb/stb_implementation.c; sourceTree = "<group>"; };
 		48FFC4C61F01DB88003932BA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../source/Graphics/Window.cpp; sourceTree = "<group>"; };
 		48FFC4C71F01DB88003932BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = ../../source/Graphics/Window.h; sourceTree = "<group>"; };
 		48FFC4CB1F01DEFA003932BA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = ../../source/Math/Vector3.h; sourceTree = "<group>"; };
@@ -147,10 +145,8 @@
 		4899AF5D1F00921D009B4E73 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				483C31B31F0A0040002A7870 /* CheckeredTextureOfDeath.h */,
-				483C31B21F0A0040002A7870 /* CheckeredTextureOfDeath.cpp */,
-				483C31AF1F09FB9A002A7870 /* PinkShaderOfDeath.h */,
-				483C31AE1F09FB9A002A7870 /* PinkShaderOfDeath.cpp */,
+				483C31B31F0A0040002A7870 /* DefaultResources.h */,
+				483C31B21F0A0040002A7870 /* DefaultResources.cpp */,
 				483C31AA1F09A2B2002A7870 /* DataTypes.h */,
 				485908BD1F11D42F00F7A86F /* Camera.h */,
 				485908BC1F11D42F00F7A86F /* Camera.cpp */,
@@ -229,6 +225,7 @@
 		E29C2AA019FC9ADC00A6FCD2 /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				48E1E4CF1F12023400D01A6E /* stb_implementation.c */,
 				481644471EFF63CC004DA647 /* glew.c */,
 				481644451EFF63BC004DA647 /* libglfw3.a */,
 				E29C2A8C19FB7AA500A6FCD2 /* QuartzCore.framework */,
@@ -264,8 +261,7 @@
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
 				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
-				483C31B11F09FB9A002A7870 /* PinkShaderOfDeath.h in Headers */,
-				483C31B51F0A0040002A7870 /* CheckeredTextureOfDeath.h in Headers */,
+				483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
 				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
@@ -344,13 +340,13 @@
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */,
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,
-				483C31B01F09FB9A002A7870 /* PinkShaderOfDeath.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
 				485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,
-				483C31B41F0A0040002A7870 /* CheckeredTextureOfDeath.cpp in Sources */,
+				483C31B41F0A0040002A7870 /* DefaultResources.cpp in Sources */,
+				48E1E4D01F12023400D01A6E /* stb_implementation.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

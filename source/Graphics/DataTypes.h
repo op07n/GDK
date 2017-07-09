@@ -16,7 +16,7 @@ namespace GDK
         using GFXint   = int;
         using GFXuint  = unsigned int;
         using GFXfloat = float;
-        using GFXbyte  = const unsigned char;
+        using GFXbyte  = unsigned char;
         
 	}
 

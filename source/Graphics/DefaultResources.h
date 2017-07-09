@@ -6,12 +6,14 @@
 
 //gdk inc
 #include "Texture.h"
+#include "ShaderProgram.h"
+#include "Mesh.h"
 
 namespace GDK
 {
 	namespace GFX
 	{
-        namespace Fallbacks
+        namespace DefaultResources
         {
             /*!
              Creates the checkeredTextureOfDeath.
@@ -19,6 +21,18 @@ namespace GDK
              Useful as a fallback when the intended texture has failed to load.
              */
             Texture createCheckeredTextureOfDeath();
+            
+            /*!
+             Creates the PinkShaderOfDeath.
+             Muls verts through standard MVP but colors all frags an obnoxious fluorescent pink.
+             Useful as a fallback shader.
+             */
+            ShaderProgram createPinkShaderOfDeath();
+            
+            /*!
+             Make a basic quad
+             */
+            Mesh createQuad();
             
         }
 		

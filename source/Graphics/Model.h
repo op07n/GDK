@@ -22,15 +22,20 @@ namespace GDK
 			friend std::ostream& operator<< (std::ostream&, const GFX::Model&);
             
             // Data members
+            std::string m_Name;
+            Mesh m_Mesh;
+            ShaderProgram m_ShaderProgram;
+            
             //TODO: refer to G2Dj GraphicsObject
             
 		public:
+            void draw();
             
 			// Mutating operators
 			Model& operator=(const Model&) = delete;
 			
 			// Constructors, destructors
-            Model(const Model&, const ShaderProgram&);
+            Model(const std::string &aName, const Mesh&, ShaderProgram&);
 			Model() = delete;
 			Model(const Model&) = delete;
 			~Model() = default;

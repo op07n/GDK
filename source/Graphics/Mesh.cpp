@@ -67,7 +67,6 @@ Mesh::Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, c
 
 Mesh::~Mesh()
 {
-    //Todo:
     glDeleteBuffers(1, &m_VertexBufferHandle);
     
 }
