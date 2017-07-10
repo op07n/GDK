@@ -26,10 +26,10 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexFormat& a)
 {
     s << "{";
     const auto secondLast = std::prev(a.m_Format.end(), 1);
-    for(auto iter = a.m_Format.begin(); iter != a.m_Format.end(); ++iter)
+    for (auto& pair : a.m_Format)
     {
-        s << iter->first << ": " << iter->second;
-        if (iter != secondLast)
+        s << pair.first << ": " << pair.second;
+        if (pair != *secondLast)
             s << ", ";
         
     }

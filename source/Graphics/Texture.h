@@ -15,7 +15,7 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 Texture represents an image. RGBA, 2D.
+		 Texture represents an image. RGBA32, 2D.
     	 */
 		class Texture final
 		{

@@ -19,14 +19,12 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgram& a)
     glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_ATTRIBUTES, &activeAttribs);
     glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_UNIFORMS, &activeUniforms);
     
-    s.clear(); s
-    << "{"
-    << "m_Name: " << a.m_Name << ", "
-    << "m_Handle: " << a.m_ProgramHandle << ", "
-    << "Active attributes: " << activeAttribs << ", "
-    << "Active uniforms: " << activeUniforms
-    << "}";
-    return s;
+    s.clear(); s << "{"
+    << "m_Name: "            << a.m_Name          << ", "
+    << "m_Handle: "          << a.m_ProgramHandle << ", "
+    << "Active attributes: " << activeAttribs     << ", "
+    << "Active uniforms: "   << activeUniforms
+    << "}"; return s;
 
 }
 

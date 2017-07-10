@@ -16,7 +16,7 @@ using namespace GFX;
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Texture& a)
 {
     s.clear(); s << "{"
-    << "m_Name: " << a.m_Name << ", "
+    << "m_Name: "   << a.m_Name   << ", "
     << "m_Handle: " << a.m_Handle
     << "}"; return s;
     

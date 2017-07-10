@@ -25,11 +25,14 @@ const Color Color::CornflowerBlue
  );
 
 //operators
-std::ostream& GDK::GFX::operator<< (std::ostream& stream, const GFX::Color& aColor)
+std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Color& a)
 {
-    stream
-    << "{" << aColor.r << ", " << aColor.g << ", " << aColor.b << ", " << aColor.a << "}";
-    return stream;
+    s.clear(); s << "{"
+    << a.r << ", "
+    << a.g << ", "
+    << a.b << ", "
+    << a.a
+    << "}"; return s;
     
 }
 

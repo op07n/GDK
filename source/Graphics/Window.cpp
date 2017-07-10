@@ -19,7 +19,7 @@ int s_InstanceCount = 0;
 std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a)
 {
     s.clear(); s << "{"
-    << "m_Title: " << a.m_Title << ", "
+    << "m_Title: "  << a.m_Title              << ", "
     << "m_Handle: " << a.m_HandleToGLFWWindow
     << "}"; return s;
 

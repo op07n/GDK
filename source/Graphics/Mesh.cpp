@@ -13,14 +13,12 @@ using namespace GFX;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a)
 {
-    s.clear();
-    s << "{"
-    << "Name: " << a.m_Name << ", "
-    << "Handle: " << a.m_VertexBufferHandle << ", "
-    << "VertexCount: " << a.m_VertexCount << ", "
+    s.clear(); s << "{"
+    << "Name: "         << a.m_Name               << ", "
+    << "Handle: "       << a.m_VertexBufferHandle << ", "
+    << "VertexCount: "  << a.m_VertexCount        << ", "
     << "VertexFormat: " << a.m_VertexFormat
-    << "}";
-    return s;
+    << "}"; return s;
 
 }
 
