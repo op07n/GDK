@@ -28,16 +28,30 @@ Model::Model(const std::string &aName, const std::shared_ptr<Mesh> &aMesh, const
 : m_Name(aName)
 , m_Mesh(aMesh)
 , m_ShaderProgram(aShaderProgram)
+, m_Textures()
+, m_Floats()
+, m_Vector2s()
+, m_Vector3s()
+, m_Vector4s()
 {}
 
-void Model::draw()
+void Model::draw(const Camera& aCamera)
 {
     GFXuint programHandle = m_ShaderProgram.get()->draw();
     
     m_Textures.bind(programHandle);
+    m_Floats.bind(programHandle);
+    m_Vector2s.bind(programHandle);
+    m_Vector3s.bind(programHandle);
+    m_Vector4s.bind(programHandle);
     
     m_Mesh.get()->draw(programHandle);
     
 }
 
+// Accessors
 void Model::setTexture(const std::string &aUniformName, const std::shared_ptr<Texture> &aTexture){m_Textures.put(aUniformName, aTexture);}
+void Model::setFloat  (const std::string &aUniformName, const std::shared_ptr<float> &aFloat){m_Floats.put(aUniformName,aFloat);}
+void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2){m_Vector2s.put(aUniformName,aVector2);}
+void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3){m_Vector3s.put(aUniformName,aVector3);}
+void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4){m_Vector4s.put(aUniformName,aVector4);}

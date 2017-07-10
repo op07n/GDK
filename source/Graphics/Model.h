@@ -16,6 +16,8 @@
 #include <iosfwd>
 #include <memory>
 
+namespace GDK {namespace GFX{class Camera;}}
+
 namespace GDK
 {
 	namespace GFX
@@ -48,7 +50,7 @@ namespace GDK
             void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4);
             
             // public methods
-            void draw();
+            void draw(const Camera&);
             
 			// Mutating operators
 			Model& operator=(const Model&) = delete;

@@ -132,4 +132,3 @@ Mesh DefaultResources::createQuad()
     return Mesh("MyMesh",data,VertexFormat::Pos3uv2,Mesh::Type::Static);
     
 }
-

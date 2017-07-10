@@ -211,7 +211,7 @@ bool GLH::Bind2FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     if (uniformHandle == -1)
         return false;
     
-    //glUniform2f(uniformHandle, aVector2.x);
+    glUniform2f(uniformHandle, aVector2.x, aVector2.y);
     
     return true;
     
@@ -224,7 +224,7 @@ bool GLH::Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     if (uniformHandle == -1)
         return false;
     
-    //glUniform3f(uniformHandle, aVector2.x);
+    glUniform3f(uniformHandle, aVector3.x, aVector3.y, aVector3.z);
     
     return true;
     
@@ -238,7 +238,7 @@ bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     if (uniformHandle == -1)
         return false;
     
-    //glUniform4f(uniformHandle, aVector2.x);
+    glUniform4f(uniformHandle, aVector4.x, aVector4.y, aVector4.z, aVector4.w);
     
     return true;
     
