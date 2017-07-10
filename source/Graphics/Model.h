@@ -16,6 +16,7 @@
 #include <iosfwd>
 #include <memory>
 
+namespace GDK {namespace Math{class Mat4x4;}}
 namespace GDK {namespace GFX{class Camera;}}
 
 namespace GDK
@@ -48,6 +49,8 @@ namespace GDK
             void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2);
             void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3);
             void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4);
+            
+            Math::Mat4x4 getModelMatrix() const;
             
             // public methods
             void draw(const Camera&);

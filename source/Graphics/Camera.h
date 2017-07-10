@@ -10,6 +10,8 @@
 //std inc
 #include <iosfwd>
 
+namespace GDK{namespace Math{struct Mat4x4;}}
+
 namespace GDK
 {
 	namespace GFX
@@ -57,11 +59,13 @@ namespace GDK
             // Accessors
             void setViewportPosition(const Math::IntVector2&);
             void setViewportPosition(const int &x, const int &y);
-            Math::IntVector2 getViewportPosition();
-            
             void setViewportSize(const Math::IntVector2&);
             void setViewportSize(const int &x, const int &y);
+            
+            Math::IntVector2 getViewportPosition();
             Math::IntVector2 getViewportSize();
+            Math::Mat4x4 getProjectionMatrix() const;
+            Math::Mat4x4 getViewMatrix() const;
             
             // Public methods
             void draw();

@@ -47,7 +47,7 @@ ShaderProgram DefaultResources::createPinkShaderOfDeath()
     
     void main ()
     {
-        gl_Position = /*_MVP **/ vec4(a_Position,1.0);
+        gl_Position = _MVP * vec4(a_Position,1.0);
     
     }
 
@@ -86,7 +86,7 @@ ShaderProgram DefaultResources::createAlphaCutOff()
     void main ()
     {
         v_UV = a_UV;
-        gl_Position = /*_MVP **/ vec4(a_Position,1.0);
+        gl_Position = _MVP * vec4(a_Position,1.0);
         
     }
 
@@ -129,6 +129,6 @@ Mesh DefaultResources::createQuad()
         
     });
     
-    return Mesh("MyMesh",data,VertexFormat::Pos3uv2,Mesh::Type::Static);
+    return Mesh("Quad",data,VertexFormat::Pos3uv2,Mesh::Type::Static);
     
 }

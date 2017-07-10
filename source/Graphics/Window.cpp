@@ -34,6 +34,8 @@ void initGLFW()
     if(!glfwInit())
         throw GDK::Exception("glfwInit failed");
     
+    //glfwSwapInterval(0);
+    
 }
 
 void destroyGLFW()
@@ -74,6 +76,8 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, true);
+    
+    
     
     aGLFWWindow = glfwCreateWindow(aScreenSize.x, aScreenSize.y, aName.c_str(), nullptr, nullptr);
     if(!aGLFWWindow)

@@ -2,6 +2,10 @@
 // Project: GDK
 // Created on 2017-06-28.
 #include "Mat4x4.h"
+//thirdparty inc
+#include <glm/matrix.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_inverse.hpp>
 //std inc
 #include <iostream>
 
@@ -45,3 +49,9 @@ Mat4x4::Mat4x4
 , m20(a20), m21(a21), m22(a22), m23(a23)
 , m30(a30), m31(a31), m32(a32), m33(a33)
 {}
+
+Mat4x4& Mat4x4::operator*(const Mat4x4&)
+{
+    return *this;
+    
+}

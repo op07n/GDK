@@ -8,6 +8,7 @@
 #include "GL.h"
 #include "Color.h"
 #include "../Math/IntVector2.h"
+#include "../Math/Mat4x4.h"
 
 using namespace GDK;
 using namespace GFX;
@@ -67,10 +68,35 @@ void Camera::draw()
     
 }
 
+
+Math::Mat4x4 Camera::getProjectionMatrix() const
+{
+    switch(m_ProjectionMode)
+    {
+        default:
+        case ProjectionMode::Perspective:
+            return Math::Mat4x4();//b_ProjectionMatrixBuffer.perspectiveInPlace(m_FieldOfView, getViewportAspectRatio(), m_NearClippingPlane, m_FarClippingPlane);
+        break;
+            
+        case ProjectionMode::Orthographic:
+            return Math::Mat4x4();//b_ProjectionMatrixBuffer.orthographicInPlace(m_OrthoSize,m_NearClippingPlane,m_FarClippingPlane,getViewportAspectRatio());
+        break;
+            
+    }
+    
+}
+
+Math::Mat4x4 Camera::getViewMatrix() const
+{
+    return Math::Mat4x4();
+    
+}
+
+//Trivial accessors
 void Camera::setViewportPosition(const Math::IntVector2 &a){m_ViewportPosition=a;}
 void Camera::setViewportPosition(const int &x, const int &y){m_ViewportPosition.x=x;m_ViewportPosition.y=y;}
-Math::IntVector2 Camera::getViewportPosition(){return m_ViewportPosition;}
-
 void Camera::setViewportSize(const Math::IntVector2 &a){m_ViewportSize=a;}
 void Camera::setViewportSize(const int &x, const int &y){m_ViewportSize.x=x;m_ViewportSize.y=y;}
+
 Math::IntVector2 Camera::getViewportSize(){return m_ViewportSize;}
+Math::IntVector2 Camera::getViewportPosition(){return m_ViewportPosition;}

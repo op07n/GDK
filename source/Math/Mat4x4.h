@@ -25,6 +25,7 @@ namespace GDK
             
             // Mutating operators
             Mat4x4& operator=(const Mat4x4&) = default;
+            Mat4x4& operator*(const Mat4x4&);
             
             // Constructors & Destructors
             Mat4x4();
