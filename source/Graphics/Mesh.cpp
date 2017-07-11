@@ -123,4 +123,4 @@ void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const V
 
 // Accessors
 GFXuint Mesh::getHandle(){return m_VertexBufferHandle;}
-int Mesh::getVertexCount(){return m_VertexCount;}
+//const int& Mesh::getVertexCount()const{return m_VertexCount;}

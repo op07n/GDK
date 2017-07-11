@@ -18,6 +18,8 @@ using namespace GFX;
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a)
 {
     s.clear(); s << "{"
+    << "m_ViewMatrix:\n"       << a.m_ViewMatrix        // << ", "
+    << "m_ProjectionMatrix:\n" << a.m_ProjectionMatrix  // << ", "
     << "m_ViewportPosition: "  << a.m_ViewportPosition  << ", "
     << "m_ViewportSize: "      << a.m_ViewportSize      << ", "
     << "m_FieldOfView: "       << a.m_FieldOfView       << ", "
@@ -28,7 +30,9 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a)
 }
 
 Camera::Camera()
-: m_ClearMode(ClearMode::Color)
+: m_ViewMatrix()
+, m_ProjectionMatrix()
+, m_ClearMode(ClearMode::Color)
 , m_ClearColor(Color::CornflowerBlue)
 , m_ViewportPosition(Math::Vector2::Zero)
 , m_ViewportSize(Math::Vector2(1.,1.))
@@ -69,35 +73,16 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
     
 }
 
-
-Math::Mat4x4 Camera::getProjectionMatrix() const
-{
-    switch(m_ProjectionMode)
-    {
-        default:
-        case ProjectionMode::Perspective:
-            return Math::Mat4x4();//b_ProjectionMatrixBuffer.perspectiveInPlace(m_FieldOfView, getViewportAspectRatio(), m_NearClippingPlane, m_FarClippingPlane);
-        break;
-            
-        case ProjectionMode::Orthographic:
-            return Math::Mat4x4();//b_ProjectionMatrixBuffer.orthographicInPlace(m_OrthoSize,m_NearClippingPlane,m_FarClippingPlane,getViewportAspectRatio());
-        break;
-            
-    }
-    
-}
-
-Math::Mat4x4 Camera::getViewMatrix() const
-{
-    return Math::Mat4x4();
-    
-}
-
-//Trivial accessors
+// accessors
+//viewportpos
 void Camera::setViewportPosition(const Math::Vector2 &a){m_ViewportPosition=a;}
 void Camera::setViewportPosition(const float &x, const float &y){m_ViewportPosition.x=x;m_ViewportPosition.y=y;}
+Math::Vector2 Camera::getViewportPosition(){return m_ViewportPosition;}
+//viewportsize
 void Camera::setViewportSize(const Math::Vector2 &a){m_ViewportSize=a;}
 void Camera::setViewportSize(const float &x, const float &y){m_ViewportSize.x=x;m_ViewportSize.y=y;}
-
 Math::Vector2 Camera::getViewportSize(){return m_ViewportSize;}
-Math::Vector2 Camera::getViewportPosition(){return m_ViewportPosition;}
+//projmat
+const Math::Mat4x4& Camera::getProjectionMatrix()const{return m_ProjectionMatrix;}
+//viewmat
+const Math::Mat4x4& Camera::getViewMatrix()const{return m_ViewMatrix;}

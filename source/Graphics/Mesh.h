@@ -43,7 +43,7 @@ namespace GDK
             
             // Accessors
             GFXuint getHandle();
-            int getVertexCount();
+            //const int& getVertexCount() const;
             
             // Public functions
             void draw(const GFXuint aShaderProgramHandle);

@@ -7,12 +7,12 @@
 //gdk inc
 #include "Color.h"
 #include "../Math/Vector2.h"
+#include "../Math/Mat4x4.h"
 //std inc
 #include <iosfwd>
 
 namespace GDK{namespace Math{struct Mat4x4;}}
 namespace GDK{namespace Math{struct IntVector2;}}
-namespace GDK{namespace Math{struct Vector2;}}
 
 namespace GDK
 {
@@ -44,6 +44,9 @@ namespace GDK
 			friend std::ostream& operator<< (std::ostream&, const GFX::Camera&);
             
             // Data members
+            Math::Mat4x4 m_ViewMatrix;
+            Math::Mat4x4 m_ProjectionMatrix;
+            
             ClearMode m_ClearMode;
             Color m_ClearColor;
             
@@ -61,13 +64,14 @@ namespace GDK
             // Accessors
             void setViewportPosition(const Math::Vector2&);
             void setViewportPosition(const float &x, const float &y);
+            Math::Vector2 getViewportPosition();
+            
             void setViewportSize(const Math::Vector2&);
             void setViewportSize(const float &x, const float &y);
-            
-            Math::Vector2 getViewportPosition();
             Math::Vector2 getViewportSize();
-            Math::Mat4x4 getProjectionMatrix() const;
-            Math::Mat4x4 getViewMatrix() const;
+            
+            const Math::Mat4x4& getProjectionMatrix() const;
+            const Math::Mat4x4& getViewMatrix() const;
             
             // Public methods
             void draw(const Math::IntVector2& aFrameBufferSize);

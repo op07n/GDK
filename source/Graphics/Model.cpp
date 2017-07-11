@@ -17,6 +17,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Model& a)
 {
     s.clear(); s << "{"
     << "Name: "          << a.m_Name                 << ", "
+    << "m_ModelMatrix: " << a.m_ModelMatrix       // << ", "
     << "Mesh: "          << *a.m_Mesh.get()          << ", "
     << "ShaderProgram: " << *a.m_ShaderProgram.get() << ", "
     << "m_Textures: "    << a.m_Textures             << ", "
@@ -59,11 +60,12 @@ void Model::draw(const Camera& aCamera)
     
     m_Mesh.get()->draw(programHandle);
     
-}
-
-Math::Mat4x4 Model::getModelMatrix() const
-{
-    return Mat4x4();
+    //unbind this model's uniforms
+    m_Textures.unbind(programHandle);
+    m_Floats.unbind(programHandle);
+    m_Vector2s.unbind(programHandle);
+    m_Vector3s.unbind(programHandle);
+    m_Vector4s.unbind(programHandle);
     
 }
 
@@ -73,3 +75,5 @@ void Model::setFloat  (const std::string &aUniformName, const std::shared_ptr<fl
 void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Vector2> &aVector2){m_Vector2s.put(aUniformName,aVector2);}
 void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Vector3> &aVector3){m_Vector3s.put(aUniformName,aVector3);}
 void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Vector4> &aVector4){m_Vector4s.put(aUniformName,aVector4);}
+
+const Math::Mat4x4& Model::getModelMatrix() const{return m_ModelMatrix;}

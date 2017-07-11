@@ -12,6 +12,7 @@
 #include "Vector2UniformCollection.h"
 #include "Vector3UniformCollection.h"
 #include "Vector4UniformCollection.h"
+#include "../Math/Mat4x4.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -33,6 +34,7 @@ namespace GDK
             
             // Data members
             std::string m_Name;
+            Math::Mat4x4 m_ModelMatrix;
             std::shared_ptr<Mesh> m_Mesh;
             std::shared_ptr<ShaderProgram> m_ShaderProgram;
             
@@ -50,7 +52,7 @@ namespace GDK
             void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3);
             void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4);
             
-            Math::Mat4x4 getModelMatrix() const;
+            const Math::Mat4x4& getModelMatrix() const;
             
             // public methods
             void draw(const Camera&);
