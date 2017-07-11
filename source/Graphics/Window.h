@@ -34,15 +34,19 @@ namespace GDK
             std::string m_Title;
             GLFWwindow* m_HandleToGLFWWindow;
             
-            std::function<void(void)> m_OnInit;
-            std::function<void(void)> m_OnUpdate;
-            std::function<void(void)> m_OnDraw;
-            std::function<void(Window*)> m_OnWantsToClose;
+            std::function<void(const Window&)> m_OnInit;
+            std::function<void(const Window&)> m_OnUpdate;
+            std::function<void(const Window&)> m_OnDraw;
+            std::function<void(const Window&)> m_OnWantsToClose;
             
         public:
+            // Accessors
             std::string getTitle();
+            Math::IntVector2 getFramebufferSize() const;
+            
             void setTitle(const std::string&);
             
+            // Public methods
             void update();
             void draw();
             
@@ -57,10 +61,10 @@ namespace GDK
              */
             struct ConstructionParameters
             {
-                std::function<void(void)> onInit;
-                std::function<void(void)> onUpdate;
-                std::function<void(void)> onDraw;
-                std::function<void(Window*)> onWantsToClose;
+                std::function<void(const Window&)> onInit;
+                std::function<void(const Window&)> onUpdate;
+                std::function<void(const Window&)> onDraw;
+                std::function<void(const Window&)> onWantsToClose;
                 
                 bool fullscreen;
                 bool resizeable;

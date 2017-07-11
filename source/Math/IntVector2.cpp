@@ -84,6 +84,17 @@ IntVector2 IntVector2::operator*(const float &aScalar) const
     
 }
 
+IntVector2 IntVector2::operator*(const Vector2& aVector2) const
+{
+    return IntVector2
+    (
+        x * aVector2.x,
+        y * aVector2.y
+    
+    );
+    
+}
+
 // Mutating operators
 IntVector2& IntVector2::operator+=(const IntVector2 &aIntVector2)
 {

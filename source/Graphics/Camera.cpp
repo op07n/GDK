@@ -8,7 +8,9 @@
 #include "GL.h"
 #include "Color.h"
 #include "../Math/IntVector2.h"
+#include "../Math/Vector2.h"
 #include "../Math/Mat4x4.h"
+#include "../Debug/Logger.h"
 
 using namespace GDK;
 using namespace GFX;
@@ -28,8 +30,8 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a)
 Camera::Camera()
 : m_ClearMode(ClearMode::Color)
 , m_ClearColor(Color::CornflowerBlue)
-, m_ViewportPosition(Math::IntVector2::Zero)
-, m_ViewportSize(Math::IntVector2(300,300))
+, m_ViewportPosition(Math::Vector2::Zero)
+, m_ViewportSize(Math::Vector2(1.,1.))
 , m_ProjectionMode(ProjectionMode::Perspective)
 , m_FieldOfView(90.)
 , m_NearClippingPlane(0.001f)
@@ -40,25 +42,24 @@ Camera::Camera()
     
 }
 
-void Camera::draw()
+void Camera::draw(const Math::IntVector2& aFrameBufferSize)
 {
-    GLH::Viewport(m_ViewportPosition, m_ViewportSize);
-    GLH::Scissor(m_ViewportPosition, m_ViewportSize);
+    Math::IntVector2 viewportPixelPosition(aFrameBufferSize*m_ViewportPosition);
+    Math::IntVector2 viewportPixelSize(aFrameBufferSize*m_ViewportSize);
+    
+    GLH::Viewport(viewportPixelPosition, viewportPixelSize);
+    GLH::Scissor (viewportPixelPosition, viewportPixelSize);
     
     switch(m_ClearMode)
     {
         case ClearMode::Color:
-        {
-            GLH::ClearColor(m_ClearColor);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-            
-        } break;
+        GLH::ClearColor(m_ClearColor);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        break;
             
         case ClearMode::DepthOnly:
-        {
-            glClear(GL_DEPTH_BUFFER_BIT);
-            
-        } break;
+        glClear(GL_DEPTH_BUFFER_BIT);
+        break;
             
         default:
         case ClearMode::Nothing:
@@ -93,10 +94,10 @@ Math::Mat4x4 Camera::getViewMatrix() const
 }
 
 //Trivial accessors
-void Camera::setViewportPosition(const Math::IntVector2 &a){m_ViewportPosition=a;}
-void Camera::setViewportPosition(const int &x, const int &y){m_ViewportPosition.x=x;m_ViewportPosition.y=y;}
-void Camera::setViewportSize(const Math::IntVector2 &a){m_ViewportSize=a;}
-void Camera::setViewportSize(const int &x, const int &y){m_ViewportSize.x=x;m_ViewportSize.y=y;}
+void Camera::setViewportPosition(const Math::Vector2 &a){m_ViewportPosition=a;}
+void Camera::setViewportPosition(const float &x, const float &y){m_ViewportPosition.x=x;m_ViewportPosition.y=y;}
+void Camera::setViewportSize(const Math::Vector2 &a){m_ViewportSize=a;}
+void Camera::setViewportSize(const float &x, const float &y){m_ViewportSize.x=x;m_ViewportSize.y=y;}
 
-Math::IntVector2 Camera::getViewportSize(){return m_ViewportSize;}
-Math::IntVector2 Camera::getViewportPosition(){return m_ViewportPosition;}
+Math::Vector2 Camera::getViewportSize(){return m_ViewportSize;}
+Math::Vector2 Camera::getViewportPosition(){return m_ViewportPosition;}

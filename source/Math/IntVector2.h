@@ -31,6 +31,7 @@ namespace GDK
             IntVector2 operator-(const IntVector2&);
             IntVector2 operator*(const float &aScalar);
             IntVector2 operator*(const float &aScalar) const;
+            IntVector2 operator*(const Vector2& aVector2) const;
             
             // Mutating operators
             IntVector2& operator+=(const IntVector2&);

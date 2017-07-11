@@ -77,8 +77,6 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_RESIZABLE, true);
     
-    
-    
     aGLFWWindow = glfwCreateWindow(aScreenSize.x, aScreenSize.y, aName.c_str(), nullptr, nullptr);
     if(!aGLFWWindow)
         throw GDK::Exception("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
@@ -124,7 +122,7 @@ Window::Window(const ConstructionParameters& aParams)
         throw GDK::Exception("A GFX::Window's wantsToClose event was not handled!");
     
     if (m_OnInit != nullptr)
-        m_OnInit();
+        m_OnInit(*this);
     
     ++s_InstanceCount;
     
@@ -159,7 +157,7 @@ void Window::draw()
     
     
     if (m_OnDraw != nullptr)
-        m_OnDraw();
+        m_OnDraw(*this);
     
     glfwSwapBuffers(m_HandleToGLFWWindow);
     
@@ -172,7 +170,7 @@ void Window::update()
         glfwMakeContextCurrent(m_HandleToGLFWWindow);
         
         if (m_OnUpdate != nullptr)
-            m_OnUpdate();
+            m_OnUpdate(*this);
         
         glfwPollEvents();
         
@@ -180,8 +178,16 @@ void Window::update()
     else
     {
         if (m_OnWantsToClose != nullptr)
-            m_OnWantsToClose(this);
+            m_OnWantsToClose(*this);
         
     }
+    
+}
+
+Math::IntVector2 Window::getFramebufferSize() const
+{
+    Math::IntVector2 frameBufferSize;
+    glfwGetWindowSize(m_HandleToGLFWWindow, &frameBufferSize.x, &frameBufferSize.y);
+    return frameBufferSize;
     
 }

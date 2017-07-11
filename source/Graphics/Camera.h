@@ -6,11 +6,13 @@
 
 //gdk inc
 #include "Color.h"
-#include "../Math/IntVector2.h"
+#include "../Math/Vector2.h"
 //std inc
 #include <iosfwd>
 
 namespace GDK{namespace Math{struct Mat4x4;}}
+namespace GDK{namespace Math{struct IntVector2;}}
+namespace GDK{namespace Math{struct Vector2;}}
 
 namespace GDK
 {
@@ -45,8 +47,8 @@ namespace GDK
             ClearMode m_ClearMode;
             Color m_ClearColor;
             
-            Math::IntVector2 m_ViewportPosition;
-            Math::IntVector2 m_ViewportSize;
+            Math::Vector2 m_ViewportPosition;
+            Math::Vector2 m_ViewportSize;
             
             ProjectionMode m_ProjectionMode;
             float m_FieldOfView;
@@ -57,18 +59,18 @@ namespace GDK
             
 		public:
             // Accessors
-            void setViewportPosition(const Math::IntVector2&);
-            void setViewportPosition(const int &x, const int &y);
-            void setViewportSize(const Math::IntVector2&);
-            void setViewportSize(const int &x, const int &y);
+            void setViewportPosition(const Math::Vector2&);
+            void setViewportPosition(const float &x, const float &y);
+            void setViewportSize(const Math::Vector2&);
+            void setViewportSize(const float &x, const float &y);
             
-            Math::IntVector2 getViewportPosition();
-            Math::IntVector2 getViewportSize();
+            Math::Vector2 getViewportPosition();
+            Math::Vector2 getViewportSize();
             Math::Mat4x4 getProjectionMatrix() const;
             Math::Mat4x4 getViewMatrix() const;
             
             // Public methods
-            void draw();
+            void draw(const Math::IntVector2& aFrameBufferSize);
             
 			// Mutating operators
 			Camera& operator=(const Camera&) = delete;
