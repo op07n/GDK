@@ -7,6 +7,8 @@
 //std inc
 #include <iosfwd>
 
+namespace GDK{namespace Math{class Vector2;}}
+
 namespace GDK
 {
     namespace Math
@@ -22,6 +24,11 @@ namespace GDK
             m10, m11, m12, m13,
             m20, m21, m22, m23,
             m30, m31, m32, m33;
+            
+            // Mutating operations
+            void setIdentity();
+            void setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
+            void setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             
             // Mutating operators
             Mat4x4& operator=(const Mat4x4&) = default;

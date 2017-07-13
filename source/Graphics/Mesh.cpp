@@ -47,14 +47,6 @@ Mesh::Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, c
 {
     GLint type = MeshTypeToOpenGLDrawType(aType);
     
-    
-    std::ostringstream ss;
-    
-    /*for(size_t i=0,s=aVertexData.size();i<s;i++)
-        ss << aVertexData[i] << ", ";
-    
-    Debug::log(ss.str());*/
-    
     // Create and populate a VBO
     glGenBuffers(1, &m_VertexBufferHandle);
     glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferHandle);
@@ -72,20 +64,14 @@ Mesh::~Mesh()
 
 Mesh::Mesh(Mesh&& a)
 {
-    m_Name = a.m_Name;
+    m_Name               = a.m_Name;
     m_VertexBufferHandle = a.m_VertexBufferHandle;
-    m_VertexCount = a.m_VertexCount;
-    m_VertexFormat = a.m_VertexFormat;
+    m_VertexCount        = a.m_VertexCount;
+    m_VertexFormat       = a.m_VertexFormat;
     
     a.m_VertexBufferHandle = 0;
     
 }
-
-/*inline void enableAttributes()
-{
-    
- 
-}*/
 
 void Mesh::draw(const GFXuint aShaderProgramHandle)
 {

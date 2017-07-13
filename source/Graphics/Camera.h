@@ -11,8 +11,9 @@
 //std inc
 #include <iosfwd>
 
-namespace GDK{namespace Math{struct Mat4x4;}}
 namespace GDK{namespace Math{struct IntVector2;}}
+namespace GDK{namespace Math{struct Vector3;}}
+namespace GDK{namespace Math{struct Quaternion;}}
 
 namespace GDK
 {
@@ -58,6 +59,8 @@ namespace GDK
             float m_NearClippingPlane;
             float m_FarClippingPlane;
             
+            Math::Vector2 m_OrthoSize;
+            
             //RenderTexture m_RenderTexture;
             
 		public:
@@ -70,7 +73,11 @@ namespace GDK
             void setViewportSize(const float &x, const float &y);
             Math::Vector2 getViewportSize();
             
+            //void setOrthographicProjection(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
+            //void setPerspectiveProjection(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             const Math::Mat4x4& getProjectionMatrix() const;
+            
+            void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
             const Math::Mat4x4& getViewMatrix() const;
             
             // Public methods

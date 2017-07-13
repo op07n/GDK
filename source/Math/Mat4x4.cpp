@@ -2,12 +2,16 @@
 // Project: GDK
 // Created on 2017-06-28.
 #include "Mat4x4.h"
+//gdk inc
+#include "../Math/Vector2.h"
+#include "../Utilities/Exception.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/matrix_inverse.hpp>
 //std inc
 #include <iostream>
+#include <math.h>
 
 using namespace GDK;
 using namespace Math;
@@ -28,6 +32,44 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
     return s;
     
 }
+
+void Mat4x4::setIdentity()
+{
+    m00 = 1.; m01 = 0.; m02 = 0.; m03 = 0.;
+    m10 = 0.; m11 = 1.; m12 = 0.; m13 = 0.;
+    m20 = 0.; m21 = 0.; m22 = 1.; m23 = 0.;
+    m30 = 0.; m31 = 0.; m32 = 0.; m33 = 1.;
+
+}
+
+void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+{
+    throw GDK::Exception("Mat4x4::setOrthographic not implemented!");
+    
+}
+
+void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+{
+    float tanHalfFovy = (float)tan(aFieldOfView * 0.5f);
+    m00 = 1.0f / (aViewportAspectRatio * tanHalfFovy);
+    m01 = 0.0f;
+    m02 = 0.0f;
+    m03 = 0.0f;
+    m10 = 0.0f;
+    m11 = 1.0f / tanHalfFovy;
+    m12 = 0.0f;
+    m13 = 0.0f;
+    m20 = 0.0f;
+    m21 = 0.0f;
+    m22 =-(aFarClippingPlane + aNearClippingPlane) / (aFarClippingPlane - aNearClippingPlane);
+    m23 =-1.0f;
+    m30 = 0.0f;
+    m31 = 0.0f;
+    m32 =-2.0f * aFarClippingPlane * aNearClippingPlane / (aFarClippingPlane - aNearClippingPlane);
+    m33 = 0.0f;
+    
+}
+
 
 // Constructors
 Mat4x4::Mat4x4()

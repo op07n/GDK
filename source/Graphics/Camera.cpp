@@ -11,6 +11,7 @@
 #include "../Math/Vector2.h"
 #include "../Math/Mat4x4.h"
 #include "../Debug/Logger.h"
+#include "../Utilities/Exception.h"
 
 using namespace GDK;
 using namespace GFX;
@@ -40,9 +41,28 @@ Camera::Camera()
 , m_FieldOfView(90.)
 , m_NearClippingPlane(0.001f)
 , m_FarClippingPlane(20.)
+, m_OrthoSize(10,10)
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_SCISSOR_TEST);
+    
+}
+
+static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+{
+    aProjectionMatrix.setIdentity();
+    
+    throw GDK::Exception("Camera::setOrthographicProjection not implemented!");
+    
+    
+}
+
+static inline void calculatePerspectiveProjection(Math::Mat4x4& aProjectionMatrix, const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+{
+    aProjectionMatrix.setIdentity();
+    //aProjectionMatrix.setPerspective(aFieldOfView, aNearClippingPlane, aFarClippingPlane, aViewportAspectRatio);
+    
+    Debug::log(aProjectionMatrix);
     
 }
 
@@ -53,6 +73,18 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
     
     GLH::Viewport(viewportPixelPosition, viewportPixelSize);
     GLH::Scissor (viewportPixelPosition, viewportPixelSize);
+    
+    switch(m_ProjectionMode)
+    {
+        case ProjectionMode::Perspective:
+        calculatePerspectiveProjection(m_ProjectionMatrix,m_FieldOfView,m_NearClippingPlane,m_FarClippingPlane,m_ViewportSize.getAspectRatio());
+        break;
+            
+        case ProjectionMode::Orthographic:
+        calculateOrthographicProjection(m_ProjectionMatrix,m_OrthoSize,m_NearClippingPlane,m_FarClippingPlane,m_ViewportSize.getAspectRatio());
+        break;
+            
+    }
     
     switch(m_ClearMode)
     {
@@ -70,6 +102,14 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
         break;
             
     }
+    
+}
+
+void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
+{
+    m_ViewMatrix.setIdentity();
+    
+    //TODO set rot then set pos.
     
 }
 
