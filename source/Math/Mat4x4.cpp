@@ -4,7 +4,7 @@
 #include "Mat4x4.h"
 //gdk inc
 #include "../Math/Vector2.h"
-#include "../Utilities/Exception.h"
+#include "../Debug/Exception.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>

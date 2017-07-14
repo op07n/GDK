@@ -11,7 +11,7 @@
 #include "../Math/Vector2.h"
 #include "../Math/Mat4x4.h"
 #include "../Debug/Logger.h"
-#include "../Utilities/Exception.h"
+#include "../Debug/Exception.h"
 
 using namespace GDK;
 using namespace GFX;

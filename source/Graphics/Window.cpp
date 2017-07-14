@@ -5,7 +5,7 @@
 //gdk inc
 #include "GL.h"
 #include "Color.h"
-#include "../Utilities/Exception.h"
+#include "../Debug/Exception.h"
 #include "../Debug/Logger.h"
 #include "../Math/IntVector2.h"
 //thirdparty inc

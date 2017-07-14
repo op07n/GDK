@@ -17,23 +17,34 @@ namespace GDK
          instance; It is up to the user of this class to guarantee this is the case.
          */
         template<typename T>
-        class default_ptr
+        class default_ptr final
         {
-            const std::weak_ptr<T> m_WeakPtr;
-            T const *m_Default;
+            //Data members
+            std::weak_ptr<T> m_WeakPtr;
+            T* m_Default;
             
         public:
-            T operator->(void) {return m_WeakPtr.IsNull() ? *m_Default : m_WeakPtr.Get();}
+            // Public methods
+            T* get()
+            {
+                if (auto ptr = m_WeakPtr.lock())
+                    return ptr.get();
+                
+                return m_Default;
+                
+            }
+            
+            // Mutating operators
+            default_ptr& operator=(const default_ptr&) = default;
             
             // Instancing rules
-            default_ptr(const std::weak_ptr<T>& aWeakPtr,T const *aDefault)
+            default_ptr(std::shared_ptr<T>& aWeakPtr,T *aDefault)
             : m_WeakPtr(aWeakPtr)
             , m_Default(aDefault)
             {}
             
-            default_ptr& operator=(const default_ptr&) = default;
-            default_ptr(const default_ptr&) = default;
             default_ptr() = delete;
+            default_ptr(const default_ptr&) = default;
             ~default_ptr() = default;
             
         };
