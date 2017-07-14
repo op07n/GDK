@@ -25,7 +25,7 @@ namespace GDK
             
         public:
             // Public methods
-            T* get()
+            T* get()//default_ptr& operator*()
             {
                 if (auto ptr = m_WeakPtr.lock())
                     return ptr.get();
@@ -37,7 +37,7 @@ namespace GDK
             // Mutating operators
             default_ptr& operator=(const default_ptr&) = default;
             
-            // Constructors, destructors
+            // Instancing rules
             default_ptr(std::shared_ptr<T>& aWeakPtr,T *aDefault)
             : m_WeakPtr(aWeakPtr)
             , m_Default(aDefault)
