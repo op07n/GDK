@@ -37,7 +37,7 @@ namespace GDK
             // Mutating operators
             default_ptr& operator=(const default_ptr&) = default;
             
-            // Instancing rules
+            // Constructors, destructors
             default_ptr(std::shared_ptr<T>& aWeakPtr,T *aDefault)
             : m_WeakPtr(aWeakPtr)
             , m_Default(aDefault)
