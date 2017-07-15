@@ -45,6 +45,7 @@ namespace GDK
             Vector2(const float &aX, const float &aY);
             /*Vector2(const b2Vec2 &aBox2DVector);*/
             Vector2(const Vector2&) = default;
+            Vector2(Vector2&&) = default;
             ~Vector2() = default;
             
             // Special values

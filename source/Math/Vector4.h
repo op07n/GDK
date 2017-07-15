@@ -31,6 +31,7 @@ namespace GDK
             Vector4(const Vector3& aVector3, const float &aW = 1.);
             Vector4(const float &aX, const float &aY, const float &aZ, const float &aW);
             Vector4(const Vector4&) = default;
+            Vector4(Vector4&&) = default;
             ~Vector4() = default;
             
             // Special values

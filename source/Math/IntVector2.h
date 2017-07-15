@@ -43,6 +43,7 @@ namespace GDK
             IntVector2() = default;
             IntVector2(const int &aX, const int &aY);
             IntVector2(const IntVector2&) = default;
+            IntVector2(IntVector2&&) = default;
             ~IntVector2() = default;
             
             // Special values

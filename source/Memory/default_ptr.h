@@ -13,8 +13,8 @@ namespace GDK
     {
         /*! 
          a non-owning smart pointer that returns a default instance of T if the internal weak_ptr returns nullptr.
-         The design of default_ptr assumes the pointee of m_Default is guaranteed to be valid during the lifetime of the default_ptr
-         instance; It is up to the user of this class to guarantee this is the case.
+         The design of default_ptr assumes the pointee of m_Default is guaranteed to be valid during the lifetime 
+         of the default_ptr instance; It is up to the user of this class to guarantee this is the case.
          */
         template<typename T>
         class default_ptr final

@@ -33,6 +33,7 @@ namespace GDK
             /*Quaternion(const btQuaternion &aBulletQuaternion);*/
             Quaternion(const float& aX, const float& aY, const float& aZ, const float& aW);
             Quaternion(const Quaternion&) = default;
+            Quaternion(Quaternion&&) = default;
             ~Quaternion() = default;
             
             // Special values

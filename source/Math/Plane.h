@@ -18,7 +18,18 @@ namespace GDK
          */
         struct Plane final
         {
+            // Data members
             Vector3 position, normal;
+            
+            // Mutating operators
+            Plane& operator=(const Plane&) = default;
+            
+            // Constructors & Destructors
+            Plane(const Vector3& aPosition, const Vector3& aNormal);
+            Plane() = delete;
+            Plane(const Plane&) = default;
+            Plane(Plane&&) = default;
+            ~Plane() = default;
             
         };
         

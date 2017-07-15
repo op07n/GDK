@@ -44,6 +44,7 @@ namespace GDK
                 const float& a30, const float& a31, const float& a32, const float& a33
             );
             Mat4x4(const Mat4x4&) = default;
+            Mat4x4(Mat4x4&&) = default;
             ~Mat4x4() = default;
             
             // Special values
