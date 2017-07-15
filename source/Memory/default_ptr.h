@@ -20,15 +20,15 @@ namespace GDK
         class default_ptr final
         {
             //Data members
-            std::weak_ptr<T> m_WeakPtr;
-            T* m_Default;
+            const std::weak_ptr<T> m_WeakPtr;
+            const std::shared_ptr<T> m_Default;
             
         public:
             // Public methods
-            T* get()//default_ptr& operator*()
+            std::shared_ptr<T> lock()
             {
                 if (auto ptr = m_WeakPtr.lock())
-                    return ptr.get();
+                    return ptr;
                 
                 return m_Default;
                 
@@ -38,13 +38,14 @@ namespace GDK
             default_ptr& operator=(const default_ptr&) = default;
             
             // Instancing rules
-            default_ptr(std::shared_ptr<T>& aWeakPtr,T *aDefault)
+            default_ptr(const std::shared_ptr<T> &aWeakPtr, const std::shared_ptr<T> &aDefault)
             : m_WeakPtr(aWeakPtr)
             , m_Default(aDefault)
             {}
             
             default_ptr() = delete;
             default_ptr(const default_ptr&) = default;
+            default_ptr(default_ptr&&) = default;
             ~default_ptr() = default;
             
         };
