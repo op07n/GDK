@@ -26,6 +26,13 @@
 		483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C31F0A1D6E002A7870 /* VertexAttribute.h */; };
 		483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31C41F0A1D6E002A7870 /* VertexFormat.cpp */; };
 		483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C51F0A1D6E002A7870 /* VertexFormat.h */; };
+		48459FE81F1AE3DC000C957F /* ResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FE61F1AE3DC000C957F /* ResourceManager.h */; };
+		48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48459FE91F1AF922000C957F /* TextureManager.cpp */; };
+		48459FEC1F1AF922000C957F /* TextureManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FEA1F1AF922000C957F /* TextureManager.h */; };
+		48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48459FED1F1B17E7000C957F /* ShaderProgramManager.cpp */; };
+		48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FEE1F1B17E7000C957F /* ShaderProgramManager.h */; };
+		48459FF31F1B180F000C957F /* MeshManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48459FF11F1B180F000C957F /* MeshManager.cpp */; };
+		48459FF41F1B180F000C957F /* MeshManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FF21F1B180F000C957F /* MeshManager.h */; };
 		484B41241F12C4A100CE92B4 /* TextureUniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */; };
 		484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */; };
 		484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */; };
@@ -86,6 +93,13 @@
 		483C31C31F0A1D6E002A7870 /* VertexAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexAttribute.h; path = ../../source/Graphics/VertexAttribute.h; sourceTree = "<group>"; };
 		483C31C41F0A1D6E002A7870 /* VertexFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VertexFormat.cpp; path = ../../source/Graphics/VertexFormat.cpp; sourceTree = "<group>"; };
 		483C31C51F0A1D6E002A7870 /* VertexFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexFormat.h; path = ../../source/Graphics/VertexFormat.h; sourceTree = "<group>"; };
+		48459FE61F1AE3DC000C957F /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceManager.h; path = ../../source/Graphics/ResourceManager.h; sourceTree = "<group>"; };
+		48459FE91F1AF922000C957F /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureManager.cpp; path = ../../source/Graphics/TextureManager.cpp; sourceTree = "<group>"; };
+		48459FEA1F1AF922000C957F /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureManager.h; path = ../../source/Graphics/TextureManager.h; sourceTree = "<group>"; };
+		48459FED1F1B17E7000C957F /* ShaderProgramManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgramManager.cpp; path = ../../source/Graphics/ShaderProgramManager.cpp; sourceTree = "<group>"; };
+		48459FEE1F1B17E7000C957F /* ShaderProgramManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgramManager.h; path = ../../source/Graphics/ShaderProgramManager.h; sourceTree = "<group>"; };
+		48459FF11F1B180F000C957F /* MeshManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MeshManager.cpp; path = ../../source/Graphics/MeshManager.cpp; sourceTree = "<group>"; };
+		48459FF21F1B180F000C957F /* MeshManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeshManager.h; path = ../../source/Graphics/MeshManager.h; sourceTree = "<group>"; };
 		484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureUniformCollection.cpp; path = ../../source/Graphics/TextureUniformCollection.cpp; sourceTree = "<group>"; };
 		484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureUniformCollection.h; path = ../../source/Graphics/TextureUniformCollection.h; sourceTree = "<group>"; };
 		484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FloatUniformCollection.cpp; path = ../../source/Graphics/FloatUniformCollection.cpp; sourceTree = "<group>"; };
@@ -193,6 +207,13 @@
 				484B412A1F12DD0E00CE92B4 /* Vector3UniformCollection.cpp */,
 				484B412D1F12DD0E00CE92B4 /* Vector4UniformCollection.h */,
 				484B412C1F12DD0E00CE92B4 /* Vector4UniformCollection.cpp */,
+				48459FF21F1B180F000C957F /* MeshManager.h */,
+				48459FF11F1B180F000C957F /* MeshManager.cpp */,
+				48459FEE1F1B17E7000C957F /* ShaderProgramManager.h */,
+				48459FED1F1B17E7000C957F /* ShaderProgramManager.cpp */,
+				48459FEA1F1AF922000C957F /* TextureManager.h */,
+				48459FE91F1AF922000C957F /* TextureManager.cpp */,
+				48459FE61F1AE3DC000C957F /* ResourceManager.h */,
 				485908BD1F11D42F00F7A86F /* Camera.h */,
 				485908BC1F11D42F00F7A86F /* Camera.cpp */,
 				483C31C31F0A1D6E002A7870 /* VertexAttribute.h */,
@@ -309,12 +330,16 @@
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
 				484B41311F12DD0E00CE92B4 /* Vector2UniformCollection.h in Headers */,
 				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
+				48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */,
+				48459FE81F1AE3DC000C957F /* ResourceManager.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
 				483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
 				484B412F1F12DD0E00CE92B4 /* FloatUniformCollection.h in Headers */,
 				484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */,
 				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
+				48459FF41F1B180F000C957F /* MeshManager.h in Headers */,
+				48459FEC1F1AF922000C957F /* TextureManager.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,12 +410,15 @@
 				484B41341F12DD0E00CE92B4 /* Vector4UniformCollection.cpp in Sources */,
 				484B41301F12DD0E00CE92B4 /* Vector2UniformCollection.cpp in Sources */,
 				48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */,
+				48459FF31F1B180F000C957F /* MeshManager.cpp in Sources */,
 				4898E4621F03378D00825E3E /* Plane.cpp in Sources */,
 				484B41241F12C4A100CE92B4 /* TextureUniformCollection.cpp in Sources */,
 				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
 				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
 				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
+				48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */,
+				48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */,
 				483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */,
 				484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */,
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,

@@ -15,21 +15,22 @@ using namespace Math;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Model& a)
 {
+    
     s.clear(); s << "{"
-    << "Name: "          << a.m_Name                 << ", "
-    << "m_ModelMatrix: " << a.m_ModelMatrix       // << ", "
-    << "Mesh: "          << *a.m_Mesh.get()          << ", "
-    << "ShaderProgram: " << *a.m_ShaderProgram.get() << ", "
-    << "m_Textures: "    << a.m_Textures             << ", "
-    << "m_Floats: "      << a.m_Floats               << ", "
-    << "m_Vector2s: "    << a.m_Vector2s             << ", "
-    << "m_Vector3s: "    << a.m_Vector3s             << ", "
+    << "Name: "          << a.m_Name                  << ", "
+    << "m_ModelMatrix: " << a.m_ModelMatrix        // << ", "
+    << "Mesh: "          << *a.m_Mesh.lock()          << ", "
+    << "ShaderProgram: " << *a.m_ShaderProgram.lock() << ", "
+    << "m_Textures: "    << a.m_Textures              << ", "
+    << "m_Floats: "      << a.m_Floats                << ", "
+    << "m_Vector2s: "    << a.m_Vector2s              << ", "
+    << "m_Vector3s: "    << a.m_Vector3s              << ", "
     << "m_Vector4s: "    << a.m_Vector4s
     << "}"; return s;
 
 }
 
-Model::Model(const std::string &aName, const std::shared_ptr<Mesh> &aMesh, const std::shared_ptr<ShaderProgram> &aShaderProgram)
+Model::Model(const std::string &aName, const Memory::default_ptr<Mesh> &aMesh, const Memory::default_ptr<ShaderProgram> &aShaderProgram)
 : m_Name(aName)
 , m_Mesh(aMesh)
 , m_ShaderProgram(aShaderProgram)
@@ -42,7 +43,7 @@ Model::Model(const std::string &aName, const std::shared_ptr<Mesh> &aMesh, const
 
 void Model::draw(const Camera& aCamera)
 {
-    GFXuint programHandle = m_ShaderProgram.get()->draw();
+    GFXuint programHandle = m_ShaderProgram.lock()->draw();
     
     //bind this model's uniforms
     m_Textures.bind(programHandle);
@@ -58,7 +59,7 @@ void Model::draw(const Camera& aCamera)
     Mat4x4 mvp = p * v * m;
     GLH::BindMatrix4x4(programHandle, "_MVP", mvp);
     
-    m_Mesh.get()->draw(programHandle);
+    m_Mesh.lock()->draw(programHandle);
     
     //unbind this model's uniforms
     m_Textures.unbind(programHandle);
@@ -70,7 +71,7 @@ void Model::draw(const Camera& aCamera)
 }
 
 // Accessors
-void Model::setTexture(const std::string &aUniformName, const std::shared_ptr<Texture> &aTexture){m_Textures.put(aUniformName, aTexture);}
+void Model::setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture){m_Textures.put(aUniformName, aTexture);}
 void Model::setFloat  (const std::string &aUniformName, const std::shared_ptr<float> &aFloat){m_Floats.put(aUniformName,aFloat);}
 void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Vector2> &aVector2){m_Vector2s.put(aUniformName,aVector2);}
 void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Vector3> &aVector3){m_Vector3s.put(aUniformName,aVector3);}

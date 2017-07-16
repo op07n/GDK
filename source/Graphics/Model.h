@@ -13,6 +13,7 @@
 #include "Vector3UniformCollection.h"
 #include "Vector4UniformCollection.h"
 #include "../Math/Mat4x4.h"
+#include "../Memory/default_ptr.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -35,8 +36,8 @@ namespace GDK
             // Data members
             std::string m_Name;
             Math::Mat4x4 m_ModelMatrix;
-            std::shared_ptr<Mesh> m_Mesh;
-            std::shared_ptr<ShaderProgram> m_ShaderProgram;
+            Memory::default_ptr<Mesh> m_Mesh;
+            Memory::default_ptr<ShaderProgram> m_ShaderProgram;
             
             TextureUniformCollection m_Textures;
             FloatUniformCollection   m_Floats;
@@ -46,7 +47,7 @@ namespace GDK
             
 		public:
             // Accessors
-            void setTexture(const std::string &aUniformName, const std::shared_ptr<Texture> &aTexture);
+            void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture);
             void setFloat  (const std::string &aUniformName, const std::shared_ptr<float> &aFloat);
             void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2);
             void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3);
@@ -61,7 +62,7 @@ namespace GDK
 			Model& operator=(const Model&) = delete;
 			
 			// Constructors, destructors
-            Model(const std::string &aName, const std::shared_ptr<Mesh>&, const std::shared_ptr<ShaderProgram>&);
+            Model(const std::string &aName, const Memory::default_ptr<Mesh>&, const Memory::default_ptr<ShaderProgram>&);
 			Model() = delete;
 			Model(const Model&) = delete;
 			~Model() = default;

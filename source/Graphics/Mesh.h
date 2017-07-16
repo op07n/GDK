@@ -42,7 +42,8 @@ namespace GDK
             };
             
             // Accessors
-            GFXuint getHandle();
+            std::string getName() const;
+            GFXuint getHandle() const;
             
             // Public functions
             void draw(const GFXuint aShaderProgramHandle);

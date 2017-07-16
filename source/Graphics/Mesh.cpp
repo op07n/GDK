@@ -108,5 +108,5 @@ void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const V
 }
 
 // Accessors
-GFXuint Mesh::getHandle(){return m_VertexBufferHandle;}
-//const int& Mesh::getVertexCount()const{return m_VertexCount;}
+std::string Mesh::getName()const{return m_Name;}
+GFXuint Mesh::getHandle()const{return m_VertexBufferHandle;}

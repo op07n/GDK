@@ -7,9 +7,9 @@
 //gdk inc
 #include "UniformCollection.h"
 #include "Texture.h"
+#include "../Memory/default_ptr.h"
 //std inc
 #include <iosfwd>
-#include <memory>
 
 namespace GDK
 {
@@ -18,7 +18,7 @@ namespace GDK
 		/*!
 		 Manages and supplies texture data for shaderprogram consumption
     	 */
-        class TextureUniformCollection final : public UniformCollection<std::shared_ptr<Texture>>
+        class TextureUniformCollection final : public UniformCollection<Memory::default_ptr<Texture>>
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
             
