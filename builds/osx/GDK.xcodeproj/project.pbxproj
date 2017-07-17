@@ -33,6 +33,8 @@
 		48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FEE1F1B17E7000C957F /* ShaderProgramManager.h */; };
 		48459FF31F1B180F000C957F /* MeshManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48459FF11F1B180F000C957F /* MeshManager.cpp */; };
 		48459FF41F1B180F000C957F /* MeshManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FF21F1B180F000C957F /* MeshManager.h */; };
+		4845A0191F1C5E42000C957F /* Time.h in Headers */ = {isa = PBXBuildFile; fileRef = 4845A0171F1C5E42000C957F /* Time.h */; };
+		4845A01A1F1C5E42000C957F /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4845A0181F1C5E42000C957F /* Time.cpp */; };
 		484B41241F12C4A100CE92B4 /* TextureUniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */; };
 		484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */; };
 		484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */; };
@@ -100,6 +102,8 @@
 		48459FEE1F1B17E7000C957F /* ShaderProgramManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgramManager.h; path = ../../source/Graphics/ShaderProgramManager.h; sourceTree = "<group>"; };
 		48459FF11F1B180F000C957F /* MeshManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MeshManager.cpp; path = ../../source/Graphics/MeshManager.cpp; sourceTree = "<group>"; };
 		48459FF21F1B180F000C957F /* MeshManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeshManager.h; path = ../../source/Graphics/MeshManager.h; sourceTree = "<group>"; };
+		4845A0171F1C5E42000C957F /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = ../../source/Time/Time.h; sourceTree = "<group>"; };
+		4845A0181F1C5E42000C957F /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../../source/Time/Time.cpp; sourceTree = "<group>"; };
 		484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureUniformCollection.cpp; path = ../../source/Graphics/TextureUniformCollection.cpp; sourceTree = "<group>"; };
 		484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureUniformCollection.h; path = ../../source/Graphics/TextureUniformCollection.h; sourceTree = "<group>"; };
 		484B41261F12DD0E00CE92B4 /* FloatUniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FloatUniformCollection.cpp; path = ../../source/Graphics/FloatUniformCollection.cpp; sourceTree = "<group>"; };
@@ -180,6 +184,15 @@
 			name = Collections;
 			sourceTree = "<group>";
 		};
+		4845A00A1F1C5178000C957F /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				4845A0171F1C5E42000C957F /* Time.h */,
+				4845A0181F1C5E42000C957F /* Time.cpp */,
+			);
+			name = Time;
+			sourceTree = "<group>";
+		};
 		4899AF5A1F008ED4009B4E73 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +252,7 @@
 		48B2491B1EFF678C00A70F35 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4845A00A1F1C5178000C957F /* Time */,
 				4839F62B1F1834370081237A /* Memory */,
 				483CA49C1F0481EF00E51C4F /* Collections */,
 				483CA4971F04814600E51C4F /* Debug */,
@@ -323,6 +337,7 @@
 				4839F6311F18392A0081237A /* Exception.h in Headers */,
 				484B41331F12DD0E00CE92B4 /* Vector3UniformCollection.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
+				4845A0191F1C5E42000C957F /* Time.h in Headers */,
 				48C6539F1F05D1090001EDD6 /* Logger.h in Headers */,
 				483C31AC1F09A2B2002A7870 /* DataTypes.h in Headers */,
 				4898E45F1F0330B600825E3E /* IntVector2.h in Headers */,
@@ -426,6 +441,7 @@
 				484B41321F12DD0E00CE92B4 /* Vector3UniformCollection.cpp in Sources */,
 				4839F6301F18392A0081237A /* Exception.cpp in Sources */,
 				485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */,
+				4845A01A1F1C5E42000C957F /* Time.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,

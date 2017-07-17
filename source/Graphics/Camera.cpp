@@ -56,7 +56,6 @@ static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatr
 
 static inline void calculatePerspectiveProjection(Math::Mat4x4& aProjectionMatrix, const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
-    //Debug::log("FieldOfView: ",aFieldOfView,", NearClippingPlane: ",aNearClippingPlane,", FarClippingPlane: ",aFarClippingPlane,", ViewportAspectRatio: ",aViewportAspectRatio);
     aProjectionMatrix.setPerspective(aFieldOfView, aNearClippingPlane, aFarClippingPlane, aViewportAspectRatio);
     
 }

@@ -5,11 +5,14 @@
 //gdk inc
 #include "../Math/Vector2.h"
 #include "../Math/Vector3.h"
+#include "../Math/Quaternion.h"
 #include "../Debug/Exception.h"
+//#include "../Debug/Logger.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/matrix_inverse.hpp>
+#include <glm/gtc/quaternion.hpp>
 //std inc
 #include <iostream>
 #include <math.h>
@@ -60,7 +63,60 @@ void Mat4x4::translate(const Vector3 &a)
 
 void Mat4x4::rotate(const Quaternion &aRotation)
 {
-    //throw GDK::Exception("Mat4x4::rotate not implemented!");
+    glm::quat quat;
+    quat.x = aRotation.x;
+    quat.y = aRotation.y;
+    quat.z = aRotation.z;
+    quat.w = aRotation.w;
+    
+    glm::mat4 mat4 = glm::mat4_cast(quat);
+    
+    Mat4x4 rotationMatrix
+    (
+     /*mat4[0][0],
+     mat4[0][1],
+     mat4[0][2],
+     mat4[0][3],
+    
+     mat4[1][0],
+     mat4[1][1],
+     mat4[1][2],
+     mat4[1][3],
+    
+     mat4[2][0],
+     mat4[2][1],
+     mat4[2][2],
+     mat4[2][3],
+    
+     mat4[3][0],
+     mat4[3][1],
+     mat4[3][2],
+     mat4[3][3]*/
+     
+     mat4[0][0],
+     mat4[1][0],
+     mat4[2][0],
+     mat4[3][0],
+     
+     mat4[0][1],
+     mat4[1][1],
+     mat4[2][1],
+     mat4[3][1],
+     
+     mat4[0][2],
+     mat4[1][2],
+     mat4[2][2],
+     mat4[3][2],
+     
+     mat4[0][3],
+     mat4[1][3],
+     mat4[2][3],
+     mat4[3][3]
+     
+    
+    );
+    
+    *this = rotationMatrix * *this;
     
 }
 
@@ -69,16 +125,6 @@ void Mat4x4::scale(const Vector3 &aPosition)
     throw GDK::Exception("Mat4x4::scale not implemented!");
     
 }
-
-/*Mat4x4 translate(Mat4x4 res, float x, float y, float z) {
-    // translation matrix elements: m00, m11, m22, m33 = 1
-    // m30 = x, m31 = y, m32 = z, all others = 0
-    res.m30 = res.m00 * x + res.m10 * y + res.m20 * z + res.m30;
-    res.m31 = res.m01 * x + res.m11 * y + res.m21 * z + res.m31;
-    res.m32 = res.m02 * x + res.m12 * y + res.m22 * z + res.m32;
-    res.m33 = res.m03 * x + res.m13 * y + res.m23 * z + res.m33;
-    return this;
-}*/
 
 void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
@@ -101,7 +147,6 @@ void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippin
     m33 = 0.0f;
     
 }
-
 
 // Constructors
 Mat4x4::Mat4x4()

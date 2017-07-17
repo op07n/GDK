@@ -68,8 +68,6 @@ void Model::draw(const Camera& aCamera)
     m_Vector3s.unbind(programHandle);
     m_Vector4s.unbind(programHandle);
     
-    Debug::log("--------------------\n","M\n",m,"V\n",v,"P\n",p,"MVP\n",mvp);
-    
 }
 
 void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
