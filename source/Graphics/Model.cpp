@@ -47,7 +47,7 @@ void Model::draw(const Camera& aCamera)
     
     //bind this model's uniforms
     m_Textures.bind(programHandle);
-    m_Floats.bind(programHandle);
+    m_Floats  .bind(programHandle);
     m_Vector2s.bind(programHandle);
     m_Vector3s.bind(programHandle);
     m_Vector4s.bind(programHandle);
@@ -63,10 +63,20 @@ void Model::draw(const Camera& aCamera)
     
     //unbind this model's uniforms
     m_Textures.unbind(programHandle);
-    m_Floats.unbind(programHandle);
+    m_Floats  .unbind(programHandle);
     m_Vector2s.unbind(programHandle);
     m_Vector3s.unbind(programHandle);
     m_Vector4s.unbind(programHandle);
+    
+    Debug::log("--------------------\n","M\n",m,"V\n",v,"P\n",p,"MVP\n",mvp);
+    
+}
+
+void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
+{
+    m_ModelMatrix.setIdentity();
+    m_ModelMatrix.rotate(aRotation);
+    m_ModelMatrix.translate(aWorldPos);
     
 }
 

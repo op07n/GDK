@@ -50,19 +50,14 @@ Camera::Camera()
 
 static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
-    aProjectionMatrix.setIdentity();
-    
     throw GDK::Exception("Camera::setOrthographicProjection not implemented!");
-    
     
 }
 
 static inline void calculatePerspectiveProjection(Math::Mat4x4& aProjectionMatrix, const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
-    aProjectionMatrix.setIdentity();
-    //aProjectionMatrix.setPerspective(aFieldOfView, aNearClippingPlane, aFarClippingPlane, aViewportAspectRatio);
-    
-    Debug::log(aProjectionMatrix);
+    //Debug::log("FieldOfView: ",aFieldOfView,", NearClippingPlane: ",aNearClippingPlane,", FarClippingPlane: ",aFarClippingPlane,", ViewportAspectRatio: ",aViewportAspectRatio);
+    aProjectionMatrix.setPerspective(aFieldOfView, aNearClippingPlane, aFarClippingPlane, aViewportAspectRatio);
     
 }
 
@@ -108,8 +103,8 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
 void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
 {
     m_ViewMatrix.setIdentity();
-    
-    //TODO set rot then set pos.
+    m_ViewMatrix.rotate(aRotation);
+    m_ViewMatrix.translate(aWorldPos);
     
 }
 

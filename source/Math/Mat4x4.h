@@ -8,6 +8,8 @@
 #include <iosfwd>
 
 namespace GDK{namespace Math{class Vector2;}}
+namespace GDK{namespace Math{class Vector3;}}
+namespace GDK{namespace Math{class Quaternion;}}
 
 namespace GDK
 {
@@ -27,12 +29,20 @@ namespace GDK
             
             // Mutating operations
             void setIdentity();
+            
             void setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             void setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             
+            void translate(const Vector3 &aTranslation);
+            void rotate(const Quaternion &aRotation);
+            void scale(const Vector3 &aScale);
+            
+            // Non-mutating operators
+            Mat4x4 operator*(const Mat4x4&);
+            
             // Mutating operators
             Mat4x4& operator=(const Mat4x4&) = default;
-            Mat4x4& operator*(const Mat4x4&);
+            Mat4x4& operator*=(const Mat4x4&);
             
             // Constructors & Destructors
             Mat4x4();

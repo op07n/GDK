@@ -4,6 +4,7 @@
 #include "Mat4x4.h"
 //gdk inc
 #include "../Math/Vector2.h"
+#include "../Math/Vector3.h"
 #include "../Debug/Exception.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
@@ -47,6 +48,37 @@ void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNear
     throw GDK::Exception("Mat4x4::setOrthographic not implemented!");
     
 }
+
+void Mat4x4::translate(const Vector3 &a)
+{
+    m30 = m00 * a.x + m10 * a.y + m20 * a.z + m30;
+    m31 = m01 * a.x + m11 * a.y + m21 * a.z + m31;
+    m32 = m02 * a.x + m12 * a.y + m22 * a.z + m32;
+    m33 = m03 * a.x + m13 * a.y + m23 * a.z + m33;
+    
+}
+
+void Mat4x4::rotate(const Quaternion &aRotation)
+{
+    //throw GDK::Exception("Mat4x4::rotate not implemented!");
+    
+}
+
+void Mat4x4::scale(const Vector3 &aPosition)
+{
+    throw GDK::Exception("Mat4x4::scale not implemented!");
+    
+}
+
+/*Mat4x4 translate(Mat4x4 res, float x, float y, float z) {
+    // translation matrix elements: m00, m11, m22, m33 = 1
+    // m30 = x, m31 = y, m32 = z, all others = 0
+    res.m30 = res.m00 * x + res.m10 * y + res.m20 * z + res.m30;
+    res.m31 = res.m01 * x + res.m11 * y + res.m21 * z + res.m31;
+    res.m32 = res.m02 * x + res.m12 * y + res.m22 * z + res.m32;
+    res.m33 = res.m03 * x + res.m13 * y + res.m23 * z + res.m33;
+    return this;
+}*/
 
 void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
@@ -92,8 +124,33 @@ Mat4x4::Mat4x4
 , m30(a30), m31(a31), m32(a32), m33(a33)
 {}
 
-Mat4x4& Mat4x4::operator*(const Mat4x4&)
+Mat4x4& Mat4x4::operator*=(const Mat4x4& a)
 {
+    m00 = m00 * a.m00 + m10 * a.m01 + m20 * a.m02 + m30 * a.m03;
+    m01 = m01 * a.m00 + m11 * a.m01 + m21 * a.m02 + m31 * a.m03;
+    m02 = m02 * a.m00 + m12 * a.m01 + m22 * a.m02 + m32 * a.m03;
+    m03 = m03 * a.m00 + m13 * a.m01 + m23 * a.m02 + m33 * a.m03;
+    m10 = m00 * a.m10 + m10 * a.m11 + m20 * a.m12 + m30 * a.m13;
+    m11 = m01 * a.m10 + m11 * a.m11 + m21 * a.m12 + m31 * a.m13;
+    m12 = m02 * a.m10 + m12 * a.m11 + m22 * a.m12 + m32 * a.m13;
+    m13 = m03 * a.m10 + m13 * a.m11 + m23 * a.m12 + m33 * a.m13;
+    m20 = m00 * a.m20 + m10 * a.m21 + m20 * a.m22 + m30 * a.m23;
+    m21 = m01 * a.m20 + m11 * a.m21 + m21 * a.m22 + m31 * a.m23;
+    m22 = m02 * a.m20 + m12 * a.m21 + m22 * a.m22 + m32 * a.m23;
+    m23 = m03 * a.m20 + m13 * a.m21 + m23 * a.m22 + m33 * a.m23;
+    m30 = m00 * a.m30 + m10 * a.m31 + m20 * a.m32 + m30 * a.m33;
+    m31 = m01 * a.m30 + m11 * a.m31 + m21 * a.m32 + m31 * a.m33;
+    m32 = m02 * a.m30 + m12 * a.m31 + m22 * a.m32 + m32 * a.m33;
+    m33 = m03 * a.m30 + m13 * a.m31 + m23 * a.m32 + m33 * a.m33;
+    
     return *this;
+    
+}
+
+Mat4x4 Mat4x4::operator*(const Mat4x4 &a)
+{
+    Mat4x4 r(*this);
+    r *= a;
+    return r;
     
 }

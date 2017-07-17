@@ -28,12 +28,6 @@ namespace GDK
             
 		public:
             // Public methods
-            void add(const std::shared_ptr<T> &t)
-            {
-                m_Map.insert({t->getName(),t});
-                
-            }
-            
             Memory::default_ptr<T> get(const std::string &aName)
             {
                 auto it = m_Map.find(aName);
@@ -45,6 +39,7 @@ namespace GDK
             
             }
             
+            void add(const std::shared_ptr<T> &t){m_Map.insert({t->getName(),t});}
 			void remove(const std::string &aName){m_Map.erase(aName);}
             void clear(){m_Map.clear();}
             
