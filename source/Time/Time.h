@@ -13,10 +13,10 @@ namespace GDK
 	{
         /// Get time since program started
         double getTime(void);
-        /// Get time since update was last called
+        /// Gets delta time without resetting the delta timer
         double getDeltaTime(void);
-        /// Call in the program update loop to get valid deltas
-        void update(void);
+        /// Call in the program update loop, returns time since this was last called
+        double updateDeltaTime(void);
         
     }
     

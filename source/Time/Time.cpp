@@ -20,12 +20,16 @@ double Time::getTime(void)
 double Time::getDeltaTime(void)
 {
     return currentTime;
-
+    
 }
 
-void Time::update(void)
+double Time::updateDeltaTime(void)
 {
+    double rval = currentTime;
+    
     currentTime = glfwGetTime() - lastTime;
     lastTime = glfwGetTime();
+
+    return rval;
 
 }

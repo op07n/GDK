@@ -74,7 +74,7 @@ void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
 {
     m_ModelMatrix.setIdentity();
     m_ModelMatrix.rotate(aRotation);
-    m_ModelMatrix.translate(aWorldPos);
+    //m_ModelMatrix.translate(aWorldPos);
     
 }
 
