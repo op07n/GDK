@@ -26,15 +26,12 @@ const Mat4x4 Mat4x4::Identity = Mat4x4();
 //Stringify
 std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
 {
-    s.clear();
-    s
+    s.clear();s
     << "{" << aMat.m00 << ", " << aMat.m01 << ", " << aMat.m02 << ", " << aMat.m03 << "}\n"
     << "{" << aMat.m10 << ", " << aMat.m11 << ", " << aMat.m12 << ", " << aMat.m13 << "}\n"
     << "{" << aMat.m20 << ", " << aMat.m21 << ", " << aMat.m22 << ", " << aMat.m23 << "}\n"
     << "{" << aMat.m30 << ", " << aMat.m31 << ", " << aMat.m32 << ", " << aMat.m33 << "}\n";
-    
     return s;
-    
 }
 
 void Mat4x4::setIdentity()

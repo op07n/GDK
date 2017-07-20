@@ -6,16 +6,13 @@
 
 namespace GDK
 {
-    /*!
-     No description provided for Time
-     */
 	namespace Time
 	{
         /// Get time since program started
         double getTime(void);
         /// Gets delta time without resetting the delta timer
         double getDeltaTime(void);
-        /// Call in the program update loop, returns time since this was last called
+        /// Returns time since this was last called, call in the program update loop
         double updateDeltaTime(void);
         
     }

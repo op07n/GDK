@@ -17,7 +17,9 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for ResourceManager
+		 A resource manager is responsible for solely managing the lifetime of some object T.
+         By serving resources via Memory::default_ptrs, the manager can safely destroy any T instance
+         without risking memory reading issues.
     	 */
         template<typename T>
 		class ResourceManager

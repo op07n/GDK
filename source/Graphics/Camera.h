@@ -20,7 +20,7 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for Camera
+		 Position, orientation and perspective from which Model(s) are drawn
     	 */
 		class Camera final
 		{

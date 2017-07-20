@@ -15,7 +15,7 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for ShaderProgramManager
+		 Instantiates, destroys and serves shader objects to the program
     	 */
 		class ShaderProgramManager final : public ResourceManager<ShaderProgram>
 		{

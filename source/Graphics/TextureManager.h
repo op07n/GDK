@@ -15,7 +15,7 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for TextureManager
+		 Instantiates, destroys and serves Texture objects to the program
     	 */
         class TextureManager final : public ResourceManager<Texture>
 		{

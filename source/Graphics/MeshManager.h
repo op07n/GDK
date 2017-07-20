@@ -15,7 +15,7 @@ namespace GDK
 	namespace GFX
 	{
 		/*!
-		 No description provided for MeshManager
+		 Instantiates, destroys and serves Mesh objects to the program
     	 */
 		class MeshManager final : public ResourceManager<Mesh>
 		{
