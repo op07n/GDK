@@ -9,6 +9,7 @@
 #include "Trigonometry.h"
 #include "../Debug/Exception.h"
 #include "../Time/Time.h"
+#include "../Debug/Logger.h"
 //#include "../Debug/Logger.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
@@ -99,18 +100,15 @@ void Mat4x4::rotate(const Quaternion &aRotation)
     
     *this = rotationMatrix;*/
     
-    Vector3 eulers(0.,0.,10.*Time::getTime());
-    rotate(eulers);
+    //rotate(Vector3(0,0,Time::getTime()));
     
 }
 
 void Mat4x4::rotate(const Vector3 &aEulers)
 {
-    float ang = aEulers.z;
-    Mat4x4 res;
+    float ang = aEulers.z, sin, cos;
     
-    float sin, cos;
-    if (ang == Trig::PI || ang == - Trig::PI)
+    if (ang == (float) Trig::PI || ang == -(float) Trig::PI)
     {
         cos = -1.0f;
         sin = 0.0f;
@@ -127,14 +125,16 @@ void Mat4x4::rotate(const Vector3 &aEulers)
     }
     else
     {
-        cos = Trig::cos(ang);
-        sin = Trig::sin(ang);
+        cos = (float) Trig::cos(ang);
+        sin = (float) Trig::sin(ang);
     }
     
     float rm00 = cos;
     float rm01 = sin;
     float rm10 = -sin;
     float rm11 = cos;
+    
+    Mat4x4 res;
     
     // add temporaries for dependent values
     float nm00 = m00 * rm00 + m10 * rm01;
@@ -160,7 +160,8 @@ void Mat4x4::rotate(const Vector3 &aEulers)
     res.m32 = m32;
     res.m33 = m33;
     
-    *this *= res;
+    //*this = res;
+    //Debug::log(*this);
     
 }
 
@@ -192,27 +193,40 @@ void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippin
     
 }
 
-// Constructors
-Mat4x4::Mat4x4()
-: m00(1.), m01(0.), m02(0.), m03(0.)
-, m10(0.), m11(1.), m12(0.), m13(0.)
-, m20(0.), m21(0.), m22(1.), m23(0.)
-, m30(0.), m31(0.), m32(0.), m33(1.)
-{}
+void Mat4x4::transpose()
+{
+    float
+    t00 = m00, t01 = m10, t02 = m20, t03 = m30,
+    t10 = m01, t11 = m11, t12 = m21, t13 = m31,
+    t20 = m02, t21 = m12, t22 = m22, t23 = m32,
+    t30 = m03, t31 = m13, t32 = m23, t33 = m33;
+    
+    set
+    (
+     t00, t01, t02, t03,
+     t10, t11, t12, t13,
+     t20, t21, t22, t23,
+     t30, t31, t32, t33
+     );
+    
+}
 
-Mat4x4::Mat4x4
+void Mat4x4::set
 (
  const float& a00, const float& a01, const float& a02, const float& a03,
  const float& a10, const float& a11, const float& a12, const float& a13,
  const float& a20, const float& a21, const float& a22, const float& a23,
  const float& a30, const float& a31, const float& a32, const float& a33
 )
-: m00(a00), m01(a01), m02(a02), m03(a03)
-, m10(a10), m11(a11), m12(a12), m13(a13)
-, m20(a20), m21(a21), m22(a22), m23(a23)
-, m30(a30), m31(a31), m32(a32), m33(a33)
-{}
+{
+    m00 = a00; m01 = a01; m02 = a02; m03 = a03;
+    m10 = a10; m11 = a11; m12 = a12; m13 = a13;
+    m20 = a20; m21 = a21; m22 = a22; m23 = a23;
+    m30 = a30; m31 = a31; m32 = a32; m33 = a33;
+    
+}
 
+// Operators
 Mat4x4& Mat4x4::operator*=(const Mat4x4& a)
 {
     m00 = m00 * a.m00 + m10 * a.m01 + m20 * a.m02 + m30 * a.m03;
@@ -243,3 +257,24 @@ Mat4x4 Mat4x4::operator*(const Mat4x4 &a)
     return r;
     
 }
+
+// Constructors
+Mat4x4::Mat4x4()
+: m00(1.), m01(0.), m02(0.), m03(0.)
+, m10(0.), m11(1.), m12(0.), m13(0.)
+, m20(0.), m21(0.), m22(1.), m23(0.)
+, m30(0.), m31(0.), m32(0.), m33(1.)
+{}
+
+Mat4x4::Mat4x4
+(
+ const float& a00, const float& a01, const float& a02, const float& a03,
+ const float& a10, const float& a11, const float& a12, const float& a13,
+ const float& a20, const float& a21, const float& a22, const float& a23,
+ const float& a30, const float& a31, const float& a32, const float& a33
+)
+: m00(a00), m01(a01), m02(a02), m03(a03)
+, m10(a10), m11(a11), m12(a12), m13(a13)
+, m20(a20), m21(a21), m22(a22), m23(a23)
+, m30(a30), m31(a31), m32(a32), m33(a33)
+{}

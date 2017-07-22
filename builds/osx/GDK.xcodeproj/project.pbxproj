@@ -50,6 +50,8 @@
 		48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BAC1F08C4CB00D5CEE0 /* GL.h */; };
 		4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 489644281F23C4960016909E /* Trigonometry.cpp */; };
 		4896442B1F23C4960016909E /* Trigonometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 489644291F23C4960016909E /* Trigonometry.h */; };
+		4896442E1F23ED350016909E /* Mat4x4UniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */; };
+		4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */; };
 		4898E4561F03261700825E3E /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4541F03261700825E3E /* Vector4.cpp */; };
 		4898E4571F03261700825E3E /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4551F03261700825E3E /* Vector4.h */; };
 		4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4581F03262200825E3E /* Mat4x4.cpp */; };
@@ -121,6 +123,8 @@
 		48839BAC1F08C4CB00D5CEE0 /* GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GL.h; path = ../../source/Graphics/GL.h; sourceTree = "<group>"; };
 		489644281F23C4960016909E /* Trigonometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Trigonometry.cpp; path = ../../source/Math/Trigonometry.cpp; sourceTree = "<group>"; };
 		489644291F23C4960016909E /* Trigonometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trigonometry.h; path = ../../source/Math/Trigonometry.h; sourceTree = "<group>"; };
+		4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4UniformCollection.cpp; path = ../../source/Graphics/Mat4x4UniformCollection.cpp; sourceTree = "<group>"; };
+		4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mat4x4UniformCollection.h; path = ../../source/Graphics/Mat4x4UniformCollection.h; sourceTree = "<group>"; };
 		4898E4541F03261700825E3E /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = ../../source/Math/Vector4.cpp; sourceTree = "<group>"; };
 		4898E4551F03261700825E3E /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = ../../source/Math/Vector4.h; sourceTree = "<group>"; };
 		4898E4581F03262200825E3E /* Mat4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4.cpp; path = ../../source/Math/Mat4x4.cpp; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 				483C31B31F0A0040002A7870 /* DefaultResources.h */,
 				483C31B21F0A0040002A7870 /* DefaultResources.cpp */,
 				4818CB071F12BDB900D33510 /* UniformCollection.h */,
+				4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */,
+				4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */,
 				484B41231F12C4A100CE92B4 /* TextureUniformCollection.h */,
 				484B41221F12C4A100CE92B4 /* TextureUniformCollection.cpp */,
 				484B41271F12DD0E00CE92B4 /* FloatUniformCollection.h */,
@@ -350,6 +356,7 @@
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
 				484B41311F12DD0E00CE92B4 /* Vector2UniformCollection.h in Headers */,
 				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
+				4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */,
 				48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */,
 				48459FE81F1AE3DC000C957F /* ResourceManager.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
@@ -448,6 +455,7 @@
 				4839F6301F18392A0081237A /* Exception.cpp in Sources */,
 				485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */,
 				4873E92A1F1D837E000BA834 /* Time.cpp in Sources */,
+				4896442E1F23ED350016909E /* Mat4x4UniformCollection.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,

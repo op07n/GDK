@@ -12,6 +12,7 @@
 #include "Vector2UniformCollection.h"
 #include "Vector3UniformCollection.h"
 #include "Vector4UniformCollection.h"
+#include "Mat4x4UniformCollection.h"
 #include "../Math/Mat4x4.h"
 #include "../Memory/default_ptr.h"
 //std inc
@@ -44,17 +45,20 @@ namespace GDK
             Vector2UniformCollection m_Vector2s;
             Vector3UniformCollection m_Vector3s;
             Vector4UniformCollection m_Vector4s;
+            Mat4x4UniformCollection  m_Mat4x4s;
             
 		public:
             // Accessors
-            void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture);
-            void setFloat  (const std::string &aUniformName, const std::shared_ptr<float> &aFloat);
+            void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture>   &aTexture);
+            void setFloat  (const std::string &aUniformName, const std::shared_ptr<float>         &aFloat  );
             void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2);
             void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3);
             void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4);
+            void setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                   &aMat4x4 );
             
             const Math::Mat4x4& getModelMatrix() const;
             void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
+            void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Vector3    &aRotation);
             
             // public methods
             void draw(const Camera&);
@@ -66,6 +70,7 @@ namespace GDK
             Model(const std::string &aName, const Memory::default_ptr<Mesh>&, const Memory::default_ptr<ShaderProgram>&);
 			Model() = delete;
 			Model(const Model&) = delete;
+            Model(Model&&) = delete;
 			~Model() = default;
 			
 		};

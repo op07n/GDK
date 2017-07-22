@@ -4,6 +4,7 @@
 #include "Model.h"
 #include "../Debug/Logger.h"
 #include "../Math/Mat4x4.h"
+#include "../Time/Time.h"
 #include "Camera.h"
 #include "GL.h"
 //std inc
@@ -15,7 +16,6 @@ using namespace Math;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Model& a)
 {
-    
     s.clear(); s << "{"
     << "Name: "          << a.m_Name                  << ", "
     << "m_ModelMatrix: " << a.m_ModelMatrix        // << ", "
@@ -51,13 +51,22 @@ void Model::draw(const Camera& aCamera)
     m_Vector2s.bind(programHandle);
     m_Vector3s.bind(programHandle);
     m_Vector4s.bind(programHandle);
+    m_Mat4x4s .bind(programHandle);
     
     //bind standard uniforms
-    Mat4x4 p = aCamera.getProjectionMatrix();
-    Mat4x4 v = aCamera.getViewMatrix();
-    Mat4x4 m = getModelMatrix();
+    float time      = Time::getTime();
+    float deltaTime = Time::getDeltaTime();
+    Mat4x4 p   = aCamera.getProjectionMatrix();
+    Mat4x4 v   = aCamera.getViewMatrix();
+    Mat4x4 m   = getModelMatrix();
     Mat4x4 mvp = p * v * m;
-    GLH::BindMatrix4x4(programHandle, "_MVP", mvp);
+    
+    GLH::Bind1FloatUniform(programHandle, "_DeltaTime",  deltaTime);
+    GLH::Bind1FloatUniform(programHandle, "_Time",       time     );
+    GLH::BindMatrix4x4(programHandle,     "_Model",      m        );
+    GLH::BindMatrix4x4(programHandle,     "_View",       v        );
+    GLH::BindMatrix4x4(programHandle,     "_Projection", p        );
+    GLH::BindMatrix4x4(programHandle,     "_MVP",        mvp      );
     
     m_Mesh.lock()->draw(programHandle);
     
@@ -67,6 +76,7 @@ void Model::draw(const Camera& aCamera)
     m_Vector2s.unbind(programHandle);
     m_Vector3s.unbind(programHandle);
     m_Vector4s.unbind(programHandle);
+    m_Mat4x4s .unbind(programHandle);
     
 }
 
@@ -74,15 +84,24 @@ void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
 {
     m_ModelMatrix.setIdentity();
     m_ModelMatrix.rotate(aRotation);
-    //m_ModelMatrix.translate(aWorldPos);
+    m_ModelMatrix.translate(aWorldPos);
+    
+}
+
+void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Vector3 &aRotation)
+{
+    m_ModelMatrix.setIdentity();
+    m_ModelMatrix.rotate(aRotation);
+    m_ModelMatrix.translate(aWorldPos);
     
 }
 
 // Accessors
-void Model::setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture){m_Textures.put(aUniformName, aTexture);}
-void Model::setFloat  (const std::string &aUniformName, const std::shared_ptr<float> &aFloat){m_Floats.put(aUniformName,aFloat);}
-void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Vector2> &aVector2){m_Vector2s.put(aUniformName,aVector2);}
-void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Vector3> &aVector3){m_Vector3s.put(aUniformName,aVector3);}
-void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Vector4> &aVector4){m_Vector4s.put(aUniformName,aVector4);}
+void Model::setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture){m_Textures.put(aUniformName,aTexture);}
+void Model::setFloat  (const std::string &aUniformName, const std::shared_ptr<float>       &aFloat  ){m_Floats  .put(aUniformName,aFloat);  }
+void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Vector2>     &aVector2){m_Vector2s.put(aUniformName,aVector2);}
+void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Vector3>     &aVector3){m_Vector3s.put(aUniformName,aVector3);}
+void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Vector4>     &aVector4){m_Vector4s.put(aUniformName,aVector4);}
+void Model::setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                 &aMat4x4 ){m_Mat4x4s .put(aUniformName,aMat4x4); }
 
 const Math::Mat4x4& Model::getModelMatrix() const{return m_ModelMatrix;}

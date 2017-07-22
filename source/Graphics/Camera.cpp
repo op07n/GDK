@@ -102,7 +102,7 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
 void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
 {
     m_ViewMatrix.setIdentity();
-    m_ViewMatrix.rotate(aRotation);
+    //m_ViewMatrix.rotate(aRotation);
     m_ViewMatrix.translate(aWorldPos);
     
 }

@@ -20,6 +20,7 @@ namespace GDK
             
             float cos(const float&);
             float sin(const float&);
+            float abs(const float&);
             
             namespace Double
             {
@@ -27,6 +28,7 @@ namespace GDK
                 
                 double cos(const double&);
                 double sin(const double&);
+                double abs(const double&);
                 
             }
 			
