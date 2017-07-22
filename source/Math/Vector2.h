@@ -20,10 +20,13 @@ namespace GDK
             float x, y;
             
             // Non mutating operations
+            /// squareroot of the sum of the 2nd power of the components
             float length() const;
+            /// X/Y
             float getAspectRatio() const;
             
             // Mutating operations
+            /// Set length to 1
             void normalize();
             /*void normalizeAndScale(const float &aScalar);*/
             

@@ -22,11 +22,7 @@ namespace GDK
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::Vector3UniformCollection&);
 			
-			// Data members
-
 		public:
-			// Accessors
-			
 			// Public methods
             void bind(const GFXuint &aProgramHandle) override;
             void unbind(const GFXuint &aProgramHandle) override;

@@ -20,14 +20,8 @@ namespace GDK
 		class ShaderProgramManager final : public ResourceManager<ShaderProgram>
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&);
-			
-			// Data members
-
+            
 		public:
-			// Accessors
-			
-			// Public methods
-			
 			// Mutating operators
 			ShaderProgramManager& operator=(const ShaderProgramManager&) = default;
 			

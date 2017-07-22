@@ -58,6 +58,7 @@ namespace GDK
             /// Default behaviour is for the logger to display the debug message via std::clog
             Logger(const std::function<void(const std::string&)> &aLoggingBehaviourCallback = nullptr);
             Logger(const Logger&) = default;
+            Logger(Logger&&) = default;
             ~Logger() = default;
             
         };

@@ -16,8 +16,7 @@ namespace GDK
         /*! 
          Behaves like a Vector2 but uses integers for storage rather than floats.
          Useful for describing such things as non-normalized texel position,
-         tilegrid position,
-         window size, etc.
+         tilegrid position, window size, etc.
          */
         struct IntVector2 final
         {

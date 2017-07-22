@@ -24,6 +24,7 @@ namespace GDK
 		// Constructors, destructors
         Exception(const std::string &aMessage = "");
 		Exception(const Exception&) = default;
+        Exception(Exception&&) = default;
 		~Exception() = default;
 			
 	};

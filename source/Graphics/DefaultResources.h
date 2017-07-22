@@ -15,28 +15,20 @@ namespace GDK
 	{
         namespace DefaultResources
         {
-            /*!
-             Creates the checkeredTextureOfDeath.
-             Very low resolution tiled texture, alternating white a blue.
-             Useful as a fallback when the intended texture has failed to load.
-             */
+            /// Creates the checkeredTextureOfDeath.
+            /// Very low resolution tiled texture, alternating white a blue.
+            /// Useful as a fallback when the intended texture has failed to load.
             Texture createCheckeredTextureOfDeath();
             
-            /*!
-             Creates the PinkShaderOfDeath.
-             Muls verts through standard MVP but colors all frags an obnoxious fluorescent pink.
-             Useful as a fallback shader.
-             */
+            /// Creates the PinkShaderOfDeath.
+            /// Muls verts through standard MVP but colors all frags an obnoxious fluorescent pink.
+            /// Useful as a fallback shader.
             ShaderProgram createPinkShaderOfDeath();
             
-            /*!
-             Basic alphacutoff shader
-             */
+            /// Basic alphacutoff shader
             ShaderProgram createAlphaCutOff();
             
-            /*!
-             Make a basic quad
-             */
+            /// Make a basic quad
             Mesh createQuad();
             
         }

@@ -21,14 +21,7 @@ namespace GDK
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
 			
-			// Data members
-            
-            
 		public:
-			// Accessors
-			
-			// Public methods
-			
 			// Mutating operators
 			TextureManager& operator=(const TextureManager&) = default;
 			

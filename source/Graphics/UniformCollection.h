@@ -23,15 +23,11 @@ namespace GDK
         template<typename T>
 		class UniformCollection
 		{
-            
-            
         protected:
 			// Data members
             std::map<std::string,T> m_Map;
             
 		public:
-			// Accessors
-			
 			// Public methods
             void put(const std::string &aName, const T &aItem)
             {

@@ -21,13 +21,7 @@ namespace GDK
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::MeshManager&);
 			
-			// Data members
-
 		public:
-			// Accessors
-			
-			// Public methods
-			
 			// Mutating operators
 			MeshManager& operator=(const MeshManager&) = default;
 			
