@@ -48,6 +48,8 @@
 		4873E92A1F1D837E000BA834 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4873E9281F1D837E000BA834 /* Time.cpp */; };
 		48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839BAB1F08C4CB00D5CEE0 /* GL.cpp */; };
 		48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BAC1F08C4CB00D5CEE0 /* GL.h */; };
+		4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 489644281F23C4960016909E /* Trigonometry.cpp */; };
+		4896442B1F23C4960016909E /* Trigonometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 489644291F23C4960016909E /* Trigonometry.h */; };
 		4898E4561F03261700825E3E /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4541F03261700825E3E /* Vector4.cpp */; };
 		4898E4571F03261700825E3E /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4551F03261700825E3E /* Vector4.h */; };
 		4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4581F03262200825E3E /* Mat4x4.cpp */; };
@@ -117,6 +119,8 @@
 		4873E9281F1D837E000BA834 /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../../source/Time/Time.cpp; sourceTree = "<group>"; };
 		48839BAB1F08C4CB00D5CEE0 /* GL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GL.cpp; path = ../../source/Graphics/GL.cpp; sourceTree = "<group>"; };
 		48839BAC1F08C4CB00D5CEE0 /* GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GL.h; path = ../../source/Graphics/GL.h; sourceTree = "<group>"; };
+		489644281F23C4960016909E /* Trigonometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Trigonometry.cpp; path = ../../source/Math/Trigonometry.cpp; sourceTree = "<group>"; };
+		489644291F23C4960016909E /* Trigonometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trigonometry.h; path = ../../source/Math/Trigonometry.h; sourceTree = "<group>"; };
 		4898E4541F03261700825E3E /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = ../../source/Math/Vector4.cpp; sourceTree = "<group>"; };
 		4898E4551F03261700825E3E /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = ../../source/Math/Vector4.h; sourceTree = "<group>"; };
 		4898E4581F03262200825E3E /* Mat4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4.cpp; path = ../../source/Math/Mat4x4.cpp; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 		48FFC4CA1F01DEF4003932BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				489644291F23C4960016909E /* Trigonometry.h */,
+				489644281F23C4960016909E /* Trigonometry.cpp */,
 				4898E45D1F0330B600825E3E /* IntVector2.h */,
 				4898E45C1F0330B600825E3E /* IntVector2.cpp */,
 				48FFC4D01F01E2A2003932BA /* Vector2.h */,
@@ -333,6 +339,7 @@
 				483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */,
 				483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */,
 				483C31B91F0A00F1002A7870 /* Texture.h in Headers */,
+				4896442B1F23C4960016909E /* Trigonometry.h in Headers */,
 				4839F6311F18392A0081237A /* Exception.h in Headers */,
 				484B41331F12DD0E00CE92B4 /* Vector3UniformCollection.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
@@ -434,6 +441,7 @@
 				48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */,
 				483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */,
 				484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */,
+				4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */,
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
 				484B41321F12DD0E00CE92B4 /* Vector3UniformCollection.cpp in Sources */,

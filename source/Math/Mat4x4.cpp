@@ -3,10 +3,12 @@
 // Created on 2017-06-28.
 #include "Mat4x4.h"
 //gdk inc
-#include "../Math/Vector2.h"
-#include "../Math/Vector3.h"
-#include "../Math/Quaternion.h"
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Quaternion.h"
+#include "Trigonometry.h"
 #include "../Debug/Exception.h"
+#include "../Time/Time.h"
 //#include "../Debug/Logger.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
@@ -60,7 +62,7 @@ void Mat4x4::translate(const Vector3 &a)
 
 void Mat4x4::rotate(const Quaternion &aRotation)
 {
-    Quaternion q = aRotation;
+    /*Quaternion q = aRotation;
     
     double sqw = q.w*q.w;
     double sqx = q.x*q.x;
@@ -95,7 +97,70 @@ void Mat4x4::rotate(const Quaternion &aRotation)
      m30, m31, m32, m33
     );
     
-    *this = rotationMatrix;
+    *this = rotationMatrix;*/
+    
+    Vector3 eulers(0.,0.,10.*Time::getTime());
+    rotate(eulers);
+    
+}
+
+void Mat4x4::rotate(const Vector3 &aEulers)
+{
+    float ang = aEulers.z;
+    Mat4x4 res;
+    
+    float sin, cos;
+    if (ang == Trig::PI || ang == - Trig::PI)
+    {
+        cos = -1.0f;
+        sin = 0.0f;
+    }
+    else if (ang == (float) Trig::PI * 0.5f || ang == -(float) Trig::PI * 1.5f)
+    {
+        cos = 0.0f;
+        sin = 1.0f;
+    }
+    else if (ang == (float) -Trig::PI * 0.5f || ang == (float) Trig::PI * 1.5f)
+    {
+        cos = 0.0f;
+        sin = -1.0f;
+    }
+    else
+    {
+        cos = Trig::cos(ang);
+        sin = Trig::sin(ang);
+    }
+    
+    float rm00 = cos;
+    float rm01 = sin;
+    float rm10 = -sin;
+    float rm11 = cos;
+    
+    // add temporaries for dependent values
+    float nm00 = m00 * rm00 + m10 * rm01;
+    float nm01 = m01 * rm00 + m11 * rm01;
+    float nm02 = m02 * rm00 + m12 * rm01;
+    float nm03 = m03 * rm00 + m13 * rm01;
+    // set non-dependent values directly
+    res.m10 = m00 * rm10 + m10 * rm11;
+    res.m11 = m01 * rm10 + m11 * rm11;
+    res.m12 = m02 * rm10 + m12 * rm11;
+    res.m13 = m03 * rm10 + m13 * rm11;
+    // set other values
+    res.m00 = nm00;
+    res.m01 = nm01;
+    res.m02 = nm02;
+    res.m03 = nm03;
+    res.m20 = m20;
+    res.m21 = m21;
+    res.m22 = m22;
+    res.m23 = m23;
+    res.m30 = m30;
+    res.m31 = m31;
+    res.m32 = m32;
+    res.m33 = m33;
+    
+    *this *= res;
     
 }
 

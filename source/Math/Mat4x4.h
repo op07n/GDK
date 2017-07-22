@@ -35,6 +35,7 @@ namespace GDK
             
             void translate(const Vector3 &aTranslation);
             void rotate(const Quaternion &aRotation);
+            void rotate(const Vector3 &aEulers);
             void scale(const Vector3 &aScale);
             
             // Non-mutating operators
