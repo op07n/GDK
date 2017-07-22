@@ -10,7 +10,6 @@
 #include "../Debug/Exception.h"
 #include "../Time/Time.h"
 #include "../Debug/Logger.h"
-//#include "../Debug/Logger.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -30,20 +29,20 @@ const Mat4x4 Mat4x4::Identity = Mat4x4();
 std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
 {
     s.clear();s
-    << "{" << aMat.m00 << ", " << aMat.m01 << ", " << aMat.m02 << ", " << aMat.m03 << "}\n"
-    << "{" << aMat.m10 << ", " << aMat.m11 << ", " << aMat.m12 << ", " << aMat.m13 << "}\n"
-    << "{" << aMat.m20 << ", " << aMat.m21 << ", " << aMat.m22 << ", " << aMat.m23 << "}\n"
-    << "{" << aMat.m30 << ", " << aMat.m31 << ", " << aMat.m32 << ", " << aMat.m33 << "}\n";
+    << "{" << aMat.m[0][0] << ", " << aMat.m[1][0] << ", " << aMat.m[2][0] << ", " << aMat.m[3][0] << "}\n"
+    << "{" << aMat.m[0][1] << ", " << aMat.m[1][1] << ", " << aMat.m[2][1] << ", " << aMat.m[3][1] << "}\n"
+    << "{" << aMat.m[0][2] << ", " << aMat.m[1][2] << ", " << aMat.m[2][2] << ", " << aMat.m[3][2] << "}\n"
+    << "{" << aMat.m[0][3] << ", " << aMat.m[1][3] << ", " << aMat.m[2][3] << ", " << aMat.m[3][3] << "}\n";
     return s;
 }
 
 void Mat4x4::setIdentity()
 {
-    m00 = 1.; m01 = 0.; m02 = 0.; m03 = 0.;
-    m10 = 0.; m11 = 1.; m12 = 0.; m13 = 0.;
-    m20 = 0.; m21 = 0.; m22 = 1.; m23 = 0.;
-    m30 = 0.; m31 = 0.; m32 = 0.; m33 = 1.;
-
+    m[0][0] = 1.; m[1][0] = 0.; m[2][0] = 0.; m[3][0] = 0.;
+    m[0][1] = 0.; m[1][1] = 1.; m[2][1] = 0.; m[3][1] = 0.;
+    m[0][2] = 0.; m[1][2] = 0.; m[2][2] = 1.; m[3][2] = 0.;
+    m[0][3] = 0.; m[1][3] = 0.; m[2][3] = 0.; m[3][3] = 1.;
+    
 }
 
 void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
@@ -52,18 +51,18 @@ void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNear
     
 }
 
-void Mat4x4::translate(const Vector3 &a)
+void Mat4x4::translate(const Vector3 &a) //TODO: CONSIDER
 {
-    m30 = m00 * a.x + m10 * a.y + m20 * a.z + m30;
-    m31 = m01 * a.x + m11 * a.y + m21 * a.z + m31;
-    m32 = m02 * a.x + m12 * a.y + m22 * a.z + m32;
-    m33 = m03 * a.x + m13 * a.y + m23 * a.z + m33;
+    m[3][0] = m[0][0] * a.x + m[1][0] * a.y + m[2][0] * a.z + m[3][0];
+    m[3][1] = m[0][1] * a.x + m[1][1] * a.y + m[2][1] * a.z + m[3][1];
+    m[3][2] = m[0][2] * a.x + m[1][2] * a.y + m[2][2] * a.z + m[3][2];
+    m[3][3] = m[0][3] * a.x + m[1][3] * a.y + m[2][3] * a.z + m[3][3];
     
 }
 
 void Mat4x4::rotate(const Quaternion &aRotation)
 {
-    /*Quaternion q = aRotation;
+    const Quaternion &q = aRotation;
     
     double sqw = q.w*q.w;
     double sqx = q.x*q.x;
@@ -72,40 +71,30 @@ void Mat4x4::rotate(const Quaternion &aRotation)
     
     // invs (inverse square length) is only required if quaternion is not already normalised
     double invs = 1 / (sqx + sqy + sqz + sqw);
-    m00 = ( sqx - sqy - sqz + sqw)*invs ; // since sqw + sqx + sqy + sqz =1/invs*invs
-    m11 = (-sqx + sqy - sqz + sqw)*invs ;
-    m22 = (-sqx - sqy + sqz + sqw)*invs ;
+    m[0][0] = ( sqx - sqy - sqz + sqw)*invs ; // since sqw + sqx + sqy + sqz =1/invs*invs
+    m[1][1] = (-sqx + sqy - sqz + sqw)*invs ;
+    m[2][2] = (-sqx - sqy + sqz + sqw)*invs ;
     
     double tmp1 = q.x*q.y;
     double tmp2 = q.z*q.w;
-    m10 = 2.0 * (tmp1 + tmp2)*invs ;
-    m01 = 2.0 * (tmp1 - tmp2)*invs ;
+    m[1][0] = 2.0 * (tmp1 + tmp2)*invs ;
+    m[0][1] = 2.0 * (tmp1 - tmp2)*invs ;
     
     tmp1 = q.x*q.z;
     tmp2 = q.y*q.w;
-    m20 = 2.0 * (tmp1 - tmp2)*invs ;
-    m02 = 2.0 * (tmp1 + tmp2)*invs ;
+    m[2][0] = 2.0 * (tmp1 - tmp2)*invs ;
+    m[0][2] = 2.0 * (tmp1 + tmp2)*invs ;
     tmp1 = q.y*q.z;
     tmp2 = q.x*q.w;
-    m21 = 2.0 * (tmp1 + tmp2)*invs ;
-    m12 = 2.0 * (tmp1 - tmp2)*invs ;
-    
-    Mat4x4 rotationMatrix
-    (
-     m00, m01, m02, m03,
-     m10, m11, m12, m13,
-     m20, m21, m22, m23,
-     m30, m31, m32, m33
-    );
-    
-    *this = rotationMatrix;*/
-    
-    //rotate(Vector3(0,0,Time::getTime()));
+    m[2][1] = 2.0 * (tmp1 + tmp2)*invs ;
+    m[1][2] = 2.0 * (tmp1 - tmp2)*invs ;
     
 }
 
 void Mat4x4::rotate(const Vector3 &aEulers)
 {
+    Debug::log("Mat4x4::rotate(const Vector3 &aEulers) only supports Z rotation!!!");
+    
     float ang = aEulers.z, sin, cos;
     
     if (ang == (float) Trig::PI || ang == -(float) Trig::PI)
@@ -137,31 +126,30 @@ void Mat4x4::rotate(const Vector3 &aEulers)
     Mat4x4 res;
     
     // add temporaries for dependent values
-    float nm00 = m00 * rm00 + m10 * rm01;
-    float nm01 = m01 * rm00 + m11 * rm01;
-    float nm02 = m02 * rm00 + m12 * rm01;
-    float nm03 = m03 * rm00 + m13 * rm01;
+    float nm00 = m[0][0] * rm00 + m[1][0] * rm01;
+    float nm01 = m[0][1] * rm00 + m[1][1] * rm01;
+    float nm02 = m[0][2] * rm00 + m[1][2] * rm01;
+    float nm03 = m[0][3] * rm00 + m[1][3] * rm01;
     // set non-dependent values directly
-    res.m10 = m00 * rm10 + m10 * rm11;
-    res.m11 = m01 * rm10 + m11 * rm11;
-    res.m12 = m02 * rm10 + m12 * rm11;
-    res.m13 = m03 * rm10 + m13 * rm11;
+    res.m[1][0] = m[0][0] * rm10 + m[1][0] * rm11;
+    res.m[1][1] = m[0][1] * rm10 + m[1][1] * rm11;
+    res.m[1][2] = m[0][2] * rm10 + m[1][2] * rm11;
+    res.m[1][3] = m[0][3] * rm10 + m[1][3] * rm11;
     // set other values
-    res.m00 = nm00;
-    res.m01 = nm01;
-    res.m02 = nm02;
-    res.m03 = nm03;
-    res.m20 = m20;
-    res.m21 = m21;
-    res.m22 = m22;
-    res.m23 = m23;
-    res.m30 = m30;
-    res.m31 = m31;
-    res.m32 = m32;
-    res.m33 = m33;
+    res.m[0][0] = nm00;
+    res.m[0][1] = nm01;
+    res.m[0][2] = nm02;
+    res.m[0][3] = nm03;
+    res.m[2][0] = m[2][0];
+    res.m[2][1] = m[2][1];
+    res.m[2][2] = m[2][2];
+    res.m[2][3] = m[2][3];
+    res.m[3][0] = m[3][0];
+    res.m[3][1] = m[3][1];
+    res.m[3][2] = m[3][2];
+    res.m[3][3] = m[3][3];
     
-    //*this = res;
-    //Debug::log(*this);
+    *this = res;
     
 }
 
@@ -174,77 +162,64 @@ void Mat4x4::scale(const Vector3 &aPosition)
 void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
     float tanHalfFovy = (float)tan(aFieldOfView * 0.5f);
-    m00 = 1.0f / (aViewportAspectRatio * tanHalfFovy);
-    m01 = 0.0f;
-    m02 = 0.0f;
-    m03 = 0.0f;
-    m10 = 0.0f;
-    m11 = 1.0f / tanHalfFovy;
-    m12 = 0.0f;
-    m13 = 0.0f;
-    m20 = 0.0f;
-    m21 = 0.0f;
-    m22 =-(aFarClippingPlane + aNearClippingPlane) / (aFarClippingPlane - aNearClippingPlane);
-    m23 =-1.0f;
-    m30 = 0.0f;
-    m31 = 0.0f;
-    m32 =-2.0f * aFarClippingPlane * aNearClippingPlane / (aFarClippingPlane - aNearClippingPlane);
-    m33 = 0.0f;
+    m[0][0] = 1.0f / (aViewportAspectRatio * tanHalfFovy);
+    m[0][1] = 0.0f;
+    m[0][2] = 0.0f;
+    m[0][3] = 0.0f;
+    m[1][0] = 0.0f;
+    m[1][1] = 1.0f / tanHalfFovy;
+    m[1][2] = 0.0f;
+    m[1][3] = 0.0f;
+    m[2][0] = 0.0f;
+    m[2][1] = 0.0f;
+    m[2][2] =-(aFarClippingPlane + aNearClippingPlane) / (aFarClippingPlane - aNearClippingPlane);
+    m[2][3] =-1.0f;
+    m[3][0] = 0.0f;
+    m[3][1] = 0.0f;
+    m[3][2] =-2.0f * aFarClippingPlane * aNearClippingPlane / (aFarClippingPlane - aNearClippingPlane);
+    m[3][3] = 0.0f;
     
 }
 
 void Mat4x4::transpose()
 {
-    float
-    t00 = m00, t01 = m10, t02 = m20, t03 = m30,
-    t10 = m01, t11 = m11, t12 = m21, t13 = m31,
-    t20 = m02, t21 = m12, t22 = m22, t23 = m32,
-    t30 = m03, t31 = m13, t32 = m23, t33 = m33;
+    float t00 = m[0][0]; float t10 = m[1][0]; float t20 = m[2][0]; float t30 = m[3][0];
+    float t01 = m[0][1]; float t11 = m[1][1]; float t21 = m[2][1]; float t31 = m[3][1];
+    float t02 = m[0][2]; float t12 = m[1][2]; float t22 = m[2][2]; float t32 = m[3][2];
+    float t03 = m[0][3]; float t13 = m[1][3]; float t23 = m[2][3]; float t33 = m[3][3];
     
     set
     (
-     t00, t01, t02, t03,
-     t10, t11, t12, t13,
-     t20, t21, t22, t23,
-     t30, t31, t32, t33
+     t00, t10, t20, t30,
+     t01, t11, t21, t31,
+     t02, t12, t22, t32,
+     t03, t13, t23, t33
      );
     
 }
 
 void Mat4x4::set
 (
- const float& a00, const float& a01, const float& a02, const float& a03,
- const float& a10, const float& a11, const float& a12, const float& a13,
- const float& a20, const float& a21, const float& a22, const float& a23,
- const float& a30, const float& a31, const float& a32, const float& a33
+ const float& a00, const float& a10, const float& a20, const float& a30,
+ const float& a01, const float& a11, const float& a21, const float& a31,
+ const float& a02, const float& a12, const float& a22, const float& a32,
+ const float& a03, const float& a13, const float& a23, const float& a33
 )
 {
-    m00 = a00; m01 = a01; m02 = a02; m03 = a03;
-    m10 = a10; m11 = a11; m12 = a12; m13 = a13;
-    m20 = a20; m21 = a21; m22 = a22; m23 = a23;
-    m30 = a30; m31 = a31; m32 = a32; m33 = a33;
+    m[0][0] = a00; m[1][0] = a10; m[2][0] = a20; m[3][0] = a30;
+    m[0][1] = a01; m[1][1] = a11; m[2][1] = a21; m[3][1] = a31;
+    m[0][2] = a02; m[1][2] = a12; m[2][2] = a22; m[3][2] = a32;
+    m[0][3] = a03; m[1][3] = a13; m[2][3] = a23; m[3][3] = a33;
     
 }
 
 // Operators
 Mat4x4& Mat4x4::operator*=(const Mat4x4& a)
 {
-    m00 = m00 * a.m00 + m10 * a.m01 + m20 * a.m02 + m30 * a.m03;
-    m01 = m01 * a.m00 + m11 * a.m01 + m21 * a.m02 + m31 * a.m03;
-    m02 = m02 * a.m00 + m12 * a.m01 + m22 * a.m02 + m32 * a.m03;
-    m03 = m03 * a.m00 + m13 * a.m01 + m23 * a.m02 + m33 * a.m03;
-    m10 = m00 * a.m10 + m10 * a.m11 + m20 * a.m12 + m30 * a.m13;
-    m11 = m01 * a.m10 + m11 * a.m11 + m21 * a.m12 + m31 * a.m13;
-    m12 = m02 * a.m10 + m12 * a.m11 + m22 * a.m12 + m32 * a.m13;
-    m13 = m03 * a.m10 + m13 * a.m11 + m23 * a.m12 + m33 * a.m13;
-    m20 = m00 * a.m20 + m10 * a.m21 + m20 * a.m22 + m30 * a.m23;
-    m21 = m01 * a.m20 + m11 * a.m21 + m21 * a.m22 + m31 * a.m23;
-    m22 = m02 * a.m20 + m12 * a.m21 + m22 * a.m22 + m32 * a.m23;
-    m23 = m03 * a.m20 + m13 * a.m21 + m23 * a.m22 + m33 * a.m23;
-    m30 = m00 * a.m30 + m10 * a.m31 + m20 * a.m32 + m30 * a.m33;
-    m31 = m01 * a.m30 + m11 * a.m31 + m21 * a.m32 + m31 * a.m33;
-    m32 = m02 * a.m30 + m12 * a.m31 + m22 * a.m32 + m32 * a.m33;
-    m33 = m03 * a.m30 + m13 * a.m31 + m23 * a.m32 + m33 * a.m33;
+    m[0][0] *= a.m[0][0]; m[1][0] *= a.m[1][0]; m[2][0] *= a.m[2][0]; m[3][0] *= a.m[3][0];
+    m[0][1] *= a.m[0][1]; m[1][1] *= a.m[1][1]; m[2][1] *= a.m[2][1]; m[3][1] *= a.m[3][1];
+    m[0][2] *= a.m[0][2]; m[1][2] *= a.m[1][2]; m[2][2] *= a.m[2][2]; m[3][2] *= a.m[3][2];
+    m[0][3] *= a.m[0][3]; m[1][3] *= a.m[1][3]; m[2][3] *= a.m[2][3]; m[3][3] *= a.m[3][3];
     
     return *this;
     
@@ -260,21 +235,27 @@ Mat4x4 Mat4x4::operator*(const Mat4x4 &a)
 
 // Constructors
 Mat4x4::Mat4x4()
-: m00(1.), m01(0.), m02(0.), m03(0.)
-, m10(0.), m11(1.), m12(0.), m13(0.)
-, m20(0.), m21(0.), m22(1.), m23(0.)
-, m30(0.), m31(0.), m32(0.), m33(1.)
+: m
+{
+    1.,0.,0.,0.,
+    0.,1.,0.,0.,
+    0.,0.,1.,0.,
+    0.,0.,0.,1.,
+}
 {}
 
 Mat4x4::Mat4x4
 (
- const float& a00, const float& a01, const float& a02, const float& a03,
- const float& a10, const float& a11, const float& a12, const float& a13,
- const float& a20, const float& a21, const float& a22, const float& a23,
- const float& a30, const float& a31, const float& a32, const float& a33
+    const float& a00, const float& a01, const float& a02, const float& a03,
+    const float& a10, const float& a11, const float& a12, const float& a13,
+    const float& a20, const float& a21, const float& a22, const float& a23,
+    const float& a30, const float& a31, const float& a32, const float& a33
 )
-: m00(a00), m01(a01), m02(a02), m03(a03)
-, m10(a10), m11(a11), m12(a12), m13(a13)
-, m20(a20), m21(a21), m22(a22), m23(a23)
-, m30(a30), m31(a31), m32(a32), m33(a33)
+: m
+{
+    a00,a10,a20,a30,
+    a01,a11,a21,a31,
+    a02,a12,a22,a32,
+    a03,a13,a23,a33,
+}
 {}

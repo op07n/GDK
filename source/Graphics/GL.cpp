@@ -252,7 +252,7 @@ bool GLH::BindMatrix4x4(const GLuint &aShaderHandle, const std::string &aUniform
     if (uniformHandle == -1)
         return false;
     
-    glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, &aMatrix4x4.m00);
+    glUniformMatrix4fv(uniformHandle, 1, GL_FALSE, &aMatrix4x4.m[0][0]);
     
     return true;
     
