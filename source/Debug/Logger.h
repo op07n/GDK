@@ -35,13 +35,14 @@ namespace GDK
             std::function<void(const std::string&)> m_LoggingBehaviourCallback;
             std::ostringstream m_StringBuffer;
             
-        public:
             void log()
             {
                 m_LoggingBehaviourCallback(m_StringBuffer.str());
                 m_StringBuffer.str(std::string());
-            
+                
             }
+            
+        public:
             template<typename First, typename ...Rest>
             void log(First && first, Rest && ...rest)
             {

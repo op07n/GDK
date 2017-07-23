@@ -147,15 +147,7 @@ bool Keyboard::getKeyDown(const Key &aKeyCode)
     if (auto ptr = m_HandleToGLFWWindow.lock())
         return glfwGetKey(ptr.get(), glfwKeyCodeFromKey(aKeyCode));
 
-    static bool lock = true;
-    if (lock)
-    {
-        lock = false;
-        Debug::error("The keyboard's window has died!");
-        
-    }
-    
-    return false;
+    throw GDK::Exception("The keyboard's window has died!");
     
 }
 

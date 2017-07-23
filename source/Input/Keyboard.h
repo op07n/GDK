@@ -16,7 +16,7 @@ namespace GDK
 	namespace Input
 	{
 		/*!
-		 No description provided for Keyboard
+		 Get keystates for a given Window
     	 */
 		class Keyboard final
 		{

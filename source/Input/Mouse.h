@@ -17,7 +17,7 @@ namespace GDK
 	namespace Input
 	{
 		/*!
-		 No description provided for Mouse
+		 Get mouse keys and position on a window
     	 */
 		class Mouse final
 		{

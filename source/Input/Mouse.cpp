@@ -28,7 +28,6 @@ static int glfwMouseButtonFromButton(const Mouse::Button &a)
 {
     switch(a)
     {
-            
         case Mouse::Button::Left:   return GLFW_MOUSE_BUTTON_LEFT;
         case Mouse::Button::Right:  return GLFW_MOUSE_BUTTON_RIGHT;
         case Mouse::Button::Middle: return GLFW_MOUSE_BUTTON_MIDDLE;
