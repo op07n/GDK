@@ -24,6 +24,7 @@ namespace GDK
         template<typename T>
 		class ResourceManager
 		{
+        protected:
 			// Data members
             std::map<std::string,std::shared_ptr<T>> m_Map;
             std::shared_ptr<T> m_Default;

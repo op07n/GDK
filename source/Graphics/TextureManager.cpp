@@ -12,10 +12,15 @@ using namespace GFX;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureManager& a)
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "TextureManager's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    s.clear(); s << "{";
+    int i = 0;
+    for (auto &pair : a.m_Map)
+    {
+        auto mat4x4 = pair.second;
+        s << i << ": " << "{Name: " << pair.first << ", " << "Texture: " << *pair.second << "}";
+        
+    }
+    s << "}"; return s;
 
 }
 

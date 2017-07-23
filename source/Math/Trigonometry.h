@@ -4,9 +4,6 @@
 #ifndef GDK_MATH_TRIGONOMETRY_H
 #define GDK_MATH_TRIGONOMETRY_H
 
-//std inc
-#include <iosfwd>
-
 namespace GDK
 {
 	namespace Math

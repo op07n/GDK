@@ -17,9 +17,12 @@ using namespace Input;
 std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Keyboard& a)
 {
     s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "Keyboard's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    << "m_HandleToGLFWWindow: ";
+    if (auto ptr = a.m_HandleToGLFWWindow.lock())
+        s << ptr;
+    else
+        s << "null";
+    s << "}"; return s;
 
 }
 

@@ -14,7 +14,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCol
 {
     s.clear(); s << "{";
     int i = 0;
-    for (auto& pair : a.m_Map)
+    for (auto &pair : a.m_Map)
     {
         auto texture = pair.second.lock();
         s << i << ": " << "{Name: " << pair.first << ", " << "Texture: " << *texture.get() << "}";

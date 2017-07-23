@@ -26,6 +26,7 @@ namespace GDK
             
 		public:
 			// Public methods
+            /// Try to get an object from the pool, will be null if all objects are in use
             std::shared_ptr<T> get()
             {
                 for(int i=0;i<m_Pool.size();i++)
