@@ -7,11 +7,11 @@
 //gdk inc
 #include "GL.h"
 #include "Color.h"
-#include "../Math/IntVector2.h"
-#include "../Math/Vector2.h"
-#include "../Math/Mat4x4.h"
-#include "../Debug/Logger.h"
-#include "../Debug/Exception.h"
+#include "Math/IntVector2.h"
+#include "Math/Vector2.h"
+#include "Math/Mat4x4.h"
+#include "Debug/Logger.h"
+#include "Debug/Exception.h"
 
 using namespace GDK;
 using namespace GFX;

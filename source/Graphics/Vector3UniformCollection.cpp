@@ -2,7 +2,7 @@
 // Project: GDK
 // Created on 17-07-09.
 #include "Vector3UniformCollection.h"
-#include "../Math/Vector3.h"
+#include "Math/Vector3.h"
 #include "GL.h"
 //std inc
 #include <iostream>

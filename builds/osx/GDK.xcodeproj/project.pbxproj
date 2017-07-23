@@ -52,6 +52,8 @@
 		4896442B1F23C4960016909E /* Trigonometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 489644291F23C4960016909E /* Trigonometry.h */; };
 		4896442E1F23ED350016909E /* Mat4x4UniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */; };
 		4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */; };
+		4898C0D21F245951007F3B88 /* Mouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898C0D01F245951007F3B88 /* Mouse.h */; };
+		4898C0D31F245951007F3B88 /* Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898C0D11F245951007F3B88 /* Mouse.cpp */; };
 		4898E4561F03261700825E3E /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4541F03261700825E3E /* Vector4.cpp */; };
 		4898E4571F03261700825E3E /* Vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4551F03261700825E3E /* Vector4.h */; };
 		4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4581F03262200825E3E /* Mat4x4.cpp */; };
@@ -66,6 +68,8 @@
 		48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48C6539C1F05D1090001EDD6 /* Logger.cpp */; };
 		48C6539F1F05D1090001EDD6 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 48C6539D1F05D1090001EDD6 /* Logger.h */; };
 		48E1E4D01F12023400D01A6E /* stb_implementation.c in Sources */ = {isa = PBXBuildFile; fileRef = 48E1E4CF1F12023400D01A6E /* stb_implementation.c */; };
+		48E5F75E1F243E0C00ABDD0F /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E5F75C1F243E0C00ABDD0F /* Keyboard.h */; };
+		48E5F75F1F243E0C00ABDD0F /* Keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48E5F75D1F243E0C00ABDD0F /* Keyboard.cpp */; };
 		48FFC4C81F01DB88003932BA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4C61F01DB88003932BA /* Window.cpp */; };
 		48FFC4C91F01DB88003932BA /* Window.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4C71F01DB88003932BA /* Window.h */; };
 		48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4CB1F01DEFA003932BA /* Vector3.h */; };
@@ -125,6 +129,8 @@
 		489644291F23C4960016909E /* Trigonometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trigonometry.h; path = ../../source/Math/Trigonometry.h; sourceTree = "<group>"; };
 		4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4UniformCollection.cpp; path = ../../source/Graphics/Mat4x4UniformCollection.cpp; sourceTree = "<group>"; };
 		4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mat4x4UniformCollection.h; path = ../../source/Graphics/Mat4x4UniformCollection.h; sourceTree = "<group>"; };
+		4898C0D01F245951007F3B88 /* Mouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mouse.h; path = ../../source/Input/Mouse.h; sourceTree = "<group>"; };
+		4898C0D11F245951007F3B88 /* Mouse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mouse.cpp; path = ../../source/Input/Mouse.cpp; sourceTree = "<group>"; };
 		4898E4541F03261700825E3E /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector4.cpp; path = ../../source/Math/Vector4.cpp; sourceTree = "<group>"; };
 		4898E4551F03261700825E3E /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector4.h; path = ../../source/Math/Vector4.h; sourceTree = "<group>"; };
 		4898E4581F03262200825E3E /* Mat4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4.cpp; path = ../../source/Math/Mat4x4.cpp; sourceTree = "<group>"; };
@@ -140,6 +146,8 @@
 		48C6539C1F05D1090001EDD6 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = ../../source/Debug/Logger.cpp; sourceTree = "<group>"; };
 		48C6539D1F05D1090001EDD6 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../../source/Debug/Logger.h; sourceTree = "<group>"; };
 		48E1E4CF1F12023400D01A6E /* stb_implementation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stb_implementation.c; path = ../../includes/Common/stb/stb_implementation.c; sourceTree = "<group>"; };
+		48E5F75C1F243E0C00ABDD0F /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keyboard.h; path = ../../source/Input/Keyboard.h; sourceTree = "<group>"; };
+		48E5F75D1F243E0C00ABDD0F /* Keyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Keyboard.cpp; path = ../../source/Input/Keyboard.cpp; sourceTree = "<group>"; };
 		48FFC4C61F01DB88003932BA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../source/Graphics/Window.cpp; sourceTree = "<group>"; };
 		48FFC4C71F01DB88003932BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = ../../source/Graphics/Window.h; sourceTree = "<group>"; };
 		48FFC4CB1F01DEFA003932BA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = ../../source/Math/Vector3.h; sourceTree = "<group>"; };
@@ -261,6 +269,7 @@
 		48B2491B1EFF678C00A70F35 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				48E5F75B1F243D9500ABDD0F /* Input */,
 				4845A00A1F1C5178000C957F /* Time */,
 				4839F62B1F1834370081237A /* Memory */,
 				483CA49C1F0481EF00E51C4F /* Collections */,
@@ -270,6 +279,17 @@
 				4899AF5A1F008ED4009B4E73 /* Utilities */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		48E5F75B1F243D9500ABDD0F /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				48E5F75C1F243E0C00ABDD0F /* Keyboard.h */,
+				48E5F75D1F243E0C00ABDD0F /* Keyboard.cpp */,
+				4898C0D01F245951007F3B88 /* Mouse.h */,
+				4898C0D11F245951007F3B88 /* Mouse.cpp */,
+			);
+			name = Input;
 			sourceTree = "<group>";
 		};
 		48FFC4CA1F01DEF4003932BA /* Math */ = {
@@ -334,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4898E45B1F03262200825E3E /* Mat4x4.h in Headers */,
+				48E5F75E1F243E0C00ABDD0F /* Keyboard.h in Headers */,
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
 				4818CB091F12BDB900D33510 /* UniformCollection.h in Headers */,
@@ -359,6 +380,7 @@
 				4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */,
 				48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */,
 				48459FE81F1AE3DC000C957F /* ResourceManager.h in Headers */,
+				4898C0D21F245951007F3B88 /* Mouse.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
 				483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
@@ -444,6 +466,7 @@
 				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
 				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
+				4898C0D31F245951007F3B88 /* Mouse.cpp in Sources */,
 				48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */,
 				48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */,
 				483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */,
@@ -455,6 +478,7 @@
 				4839F6301F18392A0081237A /* Exception.cpp in Sources */,
 				485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */,
 				4873E92A1F1D837E000BA834 /* Time.cpp in Sources */,
+				48E5F75F1F243E0C00ABDD0F /* Keyboard.cpp in Sources */,
 				4896442E1F23ED350016909E /* Mat4x4UniformCollection.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
@@ -513,6 +537,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/../../source\"";
 			};
 			name = Debug;
 		};
@@ -557,6 +582,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/../../source\"";
 			};
 			name = Release;
 		};

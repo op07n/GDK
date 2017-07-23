@@ -6,9 +6,9 @@
 #include <iostream>
 //#include <vector>
 //gdk inc
-#include "../Debug/Logger.h"
+#include "Debug/Logger.h"
 #include "GL.h"
-#include "../Debug/Exception.h"
+#include "Debug/Exception.h"
 
 using namespace GDK;
 using namespace GFX;

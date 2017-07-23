@@ -7,9 +7,9 @@
 #include "Vector3.h"
 #include "Quaternion.h"
 #include "Trigonometry.h"
-#include "../Debug/Exception.h"
-#include "../Time/Time.h"
-#include "../Debug/Logger.h"
+#include "Debug/Exception.h"
+#include "Time/Time.h"
+#include "Debug/Logger.h"
 //thirdparty inc
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -34,6 +34,7 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
     << "{" << aMat.m[0][2] << ", " << aMat.m[1][2] << ", " << aMat.m[2][2] << ", " << aMat.m[3][2] << "}\n"
     << "{" << aMat.m[0][3] << ", " << aMat.m[1][3] << ", " << aMat.m[2][3] << ", " << aMat.m[3][3] << "}\n";
     return s;
+    
 }
 
 void Mat4x4::setIdentity()
@@ -91,7 +92,7 @@ void Mat4x4::rotate(const Quaternion &aRotation)
     
 }
 
-void Mat4x4::rotate(const Vector3 &aEulers)
+/*void Mat4x4::rotate(const Vector3 &aEulers)
 {
     Debug::log("Mat4x4::rotate(const Vector3 &aEulers) only supports Z rotation!!!");
     
@@ -151,7 +152,7 @@ void Mat4x4::rotate(const Vector3 &aEulers)
     
     *this = res;
     
-}
+}*/
 
 void Mat4x4::scale(const Vector3 &aPosition)
 {
@@ -183,10 +184,10 @@ void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippin
 
 void Mat4x4::transpose()
 {
-    float t00 = m[0][0]; float t10 = m[1][0]; float t20 = m[2][0]; float t30 = m[3][0];
-    float t01 = m[0][1]; float t11 = m[1][1]; float t21 = m[2][1]; float t31 = m[3][1];
-    float t02 = m[0][2]; float t12 = m[1][2]; float t22 = m[2][2]; float t32 = m[3][2];
-    float t03 = m[0][3]; float t13 = m[1][3]; float t23 = m[2][3]; float t33 = m[3][3];
+    float t00 = m[0][0]; float t10 = m[0][1]; float t20 = m[0][2]; float t30 = m[0][3];
+    float t01 = m[1][0]; float t11 = m[1][1]; float t21 = m[1][2]; float t31 = m[1][3];
+    float t02 = m[2][0]; float t12 = m[2][1]; float t22 = m[2][2]; float t32 = m[2][3];
+    float t03 = m[3][0]; float t13 = m[3][1]; float t23 = m[3][2]; float t33 = m[3][3];
     
     set
     (
@@ -220,7 +221,6 @@ Mat4x4& Mat4x4::operator*=(const Mat4x4& a)
     m[0][1] *= a.m[0][1]; m[1][1] *= a.m[1][1]; m[2][1] *= a.m[2][1]; m[3][1] *= a.m[3][1];
     m[0][2] *= a.m[0][2]; m[1][2] *= a.m[1][2]; m[2][2] *= a.m[2][2]; m[3][2] *= a.m[3][2];
     m[0][3] *= a.m[0][3]; m[1][3] *= a.m[1][3]; m[2][3] *= a.m[2][3]; m[3][3] *= a.m[3][3];
-    
     return *this;
     
 }
@@ -241,21 +241,23 @@ Mat4x4::Mat4x4()
     0.,1.,0.,0.,
     0.,0.,1.,0.,
     0.,0.,0.,1.,
+    
 }
 {}
 
 Mat4x4::Mat4x4
 (
-    const float& a00, const float& a01, const float& a02, const float& a03,
-    const float& a10, const float& a11, const float& a12, const float& a13,
-    const float& a20, const float& a21, const float& a22, const float& a23,
-    const float& a30, const float& a31, const float& a32, const float& a33
+ const float& a00, const float& a10, const float& a20, const float& a30,
+ const float& a01, const float& a11, const float& a21, const float& a31,
+ const float& a02, const float& a12, const float& a22, const float& a32,
+ const float& a03, const float& a13, const float& a23, const float& a33
 )
 : m
 {
-    a00,a10,a20,a30,
-    a01,a11,a21,a31,
-    a02,a12,a22,a32,
-    a03,a13,a23,a33,
+    a00,a01,a02,a03,
+    a10,a11,a12,a13,
+    a20,a21,a22,a23,
+    a30,a31,a32,a33,
+    
 }
 {}

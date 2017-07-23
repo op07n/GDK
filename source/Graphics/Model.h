@@ -13,8 +13,8 @@
 #include "Vector3UniformCollection.h"
 #include "Vector4UniformCollection.h"
 #include "Mat4x4UniformCollection.h"
-#include "../Math/Mat4x4.h"
-#include "../Memory/default_ptr.h"
+#include "Math/Mat4x4.h"
+#include "Memory/default_ptr.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -58,7 +58,6 @@ namespace GDK
             
             const Math::Mat4x4& getModelMatrix() const;
             void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
-            void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Vector3    &aRotation);
             
             // public methods
             void draw(const Camera&);

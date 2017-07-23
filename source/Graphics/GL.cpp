@@ -4,12 +4,12 @@
 #include "GL.h"
 //gdk inc
 #include "Color.h"
-#include "../Debug/Logger.h"
-#include "../Math/IntVector2.h"
-#include "../Math/Vector2.h"
-#include "../Math/Vector3.h"
-#include "../Math/Vector4.h"
-#include "../Math/Mat4x4.h"
+#include "Debug/Logger.h"
+#include "Math/IntVector2.h"
+#include "Math/Vector2.h"
+#include "Math/Vector3.h"
+#include "Math/Vector4.h"
+#include "Math/Mat4x4.h"
 //std inc
 #include <vector>
 

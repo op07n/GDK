@@ -5,9 +5,9 @@
 //gdk inc
 #include "GL.h"
 #include "Color.h"
-#include "../Debug/Exception.h"
-#include "../Debug/Logger.h"
-#include "../Math/IntVector2.h"
+#include "Debug/Exception.h"
+#include "Debug/Logger.h"
+#include "Math/IntVector2.h"
 //thirdparty inc
 #include <GLFW/glfw3.h> // must come after GL
 
@@ -111,7 +111,7 @@ Window::ConstructionParameters::ConstructionParameters()
 {}
 
 Window::Window(const ConstructionParameters& aParams)
-: m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name))
+: m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
 , m_Title(aParams.name)
 , m_OnInit(aParams.onInit)
 , m_OnUpdate(aParams.onUpdate)
@@ -130,14 +130,10 @@ Window::Window(const ConstructionParameters& aParams)
 
 Window::~Window()
 {
-    if (m_HandleToGLFWWindow != nullptr)
-    {
-        glfwDestroyWindow(m_HandleToGLFWWindow);
+    if (m_HandleToGLFWWindow.get() != nullptr)
         --s_InstanceCount;
     
-    }
-    
-    if (s_InstanceCount <= 0)
+    if (s_InstanceCount < 0)
         destroyGLFW();
     
 }
@@ -147,27 +143,26 @@ std::string Window::getTitle(){return m_Title;}
 void Window::setTitle(const std::string& aTitle)
 {
     m_Title = aTitle;
-    glfwSetWindowTitle(m_HandleToGLFWWindow,aTitle.c_str());
+    glfwSetWindowTitle(m_HandleToGLFWWindow.get(),aTitle.c_str());
 
 }
 
 void Window::draw()
 {
-    glfwMakeContextCurrent(m_HandleToGLFWWindow);
-    
+    glfwMakeContextCurrent(m_HandleToGLFWWindow.get());
     
     if (m_OnDraw != nullptr)
         m_OnDraw(*this);
     
-    glfwSwapBuffers(m_HandleToGLFWWindow);
+    glfwSwapBuffers(m_HandleToGLFWWindow.get());
     
 }
 
 void Window::update()
 {
-    if(!glfwWindowShouldClose(m_HandleToGLFWWindow))
+    if(!glfwWindowShouldClose(m_HandleToGLFWWindow.get()))
     {
-        glfwMakeContextCurrent(m_HandleToGLFWWindow);
+        glfwMakeContextCurrent(m_HandleToGLFWWindow.get());
         
         if (m_OnUpdate != nullptr)
             m_OnUpdate(*this);
@@ -184,10 +179,12 @@ void Window::update()
     
 }
 
+std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const {return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);}
+
 Math::IntVector2 Window::getFramebufferSize() const
 {
     Math::IntVector2 frameBufferSize;
-    glfwGetWindowSize(m_HandleToGLFWWindow, &frameBufferSize.x, &frameBufferSize.y);
+    glfwGetWindowSize(m_HandleToGLFWWindow.get(), &frameBufferSize.x, &frameBufferSize.y);
     return frameBufferSize;
     
 }

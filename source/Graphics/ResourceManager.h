@@ -5,8 +5,8 @@
 #define GDK_GFX_RESOURCEMANAGER_H
 
 //gdk inc
-#include "../Memory/default_ptr.h"
-#include "../Debug/Exception.h"
+#include "Memory/default_ptr.h"
+#include "Debug/Exception.h"
 //std inc
 #include <string>
 #include <memory>

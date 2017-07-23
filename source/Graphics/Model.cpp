@@ -2,9 +2,9 @@
 // Project: GDK
 // Created on 17-07-03.
 #include "Model.h"
-#include "../Debug/Logger.h"
-#include "../Math/Mat4x4.h"
-#include "../Time/Time.h"
+#include "Debug/Logger.h"
+#include "Math/Mat4x4.h"
+#include "Time/Time.h"
 #include "Camera.h"
 #include "GL.h"
 //std inc
@@ -61,6 +61,7 @@ void Model::draw(const Camera& aCamera)
     Mat4x4 m   = getModelMatrix();
     Mat4x4 mvp = p * v * m;
     
+    
     GLH::Bind1FloatUniform(programHandle, "_DeltaTime",  deltaTime);
     GLH::Bind1FloatUniform(programHandle, "_Time",       time     );
     GLH::BindMatrix4x4(programHandle,     "_Model",      m        );
@@ -83,16 +84,8 @@ void Model::draw(const Camera& aCamera)
 void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
 {
     m_ModelMatrix.setIdentity();
-    m_ModelMatrix.rotate(aRotation);
     m_ModelMatrix.translate(aWorldPos);
-    
-}
-
-void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Vector3 &aRotation)
-{
-    m_ModelMatrix.setIdentity();
     m_ModelMatrix.rotate(aRotation);
-    m_ModelMatrix.translate(aWorldPos);
     
 }
 

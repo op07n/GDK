@@ -5,10 +5,11 @@
 #define GDK_GRAPHICS_WINDOW_H
 
 //GDK inc
-#include "../Math/IntVector2.h"
+#include "Math/IntVector2.h"
 //std inc
 #include <functional>
 #include <string>
+#include <memory>
 
 class GLFWwindow;
 
@@ -32,7 +33,7 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream& stream, const GFX::Window&);
             
             std::string m_Title;
-            GLFWwindow* m_HandleToGLFWWindow;
+            std::shared_ptr<GLFWwindow> m_HandleToGLFWWindow;
             
             std::function<void(const Window&)> m_OnInit;
             std::function<void(const Window&)> m_OnUpdate;
@@ -43,6 +44,7 @@ namespace GDK
             // Accessors
             std::string getTitle();
             Math::IntVector2 getFramebufferSize() const;
+            std::weak_ptr<GLFWwindow> getHandleToGLFWWindow() const;
             
             void setTitle(const std::string&);
             

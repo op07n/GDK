@@ -6,7 +6,7 @@
 #include <iostream>
 //gdk inc
 #include "GL.h"
-#include "../Debug/Logger.h"
+#include "Debug/Logger.h"
 
 using namespace GDK;
 using namespace GFX;

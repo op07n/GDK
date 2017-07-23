@@ -6,7 +6,7 @@
 
 //gdk inc
 #include "ResourceManager.h"
-#include "../Graphics/ShaderProgram.h"
+#include "Graphics/ShaderProgram.h"
 //std inc
 #include <iosfwd>
 

@@ -31,15 +31,14 @@ namespace GDK
             
             void translate(const Vector3 &aTranslation);
             void rotate(const Quaternion &aRotation);
-            void rotate(const Vector3 &aEulers);
             void scale(const Vector3 &aScale);
             void transpose();
             void set
             (
-             const float& a00, const float& a01, const float& a02, const float& a03,
-             const float& a10, const float& a11, const float& a12, const float& a13,
-             const float& a20, const float& a21, const float& a22, const float& a23,
-             const float& a30, const float& a31, const float& a32, const float& a33
+                const float& a00, const float& a01, const float& a02, const float& a03,
+                const float& a10, const float& a11, const float& a12, const float& a13,
+                const float& a20, const float& a21, const float& a22, const float& a23,
+                const float& a30, const float& a31, const float& a32, const float& a33
             );
             
             // Non-mutating operators

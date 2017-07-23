@@ -4,7 +4,7 @@
 #include "Vector4UniformCollection.h"
 //gdk inc
 #include "GL.h"
-#include "../Math/Vector4.h"
+#include "Math/Vector4.h"
 //std inc
 #include <iostream>
 

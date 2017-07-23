@@ -6,7 +6,7 @@
 
 //gdk inc
 #include "ResourceManager.h"
-#include "../Graphics/Mesh.h"
+#include "Graphics/Mesh.h"
 //std inc
 #include <iosfwd>
 

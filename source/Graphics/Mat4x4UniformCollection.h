@@ -6,7 +6,7 @@
 
 //gdk inc
 #include "UniformCollection.h"
-#include "../Math/Mat4x4.h"
+#include "Math/Mat4x4.h"
 //std inc
 #include <iosfwd>
 
