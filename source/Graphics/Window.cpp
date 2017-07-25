@@ -25,7 +25,7 @@ std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a)
 
 }
 
-void initGLFW()
+static inline void initGLFW()
 {
     Debug::log("Initializing GLFW");
     
@@ -38,14 +38,14 @@ void initGLFW()
     
 }
 
-void destroyGLFW()
+static inline void destroyGLFW()
 {
     Debug::log("Destroying GLFW");
     glfwTerminate();
     
 }
 
-void initGLEW()
+static inline void initGLEW()
 {
     glewExperimental = GL_TRUE; //VAO gen and bind were unavailable in non experimental.
     
@@ -63,7 +63,7 @@ void initGLEW()
     
 }
 
-GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::string &aName)
+static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::string &aName)
 {
     if (s_InstanceCount <= 0)
         initGLFW();
@@ -96,6 +96,57 @@ GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::strin
     GLH::ClearColor(GFX::Color::CornflowerBlue);
     
     return aGLFWWindow;
+    
+}
+
+void Window::draw()
+{
+    glfwMakeContextCurrent(m_HandleToGLFWWindow.get());
+    
+    if (m_OnDraw != nullptr)
+        m_OnDraw(*this);
+    
+    glfwSwapBuffers(m_HandleToGLFWWindow.get());
+    
+}
+
+void Window::update()
+{
+    if(!glfwWindowShouldClose(m_HandleToGLFWWindow.get()))
+    {
+        glfwMakeContextCurrent(m_HandleToGLFWWindow.get());
+        
+        if (m_OnUpdate != nullptr)
+            m_OnUpdate(*this);
+        
+        glfwPollEvents();
+        
+    }
+    else
+    {
+        if (m_OnWantsToClose != nullptr)
+            m_OnWantsToClose(*this);
+        
+    }
+    
+}
+
+std::string Window::getTitle(){return m_Title;}
+
+void Window::setTitle(const std::string& aTitle)
+{
+    m_Title = aTitle;
+    glfwSetWindowTitle(m_HandleToGLFWWindow.get(),aTitle.c_str());
+    
+}
+
+std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const {return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);}
+
+Math::IntVector2 Window::getFramebufferSize() const
+{
+    Math::IntVector2 frameBufferSize;
+    glfwGetWindowSize(m_HandleToGLFWWindow.get(), &frameBufferSize.x, &frameBufferSize.y);
+    return frameBufferSize;
     
 }
 
@@ -135,56 +186,5 @@ Window::~Window()
     
     if (s_InstanceCount < 0)
         destroyGLFW();
-    
-}
-
-std::string Window::getTitle(){return m_Title;}
-
-void Window::setTitle(const std::string& aTitle)
-{
-    m_Title = aTitle;
-    glfwSetWindowTitle(m_HandleToGLFWWindow.get(),aTitle.c_str());
-
-}
-
-void Window::draw()
-{
-    glfwMakeContextCurrent(m_HandleToGLFWWindow.get());
-    
-    if (m_OnDraw != nullptr)
-        m_OnDraw(*this);
-    
-    glfwSwapBuffers(m_HandleToGLFWWindow.get());
-    
-}
-
-void Window::update()
-{
-    if(!glfwWindowShouldClose(m_HandleToGLFWWindow.get()))
-    {
-        glfwMakeContextCurrent(m_HandleToGLFWWindow.get());
-        
-        if (m_OnUpdate != nullptr)
-            m_OnUpdate(*this);
-        
-        glfwPollEvents();
-        
-    }
-    else
-    {
-        if (m_OnWantsToClose != nullptr)
-            m_OnWantsToClose(*this);
-        
-    }
-    
-}
-
-std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const {return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);}
-
-Math::IntVector2 Window::getFramebufferSize() const
-{
-    Math::IntVector2 frameBufferSize;
-    glfwGetWindowSize(m_HandleToGLFWWindow.get(), &frameBufferSize.x, &frameBufferSize.y);
-    return frameBufferSize;
     
 }

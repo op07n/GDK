@@ -27,6 +27,9 @@ namespace GDK
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow;
 
 		public:
+            /*!
+             Represents all detectable mouse buttons
+             */
 			enum class Button
             {
                 Left,
@@ -47,7 +50,6 @@ namespace GDK
             bool getButton(const Button &aKeyCode);
             /// Viewcoordinate of curosr
             Math::Vector2 getCursorPosition();
-            
             
 			// Mutating operators
 			Mouse& operator=(const Mouse&) = default;

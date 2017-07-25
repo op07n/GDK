@@ -98,5 +98,5 @@ GFXuint ShaderProgram::draw()
     
 }
 
-std::string ShaderProgram::getName(){return m_Name;}
-GFXuint ShaderProgram::getHandle(){return m_ProgramHandle;}
+std::string ShaderProgram::getName() const {return m_Name;}
+GFXuint ShaderProgram::getHandle() const {return m_ProgramHandle;}

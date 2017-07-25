@@ -25,6 +25,7 @@ namespace GDK
             // Data members
             std::string m_Name;
             GFXuint m_ProgramHandle;
+            //std::atomic<int> m_CloneCount;
             
 		public:
             // Public interface
@@ -32,8 +33,8 @@ namespace GDK
             GFXuint draw();
             
             // Accessors
-            std::string getName();
-            GFXuint getHandle();
+            std::string getName() const;
+            GFXuint getHandle() const;
             
 			// Mutating operators
 			ShaderProgram& operator=(const ShaderProgram&) = delete;

@@ -26,7 +26,6 @@ namespace GDK
          
          call update whenever you want to process the window's messages.
          call draw whenver you want to update the window's graphics.
-         
          */
         class Window final
         {

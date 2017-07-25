@@ -31,6 +31,7 @@ namespace GDK
             
 		public:
             // Public methods
+            ///Get a default_ptr to a managed object
             Memory::default_ptr<T> get(const std::string &aName)
             {
                 auto it = m_Map.find(aName);
@@ -42,8 +43,17 @@ namespace GDK
             
             }
             
-            void add(const std::shared_ptr<T> &t){m_Map.insert({t->getName(),t});}
+            ///Add a new object to be managed
+            void add(const T &t)
+            {
+                m_Map.insert({t.getName(),std::make_shared<T>(&t)});
+                
+            }
+            
+            ///Destroy the managed object with the given name
 			void remove(const std::string &aName){m_Map.erase(aName);}
+            
+            ///Destroy all managed objects
             void clear(){m_Map.clear();}
             
 			// Mutating operators

@@ -26,6 +26,9 @@ namespace GDK
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow;
             
 		public:
+            /*!
+             Represents all detectable keys
+             */
             enum class Key
             {
                 //Top Row
