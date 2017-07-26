@@ -44,9 +44,9 @@ namespace GDK
             }
             
             ///Add a new object to be managed
-            void add(const T &t)
+            void add(T t)
             {
-                m_Map.insert({t.getName(),std::make_shared<T>(&t)});
+                m_Map.insert({t.getName(),std::make_shared<T>(std::move(t))});
                 
             }
             
@@ -57,7 +57,7 @@ namespace GDK
             void clear(){m_Map.clear();}
             
 			// Mutating operators
-			ResourceManager& operator=(const ResourceManager&) = default;
+			ResourceManager& operator=(const ResourceManager&) = delete;
 			
 			// Constructors, destructors
             ResourceManager(T* aDefault)
@@ -66,7 +66,7 @@ namespace GDK
             {}
             
 			ResourceManager() = delete;
-			ResourceManager(const ResourceManager&) = default;
+			ResourceManager(const ResourceManager&) = delete;
 			ResourceManager(ResourceManager&&) = default;
 			virtual ~ResourceManager() = default;
 			

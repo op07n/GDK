@@ -24,6 +24,7 @@ namespace GDK
             Color();
             Color(const float &aR, const float &aG, const float &aB, const float &aA = 1.);
             Color(const Color&) = default;
+            Color(Color&&) = default;
             ~Color() = default;
             
             // Mutating operators

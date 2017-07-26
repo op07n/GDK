@@ -28,7 +28,6 @@ namespace GDK
             // Mutating operations
             /// Set length to 1
             void normalize();
-            /*void normalizeAndScale(const float &aScalar);*/
             
             // Non mutating operators
             Vector2 operator+(const Vector2&);
@@ -43,10 +42,9 @@ namespace GDK
             Vector2& operator=(const Vector2&) = default;
             
             // Constructors & Destructors
-            Vector2();
             Vector2(const float&);
             Vector2(const float &aX, const float &aY);
-            /*Vector2(const b2Vec2 &aBox2DVector);*/
+            Vector2() = default;
             Vector2(const Vector2&) = default;
             Vector2(Vector2&&) = default;
             ~Vector2() = default;

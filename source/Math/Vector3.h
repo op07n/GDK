@@ -38,9 +38,8 @@ namespace GDK
             Vector3& operator=(const Vector3&) = default;
             
             // Constructors & Destructors
-            Vector3();
             Vector3(const float &aX, const float &aY, const float &aZ);
-            /*Vector3(const btVector3 &aBulletVector);*/
+            Vector3() = default;
             Vector3(const Vector3& aVector3) = default;
             Vector3(Vector3&&) = default;
             ~Vector3() = default;

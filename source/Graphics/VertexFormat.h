@@ -45,6 +45,7 @@ namespace GDK
             VertexFormat(const std::vector<VertexAttribute> &aAttributes);
             VertexFormat() = default; // TODO: I think this should be deleted.
 			VertexFormat(const VertexFormat&) = default;
+            VertexFormat(VertexFormat&&) = default;
 			~VertexFormat() = default;
             
             // Special values

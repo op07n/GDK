@@ -2,8 +2,6 @@
 // Project: GDK
 // Created on 2017-06-26.
 #include "Vector3.h"
-//Implementation inc
-/*#include <Bullet\btBulletDynamicsCommon.h>*/
 //std inc
 #include <math.h>
 #include <iostream>
@@ -37,18 +35,6 @@ Vector3::Vector3(const float &aX, const float &aY, const float &aZ)
 , y(aY)
 , z(aZ)
 {}
-
-Vector3::Vector3()
-: x(0)
-, y(0)
-, z(0)
-{}
-
-/*Vector3::Vector3(const btVector3 &aBulletVector)
-: x(aBulletVector.getX())
-, y(aBulletVector.getY())
-, z(aBulletVector.getZ())
-{}*/
 
 //operators
 Vector3 Vector3::operator+(const Vector3 &aVector)

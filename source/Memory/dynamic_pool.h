@@ -63,7 +63,6 @@ namespace GDK
                     m_Pool.push_back(std::make_shared<T>(m_NewObjectInitializer()));
                     
             }
-            dynamic_pool() = default;
 			dynamic_pool(const dynamic_pool&) = delete;
 			dynamic_pool(dynamic_pool&&) = delete;
 			virtual ~dynamic_pool() = default;

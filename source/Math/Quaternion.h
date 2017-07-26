@@ -28,10 +28,9 @@ namespace GDK
             Math::Vector3 toEuler(void);
             
             // Constructors & Destructors
-            Quaternion();
             Quaternion(const Vector3&);
-            /*Quaternion(const btQuaternion &aBulletQuaternion);*/
             Quaternion(const float& aX, const float& aY, const float& aZ, const float& aW);
+            Quaternion();
             Quaternion(const Quaternion&) = default;
             Quaternion(Quaternion&&) = default;
             ~Quaternion() = default;

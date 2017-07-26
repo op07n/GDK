@@ -51,9 +51,6 @@ namespace GDK
             void update();
             void draw();
             
-            // Nonmutating operators
-            bool operator==(const Window&) = delete;
-            
             // Mutating operators
             Window& operator=(Window&) = delete;
             
@@ -80,7 +77,7 @@ namespace GDK
             // Constructors & Destructors
             Window(const ConstructionParameters&);
             Window(const Window&) = delete;
-            //Window(Window&&);
+            Window(Window&&);
             ~Window();
             
         };

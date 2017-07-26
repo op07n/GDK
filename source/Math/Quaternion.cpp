@@ -6,7 +6,6 @@
 #include "Vector3.h"
 //implementation inc
 #include <glm/gtc/quaternion.hpp>
-//#include <Bullet\btBulletDynamicsCommon.h>
 //std inc
 #include <iostream>
 
@@ -37,13 +36,6 @@ Quaternion::Quaternion(const Vector3 &aEulerAngles)
     setFromEuler(aEulerAngles);
     
 }
-
-/*Quaternion(const btQuaternion &aBulletQuaternion)
-: x(aBulletQuaternion.x)
-, y(aBulletQuaternion.y)
-, z(aBulletQuaternion.z)
-, w(aBulletQuaternion.w)
-{}*/
 
 //Euler convenience
 void Quaternion::setFromEuler(const Vector3 &aEulerAngles)

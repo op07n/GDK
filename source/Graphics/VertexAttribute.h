@@ -29,6 +29,7 @@ namespace GDK
 			VertexAttribute() = delete;
             VertexAttribute(const std::string &aName, const int &aSize);
 			VertexAttribute(const VertexAttribute&) = default;
+            VertexAttribute(VertexAttribute&&) = default;
 			~VertexAttribute() = default;
 			
 		};

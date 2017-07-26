@@ -5,7 +5,6 @@
 //GDK inc
 #include "Vector3.h"
 //std inc
-//#include <math.h>
 #include <iostream>
 
 using namespace GDK;

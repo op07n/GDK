@@ -37,16 +37,6 @@ Vector2::Vector2(const float &aScalar)
 , y(aScalar)
 {}
 
-Vector2::Vector2()
-: x(0)
-, y(0)
-{}
-
-/*Vector2::Vector2(const b2Vec2 &aBox2DVector)
-: x(aBox2DVector())
-, y(aBox2DVector())
-{}*/
-
 //operators
 Vector2 Vector2::operator+(const Vector2 &aVector)
 {

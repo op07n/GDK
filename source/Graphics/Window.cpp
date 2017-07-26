@@ -179,6 +179,17 @@ Window::Window(const ConstructionParameters& aParams)
     
 }
 
+Window::Window(Window &&a)
+{
+    m_Title              = a.m_Title;
+    m_HandleToGLFWWindow = a.m_HandleToGLFWWindow;
+    m_OnInit             = a.m_OnInit;
+    m_OnUpdate           = a.m_OnUpdate;
+    m_OnDraw             = a.m_OnDraw;
+    m_OnWantsToClose     = a.m_OnWantsToClose;
+    
+}
+
 Window::~Window()
 {
     if (m_HandleToGLFWWindow.get() != nullptr)

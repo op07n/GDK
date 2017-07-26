@@ -10,11 +10,6 @@
 #include "Debug/Exception.h"
 #include "Time/Time.h"
 #include "Debug/Logger.h"
-//thirdparty inc
-#include <glm/matrix.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/matrix_inverse.hpp>
-#include <glm/gtc/quaternion.hpp>
 //std inc
 #include <iostream>
 #include <math.h>

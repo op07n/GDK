@@ -25,7 +25,6 @@ namespace GDK
             // Data members
             std::string m_Name;
             GFXuint m_ProgramHandle;
-            //std::atomic<int> m_CloneCount;
             
 		public:
             // Public interface

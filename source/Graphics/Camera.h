@@ -88,7 +88,8 @@ namespace GDK
 			
 			// Constructors, destructors
 			Camera();
-			Camera(const Camera&) = default;
+			Camera(const Camera&) = delete;
+            Camera(Camera&&) = default;
 			~Camera() = default;
             
 		};
