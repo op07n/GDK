@@ -44,7 +44,7 @@ namespace GDK
             }
             
             ///Add a new object to be managed
-            void add(T t)
+            void add(T &&t)
             {
                 m_Map.insert({t.getName(),std::make_shared<T>(std::move(t))});
                 
