@@ -22,8 +22,8 @@ namespace GDK
          without risking memory reading issues.
     	 */
         template<typename T>
-		class ResourceManager
-		{
+        class ResourceManager
+        {
         protected:
 			// Data members
             std::map<std::string,std::shared_ptr<T>> m_Map;

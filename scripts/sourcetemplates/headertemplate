@@ -9,34 +9,34 @@
 
 namespace ${PROJECTNAME}
 {
-	namespace ${NAMESPACE}
-	{
-		/*!
-		 No description provided for ${CLASSNAME}
-    	 */
-		class ${CLASSNAME} final
-		{
-			friend std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
+    namespace ${NAMESPACE}
+    {
+        /*!
+         No description provided for ${CLASSNAME}
+         */
+        class ${CLASSNAME} final
+        {
+            friend std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
 			
-			// Data members
+            // Data members
 
-		public:
-			// Accessors
+            public:
+            // Accessors
 			
-			// Public methods
+            // Public methods
 			
-			// Mutating operators
-			${CLASSNAME}& operator=(const ${CLASSNAME}&) = delete;
+            // Mutating operators
+            ${CLASSNAME}& operator=(const ${CLASSNAME}&) = delete;
 			
-			// Constructors, destructors
-			${CLASSNAME}() = delete;
-			${CLASSNAME}(const ${CLASSNAME}&) = delete;
-			${CLASSNAME}(${CLASSNAME}&&) = delete;
-			~${CLASSNAME}() = delete;
+            // Constructors, destructors
+            ${CLASSNAME}() = delete;
+            ${CLASSNAME}(const ${CLASSNAME}&) = delete;
+            ${CLASSNAME}(${CLASSNAME}&&) = delete;
+            ~${CLASSNAME}() = delete;
 			
-		};
+        };
 
-		std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
+        std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
         
 	}
 
