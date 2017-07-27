@@ -27,21 +27,26 @@ namespace GDK
 			
             // Data members
             std::weak_ptr<GameObject> m_GameObject;
-            std::weak_ptr<Transform>  m_Transform;
-            
+            //std::weak_ptr<Transform>  m_Transform;
             bool m_DidInit = false;
 
+            ///called before being added to gameobject
+            void OnAddedToGameObjectSuper(const std::weak_ptr<GameObject>& aGameObject);
+            ///called before being removed from gameobject
+            void OnRemovedFromGameObjectSuper();
+            
         protected:
-            virtual void initialize()  = 0;
-            virtual void update()      = 0;
-            virtual void fixedUpdate() = 0;
+            ///called once per component instance, as early as possible
+            virtual void initialize();
+            ///called every update frame
+            virtual void update();
+            ///called every fixedupdate frame
+            virtual void fixedUpdate();
             
         public:
             // Accessors
-            
-            
-            // Public methods
-            
+            std::weak_ptr<GameObject> getGameObject();
+            //std::weak_ptr<Transform>  getTransform() {return m_Transform; }
             
             // Mutating operators
             Component& operator=(const Component&) = delete;

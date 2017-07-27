@@ -16,3 +16,10 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::GameObject& a)
     << "}"; return s;
 
 }
+
+
+
+std::string          GameObject::getName (){return m_Name;   }
+std::weak_ptr<Scene> GameObject::getScene(){return m_MyScene;}
+
+void GameObject::setName(const std::string &aName){m_Name = aName;}
