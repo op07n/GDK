@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4818CB091F12BDB900D33510 /* UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4818CB071F12BDB900D33510 /* UniformCollection.h */; };
+		4828B0BF1F2971E7007F184F /* Component.h in Headers */ = {isa = PBXBuildFile; fileRef = 4828B0B51F2971E7007F184F /* Component.h */; };
+		4828B0C01F2971E7007F184F /* GameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4828B0B61F2971E7007F184F /* GameObject.h */; };
+		4828B0C21F2971E7007F184F /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 4828B0B81F2971E7007F184F /* Scene.h */; };
+		4828B0C31F2971E7007F184F /* SceneGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 4828B0B91F2971E7007F184F /* SceneGraph.h */; };
+		4828B0C41F2971E7007F184F /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4828B0BA1F2971E7007F184F /* Component.cpp */; };
+		4828B0C51F2971E7007F184F /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4828B0BB1F2971E7007F184F /* GameObject.cpp */; };
+		4828B0C71F2971E7007F184F /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4828B0BD1F2971E7007F184F /* Scene.cpp */; };
+		4828B0C81F2971E7007F184F /* SceneGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4828B0BE1F2971E7007F184F /* SceneGraph.cpp */; };
 		4839F6301F18392A0081237A /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4839F62E1F18392A0081237A /* Exception.cpp */; };
 		4839F6311F18392A0081237A /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4839F62F1F18392A0081237A /* Exception.h */; };
 		483C31891F098C53002A7870 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31851F098C53002A7870 /* ShaderProgram.cpp */; };
@@ -86,6 +94,14 @@
 		481644451EFF63BC004DA647 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../Includes/OSX/libglfw3.a; sourceTree = "<group>"; };
 		481644471EFF63CC004DA647 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = ../../Includes/Common/glew/src/glew.c; sourceTree = "<group>"; };
 		4818CB071F12BDB900D33510 /* UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniformCollection.h; path = ../../source/Graphics/UniformCollection.h; sourceTree = "<group>"; };
+		4828B0B51F2971E7007F184F /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Component.h; path = ../../source/EntityComponentSystem/Component.h; sourceTree = "<group>"; };
+		4828B0B61F2971E7007F184F /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = ../../source/EntityComponentSystem/GameObject.h; sourceTree = "<group>"; };
+		4828B0B81F2971E7007F184F /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scene.h; path = ../../source/EntityComponentSystem/Scene.h; sourceTree = "<group>"; };
+		4828B0B91F2971E7007F184F /* SceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneGraph.h; path = ../../source/EntityComponentSystem/SceneGraph.h; sourceTree = "<group>"; };
+		4828B0BA1F2971E7007F184F /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Component.cpp; path = ../../source/EntityComponentSystem/Component.cpp; sourceTree = "<group>"; };
+		4828B0BB1F2971E7007F184F /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = ../../source/EntityComponentSystem/GameObject.cpp; sourceTree = "<group>"; };
+		4828B0BD1F2971E7007F184F /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = ../../source/EntityComponentSystem/Scene.cpp; sourceTree = "<group>"; };
+		4828B0BE1F2971E7007F184F /* SceneGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneGraph.cpp; path = ../../source/EntityComponentSystem/SceneGraph.cpp; sourceTree = "<group>"; };
 		4839F62E1F18392A0081237A /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = ../../source/Debug/Exception.cpp; sourceTree = "<group>"; };
 		4839F62F1F18392A0081237A /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = ../../source/Debug/Exception.h; sourceTree = "<group>"; };
 		483C31851F098C53002A7870 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgram.cpp; path = ../../source/Graphics/ShaderProgram.cpp; sourceTree = "<group>"; };
@@ -177,6 +193,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4828B0B41F2971D7007F184F /* EntityComponentSystem */ = {
+			isa = PBXGroup;
+			children = (
+				4828B0B51F2971E7007F184F /* Component.h */,
+				4828B0BA1F2971E7007F184F /* Component.cpp */,
+				4828B0B61F2971E7007F184F /* GameObject.h */,
+				4828B0BB1F2971E7007F184F /* GameObject.cpp */,
+				4828B0B81F2971E7007F184F /* Scene.h */,
+				4828B0BD1F2971E7007F184F /* Scene.cpp */,
+				4828B0B91F2971E7007F184F /* SceneGraph.h */,
+				4828B0BE1F2971E7007F184F /* SceneGraph.cpp */,
+			);
+			name = EntityComponentSystem;
+			sourceTree = "<group>";
+		};
 		4839F62B1F1834370081237A /* Memory */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +299,7 @@
 		48B2491B1EFF678C00A70F35 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4828B0B41F2971D7007F184F /* EntityComponentSystem */,
 				48E5F75B1F243D9500ABDD0F /* Input */,
 				4845A00A1F1C5178000C957F /* Time */,
 				4839F62B1F1834370081237A /* Memory */,
@@ -351,14 +383,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4828B0C21F2971E7007F184F /* Scene.h in Headers */,
 				4898E45B1F03262200825E3E /* Mat4x4.h in Headers */,
 				48E5F75E1F243E0C00ABDD0F /* Keyboard.h in Headers */,
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
 				4898C0DB1F2468B9007F3B88 /* static_pool.h in Headers */,
+				4828B0C31F2971E7007F184F /* SceneGraph.h in Headers */,
 				4818CB091F12BDB900D33510 /* UniformCollection.h in Headers */,
 				4898C0D91F2468B9007F3B88 /* default_ptr.h in Headers */,
 				483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */,
+				4828B0C01F2971E7007F184F /* GameObject.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
 				484B41351F12DD0E00CE92B4 /* Vector4UniformCollection.h in Headers */,
 				483C31C11F0A1202002A7870 /* Mesh.h in Headers */,
@@ -387,6 +422,7 @@
 				484B412F1F12DD0E00CE92B4 /* FloatUniformCollection.h in Headers */,
 				484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */,
 				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
+				4828B0BF1F2971E7007F184F /* Component.h in Headers */,
 				48459FF41F1B180F000C957F /* MeshManager.h in Headers */,
 				48459FEC1F1AF922000C957F /* TextureManager.h in Headers */,
 				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
@@ -459,13 +495,17 @@
 				484B41341F12DD0E00CE92B4 /* Vector4UniformCollection.cpp in Sources */,
 				484B41301F12DD0E00CE92B4 /* Vector2UniformCollection.cpp in Sources */,
 				48FFC4D11F01E2A2003932BA /* Vector2.cpp in Sources */,
+				4828B0C51F2971E7007F184F /* GameObject.cpp in Sources */,
 				48459FF31F1B180F000C957F /* MeshManager.cpp in Sources */,
+				4828B0C41F2971E7007F184F /* Component.cpp in Sources */,
 				4898E4621F03378D00825E3E /* Plane.cpp in Sources */,
+				4828B0C71F2971E7007F184F /* Scene.cpp in Sources */,
 				484B41241F12C4A100CE92B4 /* TextureUniformCollection.cpp in Sources */,
 				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
 				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
 				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
+				4828B0C81F2971E7007F184F /* SceneGraph.cpp in Sources */,
 				4898C0D31F245951007F3B88 /* Mouse.cpp in Sources */,
 				48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */,
 				48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */,

@@ -20,7 +20,7 @@ namespace ${PROJECTNAME}
 			
             // Data members
 
-            public:
+        public:
             // Accessors
 			
             // Public methods
