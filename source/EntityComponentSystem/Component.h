@@ -5,7 +5,7 @@
 #define GDK_ECS_COMPONENT_H
 
 //gdk inc
-//#include "UniformCollection.h"
+#include "EntityComponentSystem/GameObject.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -18,22 +18,16 @@ namespace GDK
     namespace ECS
     {
         /*!
-         No description provided for Component
+         Encapsulates behaviour and data used to manipulate GameObjects
          */
         class Component
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Component&);
-            //friend ???
+            friend GDK::ECS::GameObject;
 			
             // Data members
             std::weak_ptr<GameObject> m_GameObject;
-            //std::weak_ptr<Transform>  m_Transform;
             bool m_DidInit = false;
-
-            ///called before being added to gameobject
-            void OnAddedToGameObjectSuper(const std::weak_ptr<GameObject>& aGameObject);
-            ///called before being removed from gameobject
-            void OnRemovedFromGameObjectSuper();
             
         protected:
             ///called once per component instance, as early as possible
@@ -46,16 +40,17 @@ namespace GDK
         public:
             // Accessors
             std::weak_ptr<GameObject> getGameObject();
-            //std::weak_ptr<Transform>  getTransform() {return m_Transform; }
             
             // Mutating operators
             Component& operator=(const Component&) = delete;
 			
             // Constructors, destructors
-            Component() = delete;
+        private:
+            Component(const std::weak_ptr<GameObject>&);
+        public:
             Component(const Component&) = delete;
             Component(Component&&) = delete;
-            ~Component() = delete;
+            ~Component() = default;
 			
         };
 

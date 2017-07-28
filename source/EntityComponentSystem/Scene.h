@@ -6,6 +6,11 @@
 
 //std inc
 #include <iosfwd>
+#include <memory>
+#include <string>
+
+namespace GDK{namespace ECS{class GameObject;}}
+namespace GDK{namespace ECS{class Component;}}
 
 namespace GDK
 {
@@ -17,11 +22,18 @@ namespace GDK
         class Scene final
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Scene&);
+            friend GameObject;
 			
             // Data members
 
+            void OnComponentAddedToAGameObject(const std::weak_ptr<Component>&);
+            void OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&);
+            ///used to get weak ptr to "this"
+            std::weak_ptr<GameObject> getGameObject(const GameObject*);
+            
         public:
             // Accessors
+            std::weak_ptr<GameObject> getGameObject(const std::string&);
 			
             // Public methods
 			

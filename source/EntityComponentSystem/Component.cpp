@@ -20,17 +20,8 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Component& a)
 
 }
 
-void Component::OnAddedToGameObjectSuper(const std::weak_ptr<GameObject>& aGameObject)
-{
-    m_GameObject = aGameObject;
-    //m_Transform  = aGameObject.get().getTransform();
-    
-}
-
-void Component::OnRemovedFromGameObjectSuper()
-{
-    m_GameObject = std::weak_ptr<GameObject>();
-
-}
-
 std::weak_ptr<GameObject> Component::getGameObject(){return m_GameObject;}
+
+Component::Component(const std::weak_ptr<GameObject> &a)
+: m_GameObject(a)
+{}
