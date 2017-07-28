@@ -5,7 +5,7 @@
 #define GDK_GFX_TEXTUREMANAGER_H
 
 //gdk inc
-#include "ResourceManager.h"
+#include "Memory/resource_manager.h"
 #include "Texture.h"
 //std inc
 #include <iosfwd>
@@ -17,7 +17,7 @@ namespace GDK
 		/*!
 		 Instantiates, destroys and serves Texture objects to the program
     	 */
-        class TextureManager final : public ResourceManager<Texture>
+        class TextureManager final : public resource_manager<Texture>
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
 			

@@ -22,7 +22,7 @@ namespace GDK
          without risking memory reading issues.
     	 */
         template<typename T>
-        class ResourceManager
+        class resource_manager
         {
         protected:
 			// Data members
@@ -52,23 +52,22 @@ namespace GDK
             
             ///Destroy the managed object with the given name
 			void remove(const std::string &aName){m_Map.erase(aName);}
-            
             ///Destroy all managed objects
             void clear(){m_Map.clear();}
             
 			// Mutating operators
-			ResourceManager& operator=(const ResourceManager&) = delete;
+			resource_manager& operator=(const resource_manager&) = delete;
 			
 			// Constructors, destructors
-            ResourceManager(T* aDefault)
+            resource_manager(T &&aDefault)
             : m_Map()
-            , m_Default(aDefault)
+            , m_Default(std::make_shared<T>(std::move(aDefault)))
             {}
             
-			ResourceManager() = delete;
-			ResourceManager(const ResourceManager&) = delete;
-			ResourceManager(ResourceManager&&) = default;
-			virtual ~ResourceManager() = default;
+			resource_manager() = delete;
+			resource_manager(const resource_manager&) = delete;
+			resource_manager(resource_manager&&) = default;
+			virtual ~resource_manager() = default;
 			
 		};
         

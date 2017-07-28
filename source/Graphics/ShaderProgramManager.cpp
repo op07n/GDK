@@ -25,5 +25,5 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgramMana
 }
 
 ShaderProgramManager::ShaderProgramManager()
-: ResourceManager(new ShaderProgram(GFX::DefaultResources::createPinkShaderOfDeath()))
+: resource_manager(ShaderProgram(GFX::DefaultResources::createPinkShaderOfDeath()))
 {}

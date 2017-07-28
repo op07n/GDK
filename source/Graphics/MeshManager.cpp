@@ -25,5 +25,5 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::MeshManager& a)
 }
 
 MeshManager::MeshManager()
-: ResourceManager(new Mesh(GFX::DefaultResources::createQuad()))
+: resource_manager(Mesh(GFX::DefaultResources::createQuad()))
 {}

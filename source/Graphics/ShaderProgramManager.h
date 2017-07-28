@@ -5,7 +5,7 @@
 #define GDK_GFX_SHADERPROGRAMMANAGER_H
 
 //gdk inc
-#include "ResourceManager.h"
+#include "Memory/resource_manager.h"
 #include "Graphics/ShaderProgram.h"
 //std inc
 #include <iosfwd>
@@ -17,7 +17,7 @@ namespace GDK
 		/*!
 		 Instantiates, destroys and serves shader objects to the program
     	 */
-		class ShaderProgramManager final : public ResourceManager<ShaderProgram>
+		class ShaderProgramManager final : public resource_manager<ShaderProgram>
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&);
             

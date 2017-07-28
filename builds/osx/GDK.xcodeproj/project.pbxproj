@@ -33,7 +33,7 @@
 		483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C31F0A1D6E002A7870 /* VertexAttribute.h */; };
 		483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31C41F0A1D6E002A7870 /* VertexFormat.cpp */; };
 		483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31C51F0A1D6E002A7870 /* VertexFormat.h */; };
-		48459FE81F1AE3DC000C957F /* ResourceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FE61F1AE3DC000C957F /* ResourceManager.h */; };
+		484401401F2AD297003FD501 /* resource_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4844013F1F2AD297003FD501 /* resource_manager.h */; };
 		48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48459FE91F1AF922000C957F /* TextureManager.cpp */; };
 		48459FEC1F1AF922000C957F /* TextureManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 48459FEA1F1AF922000C957F /* TextureManager.h */; };
 		48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48459FED1F1B17E7000C957F /* ShaderProgramManager.cpp */; };
@@ -119,7 +119,7 @@
 		483C31C31F0A1D6E002A7870 /* VertexAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexAttribute.h; path = ../../source/Graphics/VertexAttribute.h; sourceTree = "<group>"; };
 		483C31C41F0A1D6E002A7870 /* VertexFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VertexFormat.cpp; path = ../../source/Graphics/VertexFormat.cpp; sourceTree = "<group>"; };
 		483C31C51F0A1D6E002A7870 /* VertexFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VertexFormat.h; path = ../../source/Graphics/VertexFormat.h; sourceTree = "<group>"; };
-		48459FE61F1AE3DC000C957F /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceManager.h; path = ../../source/Graphics/ResourceManager.h; sourceTree = "<group>"; };
+		4844013F1F2AD297003FD501 /* resource_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource_manager.h; path = ../../source/Memory/resource_manager.h; sourceTree = "<group>"; };
 		48459FE91F1AF922000C957F /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureManager.cpp; path = ../../source/Graphics/TextureManager.cpp; sourceTree = "<group>"; };
 		48459FEA1F1AF922000C957F /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureManager.h; path = ../../source/Graphics/TextureManager.h; sourceTree = "<group>"; };
 		48459FED1F1B17E7000C957F /* ShaderProgramManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgramManager.cpp; path = ../../source/Graphics/ShaderProgramManager.cpp; sourceTree = "<group>"; };
@@ -211,6 +211,7 @@
 		4839F62B1F1834370081237A /* Memory */ = {
 			isa = PBXGroup;
 			children = (
+				4844013F1F2AD297003FD501 /* resource_manager.h */,
 				4898C0D41F2468B9007F3B88 /* default_ptr.h */,
 				4898C0D51F2468B9007F3B88 /* dynamic_pool.h */,
 				4898C0D61F2468B9007F3B88 /* static_pool.h */,
@@ -273,7 +274,6 @@
 				48459FED1F1B17E7000C957F /* ShaderProgramManager.cpp */,
 				48459FEA1F1AF922000C957F /* TextureManager.h */,
 				48459FE91F1AF922000C957F /* TextureManager.cpp */,
-				48459FE61F1AE3DC000C957F /* ResourceManager.h */,
 				485908BD1F11D42F00F7A86F /* Camera.h */,
 				485908BC1F11D42F00F7A86F /* Camera.cpp */,
 				483C31C31F0A1D6E002A7870 /* VertexAttribute.h */,
@@ -401,6 +401,7 @@
 				483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */,
 				483C31B91F0A00F1002A7870 /* Texture.h in Headers */,
 				4896442B1F23C4960016909E /* Trigonometry.h in Headers */,
+				484401401F2AD297003FD501 /* resource_manager.h in Headers */,
 				4839F6311F18392A0081237A /* Exception.h in Headers */,
 				484B41331F12DD0E00CE92B4 /* Vector3UniformCollection.h in Headers */,
 				4898C0DA1F2468B9007F3B88 /* dynamic_pool.h in Headers */,
@@ -414,7 +415,6 @@
 				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
 				4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */,
 				48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */,
-				48459FE81F1AE3DC000C957F /* ResourceManager.h in Headers */,
 				4898C0D21F245951007F3B88 /* Mouse.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
 				483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */,

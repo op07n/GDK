@@ -11,7 +11,7 @@ namespace GDK
 		/*!
          Sizes of datatypes used throughout GDK::Graphics headers.
          These must match their OpenGL equivalents, so definitions should be platform specific.
-         GFX types are used instead of GL to avoid unnecessary propegation of gl headers.
+         GFX types are used instead of GL to avoid unnecessary propagation of gl headers.
          */
         using GFXint   = int;
         using GFXuint  = unsigned int;

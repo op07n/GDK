@@ -5,7 +5,7 @@
 #define GDK_GFX_MESHMANAGER_H
 
 //gdk inc
-#include "ResourceManager.h"
+#include "Memory/resource_manager.h"
 #include "Graphics/Mesh.h"
 //std inc
 #include <iosfwd>
@@ -17,7 +17,7 @@ namespace GDK
 		/*!
 		 Instantiates, destroys and serves Mesh objects to the program
     	 */
-		class MeshManager final : public ResourceManager<Mesh>
+		class MeshManager final : public resource_manager<Mesh>
 		{
 			friend std::ostream& operator<< (std::ostream&, const GFX::MeshManager&);
 			

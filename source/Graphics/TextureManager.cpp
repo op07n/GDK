@@ -25,5 +25,5 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureManager& a
 }
 
 TextureManager::TextureManager()
-: ResourceManager(new Texture(GFX::DefaultResources::createCheckeredTextureOfDeath()))
+: resource_manager(Texture(GFX::DefaultResources::createCheckeredTextureOfDeath()))
 {}
