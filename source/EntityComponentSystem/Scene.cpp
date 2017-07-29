@@ -5,6 +5,7 @@
 //gdkinc
 #include "GameObject.h"
 #include "SceneGraph.h"
+#include "Debug/Exception.h"
 //std inc
 #include <iostream>
 
@@ -32,7 +33,7 @@ std::weak_ptr<GameObject> Scene::getGameObject(const std::string &aGameObjectNam
 
 std::weak_ptr<GameObject> Scene::addGameObject()
 {
-    m_GameObjects.push_back(std::shared_ptr<GameObject>(new GameObject(this)));
+    m_GameObjects.push_back(std::shared_ptr<GameObject>(new GameObject(std::weak_ptr<Scene>(shared_from_this()))));
     return m_GameObjects.back();
     
 }

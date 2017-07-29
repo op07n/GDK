@@ -14,8 +14,6 @@
 #include <memory>
 #include <vector>
 
-#include "Debug/Exception.h"
-
 namespace GDK{namespace ECS{class Scene;}}
 namespace GDK{namespace ECS{class Component;}}
 
@@ -140,7 +138,7 @@ namespace GDK
       
             // Constructors, destructors
         private:
-            GameObject(Scene *aScene);
+            GameObject(const std::weak_ptr<Scene> &aScene);
         public:
             GameObject() = delete;
             GameObject(const GameObject&) = delete;

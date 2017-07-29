@@ -14,7 +14,7 @@ namespace GDK
     namespace ECS
     {
         /*!
-         Defines a scene capability, ECS abstraction of a Renderer or Physics Engine etc.
+         Defines a scene capability. ECS abstraction of a Renderer or Physics Engine etc.
          */
         class SceneGraph
         {
@@ -52,7 +52,7 @@ namespace GDK
 
         std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&);
         
-  }
+    }
 
 }
 

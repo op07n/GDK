@@ -21,7 +21,7 @@ namespace GDK
         /*!
          A 3D space, contains GameObjects. The capabilities of the scene is defined by SceneGraphs
          */
-        class Scene final
+        class Scene final : public std::enable_shared_from_this<Scene>
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Scene&);
             friend GameObject;
