@@ -13,34 +13,34 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 Manages and supplies texture data for shaderprogram consumption
-    	 */
+    namespace GFX
+    {
+        /*!
+         Manages and supplies texture data for shaderprogram consumption
+         */
         class TextureUniformCollection final : public UniformCollection<Memory::default_ptr<Texture>>
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
             
-		public:
-			// Public methods
+        public:
+            // Public methods
             void bind(const GFXuint &aProgramHandle) override;
             void unbind(const GFXuint &aProgramHandle) override;
-			
-			// Mutating operators
-			TextureUniformCollection& operator=(const TextureUniformCollection&) = delete;
-			
-			// Constructors, destructors
-			TextureUniformCollection() = default;
-			TextureUniformCollection(const TextureUniformCollection&) = default;
-			TextureUniformCollection(TextureUniformCollection&&) = delete;
-			~TextureUniformCollection() = default;
-			
-		};
+      
+            // Mutating operators
+            TextureUniformCollection& operator=(const TextureUniformCollection&) = delete;
+      
+            // Constructors, destructors
+            TextureUniformCollection() = default;
+            TextureUniformCollection(const TextureUniformCollection&) = default;
+            TextureUniformCollection(TextureUniformCollection&&) = delete;
+            ~TextureUniformCollection() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
         
-	}
+    }
 
 }
 

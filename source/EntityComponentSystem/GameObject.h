@@ -29,7 +29,7 @@ namespace GDK
         class GameObject final
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
-			friend GDK::ECS::Scene;
+            friend GDK::ECS::Scene;
             
             // Data members
             std::string m_Name;
@@ -137,7 +137,7 @@ namespace GDK
             
             // Mutating operators
             GameObject& operator=(const GameObject&) = delete;
-			
+      
             // Constructors, destructors
         private:
             GameObject(Scene *aScene);
@@ -146,12 +146,12 @@ namespace GDK
             GameObject(const GameObject&) = delete;
             GameObject(GameObject&&) = delete;
             ~GameObject() = default;
-			
+      
         };
 
         std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
         
-	}
+  }
 
 }
 

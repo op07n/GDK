@@ -6,13 +6,13 @@
 
 namespace GDK
 {
-	namespace Math
-	{
-		/*!
-		 Trigonometry functions
-    	 */
-		namespace Trig
-		{
+    namespace Math
+    {
+        /*!
+         Trigonometry functions
+         */
+        namespace Trig
+        {
             extern const float  PI;
             
             float cos(const float&);
@@ -28,10 +28,10 @@ namespace GDK
                 double abs(const double&);
                 
             }
-			
-		}
+      
+        }
 
-	}
+    }
 
 }
 

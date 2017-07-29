@@ -1,10 +1,10 @@
 #Hello
 #!/bin/bash
 if [ -z $1 ] || [ -z $2 ] || [ -z $3 ]; then
-  	echo "newclass requires 3 arguments: newclass PROJECT NAMESPACE CLASS"
+    echo "newclass requires 3 arguments: newclass PROJECT NAMESPACE CLASS"
 
 elif [ -e $3.h ] || [ -e $3.cpp ]; then
-	echo "Source files for $3 already exists!"
+  echo "Source files for $3 already exists!"
 
 else
     #parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )

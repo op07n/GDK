@@ -24,7 +24,7 @@ namespace GDK
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Component&);
             friend GDK::ECS::GameObject;
-			
+      
             // Data members
             std::weak_ptr<GameObject> m_GameObject;
             bool m_DidInit = false;
@@ -43,7 +43,7 @@ namespace GDK
             
             // Mutating operators
             Component& operator=(const Component&) = delete;
-			
+      
             // Constructors, destructors
         private:
             Component(const std::weak_ptr<GameObject>&);
@@ -51,12 +51,12 @@ namespace GDK
             Component(const Component&) = delete;
             Component(Component&&) = delete;
             ~Component() = default;
-			
+      
         };
 
         std::ostream& operator<< (std::ostream&, const ECS::Component&);
         
-	}
+  }
 
 }
 

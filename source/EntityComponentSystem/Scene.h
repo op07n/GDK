@@ -27,7 +27,7 @@ namespace GDK
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Scene&);
             friend GameObject;
-			
+      
         public:
             enum class State
             {
@@ -58,7 +58,7 @@ namespace GDK
             State getSceneState() const;
             
             void setState(const State&);
-			
+      
             // Public methods
             template<class T>
             std::weak_ptr<T> getSceneGraph()
@@ -105,22 +105,22 @@ namespace GDK
             void draw();
             
             std::weak_ptr<GameObject> addGameObject();
-			
+      
             // Mutating operators
             Scene& operator=(const Scene&) = delete;
-			
+      
             // Constructors, destructors
             Scene(const std::string &aName);
             Scene() = delete;
             Scene(const Scene&) = delete;
             Scene(Scene&&) = delete;
             ~Scene() = default;
-			
+      
         };
 
         std::ostream& operator<< (std::ostream&, const ECS::Scene&);
         
-	}
+  }
 
 }
 

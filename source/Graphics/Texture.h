@@ -12,39 +12,39 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 Texture represents an image. RGBA32, 2D.
-    	 */
-		class Texture final
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::Texture&);
+    namespace GFX
+    {
+        /*!
+         Texture represents an image. RGBA32, 2D.
+         */
+        class Texture final
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::Texture&);
             
             // Data members
             std::string m_Name;
             GFXuint m_Handle;
-		
-		public:
+    
+        public:
             // Accessors
             std::string getName();
             GFXuint getHandle();
             
-			// Mutating operators
-			Texture& operator=(const Texture&) = delete;
-			
-			// Constructors, destructors
+            // Mutating operators
+            Texture& operator=(const Texture&) = delete;
+      
+            // Constructors, destructors
             Texture(const std::string &aName,std::vector<GFXbyte>& aRGBA32PNGTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
             Texture() = delete;
             Texture(const Texture&) = delete;
             Texture(Texture&&);
-			~Texture();
-			
-		};
+            ~Texture();
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::Texture&);
+        std::ostream& operator<< (std::ostream&, const GFX::Texture&);
         
-	}
+    }
 
 }
 

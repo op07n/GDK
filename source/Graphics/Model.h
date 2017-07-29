@@ -24,15 +24,15 @@ namespace GDK {namespace GFX{class Camera;}}
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
+    namespace GFX
+    {
+        /*!
          Represents an observable 3D object. 
          Contains a Mesh, a set of uniform collections, a shader, animations, a skeleton.
          */
-		class Model final
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::Model&);
+        class Model final
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::Model&);
             
             // Data members
             std::string m_Name;
@@ -47,7 +47,7 @@ namespace GDK
             Vector4UniformCollection m_Vector4s;
             Mat4x4UniformCollection  m_Mat4x4s;
             
-		public:
+        public:
             // Accessors
             void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture>   &aTexture);
             void setFloat  (const std::string &aUniformName, const std::shared_ptr<float>         &aFloat  );
@@ -62,21 +62,21 @@ namespace GDK
             // public methods
             void draw(const Camera&);
             
-			// Mutating operators
-			Model& operator=(const Model&) = delete;
-			
-			// Constructors, destructors
+            // Mutating operators
+            Model& operator=(const Model&) = delete;
+      
+            // Constructors, destructors
             Model(const std::string &aName, const Memory::default_ptr<Mesh>&, const Memory::default_ptr<ShaderProgram>&);
-			Model() = delete;
-			Model(const Model&) = delete;
+            Model() = delete;
+            Model(const Model&) = delete;
             Model(Model&&) = delete;
-			~Model() = default;
-			
-		};
+            ~Model() = default;
+      
+        };
         
-		std::ostream& operator<< (std::ostream&, const GFX::Model&);
+        std::ostream& operator<< (std::ostream&, const GFX::Model&);
         
-	}
+    }
 
 }
 

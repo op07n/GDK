@@ -11,8 +11,8 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
+    namespace GFX
+    {
         namespace DefaultResources
         {
             /// Creates the checkeredTextureOfDeath.
@@ -32,8 +32,8 @@ namespace GDK
             Mesh createQuad();
             
         }
-		
-	}
+    
+    }
 
 }
 

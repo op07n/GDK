@@ -12,30 +12,30 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 Instantiates, destroys and serves shader objects to the program
-    	 */
-		class ShaderProgramManager final : public resource_manager<ShaderProgram>
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&);
+    namespace GFX
+    {
+        /*!
+         Instantiates, destroys and serves shader objects to the program
+         */
+        class ShaderProgramManager final : public resource_manager<ShaderProgram>
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&);
             
-		public:
-			// Mutating operators
-			ShaderProgramManager& operator=(const ShaderProgramManager&) = default;
-			
-			// Constructors, destructors
-			ShaderProgramManager();
-			ShaderProgramManager(const ShaderProgramManager&) = default;
-			ShaderProgramManager(ShaderProgramManager&&) = default;
-			virtual ~ShaderProgramManager() = default;
-			
-		};
+        public:
+            // Mutating operators
+            ShaderProgramManager& operator=(const ShaderProgramManager&) = default;
+      
+            // Constructors, destructors
+            ShaderProgramManager();
+            ShaderProgramManager(const ShaderProgramManager&) = default;
+            ShaderProgramManager(ShaderProgramManager&&) = default;
+            virtual ~ShaderProgramManager() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&);
+        std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&);
         
-	}
+    }
 
 }
 

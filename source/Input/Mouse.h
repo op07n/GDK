@@ -14,23 +14,23 @@ namespace GDK{namespace Math{class Vector2;}}
 
 namespace GDK
 {
-	namespace Input
-	{
-		/*!
-		 Get mouse keys and position on a window
-    	 */
-		class Mouse final
-		{
-			friend std::ostream& operator<< (std::ostream&, const Input::Mouse&);
-			
-			// Data members
+    namespace Input
+    {
+        /*!
+        Get mouse keys and position on a window
+        */
+        class Mouse final
+        {
+            friend std::ostream& operator<< (std::ostream&, const Input::Mouse&);
+      
+            // Data members
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow;
 
-		public:
+        public:
             /*!
              Represents all detectable mouse buttons
-             */
-			enum class Button
+            */
+            enum class Button
             {
                 Left,
                 Right,
@@ -51,21 +51,21 @@ namespace GDK
             /// Viewcoordinate of curosr
             Math::Vector2 getCursorPosition();
             
-			// Mutating operators
-			Mouse& operator=(const Mouse&) = default;
-			
-			// Constructors, destructors
+            // Mutating operators
+            Mouse& operator=(const Mouse&) = default;
+      
+            // Constructors, destructors
             Mouse(const GFX::Window&);
-			Mouse() = delete;
-			Mouse(const Mouse&) = default;
-			Mouse(Mouse&&) = default;
-			~Mouse() = default;
-			
-		};
+            Mouse() = delete;
+            Mouse(const Mouse&) = default;
+            Mouse(Mouse&&) = default;
+            ~Mouse() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const Input::Mouse&);
+        std::ostream& operator<< (std::ostream&, const Input::Mouse&);
         
-	}
+    }
 
 }
 

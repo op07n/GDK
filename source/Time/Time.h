@@ -6,8 +6,8 @@
 
 namespace GDK
 {
-	namespace Time
-	{
+  namespace Time
+  {
         /// Get time since program started
         double getTime(void);
         /// Gets delta time without resetting the delta timer

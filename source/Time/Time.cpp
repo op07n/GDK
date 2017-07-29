@@ -25,11 +25,11 @@ double Time::getDeltaTime(void)
 
 double Time::updateDeltaTime(void)
 {
-    double rval = currentTime;
+    double time = currentTime;
     
     currentTime = glfwGetTime() - lastTime;
     lastTime = glfwGetTime();
 
-    return rval;
+    return time;
 
 }

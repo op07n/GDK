@@ -49,7 +49,7 @@ namespace GDK
             ~default_ptr() = default;
             
         };
-        
+    
     }
     
 }

@@ -17,13 +17,15 @@ namespace GDK{namespace Math{struct Quaternion;}}
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 Position, orientation and perspective from which Model(s) are drawn
-    	 */
-		class Camera final
-		{
+    namespace GFX
+    {
+        /*!
+         Position, orientation and perspective from which Model(s) are drawn
+         */
+        class Camera final
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::Camera&);
+            
         public:
             /// Describes camera clear behaviour
             enum class ClearMode
@@ -42,8 +44,6 @@ namespace GDK
             };
             
         private:
-			friend std::ostream& operator<< (std::ostream&, const GFX::Camera&);
-            
             // Data members
             Math::Mat4x4 m_ViewMatrix;
             Math::Mat4x4 m_ProjectionMatrix;
@@ -63,7 +63,7 @@ namespace GDK
             
             //RenderTexture m_RenderTexture;
             
-		public:
+        public:
             // Accessors
             void setViewportPosition(const Math::Vector2&);
             void setViewportPosition(const float &x, const float &y);
@@ -83,20 +83,20 @@ namespace GDK
             // Public methods
             void draw(const Math::IntVector2& aFrameBufferSize);
             
-			// Mutating operators
-			Camera& operator=(const Camera&) = delete;
-			
-			// Constructors, destructors
-			Camera();
-			Camera(const Camera&) = delete;
+            // Mutating operators
+            Camera& operator=(const Camera&) = delete;
+      
+            // Constructors, destructors
+            Camera();
+            Camera(const Camera&) = delete;
             Camera(Camera&&) = default;
-			~Camera() = default;
+            ~Camera() = default;
             
-		};
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::Camera&);
+        std::ostream& operator<< (std::ostream&, const GFX::Camera&);
         
-	}
+    }
 
 }
 

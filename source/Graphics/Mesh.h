@@ -13,14 +13,14 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 Vertex data representing a 3D graphical object
-    	 */
-		class Mesh final
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
+    namespace GFX
+    {
+        /*!
+         Vertex data representing a 3D graphical object
+         */
+        class Mesh final
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
             
             // Data members
             std::string m_Name;
@@ -28,7 +28,7 @@ namespace GDK
             int m_VertexCount;
             VertexFormat m_VertexFormat;
             
-		public:
+        public:
             /*!
              Hint to the graphics device about how the vertex data will be used.
              Generally, dynamic data (data that is likely to be frequently rewritten) will be placed
@@ -49,21 +49,21 @@ namespace GDK
             void draw(const GFXuint aShaderProgramHandle);
             void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic);
             
-			// Mutating operators
-			Mesh& operator=(const Mesh&) = default;
-			
-			// Constructors, destructors
+            // Mutating operators
+            Mesh& operator=(const Mesh&) = default;
+      
+            // Constructors, destructors
             Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, const VertexFormat &aVertexFormat, const Mesh::Type &aType);
-			Mesh() = delete;
+            Mesh() = delete;
             Mesh(const Mesh&) = delete;
-			Mesh(Mesh&&);
-			~Mesh();
-			
-		};
+            Mesh(Mesh&&);
+            ~Mesh();
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
+        std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
         
-	}
+    }
 
 }
 

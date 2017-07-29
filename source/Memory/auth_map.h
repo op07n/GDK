@@ -17,28 +17,28 @@ namespace GDK
         class auth_map final
         {
             friend std::ostream& operator<< (std::ostream&, const Memory::auth_map&);
-			
+      
             // Data members
 
         public:
             // Accessors
-			
+      
             // Public methods
-			
+      
             // Mutating operators
             auth_map& operator=(const auth_map&) = delete;
-			
+      
             // Constructors, destructors
             auth_map() = delete;
             auth_map(const auth_map&) = delete;
             auth_map(auth_map&&) = delete;
             ~auth_map() = delete;
-			
+      
         };
 
         std::ostream& operator<< (std::ostream&, const Memory::auth_map&);
         
-	}
+    }
 
 }
 

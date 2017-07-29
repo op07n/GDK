@@ -13,22 +13,22 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
+    namespace GFX
+    {
+        /*!
          UniformCollection is used to supply data to shaderprograms.
-		 It is a baseclass that manages, binds and unbinds a collection of T to a
+         It is a baseclass that manages, binds and unbinds a collection of T to a
          shaderprogram
-    	 */
+         */
         template<typename T>
-		class UniformCollection
-		{
+        class UniformCollection
+        {
         protected:
-			// Data members
+            // Data members
             std::map<std::string,T> m_Map;
             
-		public:
-			// Public methods
+        public:
+            // Public methods
             void put(const std::string &aName, const T &aItem)
             {
                 m_Map.insert({aName, aItem});
@@ -45,18 +45,18 @@ namespace GDK
             virtual void unbind(const GFXuint &aProgramHandle) = 0;
             
             
-			// Mutating operators
-			UniformCollection& operator=(const UniformCollection&) = delete;
-			
-			// Constructors, destructors
+            // Mutating operators
+            UniformCollection& operator=(const UniformCollection&) = delete;
+      
+            // Constructors, destructors
             UniformCollection() = default;
-			UniformCollection(const UniformCollection&) = default;
-			UniformCollection(UniformCollection&&) = delete;
+            UniformCollection(const UniformCollection&) = default;
+            UniformCollection(UniformCollection&&) = delete;
             virtual ~UniformCollection() = default;
-			
-		};
+      
+        };
         
-	}
+    }
 
 }
 

@@ -17,28 +17,28 @@ namespace GDK
         class auth_vector final
         {
             friend std::ostream& operator<< (std::ostream&, const Memory::auth_vector&);
-			
+      
             // Data members
 
         public:
             // Accessors
-			
+      
             // Public methods
-			
+      
             // Mutating operators
             auth_vector& operator=(const auth_vector&) = delete;
-			
+      
             // Constructors, destructors
             auth_vector() = delete;
             auth_vector(const auth_vector&) = delete;
             auth_vector(auth_vector&&) = delete;
             ~auth_vector() = delete;
-			
+      
         };
 
         std::ostream& operator<< (std::ostream&, const Memory::auth_vector&);
         
-	}
+    }
 
 }
 

@@ -20,7 +20,7 @@ namespace GDK
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&);
             friend Scene;
-			
+      
             // Data members
             Scene* m_MyScene;
             
@@ -30,12 +30,12 @@ namespace GDK
             
         public:
             // Accessors
-			
+      
             // Public methods
-			
+      
             // Mutating operators
             SceneGraph& operator=(const SceneGraph&) = delete;
-			
+      
             // Constructors, destructors
         private:
             SceneGraph(Scene*);
@@ -44,12 +44,12 @@ namespace GDK
             SceneGraph(const SceneGraph&) = delete;
             SceneGraph(SceneGraph&&) = delete;
             virtual ~SceneGraph() = default;
-			
+      
         };
 
         std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&);
         
-	}
+  }
 
 }
 

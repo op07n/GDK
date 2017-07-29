@@ -12,30 +12,30 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 Instantiates, destroys and serves Texture objects to the program
-    	 */
+    namespace GFX
+    {
+        /*!
+         Instantiates, destroys and serves Texture objects to the program
+         */
         class TextureManager final : public resource_manager<Texture>
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
-			
-		public:
-			// Mutating operators
-			TextureManager& operator=(const TextureManager&) = default;
-			
-			// Constructors, destructors
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
+      
+        public:
+            // Mutating operators
+            TextureManager& operator=(const TextureManager&) = default;
+      
+            // Constructors, destructors
             TextureManager();
-			TextureManager(const TextureManager&) = default;
-			TextureManager(TextureManager&&) = default;
-			virtual ~TextureManager() = default;
-			
-		};
+            TextureManager(const TextureManager&) = default;
+            TextureManager(TextureManager&&) = default;
+            virtual ~TextureManager() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
+        std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
         
-	}
+    }
 
 }
 

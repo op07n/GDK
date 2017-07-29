@@ -6,9 +6,9 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
+    namespace GFX
+    {
+        /*!
          Sizes of datatypes used throughout GDK::Graphics headers.
          These must match their OpenGL equivalents, so definitions should be platform specific.
          GFX types are used instead of GL to avoid unnecessary propagation of gl headers.
@@ -18,7 +18,7 @@ namespace GDK
         using GFXfloat = float;
         using GFXbyte  = unsigned char;
         
-	}
+    }
 
 }
 

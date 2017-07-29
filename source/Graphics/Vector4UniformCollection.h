@@ -13,34 +13,34 @@ namespace GDK{namespace Math{struct Vector4;}}
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
+    namespace GFX
+    {
+        /*!
          Manages and supplies Vector4 data for shaderprogram consumption
          */
-		class Vector4UniformCollection final : public UniformCollection<std::shared_ptr<Math::Vector4>>
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&);
-			
-		public:
-			// Public methods
+        class Vector4UniformCollection final : public UniformCollection<std::shared_ptr<Math::Vector4>>
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&);
+      
+        public:
+            // Public methods
             void bind(const GFXuint &aProgramHandle) override;
             void unbind(const GFXuint &aProgramHandle) override;
             
-			// Mutating operators
-			Vector4UniformCollection& operator=(const Vector4UniformCollection&) = delete;
-			
-			// Constructors, destructors
-			Vector4UniformCollection() = default;
-			Vector4UniformCollection(const Vector4UniformCollection&) = delete;
-			Vector4UniformCollection(Vector4UniformCollection&&) = delete;
-			~Vector4UniformCollection() = default;
-			
-		};
+            // Mutating operators
+            Vector4UniformCollection& operator=(const Vector4UniformCollection&) = delete;
+      
+            // Constructors, destructors
+            Vector4UniformCollection() = default;
+            Vector4UniformCollection(const Vector4UniformCollection&) = delete;
+            Vector4UniformCollection(Vector4UniformCollection&&) = delete;
+            ~Vector4UniformCollection() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&);
         
-	}
+    }
 
 }
 

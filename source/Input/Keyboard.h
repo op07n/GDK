@@ -13,19 +13,19 @@ namespace GDK{namespace GFX{class Window;}}
 
 namespace GDK
 {
-	namespace Input
-	{
-		/*!
-		 Get keystates for a given Window
-    	 */
-		class Keyboard final
-		{
-			friend std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
+    namespace Input
+    {
+        /*!
+         Get keystates for a given Window
+         */
+        class Keyboard final
+        {
+            friend std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
             
             // Data members
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow;
             
-		public:
+        public:
             /*!
              Represents all detectable keys
              */
@@ -65,27 +65,27 @@ namespace GDK
                 
             };
             
-			// Public methods
+            // Public methods
             /// Check if the key is being held down
             bool getKeyDown(const Key &aKeyCode);
             /// Check if the key was just pressed
             bool getKey(const Key &aKeyCode);
             
-			// Mutating operators
-			Keyboard& operator=(const Keyboard&) = default;
-			
-			// Constructors, destructors
+            // Mutating operators
+            Keyboard& operator=(const Keyboard&) = default;
+      
+            // Constructors, destructors
             Keyboard(const GFX::Window&);
             Keyboard() = delete;
-			Keyboard(const Keyboard&) = default;
-			Keyboard(Keyboard&&) = default;
-			~Keyboard() = default;
-			
-		};
+            Keyboard(const Keyboard&) = default;
+            Keyboard(Keyboard&&) = default;
+            ~Keyboard() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
+        std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
         
-	}
+    }
 
 }
 

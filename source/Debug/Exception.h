@@ -14,22 +14,20 @@ namespace GDK
      Basic GDK exception. All GDK exceptions inherit from this.
      This allows users to differentiate between nonGDK and GDK exceptions.
      */
-    class Exception : public std::runtime_error
+    struct Exception : public std::runtime_error
     {
-		
-	public:
         // Mutating operators
-		Exception& operator=(const Exception&) = default;
+        Exception& operator=(const Exception&) = default;
         
-		// Constructors, destructors
+        // Constructors, destructors
         Exception(const std::string &aMessage = "");
-		Exception(const Exception&) = default;
+        Exception(const Exception&) = default;
         Exception(Exception&&) = default;
-		~Exception() = default;
-			
-	};
+        ~Exception() = default;
+      
+    };
 
-	std::ostream& operator<< (std::ostream&, const Exception&);
+    std::ostream& operator<< (std::ostream&, const Exception&);
     
 }
 

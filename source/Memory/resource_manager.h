@@ -14,22 +14,22 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 A resource manager is responsible for solely managing the lifetime of some object T.
+    namespace GFX
+    {
+        /*!
+         A resource manager is responsible for solely managing the lifetime of some object T.
          By serving resources via Memory::default_ptrs, the manager can safely destroy any T instance
          without risking memory reading issues.
-    	 */
+         */
         template<typename T>
         class resource_manager
         {
         protected:
-			// Data members
+            // Data members
             std::map<std::string,std::shared_ptr<T>> m_Map;
             std::shared_ptr<T> m_Default;
             
-		public:
+        public:
             // Public methods
             ///Get a default_ptr to a managed object
             Memory::default_ptr<T> get(const std::string &aName)
@@ -51,27 +51,27 @@ namespace GDK
             }
             
             ///Destroy the managed object with the given name
-			void remove(const std::string &aName){m_Map.erase(aName);}
+            void remove(const std::string &aName){m_Map.erase(aName);}
             ///Destroy all managed objects
             void clear(){m_Map.clear();}
             
-			// Mutating operators
-			resource_manager& operator=(const resource_manager&) = delete;
-			
-			// Constructors, destructors
+            // Mutating operators
+            resource_manager& operator=(const resource_manager&) = delete;
+      
+            // Constructors, destructors
             resource_manager(T &&aDefault)
             : m_Map()
             , m_Default(std::make_shared<T>(std::move(aDefault)))
             {}
             
-			resource_manager() = delete;
-			resource_manager(const resource_manager&) = delete;
-			resource_manager(resource_manager&&) = default;
-			virtual ~resource_manager() = default;
-			
-		};
-        
-	}
+            resource_manager() = delete;
+            resource_manager(const resource_manager&) = delete;
+            resource_manager(resource_manager&&) = default;
+            virtual ~resource_manager() = default;
+      
+        };
+    
+    }
 
 }
 

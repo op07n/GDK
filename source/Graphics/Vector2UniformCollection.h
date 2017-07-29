@@ -14,34 +14,34 @@ namespace GDK{namespace Math{struct Vector2;}}
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
+    namespace GFX
+    {
+        /*!
          Manages and supplies Vector2 data for shaderprogram consumption
          */
         class Vector2UniformCollection final : public UniformCollection<std::shared_ptr<Math::Vector2>>
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::Vector2UniformCollection&);
-			
-		public:
-			// Public methods
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::Vector2UniformCollection&);
+      
+        public:
+            // Public methods
             void bind(const GFXuint &aProgramHandle) override;
             void unbind(const GFXuint &aProgramHandle) override;
             
-			// Mutating operators
-			Vector2UniformCollection& operator=(const Vector2UniformCollection&) = delete;
-			
-			// Constructors, destructors
-			Vector2UniformCollection() = default;
-			Vector2UniformCollection(const Vector2UniformCollection&) = delete;
-			Vector2UniformCollection(Vector2UniformCollection&&) = delete;
-			~Vector2UniformCollection() = default;
-			
-		};
+            // Mutating operators
+            Vector2UniformCollection& operator=(const Vector2UniformCollection&) = delete;
+      
+            // Constructors, destructors
+            Vector2UniformCollection() = default;
+            Vector2UniformCollection(const Vector2UniformCollection&) = delete;
+            Vector2UniformCollection(Vector2UniformCollection&&) = delete;
+            ~Vector2UniformCollection() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::Vector2UniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::Vector2UniformCollection&);
         
-	}
+    }
 
 }
 

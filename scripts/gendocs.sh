@@ -1,3 +1,4 @@
+#!/bin/bash
 echo -- echo generating docs...
 echo -- requires doxygen to be installed in your system
 cd ../docs/

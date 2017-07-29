@@ -12,34 +12,34 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
+    namespace GFX
+    {
+        /*!
          Manages and supplies float data for shaderprogram consumption
          */
-		class FloatUniformCollection final : public UniformCollection<std::shared_ptr<float>>
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&);
-			
-		public:
-			// Public methods
+        class FloatUniformCollection final : public UniformCollection<std::shared_ptr<float>>
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&);
+      
+        public:
+            // Public methods
             void bind(const GFXuint &aProgramHandle) override;
             void unbind(const GFXuint &aProgramHandle) override;
             
-			// Mutating operators
-			FloatUniformCollection& operator=(const FloatUniformCollection&) = delete;
-			
-			// Constructors, destructors
-			FloatUniformCollection() = default;
-			FloatUniformCollection(const FloatUniformCollection&) = delete;
-			FloatUniformCollection(FloatUniformCollection&&) = delete;
-			~FloatUniformCollection() = default;
-			
-		};
+            // Mutating operators
+            FloatUniformCollection& operator=(const FloatUniformCollection&) = delete;
+      
+            // Constructors, destructors
+            FloatUniformCollection() = default;
+            FloatUniformCollection(const FloatUniformCollection&) = delete;
+            FloatUniformCollection(FloatUniformCollection&&) = delete;
+            ~FloatUniformCollection() = default;
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&);
         
-	}
+    }
 
 }
 

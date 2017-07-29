@@ -12,21 +12,21 @@
 
 namespace GDK
 {
-	namespace GFX
-	{
-		/*!
-		 ShaderProgram specifies drawing behaviours at the programmable stages in the OpenGL
+    namespace GFX
+    {
+        /*!
+         ShaderProgram specifies drawing behaviours at the programmable stages in the OpenGL
          programmable pipeline.
-    	 */
+         */
         class ShaderProgram final
-		{
-			friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
+        {
+            friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
             
             // Data members
             std::string m_Name;
             GFXuint m_ProgramHandle;
             
-		public:
+        public:
             // Public interface
             ///Setup the shader for drawing, emit a handle for use by meshes
             GFXuint draw();
@@ -35,21 +35,21 @@ namespace GDK
             std::string getName() const;
             GFXuint getHandle() const;
             
-			// Mutating operators
-			ShaderProgram& operator=(const ShaderProgram&) = delete;
-			
-			// Constructors, destructors
+            // Mutating operators
+            ShaderProgram& operator=(const ShaderProgram&) = delete;
+      
+            // Constructors, destructors
             ShaderProgram() = delete;
             ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource);
-			ShaderProgram(const ShaderProgram&) = delete;
+            ShaderProgram(const ShaderProgram&) = delete;
             ShaderProgram(ShaderProgram&&);
-			~ShaderProgram();
-			
-		};
+            ~ShaderProgram();
+      
+        };
 
-		std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
+        std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
         
-	}
+    }
 
 }
 
