@@ -6,6 +6,7 @@
 
 //std inc
 #include <iosfwd>
+#include <vector>
 
 namespace GDK
 {
