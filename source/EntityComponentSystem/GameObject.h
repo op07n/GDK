@@ -24,12 +24,13 @@ namespace GDK
     namespace ECS
     {
         /*!
-         No description provided for GameObject
+         GameObject has a list of components and belongs to a scene
          */
         class GameObject final
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
-			
+			friend GDK::ECS::Scene;
+            
             // Data members
             std::string m_Name;
             std::weak_ptr<Scene> m_MyScene;
@@ -38,6 +39,9 @@ namespace GDK
             Math::Vector3 position;
             Math::Vector3 scale;
             Math::Quaternion rotation;
+            
+            void update();
+            void fixedUpdate();
             
         public:
             // Accessors
@@ -53,7 +57,6 @@ namespace GDK
             std::weak_ptr<T> addComponent()
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
-                
                 /*//Handle RequireComponent & RequireComponents annotations
                 {
                     Annotation[] annotations = aComponentType.getAnnotations();
@@ -132,14 +135,13 @@ namespace GDK
                 
             }
             
-            void update();
-            void fixedUpdate();
-			
             // Mutating operators
             GameObject& operator=(const GameObject&) = delete;
 			
             // Constructors, destructors
-            GameObject(const std::weak_ptr<Scene> &aScene);
+        private:
+            GameObject(Scene *aScene);
+        public:
             GameObject() = delete;
             GameObject(const GameObject&) = delete;
             GameObject(GameObject&&) = delete;

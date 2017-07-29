@@ -5,7 +5,7 @@
 #define GDK_ECS_COMPONENT_H
 
 //gdk inc
-#include "EntityComponentSystem/GameObject.h"
+//#include "EntityComponentSystem/GameObject.h"
 //std inc
 #include <iosfwd>
 #include <memory>

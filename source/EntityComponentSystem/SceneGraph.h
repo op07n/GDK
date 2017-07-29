@@ -7,6 +7,8 @@
 //std inc
 #include <iosfwd>
 
+namespace GDK{namespace ECS{class Scene;}}
+
 namespace GDK
 {
     namespace ECS
@@ -14,12 +16,18 @@ namespace GDK
         /*!
          No description provided for SceneGraph
          */
-        class SceneGraph final
+        class SceneGraph
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&);
+            friend Scene;
 			
             // Data members
-
+            Scene* m_MyScene;
+            
+            void draw();
+            void fixedUpdate();
+            void update();
+            
         public:
             // Accessors
 			
@@ -29,10 +37,13 @@ namespace GDK
             SceneGraph& operator=(const SceneGraph&) = delete;
 			
             // Constructors, destructors
+        private:
+            SceneGraph(Scene*);
+        public:
             SceneGraph() = delete;
             SceneGraph(const SceneGraph&) = delete;
             SceneGraph(SceneGraph&&) = delete;
-            ~SceneGraph() = delete;
+            virtual ~SceneGraph() = default;
 			
         };
 

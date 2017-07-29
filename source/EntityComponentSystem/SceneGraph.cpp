@@ -16,3 +16,7 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::SceneGraph& a)
     << "}"; return s;
 
 }
+
+SceneGraph::SceneGraph(Scene *a)
+: m_MyScene(a)
+{}

@@ -61,3 +61,6 @@ std::string GameObject::getName(){return m_Name;}
 std::weak_ptr<Scene> GameObject::getScene(){return m_MyScene;}
 
 void GameObject::setName(const std::string &aName){m_Name = aName;}
+
+GameObject::GameObject(Scene *aScene)
+{}

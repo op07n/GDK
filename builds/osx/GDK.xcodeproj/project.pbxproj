@@ -59,6 +59,8 @@
 		4896442B1F23C4960016909E /* Trigonometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 489644291F23C4960016909E /* Trigonometry.h */; };
 		4896442E1F23ED350016909E /* Mat4x4UniformCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */; };
 		4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */; };
+		48974D281F2D0090008BAAE0 /* auth_map.h in Headers */ = {isa = PBXBuildFile; fileRef = 48974D241F2D0090008BAAE0 /* auth_map.h */; };
+		48974D291F2D0090008BAAE0 /* auth_vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 48974D251F2D0090008BAAE0 /* auth_vector.h */; };
 		4898C0D21F245951007F3B88 /* Mouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898C0D01F245951007F3B88 /* Mouse.h */; };
 		4898C0D31F245951007F3B88 /* Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898C0D11F245951007F3B88 /* Mouse.cpp */; };
 		4898C0D91F2468B9007F3B88 /* default_ptr.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898C0D41F2468B9007F3B88 /* default_ptr.h */; };
@@ -146,6 +148,8 @@
 		489644291F23C4960016909E /* Trigonometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trigonometry.h; path = ../../source/Math/Trigonometry.h; sourceTree = "<group>"; };
 		4896442C1F23ED350016909E /* Mat4x4UniformCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mat4x4UniformCollection.cpp; path = ../../source/Graphics/Mat4x4UniformCollection.cpp; sourceTree = "<group>"; };
 		4896442D1F23ED350016909E /* Mat4x4UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mat4x4UniformCollection.h; path = ../../source/Graphics/Mat4x4UniformCollection.h; sourceTree = "<group>"; };
+		48974D241F2D0090008BAAE0 /* auth_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = auth_map.h; path = ../../source/Memory/auth_map.h; sourceTree = "<group>"; };
+		48974D251F2D0090008BAAE0 /* auth_vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = auth_vector.h; path = ../../source/Memory/auth_vector.h; sourceTree = "<group>"; };
 		4898C0D01F245951007F3B88 /* Mouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mouse.h; path = ../../source/Input/Mouse.h; sourceTree = "<group>"; };
 		4898C0D11F245951007F3B88 /* Mouse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mouse.cpp; path = ../../source/Input/Mouse.cpp; sourceTree = "<group>"; };
 		4898C0D41F2468B9007F3B88 /* default_ptr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = default_ptr.h; path = ../../source/Memory/default_ptr.h; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 		4839F62B1F1834370081237A /* Memory */ = {
 			isa = PBXGroup;
 			children = (
+				48974D241F2D0090008BAAE0 /* auth_map.h */,
+				48974D251F2D0090008BAAE0 /* auth_vector.h */,
 				4844013F1F2AD297003FD501 /* resource_manager.h */,
 				4898C0D41F2468B9007F3B88 /* default_ptr.h */,
 				4898C0D51F2468B9007F3B88 /* dynamic_pool.h */,
@@ -400,12 +406,14 @@
 				483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */,
 				483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */,
 				483C31B91F0A00F1002A7870 /* Texture.h in Headers */,
+				48974D291F2D0090008BAAE0 /* auth_vector.h in Headers */,
 				4896442B1F23C4960016909E /* Trigonometry.h in Headers */,
 				484401401F2AD297003FD501 /* resource_manager.h in Headers */,
 				4839F6311F18392A0081237A /* Exception.h in Headers */,
 				484B41331F12DD0E00CE92B4 /* Vector3UniformCollection.h in Headers */,
 				4898C0DA1F2468B9007F3B88 /* dynamic_pool.h in Headers */,
 				48FFC4D61F01EC0C003932BA /* Quaternion.h in Headers */,
+				48974D281F2D0090008BAAE0 /* auth_map.h in Headers */,
 				48C6539F1F05D1090001EDD6 /* Logger.h in Headers */,
 				483C31AC1F09A2B2002A7870 /* DataTypes.h in Headers */,
 				4898E45F1F0330B600825E3E /* IntVector2.h in Headers */,
