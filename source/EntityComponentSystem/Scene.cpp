@@ -93,3 +93,7 @@ void Scene::OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemo
     throw GDK::Exception("OnSceneGraphRemoved not supported");
     
 }
+
+Scene::Scene(const std::string &aName)
+: m_Name(aName)
+{}

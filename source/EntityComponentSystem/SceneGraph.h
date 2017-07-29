@@ -14,7 +14,7 @@ namespace GDK
     namespace ECS
     {
         /*!
-         No description provided for SceneGraph
+         Defines a scene capability, ECS abstraction of a Renderer or Physics Engine etc.
          */
         class SceneGraph
         {
@@ -24,9 +24,12 @@ namespace GDK
             // Data members
             Scene* m_MyScene;
             
-            void draw();
-            void fixedUpdate();
-            void update();
+            virtual void draw()        = 0;
+            virtual void fixedUpdate() = 0;
+            virtual void update()      = 0;
+            
+            virtual void OnComponentAddedToAGameObject()     = 0;
+            virtual void OnComponentRemovedFromAGameObject() = 0;
             
         public:
             // Accessors

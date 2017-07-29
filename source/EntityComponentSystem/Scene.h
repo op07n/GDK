@@ -4,8 +4,6 @@
 #ifndef GDK_ECS_SCENE_H
 #define GDK_ECS_SCENE_H
 
-//gdk inc
-#include "Debug/Exception.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -21,7 +19,7 @@ namespace GDK
     namespace ECS
     {
         /*!
-         No description provided for Scene
+         A 3D space, contains GameObjects. The capabilities of the scene is defined by SceneGraphs
          */
         class Scene final
         {

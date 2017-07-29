@@ -31,11 +31,11 @@ namespace GDK
             
         protected:
             ///called once per component instance, as early as possible
-            virtual void initialize();
+            virtual void initialize() = 0;
             ///called every update frame
-            virtual void update();
+            virtual void update() = 0;
             ///called every fixedupdate frame
-            virtual void fixedUpdate();
+            virtual void fixedUpdate() = 0;
             
         public:
             // Accessors
