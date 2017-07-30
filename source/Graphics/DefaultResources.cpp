@@ -100,7 +100,11 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff()
         const std::string vertexShaderSource = R"V0G0N(
         #version 150
         //Uniforms
-        uniform mat4 _MVP;
+        uniform mat4  _MVP;
+        uniform mat4  _Model;
+        uniform mat4  _View;
+        uniform mat4  _Projection;
+        uniform float _Time;
         //VertIn
         in vec3 a_Position;
         in vec2 a_UV;
@@ -110,7 +114,8 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff()
         void main ()
         {
             v_UV = a_UV;
-            gl_Position = _MVP * vec4(a_Position,1.0);
+            //gl_Position = _MVP * vec4(a_Position,1.0);
+            gl_Position = _Projection * _View * _Model * vec4(a_Position,1.0);
         
         }
 
@@ -127,7 +132,12 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff()
     
         void main()
         {
-            out_Frag = texture(_Texture, v_UV);
+            vec4 frag = texture(_Texture, v_UV);
+            
+            if (frag[3] < 1.0)
+                discard;
+            
+            out_Frag = frag;
         
         }
 

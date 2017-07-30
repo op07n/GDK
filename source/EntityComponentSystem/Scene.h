@@ -37,7 +37,7 @@ namespace GDK
             
         private:
             // Data members
-            std::string m_Name;
+            const std::string m_Name;
             State m_SceneState = State::Active;
             std::vector<std::shared_ptr<SceneGraph>> m_SceneGraphs;
             std::vector<std::shared_ptr<GameObject>> m_GameObjects;
@@ -75,9 +75,11 @@ namespace GDK
             {
                 static_assert(std::is_base_of<SceneGraph, T>::value == true, "T must be a kind of SceneGraph");
                 
-                m_SceneGraphs.push_back(std::shared_ptr<T>(this));
+                auto newT = std::shared_ptr<T>(new T(this));
                 
-                return std::weak_ptr<T>(m_SceneGraphs.back());
+                m_SceneGraphs.push_back(newT);
+                
+                return std::weak_ptr<T>(newT);
                 
             }
             
@@ -111,8 +113,8 @@ namespace GDK
         private:
             Scene() = delete;
             Scene(const Scene&) = delete;
-            Scene(Scene&&) = default;
         public:
+            Scene(Scene&&) = default;
             ~Scene() = default;
       
         };

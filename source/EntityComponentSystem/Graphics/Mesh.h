@@ -39,9 +39,6 @@ namespace GDK
                 void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4>         &aVector4);
                 void setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                           &aMat4x4 );
                 
-                const Math::Mat4x4& getModelMatrix() const;
-                void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
-                
             protected:
                 // Drawable interface
                 virtual void draw(const std::weak_ptr<Camera> &aCamera) override final;

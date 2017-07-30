@@ -9,8 +9,9 @@
 #include "Color.h"
 #include "Math/IntVector2.h"
 #include "Math/Vector2.h"
+#include "Math/Vector3.h"
+#include "Math/Quaternion.h"
 #include "Math/Mat4x4.h"
-#include "Debug/Logger.h"
 #include "Debug/Exception.h"
 
 using namespace GDK;
@@ -102,8 +103,8 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
 void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
 {
     m_ViewMatrix.setIdentity();
-    //m_ViewMatrix.rotate(aRotation);
-    m_ViewMatrix.translate(aWorldPos);
+    m_ViewMatrix.rotate({aRotation.toEuler() * -1.f});
+    m_ViewMatrix.translate(aWorldPos * -1.f);
     
 }
 

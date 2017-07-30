@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include "GL.h"
 #include "Graphics/DefaultResources.h"
+#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
@@ -64,9 +65,9 @@ void Model::draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectio
         float time      = Time::getTime();
         float deltaTime = Time::getDeltaTime();
         
-        Mat4x4 p   = aProjectionMatrix;
-        Mat4x4 v   = aViewMatrix;
-        Mat4x4 m   = getModelMatrix();
+        Mat4x4 p = aProjectionMatrix;
+        Mat4x4 v = aViewMatrix;
+        Mat4x4 m = getModelMatrix();
         
         Mat4x4 mvp = p * v * m;
         
@@ -77,8 +78,9 @@ void Model::draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectio
         GLH::BindMatrix4x4(programHandle,     "_Projection", p        );
         GLH::BindMatrix4x4(programHandle,     "_MVP",        mvp      );
     
-        m_Mesh.lock()->draw(programHandle);
-    
+        if (auto ptr = m_Mesh.lock())
+            ptr->draw(programHandle);
+        
         //unbind this model's uniforms
         m_Textures.unbind(programHandle);
         m_Floats  .unbind(programHandle);

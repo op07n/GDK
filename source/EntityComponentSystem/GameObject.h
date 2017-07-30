@@ -34,9 +34,9 @@ namespace GDK
             std::weak_ptr<Scene> m_MyScene;
             std::vector<std::shared_ptr<Component>> m_Components;
             
-            Math::Vector3 position;
-            Math::Vector3 scale;
-            Math::Quaternion rotation;
+            Math::Vector3 m_Position;
+            Math::Vector3 m_Scale;
+            Math::Quaternion m_Rotation;
             
             void update();
             void fixedUpdate();
@@ -47,6 +47,14 @@ namespace GDK
             std::weak_ptr<Scene> getScene();
             size_t getComponentCount();
             std::weak_ptr<Component> getComponent(const int &aIndex);
+            
+            void setPosition(const Math::Vector3&);
+            void setScale   (const Math::Vector3&);
+            void setRotation(const Math::Quaternion&);
+            
+            Math::Vector3    getPosition();
+            Math::Vector3    getScale();
+            Math::Quaternion getRotation();
             
             void setName(const std::string &aName);
             

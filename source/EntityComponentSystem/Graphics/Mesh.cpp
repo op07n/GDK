@@ -4,10 +4,12 @@
 #include "Mesh.h"
 //gdk inc
 #include "EntityComponentSystem/Graphics/Camera.h"
+#include "EntityComponentSystem/GameObject.h"
 #include "Graphics/Model.h"
 #include "Memory/default_ptr.h"
 #include "Graphics/Model.h"
 #include "DefaultResources.h"
+#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
@@ -25,8 +27,18 @@ std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Mesh& a
 
 void Mesh::draw(const std::weak_ptr<Camera> &aCamera)
 {
-    if (auto ptr = aCamera.lock())
-        m_Model.draw(ptr->getViewMatrix(),ptr->getProjectionMatrix());
+    if (auto gameObject = getGameObject().lock())
+    {
+        m_Model.setModelMatrix(gameObject->getPosition(), gameObject->getRotation());
+        
+        if (auto camera = aCamera.lock())
+        {
+            m_Model.draw(camera->getViewMatrix(), camera->getProjectionMatrix());
+            Debug::log("Mesh::draw ",getGameObject().lock()->getName());
+        
+        }
+        
+    }
     
 }
 
@@ -46,6 +58,3 @@ void Mesh::setVector2(const std::string &aUniformName, const std::shared_ptr<Mat
 void Mesh::setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3>         &aVector3){m_Model.setVector3(aUniformName,aVector3);}
 void Mesh::setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4>         &aVector4){m_Model.setVector4(aUniformName,aVector4);}
 void Mesh::setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                           &aMat4x4 ){m_Model.setMat4x4(aUniformName,aMat4x4); }
-
-const Math::Mat4x4& Mesh::getModelMatrix() const{return m_Model.getModelMatrix();}
-void Mesh::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation){m_Model.setModelMatrix(aWorldPos,aRotation);}

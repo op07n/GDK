@@ -25,7 +25,10 @@ namespace GDK
             
             // Euler convenience
             void setFromEuler(const Vector3& aEulers);
-            Math::Vector3 toEuler(void);
+            Math::Vector3 toEuler(void) const;
+            
+            // Mutating operators
+            Quaternion& operator=(const Quaternion&) = default;
             
             // Constructors & Destructors
             Quaternion(const Vector3&);

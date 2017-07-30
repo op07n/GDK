@@ -56,6 +56,10 @@ namespace GDK
                 virtual void OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component>&)     override final;
                 virtual void OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component>&) override final;
                 
+            public:
+                // Constructors, destructors
+                GraphicsScene(Scene *a) : SceneGraph(a){}
+                
             };
 
             std::ostream& operator<< (std::ostream&, const ECS::GFX::GraphicsScene&);

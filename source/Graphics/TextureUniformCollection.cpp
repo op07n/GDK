@@ -27,7 +27,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCol
 void TextureUniformCollection::bind(const GFXuint &aProgramHandle)
 {
     int i = 0;
-    for (auto& pair : m_Map)
+    for (auto &pair : m_Map)
     {
         auto texture = pair.second.lock();
         GLH::BindTextureUniform(aProgramHandle, pair.first, texture->getHandle(), i++);
@@ -39,7 +39,7 @@ void TextureUniformCollection::bind(const GFXuint &aProgramHandle)
 void TextureUniformCollection::unbind(const GFXuint &aProgramHandle)
 {
     int i = 0;
-    for (auto& pair : m_Map)
+    for (auto &pair : m_Map)
         GLH::BindTextureUniform(aProgramHandle, pair.first, 0, i++);
     
 }

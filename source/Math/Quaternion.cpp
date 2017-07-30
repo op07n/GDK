@@ -52,7 +52,7 @@ void Quaternion::setFromEuler(const Vector3 &aEulerAngles)
     
 }
 
-Vector3 Quaternion::toEuler(void)
+Vector3 Quaternion::toEuler(void) const
 {
     glm::quat quaternion(w, x, y, z);
     glm::vec3 euler = glm::eulerAngles(quaternion);

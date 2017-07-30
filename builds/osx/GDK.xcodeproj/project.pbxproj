@@ -61,6 +61,8 @@
 		488286011F2D7A1E00D9945B /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 488285FD1F2D7A1E00D9945B /* Mesh.h */; };
 		488286021F2D7A1E00D9945B /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488285FE1F2D7A1E00D9945B /* Camera.cpp */; };
 		488286031F2D7A1E00D9945B /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488285FF1F2D7A1E00D9945B /* Mesh.cpp */; };
+		488286071F2DC09D00D9945B /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488286051F2DC09D00D9945B /* SceneManager.cpp */; };
+		488286091F2DC0AD00D9945B /* SceneManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 488286081F2DC0AD00D9945B /* SceneManager.h */; };
 		48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839BAB1F08C4CB00D5CEE0 /* GL.cpp */; };
 		48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BAC1F08C4CB00D5CEE0 /* GL.h */; };
 		4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 489644281F23C4960016909E /* Trigonometry.cpp */; };
@@ -158,6 +160,8 @@
 		488285FD1F2D7A1E00D9945B /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mesh.h; path = ../../source/EntityComponentSystem/Graphics/Mesh.h; sourceTree = "<group>"; };
 		488285FE1F2D7A1E00D9945B /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = ../../source/EntityComponentSystem/Graphics/Camera.cpp; sourceTree = "<group>"; };
 		488285FF1F2D7A1E00D9945B /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = ../../source/EntityComponentSystem/Graphics/Mesh.cpp; sourceTree = "<group>"; };
+		488286051F2DC09D00D9945B /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = ../../source/EntityComponentSystem/SceneManager.cpp; sourceTree = "<group>"; };
+		488286081F2DC0AD00D9945B /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneManager.h; path = ../../source/EntityComponentSystem/SceneManager.h; sourceTree = "<group>"; };
 		48839BAB1F08C4CB00D5CEE0 /* GL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GL.cpp; path = ../../source/Graphics/GL.cpp; sourceTree = "<group>"; };
 		48839BAC1F08C4CB00D5CEE0 /* GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GL.h; path = ../../source/Graphics/GL.h; sourceTree = "<group>"; };
 		489644281F23C4960016909E /* Trigonometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Trigonometry.cpp; path = ../../source/Math/Trigonometry.cpp; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				4828B0BD1F2971E7007F184F /* Scene.cpp */,
 				4828B0B91F2971E7007F184F /* SceneGraph.h */,
 				4828B0BE1F2971E7007F184F /* SceneGraph.cpp */,
+				488286081F2DC0AD00D9945B /* SceneManager.h */,
+				488286051F2DC09D00D9945B /* SceneManager.cpp */,
 			);
 			name = EntityComponentSystem;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 				483C31C91F0A1D6E002A7870 /* VertexFormat.h in Headers */,
 				4828B0C01F2971E7007F184F /* GameObject.h in Headers */,
 				48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */,
+				488286091F2DC0AD00D9945B /* SceneManager.h in Headers */,
 				484B41351F12DD0E00CE92B4 /* Vector4UniformCollection.h in Headers */,
 				483C31C11F0A1202002A7870 /* Mesh.h in Headers */,
 				483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */,
@@ -560,6 +567,7 @@
 				484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */,
 				4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */,
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,
+				488286071F2DC09D00D9945B /* SceneManager.cpp in Sources */,
 				488286021F2D7A1E00D9945B /* Camera.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
 				484B41321F12DD0E00CE92B4 /* Vector3UniformCollection.cpp in Sources */,
