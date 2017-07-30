@@ -27,6 +27,7 @@ namespace GDK
             using mapped_type            = typename std::map<KeyT, std::shared_ptr<ValueT>>::mapped_type;
             using key_type               = typename std::map<KeyT, std::shared_ptr<ValueT>>::key_type;
             using value_type             = typename std::map<KeyT, std::shared_ptr<ValueT>>::value_type;
+            using size_type              = typename std::map<KeyT, std::shared_ptr<ValueT>>::size_type;
             using mapped_type_weakptr    = typename std::weak_ptr<ValueT>;
             using mapped_type_sharedptr  = typename std::shared_ptr<ValueT>;
             
@@ -51,8 +52,8 @@ namespace GDK
             
             // Capacity
             bool   empty()    const noexcept {return m_Map.empty();   }
-            size_t size()     const noexcept {return m_Map.size();    }
-            size_t max_size() const noexcept {return m_Map.max_size();}
+            size_type size()     const noexcept {return m_Map.size();    }
+            size_type max_size() const noexcept {return m_Map.max_size();}
             
             // Element access
             mapped_type_weakptr operator[] (const key_type& k) {return mapped_type_weakptr(m_Map[k]);}
@@ -66,6 +67,17 @@ namespace GDK
             void erase (const KeyT &aKey) {m_Map.erase(aKey);}
             void swap (auth_map& x) {m_Map.swap(x.m_Map);}
             void clear() noexcept {m_Map.clear();}
+            
+            // Operations
+            iterator find (const key_type& k) {return m_Map.find(k);}
+            const_iterator find (const key_type& k) const {return m_Map.find(k);}
+            size_type count (const key_type& k) const {m_Map.count(k);}
+            iterator lower_bound (const key_type& k) {return m_Map.lower_bound(k);}
+            const_iterator lower_bound (const key_type& k) const {return m_Map.lower_bound(k);}
+            iterator upper_bound (const key_type& k) {return m_Map.upper_bound(k);}
+            const_iterator upper_bound (const key_type& k) const {return m_Map.upper_bound(k);}
+            std::pair<const_iterator,const_iterator> equal_range (const key_type& k) const {m_Map.equal_range(k);}
+            std::pair<iterator,iterator> equal_range (const key_type& k) {m_Map.equal_range(k);}
             
             // Mutating operators
             auth_map& operator=(const auth_map&) = delete;
