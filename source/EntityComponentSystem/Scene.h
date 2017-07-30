@@ -41,8 +41,6 @@ namespace GDK
             std::vector<std::shared_ptr<SceneGraph>> m_SceneGraphs;
             std::vector<std::shared_ptr<GameObject>> m_GameObjects;
             
-            std::weak_ptr<GameObject> getGameObject(const GameObject*);
-            
             void OnComponentAddedToAGameObject(const std::weak_ptr<Component>&);
             void OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&);
             
@@ -109,9 +107,11 @@ namespace GDK
       
             // Constructors, destructors
             Scene(const std::string &aName);
+        private:
             Scene() = delete;
             Scene(const Scene&) = delete;
-            Scene(Scene&&) = delete;
+            Scene(Scene&&) = default;
+        public:
             ~Scene() = default;
       
         };

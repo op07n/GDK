@@ -44,13 +44,15 @@ namespace GDK
             // Mutating operators
             Component& operator=(const Component&) = delete;
       
+        protected:
             // Constructors, destructors
-        private:
             Component(const std::weak_ptr<GameObject>&);
-        public:
+        private:
+            Component() = delete;
             Component(const Component&) = delete;
-            Component(Component&&) = delete;
-            ~Component() = default;
+            Component(Component&&) = default;
+        public:
+            virtual ~Component() = default;
       
         };
 

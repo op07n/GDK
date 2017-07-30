@@ -29,7 +29,7 @@ namespace GDK
             /// Try to get an object from the pool, will be null if all objects are in use
             std::shared_ptr<T> get()
             {
-                for(int i=0;i<m_Pool.size();i++)
+                for(size_t i=0;i<m_Pool.size();i++)
                     if (m_Pool[i].use_count() == 1)
                         return m_Pool[i];
                 
@@ -43,7 +43,7 @@ namespace GDK
             // Constructors, destructors
             static_pool(const std::function<T()> &aObjectInitializer = [](){return T();})
             {
-                for(int i=0; i<length;i++)
+                for(size_t i=0; i<length;i++)
                     m_Pool[i]=std::make_shared<T>(aObjectInitializer());
                 
             }

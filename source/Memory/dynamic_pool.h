@@ -31,7 +31,7 @@ namespace GDK
             /// Get an object from the pool
             std::shared_ptr<T> get()
             {
-                for(int i=0;i<m_Pool.size();i++)
+                for(size_t i=0;i<m_Pool.size();i++)
                     if (m_Pool[i].use_count() == 1)
                         return m_Pool[i];
               
@@ -40,10 +40,10 @@ namespace GDK
               
             }
           
-            /// Remove unused objects until there are none left or poolsize has been reduced to its initial size
-            void shrink()
+            /// Try to reduce poolsize back to its initial size by removing any unused items while current size is > init size
+            void trim()
             {
-                for(int i=0;i<m_Pool.size();i++)
+                for(size_t i=0;i<m_Pool.size();i++)
                     if (m_Pool.size() <= m_InitialPoolSize)
                         return;
                     else if (m_Pool[i].use_count() == 1)

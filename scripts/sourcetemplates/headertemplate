@@ -38,7 +38,7 @@ namespace ${PROJECTNAME}
 
         std::ostream& operator<< (std::ostream&, const ${NAMESPACE}::${CLASSNAME}&);
         
-  }
+    }
 
 }
 

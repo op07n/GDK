@@ -9,7 +9,7 @@
 using namespace GDK;
 using namespace Math;
 
-const double Trig::Double::PI = 4*atan(1);
+const double Trig::Double::PI = 4*::atan(1);
 const float  Trig        ::PI = (float)Trig::Double::PI;
 
 double Trig::Double::cos(const double &a){return        ::cos(a);}

@@ -24,6 +24,9 @@ namespace GDK
             // Data members
             Scene* m_MyScene;
             
+        protected:
+            Scene* getMyScene() {return m_MyScene;}
+            
             virtual void draw()        = 0;
             virtual void fixedUpdate() = 0;
             virtual void update()      = 0;
@@ -40,12 +43,13 @@ namespace GDK
             SceneGraph& operator=(const SceneGraph&) = delete;
       
             // Constructors, destructors
-        private:
+        protected:
             SceneGraph(Scene*);
-        public:
+        private:
             SceneGraph() = delete;
             SceneGraph(const SceneGraph&) = delete;
             SceneGraph(SceneGraph&&) = delete;
+        public:
             virtual ~SceneGraph() = default;
       
         };

@@ -24,7 +24,7 @@ namespace GDK
         /*!
          GameObject has a list of components and belongs to a scene
          */
-        class GameObject final
+        class GameObject final : public std::enable_shared_from_this<GameObject>
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
             friend GDK::ECS::Scene;
@@ -83,7 +83,7 @@ namespace GDK
                 //Add an instance of aComponentType to Components[]
                 if (auto scene = m_MyScene.lock())
                 {
-                    m_Components.push_back(std::make_shared<Component>(new T(scene->getGameObject(this))));
+                    m_Components.push_back(std::make_shared<Component>(new T(std::weak_ptr<GameObject>(shared_from_this()))));
                     
                     std::weak_ptr<Component> newComponent(m_Components.back());
                     scene->OnComponentAddedToAGameObject(newComponent);
@@ -139,10 +139,10 @@ namespace GDK
             // Constructors, destructors
         private:
             GameObject(const std::weak_ptr<Scene> &aScene);
-        public:
             GameObject() = delete;
             GameObject(const GameObject&) = delete;
             GameObject(GameObject&&) = delete;
+        public:
             ~GameObject() = default;
       
         };

@@ -53,6 +53,14 @@
 		485908BE1F11D42F00F7A86F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 485908BC1F11D42F00F7A86F /* Camera.cpp */; };
 		485908BF1F11D42F00F7A86F /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 485908BD1F11D42F00F7A86F /* Camera.h */; };
 		4873E92A1F1D837E000BA834 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4873E9281F1D837E000BA834 /* Time.cpp */; };
+		488285F71F2D747200D9945B /* GraphicsComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 488285F31F2D747200D9945B /* GraphicsComponent.h */; };
+		488285F81F2D747200D9945B /* GraphicsScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 488285F41F2D747200D9945B /* GraphicsScene.h */; };
+		488285F91F2D747200D9945B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488285F51F2D747200D9945B /* GraphicsComponent.cpp */; };
+		488285FA1F2D747200D9945B /* GraphicsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488285F61F2D747200D9945B /* GraphicsScene.cpp */; };
+		488286001F2D7A1E00D9945B /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 488285FC1F2D7A1E00D9945B /* Camera.h */; };
+		488286011F2D7A1E00D9945B /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 488285FD1F2D7A1E00D9945B /* Mesh.h */; };
+		488286021F2D7A1E00D9945B /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488285FE1F2D7A1E00D9945B /* Camera.cpp */; };
+		488286031F2D7A1E00D9945B /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 488285FF1F2D7A1E00D9945B /* Mesh.cpp */; };
 		48839BAD1F08C4CB00D5CEE0 /* GL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48839BAB1F08C4CB00D5CEE0 /* GL.cpp */; };
 		48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */ = {isa = PBXBuildFile; fileRef = 48839BAC1F08C4CB00D5CEE0 /* GL.h */; };
 		4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 489644281F23C4960016909E /* Trigonometry.cpp */; };
@@ -142,6 +150,14 @@
 		485908BD1F11D42F00F7A86F /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = ../../source/Graphics/Camera.h; sourceTree = "<group>"; };
 		4873E9271F1D837E000BA834 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = ../../source/Time/Time.h; sourceTree = "<group>"; };
 		4873E9281F1D837E000BA834 /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = ../../source/Time/Time.cpp; sourceTree = "<group>"; };
+		488285F31F2D747200D9945B /* GraphicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicsComponent.h; path = ../../source/EntityComponentSystem/Graphics/GraphicsComponent.h; sourceTree = "<group>"; };
+		488285F41F2D747200D9945B /* GraphicsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicsScene.h; path = ../../source/EntityComponentSystem/Graphics/GraphicsScene.h; sourceTree = "<group>"; };
+		488285F51F2D747200D9945B /* GraphicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphicsComponent.cpp; path = ../../source/EntityComponentSystem/Graphics/GraphicsComponent.cpp; sourceTree = "<group>"; };
+		488285F61F2D747200D9945B /* GraphicsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphicsScene.cpp; path = ../../source/EntityComponentSystem/Graphics/GraphicsScene.cpp; sourceTree = "<group>"; };
+		488285FC1F2D7A1E00D9945B /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = ../../source/EntityComponentSystem/Graphics/Camera.h; sourceTree = "<group>"; };
+		488285FD1F2D7A1E00D9945B /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mesh.h; path = ../../source/EntityComponentSystem/Graphics/Mesh.h; sourceTree = "<group>"; };
+		488285FE1F2D7A1E00D9945B /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = ../../source/EntityComponentSystem/Graphics/Camera.cpp; sourceTree = "<group>"; };
+		488285FF1F2D7A1E00D9945B /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = ../../source/EntityComponentSystem/Graphics/Mesh.cpp; sourceTree = "<group>"; };
 		48839BAB1F08C4CB00D5CEE0 /* GL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GL.cpp; path = ../../source/Graphics/GL.cpp; sourceTree = "<group>"; };
 		48839BAC1F08C4CB00D5CEE0 /* GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GL.h; path = ../../source/Graphics/GL.h; sourceTree = "<group>"; };
 		489644281F23C4960016909E /* Trigonometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Trigonometry.cpp; path = ../../source/Math/Trigonometry.cpp; sourceTree = "<group>"; };
@@ -200,6 +216,7 @@
 		4828B0B41F2971D7007F184F /* EntityComponentSystem */ = {
 			isa = PBXGroup;
 			children = (
+				488285FB1F2D749C00D9945B /* Graphics */,
 				4828B0B51F2971E7007F184F /* Component.h */,
 				4828B0BA1F2971E7007F184F /* Component.cpp */,
 				4828B0B61F2971E7007F184F /* GameObject.h */,
@@ -243,6 +260,21 @@
 				4873E9281F1D837E000BA834 /* Time.cpp */,
 			);
 			name = Time;
+			sourceTree = "<group>";
+		};
+		488285FB1F2D749C00D9945B /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				488285FC1F2D7A1E00D9945B /* Camera.h */,
+				488285FE1F2D7A1E00D9945B /* Camera.cpp */,
+				488285FD1F2D7A1E00D9945B /* Mesh.h */,
+				488285FF1F2D7A1E00D9945B /* Mesh.cpp */,
+				488285F41F2D747200D9945B /* GraphicsScene.h */,
+				488285F61F2D747200D9945B /* GraphicsScene.cpp */,
+				488285F31F2D747200D9945B /* GraphicsComponent.h */,
+				488285F51F2D747200D9945B /* GraphicsComponent.cpp */,
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 		4899AF5A1F008ED4009B4E73 /* Utilities */ = {
@@ -392,6 +424,7 @@
 				4828B0C21F2971E7007F184F /* Scene.h in Headers */,
 				4898E45B1F03262200825E3E /* Mat4x4.h in Headers */,
 				48E5F75E1F243E0C00ABDD0F /* Keyboard.h in Headers */,
+				488286011F2D7A1E00D9945B /* Mesh.h in Headers */,
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
 				4898C0DB1F2468B9007F3B88 /* static_pool.h in Headers */,
@@ -406,6 +439,7 @@
 				483C31C71F0A1D6E002A7870 /* VertexAttribute.h in Headers */,
 				483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */,
 				483C31B91F0A00F1002A7870 /* Texture.h in Headers */,
+				488285F81F2D747200D9945B /* GraphicsScene.h in Headers */,
 				48974D291F2D0090008BAAE0 /* auth_vector.h in Headers */,
 				4896442B1F23C4960016909E /* Trigonometry.h in Headers */,
 				484401401F2AD297003FD501 /* resource_manager.h in Headers */,
@@ -416,6 +450,7 @@
 				48974D281F2D0090008BAAE0 /* auth_map.h in Headers */,
 				48C6539F1F05D1090001EDD6 /* Logger.h in Headers */,
 				483C31AC1F09A2B2002A7870 /* DataTypes.h in Headers */,
+				488285F71F2D747200D9945B /* GraphicsComponent.h in Headers */,
 				4898E45F1F0330B600825E3E /* IntVector2.h in Headers */,
 				48FFC4D21F01E2A2003932BA /* Vector2.h in Headers */,
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
@@ -426,6 +461,7 @@
 				4898C0D21F245951007F3B88 /* Mouse.h in Headers */,
 				48839BAE1F08C4CB00D5CEE0 /* GL.h in Headers */,
 				483C31B51F0A0040002A7870 /* DefaultResources.h in Headers */,
+				488286001F2D7A1E00D9945B /* Camera.h in Headers */,
 				48FFC4C91F01DB88003932BA /* Window.h in Headers */,
 				484B412F1F12DD0E00CE92B4 /* FloatUniformCollection.h in Headers */,
 				484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */,
@@ -512,15 +548,19 @@
 				48FFC4CE1F01DEFA003932BA /* Vector3.cpp in Sources */,
 				4898E45A1F03262200825E3E /* Mat4x4.cpp in Sources */,
 				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
+				488285FA1F2D747200D9945B /* GraphicsScene.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
 				4828B0C81F2971E7007F184F /* SceneGraph.cpp in Sources */,
 				4898C0D31F245951007F3B88 /* Mouse.cpp in Sources */,
 				48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */,
 				48459FEF1F1B17E7000C957F /* ShaderProgramManager.cpp in Sources */,
 				483C31C81F0A1D6E002A7870 /* VertexFormat.cpp in Sources */,
+				488286031F2D7A1E00D9945B /* Mesh.cpp in Sources */,
+				488285F91F2D747200D9945B /* GraphicsComponent.cpp in Sources */,
 				484B412E1F12DD0E00CE92B4 /* FloatUniformCollection.cpp in Sources */,
 				4896442A1F23C4960016909E /* Trigonometry.cpp in Sources */,
 				483C31C61F0A1D6E002A7870 /* VertexAttribute.cpp in Sources */,
+				488286021F2D7A1E00D9945B /* Camera.cpp in Sources */,
 				48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */,
 				484B41321F12DD0E00CE92B4 /* Vector3UniformCollection.cpp in Sources */,
 				4839F6301F18392A0081237A /* Exception.cpp in Sources */,
