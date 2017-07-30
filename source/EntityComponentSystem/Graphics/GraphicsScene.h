@@ -29,6 +29,8 @@ namespace GDK
             public:
                 class Drawable
                 {
+                    friend GraphicsScene;
+                    
                 protected:
                     virtual void draw(const std::weak_ptr<Camera> &aCamera) = 0;
                     
@@ -48,8 +50,8 @@ namespace GDK
                 virtual void fixedUpdate() override final;
                 virtual void update()      override final;
                 
-                virtual void OnComponentAddedToAGameObject()     override final;
-                virtual void OnComponentRemovedFromAGameObject() override final;
+                virtual void OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component>&)     override final;
+                virtual void OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component>&) override final;
                 
             };
 

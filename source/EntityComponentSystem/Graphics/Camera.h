@@ -9,6 +9,8 @@
 //std inc
 #include <iosfwd>
 
+namespace GDK{namespace ECS{namespace GFX{class GraphicsScene;}}}
+
 namespace GDK
 {
     namespace ECS
@@ -21,7 +23,10 @@ namespace GDK
             class Camera final : public GraphicsComponent
             {
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);
-      
+                friend GDK::ECS::GFX::GraphicsScene;
+                
+                void draw();
+                
             protected:
                 virtual void initialize()  override final;
                 virtual void update()      override final;

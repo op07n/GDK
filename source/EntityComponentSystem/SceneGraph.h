@@ -6,8 +6,10 @@
 
 //std inc
 #include <iosfwd>
+#include <memory>
 
 namespace GDK{namespace ECS{class Scene;}}
+namespace GDK{namespace ECS{class Component;}}
 
 namespace GDK
 {
@@ -31,8 +33,8 @@ namespace GDK
             virtual void fixedUpdate() = 0;
             virtual void update()      = 0;
             
-            virtual void OnComponentAddedToAGameObject()     = 0;
-            virtual void OnComponentRemovedFromAGameObject() = 0;
+            virtual void OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component>&) = 0;
+            virtual void OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component>&) = 0;
             
         public:
             // Accessors
