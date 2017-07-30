@@ -6,6 +6,7 @@
 
 //gdk inc
 #include "VertexAttribute.h"
+#include "DataTypes.h"
 //std inc
 #include <iosfwd>
 #include <map>
@@ -27,16 +28,13 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&);
     
             // Data members
-            std::map<std::string, unsigned short> m_Format;
-            size_t m_NumberOfAttributes;
-            unsigned short m_TotalNumberOfAttributeComponents;
+            std::vector<VertexAttribute> m_Format; //std::map<std::string, unsigned short> m_Format;
+            int m_SumOfAttributeComponents;
             
         public:
-            // Accessors
-            unsigned int getSumOfAttributeComponents() const;
-            size_t getNumberOfAttributes();
-            unsigned short getAttributeSize(const std::string &aAttributeName);
-            std::vector<std::string> getNames();
+            // Public methods
+            void enableAttributes(const GFXuint &aShaderProgramHandle);
+            int getSumOfAttributeComponents() const;
             
             // Mutating operators
             VertexFormat& operator=(const VertexFormat&) = default;
@@ -49,6 +47,7 @@ namespace GDK
             ~VertexFormat() = default;
             
             // Special values
+            static VertexFormat Pos3uv2Norm3;
             static VertexFormat Pos3uv2;
             static VertexFormat Pos3;
       

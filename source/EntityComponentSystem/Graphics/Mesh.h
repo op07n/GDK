@@ -32,6 +32,8 @@ namespace GDK
                 
             public:
                 // Accessors
+                void setMesh(const Memory::default_ptr<GDK::GFX::Mesh>&);
+                
                 void setTexture(const std::string &aUniformName, const Memory::default_ptr<GDK::GFX::Texture> &aTexture);
                 void setFloat  (const std::string &aUniformName, const std::shared_ptr<float>                 &aFloat  );
                 void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2>         &aVector2);

@@ -23,11 +23,7 @@ std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Camera&
 void Camera::draw(const Math::IntVector2& aFrameBufferSize)
 {
     if (auto gameObject = getGameObject().lock())
-    {
         m_Camera.setViewMatrix(gameObject->getPosition(), gameObject->getRotation());
-        Debug::log("Camera::draw ",getGameObject().lock()->getName());
-    
-    }
     
     m_Camera.draw(aFrameBufferSize);
     

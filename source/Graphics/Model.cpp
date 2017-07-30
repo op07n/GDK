@@ -9,6 +9,7 @@
 #include "GL.h"
 #include "Graphics/DefaultResources.h"
 #include "Debug/Logger.h"
+#include "Memory/default_ptr.h"
 //std inc
 #include <iostream>
 
@@ -44,7 +45,7 @@ Model::Model(const std::string &aName, const Memory::default_ptr<Mesh> &aMesh, c
 {}
 
 Model::Model()
-: Model("",GFX::DefaultResources::getQuad().lock(),GFX::DefaultResources::getAlphaCutOff().lock())
+: Model("",GFX::DefaultResources::getQuad(),GFX::DefaultResources::getAlphaCutOff())
 {}
 
 void Model::draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectionMatrix)
@@ -110,3 +111,5 @@ void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
     m_ModelMatrix.rotate(aRotation);
     
 }
+
+void Model::setMesh(const Memory::default_ptr<Mesh> &a){m_Mesh = a;}

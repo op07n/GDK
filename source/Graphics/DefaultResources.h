@@ -29,8 +29,11 @@ namespace GDK
             /// Basic alphacutoff shader
             Memory::default_ptr<ShaderProgram> getAlphaCutOff();
             
-            /// Make a basic quad
+            /// Make a unit length quad
             Memory::default_ptr<Mesh> getQuad();
+            
+            /// Make a unit length cube
+            Memory::default_ptr<Mesh> getCube();
             
         }
     

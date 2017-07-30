@@ -32,11 +32,7 @@ void Mesh::draw(const std::weak_ptr<Camera> &aCamera)
         m_Model.setModelMatrix(gameObject->getPosition(), gameObject->getRotation());
         
         if (auto camera = aCamera.lock())
-        {
             m_Model.draw(camera->getViewMatrix(), camera->getProjectionMatrix());
-            Debug::log("Mesh::draw ",getGameObject().lock()->getName());
-        
-        }
         
     }
     
@@ -52,6 +48,8 @@ Mesh::Mesh(const std::weak_ptr<GameObject> &aGameObject)
 {}
 
 // Accessors
+void Mesh::setMesh(const Memory::default_ptr<GDK::GFX::Mesh> &a){m_Model.setMesh(a);}
+
 void Mesh::setTexture(const std::string &aUniformName, const Memory::default_ptr<GDK::GFX::Texture> &aTexture){m_Model.setTexture(aUniformName,aTexture);}
 void Mesh::setFloat  (const std::string &aUniformName, const std::shared_ptr<float>                 &aFloat  ){m_Model.setFloat(aUniformName,aFloat);  }
 void Mesh::setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2>         &aVector2){m_Model.setVector2(aUniformName,aVector2);}

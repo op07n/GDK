@@ -34,6 +34,7 @@ namespace GLH
     std::string GetError();
     std::vector<std::string> GetErrors();
     void LogErrors(const bool &aDoNotLogIfNoErrors = false);
+    void ClearErrors();
     
     // Vertex binding
     bool EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents);

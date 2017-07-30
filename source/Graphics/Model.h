@@ -14,7 +14,6 @@
 #include "Vector4UniformCollection.h"
 #include "Mat4x4UniformCollection.h"
 #include "Math/Mat4x4.h"
-#include "Memory/default_ptr.h"
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -49,6 +48,8 @@ namespace GDK
             
         public:
             // Accessors
+            void setMesh(const Memory::default_ptr<Mesh>&);
+            
             void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture>   &aTexture);
             void setFloat  (const std::string &aUniformName, const std::shared_ptr<float>         &aFloat  );
             void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2);

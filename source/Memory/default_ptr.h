@@ -20,8 +20,8 @@ namespace GDK
         class default_ptr final
         {
             //Data members
-            const std::weak_ptr<T> m_WeakPtr;
-            const std::shared_ptr<T> m_Default;
+            std::weak_ptr<T> m_WeakPtr;
+            std::shared_ptr<T> m_Default;
             
         public:
             // Public methods
@@ -35,7 +35,7 @@ namespace GDK
             }
             
             // Mutating operators
-            default_ptr& operator=(const default_ptr&) = default;
+            default_ptr& operator= (const default_ptr& a) noexcept = default;
             
             // Instancing rules
             default_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr ={} )

@@ -2,6 +2,9 @@
 // Project: GDK
 // Created on 17-07-03.
 #include "VertexFormat.h"
+//gdk inc
+#include "GL.h"
+#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
@@ -9,63 +12,65 @@ using namespace GDK;
 using namespace GFX;
 
 // Special values
+VertexFormat VertexFormat::Pos3uv2Norm3(
+{
+    {"a_Position",3},
+    {"a_UV"      ,2},
+    {"a_Normal"  ,3}
+    
+});
+
 VertexFormat VertexFormat::Pos3uv2(
 {
-    VertexAttribute("a_Position",3),
-    VertexAttribute("a_UV"      ,2)
+    {"a_Position",3},
+    {"a_UV"      ,2}
 
 });
 
 VertexFormat VertexFormat::Pos3(
 {
-    VertexAttribute("a_Position",3)
+    {"a_Position",3}
 
 });
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexFormat& a)
 {
     s << "{";
-    const auto secondLast = std::prev(a.m_Format.end(), 1);
-    for (auto& pair : a.m_Format)
-    {
-        s << pair.first << ": " << pair.second;
-        if (pair != *secondLast)
-            s << ", ";
-        
-    }
+    s << "notimp Vertexformat";
     s << "}";
     return s;
     
 }
 
 VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
+: m_Format(aAttributes)
+, m_SumOfAttributeComponents(([aAttributes]() -> int
 {
-    m_NumberOfAttributes = aAttributes.size();
-    unsigned short attributeComponentCount = 0;
+    int buf = 0;
+    
+    for(size_t i = 0, s = aAttributes.size(); i < s; i++)
+        buf += aAttributes[i].size;
+    
+    return buf;
+    
+})())
+{}
 
-    //Process attribute data
-    for(size_t i = 0, s = m_NumberOfAttributes; i < s; i++)
+void VertexFormat::enableAttributes(const GFXuint &aShaderProgramHandle)
+{
+    int attributeOffset = 0;
+    
+    for(size_t i = 0, s = m_Format.size(); i < s; i++)
     {
-        m_Format.insert(std::pair<std::string,unsigned short>(aAttributes[i].name, aAttributes[i].size));
-        attributeComponentCount+= aAttributes[i].size;
+        std::string attributeName = m_Format[i].name;
+        int attributeSize = m_Format[i].size;
+        
+        GLH::EnableVertexAttribute(attributeName, aShaderProgramHandle, attributeSize, attributeOffset, m_SumOfAttributeComponents);
+        
+        attributeOffset += attributeSize;
         
     }
     
-    m_TotalNumberOfAttributeComponents = attributeComponentCount;
-    
 }
 
-unsigned int VertexFormat::getSumOfAttributeComponents() const {return m_TotalNumberOfAttributeComponents;}
-size_t VertexFormat::getNumberOfAttributes(){return m_NumberOfAttributes;}
-unsigned short VertexFormat::getAttributeSize(const std::string &aAttributeName){return m_Format.at(aAttributeName);}
-
-std::vector<std::string> VertexFormat::getNames()
-{
-    std::vector<std::string> keys;// = new String[m_NumberOfAttributes];
-    
-    for(std::map<std::string,unsigned short>::iterator it = m_Format.begin(); it != m_Format.end(); ++it)
-        keys.push_back(it->first);
-    
-    return keys;
-    
-}
+int VertexFormat::getSumOfAttributeComponents() const {return m_SumOfAttributeComponents;}

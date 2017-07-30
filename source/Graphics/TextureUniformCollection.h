@@ -7,7 +7,7 @@
 //gdk inc
 #include "UniformCollection.h"
 #include "Texture.h"
-#include "../Memory/default_ptr.h"
+#include "Memory/default_ptr.h"
 //std inc
 #include <iosfwd>
 

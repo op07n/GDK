@@ -77,19 +77,7 @@ void Mesh::draw(const GFXuint aShaderProgramHandle)
 {
     glBindBuffer( GL_ARRAY_BUFFER, m_VertexBufferHandle);
     
-    std::vector<std::string> attributeNames = m_VertexFormat.getNames();
-    int attributeOffset = 0;
-    
-    for(size_t i=0,s=attributeNames.size();i<s;i++)
-    {
-        std::string attributeName = attributeNames[i];
-        int attributeSize = m_VertexFormat.getAttributeSize(attributeName);
-        
-        GLH::EnableVertexAttribute(attributeName, aShaderProgramHandle, attributeSize, attributeOffset, m_VertexFormat.getSumOfAttributeComponents());
-        
-        attributeOffset+=attributeSize;
-        
-    }
+    m_VertexFormat.enableAttributes(aShaderProgramHandle);
     
     glDrawArrays( GL_TRIANGLES, 0, m_VertexCount );
     

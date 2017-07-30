@@ -93,28 +93,24 @@ std::string GLH::GetError()
     switch (glGetError())
     {
         case(GL_INVALID_ENUM):
-            return "GL_INVALID_ENUM";
-        break;
+        return "GL_INVALID_ENUM";
             
         case(GL_INVALID_VALUE):
-            return "GL_INVALID_VALUE";
-        break;
+        return "GL_INVALID_VALUE";
             
         case(GL_INVALID_OPERATION):
-            return "GL_INVALID_OPERATION";
-        break;
+        return "GL_INVALID_OPERATION";
             
         case(GL_INVALID_FRAMEBUFFER_OPERATION):
-            return "GL_INVALID_FRAMEBUFFER_OPERATION";
-        break;
-            
+        return "GL_INVALID_FRAMEBUFFER_OPERATION";
+        
         case(GL_OUT_OF_MEMORY):
-            return "GL_OUT_OF_MEMORY";
-        break;
+        return "GL_OUT_OF_MEMORY";
+            
+        default:
+        return "GL_NO_ERROR";
             
     }
-    
-    return "GL_NO_ERROR";
     
 }
 
@@ -146,7 +142,7 @@ void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
     std::ostringstream ss;
     ss << "OpenGL errors: ";
     
-    if (s > 1) //removes GL_NO_ERROR from begin written at the end of the log
+    if (s > 1) //removes GL_NO_ERROR from being written at the end of the log
         s--;
     
     for(size_t i=0;i<s;i++)
@@ -159,6 +155,12 @@ void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
     }
     
     Debug::error(ss.str());
+    
+}
+
+void GLH::ClearErrors()
+{
+    while (glGetError() != GL_NO_ERROR){}
     
 }
 
