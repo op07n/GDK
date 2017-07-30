@@ -51,7 +51,7 @@ namespace GDK
             const_reverse_iterator crend() const noexcept {return m_Map.crend();}
             
             // Capacity
-            bool   empty()    const noexcept {return m_Map.empty();   }
+            bool   empty()       const noexcept {return m_Map.empty();   }
             size_type size()     const noexcept {return m_Map.size();    }
             size_type max_size() const noexcept {return m_Map.max_size();}
             

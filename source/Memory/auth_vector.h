@@ -57,20 +57,25 @@ namespace GDK
             void shrink_to_fit(){m_Vector.shrink_to_fit();}
             
             // Element access
-            T_weakptr operator[] (size_type n) {return T_weakptr(m_Vector[n]);}
-            T_const_weakptr operator[] (size_type n) const {return T_weakptr(m_Vector[n]);}
-            T_weakptr at (size_type n) {return T_weakptr(m_Vector.at(n));}
-            T_const_weakptr at (size_type n) const {return T_weakptr(m_Vector.at(n));}
+            T_weakptr operator[] (const size_type &n) {return T_weakptr(m_Vector[n]);}
+            T_const_weakptr operator[] (const size_type &n) const {return T_weakptr(m_Vector[n]);}
+            T_weakptr at (const size_type &n) {return T_weakptr(m_Vector.at(n));}
+            T_const_weakptr at (const size_type &n) const {return T_weakptr(m_Vector.at(n));}
             T_weakptr front() {return T_weakptr(m_Vector.front());}
             T_const_weakptr front() const {return T_const_weakptr(m_Vector.front());}
             T_weakptr back() {return T_weakptr(m_Vector.back());}
             T_const_weakptr back() const {return T_const_weakptr(m_Vector.back());}
             
             // Modifiers
-            void assign (size_type n, T &&val) {m_Vector.assign(n,std::make_shared<T>(std::move(val)));}
-            void push_back (T &&val) {m_Vector.push_back(std::make_shared<T>(std::move(val)));}
+            void assign(const size_type &n, T &&val) {m_Vector.assign(n,std::make_shared<T>(std::move(val)));}
+            void push_back(T &&val) {m_Vector.push_back(std::make_shared<T>(std::move(val)));}
             void pop_back() {m_Vector.pop_back();}
-            iterator insert (const_iterator position, T &&val) {}
+            iterator insert(const_iterator &position, T &&val) {return m_Vector.insert(position,std::make_shared<T>(std::move(val)));}
+            iterator insert(const_iterator &position, size_type &n, T &&val) {return m_Vector.insert(position,n,std::make_shared<T>(std::move(val)));}
+            iterator erase(const_iterator &position) {return m_Vector.erase(position);}
+            iterator erase(const_iterator &first, const_iterator &last) {return m_Vector.erase(first, last);}
+            void swap(std::vector<T> &x){m_Vector.swap(x.m_Vector);}
+            void clear() {m_Vector.clear();}
             
             // Mutating operators
             auth_vector& operator=(const auth_vector&) = delete;
