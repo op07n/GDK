@@ -14,7 +14,8 @@ namespace GDK
     namespace Memory
     {
         /*!
-         No description provided for auth_vector
+         Vector that strongly owns its data. Data can only be inserted via rvalue references,
+         data can only be accessed via weak_ptrs.
          */
         template<typename T>
         class auth_vector final
@@ -26,6 +27,8 @@ namespace GDK
             using size_type              = typename std::vector<T>::size_type;
             using value_type             = typename std::vector<T>::value_type;
             using false_type             = bool;
+            using T_weakptr              = typename std::weak_ptr<T>;
+            using T_const_weakptr        = const typename std::weak_ptr<T>;
             
             // Data members
             std::vector<T> m_Vector;
@@ -52,6 +55,22 @@ namespace GDK
             bool empty() const noexcept {return m_Vector.empty();}
             void reserve (size_type n) {m_Vector.reserve(n);}
             void shrink_to_fit(){m_Vector.shrink_to_fit();}
+            
+            // Element access
+            T_weakptr operator[] (size_type n) {return T_weakptr(m_Vector[n]);}
+            T_const_weakptr operator[] (size_type n) const {return T_weakptr(m_Vector[n]);}
+            T_weakptr at (size_type n) {return T_weakptr(m_Vector.at(n));}
+            T_const_weakptr at (size_type n) const {return T_weakptr(m_Vector.at(n));}
+            T_weakptr front() {return T_weakptr(m_Vector.front());}
+            T_const_weakptr front() const {return T_const_weakptr(m_Vector.front());}
+            T_weakptr back() {return T_weakptr(m_Vector.back());}
+            T_const_weakptr back() const {return T_const_weakptr(m_Vector.back());}
+            
+            // Modifiers
+            void assign (size_type n, T &&val) {m_Vector.assign(n,std::make_shared<T>(std::move(val)));}
+            void push_back (T &&val) {m_Vector.push_back(std::make_shared<T>(std::move(val)));}
+            void pop_back() {m_Vector.pop_back();}
+            iterator insert (const_iterator position, T &&val) {}
             
             // Mutating operators
             auth_vector& operator=(const auth_vector&) = delete;
