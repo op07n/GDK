@@ -6,6 +6,7 @@
 #include <iostream>
 //gdk inc
 #include "DefaultResources.h"
+#include "Memory/default_ptr.h"
 
 using namespace GDK;
 using namespace GFX;
@@ -25,5 +26,5 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgramMana
 }
 
 ShaderProgramManager::ShaderProgramManager()
-: resource_manager(ShaderProgram(GFX::DefaultResources::createPinkShaderOfDeath()))
+: resource_manager(GFX::DefaultResources::getPinkShaderOfDeath().lock())
 {}

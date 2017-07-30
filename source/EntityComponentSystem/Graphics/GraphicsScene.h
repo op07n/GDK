@@ -20,13 +20,16 @@ namespace GDK
         namespace GFX
         {
             /*!
-             No description provided for GraphicsScene
+             Adds 3D rendering capability to the scene
              */
             class GraphicsScene final : public ECS::SceneGraph
             {
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::GraphicsScene&);
                 
             public:
+                /*!
+                 Inteface to renderable classes. These include Mesh, LineVisualizer etc.
+                 */
                 class Drawable
                 {
                     friend GraphicsScene;
@@ -46,7 +49,7 @@ namespace GDK
                 
             protected:
                 // SceneGraph interface
-                virtual void draw()        override final;
+                virtual void draw(const Math::IntVector2 &aFrameBufferSize) override final;
                 virtual void fixedUpdate() override final;
                 virtual void update()      override final;
                 

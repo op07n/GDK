@@ -83,15 +83,17 @@ namespace GDK
                 //Add an instance of aComponentType to Components[]
                 if (auto scene = m_MyScene.lock())
                 {
-                    m_Components.push_back(std::make_shared<Component>(new T(std::weak_ptr<GameObject>(shared_from_this()))));
+                    auto newT = std::shared_ptr<T>(new T(std::weak_ptr<GameObject>(shared_from_this())));
+                    
+                    m_Components.push_back(std::static_pointer_cast<Component>(newT));
                     
                     std::weak_ptr<Component> newComponent(m_Components.back());
                     scene->OnComponentAddedToAGameObject(newComponent);
-                    return newComponent;
+                    return std::weak_ptr<T>(newT);
                     
                 }
                     
-                return std::weak_ptr<Component>();
+                return std::weak_ptr<T>();
                 
             }
             

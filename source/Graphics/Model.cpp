@@ -7,6 +7,7 @@
 #include "Time/Time.h"
 #include "Camera.h"
 #include "GL.h"
+#include "Graphics/DefaultResources.h"
 //std inc
 #include <iostream>
 
@@ -41,51 +42,52 @@ Model::Model(const std::string &aName, const Memory::default_ptr<Mesh> &aMesh, c
 , m_Vector4s()
 {}
 
-void Model::draw(const Camera& aCamera)
-{
-    GFXuint programHandle = m_ShaderProgram.lock()->draw();
-    
-    //bind this model's uniforms
-    m_Textures.bind(programHandle);
-    m_Floats  .bind(programHandle);
-    m_Vector2s.bind(programHandle);
-    m_Vector3s.bind(programHandle);
-    m_Vector4s.bind(programHandle);
-    m_Mat4x4s .bind(programHandle);
-    
-    //bind standard uniforms
-    float time      = Time::getTime();
-    float deltaTime = Time::getDeltaTime();
-    Mat4x4 p   = aCamera.getProjectionMatrix();
-    Mat4x4 v   = aCamera.getViewMatrix();
-    Mat4x4 m   = getModelMatrix();
-    Mat4x4 mvp = p * v * m;
-    
-    
-    GLH::Bind1FloatUniform(programHandle, "_DeltaTime",  deltaTime);
-    GLH::Bind1FloatUniform(programHandle, "_Time",       time     );
-    GLH::BindMatrix4x4(programHandle,     "_Model",      m        );
-    GLH::BindMatrix4x4(programHandle,     "_View",       v        );
-    GLH::BindMatrix4x4(programHandle,     "_Projection", p        );
-    GLH::BindMatrix4x4(programHandle,     "_MVP",        mvp      );
-    
-    m_Mesh.lock()->draw(programHandle);
-    
-    //unbind this model's uniforms
-    m_Textures.unbind(programHandle);
-    m_Floats  .unbind(programHandle);
-    m_Vector2s.unbind(programHandle);
-    m_Vector3s.unbind(programHandle);
-    m_Vector4s.unbind(programHandle);
-    m_Mat4x4s .unbind(programHandle);
-    
-}
+Model::Model()
+: Model("",GFX::DefaultResources::getQuad().lock(),GFX::DefaultResources::getAlphaCutOff().lock())
+{}
 
-void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
+void Model::draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectionMatrix)
 {
-    m_ModelMatrix.setIdentity();
-    m_ModelMatrix.translate(aWorldPos);
-    m_ModelMatrix.rotate(aRotation);
+    if (auto shader = m_ShaderProgram.lock())
+    {
+        GFXuint programHandle = shader->draw();
+    
+        //bind this model's uniforms
+        m_Textures.bind(programHandle);
+        m_Floats  .bind(programHandle);
+        m_Vector2s.bind(programHandle);
+        m_Vector3s.bind(programHandle);
+        m_Vector4s.bind(programHandle);
+        m_Mat4x4s .bind(programHandle);
+    
+        //bind standard uniforms
+        float time      = Time::getTime();
+        float deltaTime = Time::getDeltaTime();
+        
+        Mat4x4 p   = aProjectionMatrix;
+        Mat4x4 v   = aViewMatrix;
+        Mat4x4 m   = getModelMatrix();
+        
+        Mat4x4 mvp = p * v * m;
+        
+        GLH::Bind1FloatUniform(programHandle, "_DeltaTime",  deltaTime);
+        GLH::Bind1FloatUniform(programHandle, "_Time",       time     );
+        GLH::BindMatrix4x4(programHandle,     "_Model",      m        );
+        GLH::BindMatrix4x4(programHandle,     "_View",       v        );
+        GLH::BindMatrix4x4(programHandle,     "_Projection", p        );
+        GLH::BindMatrix4x4(programHandle,     "_MVP",        mvp      );
+    
+        m_Mesh.lock()->draw(programHandle);
+    
+        //unbind this model's uniforms
+        m_Textures.unbind(programHandle);
+        m_Floats  .unbind(programHandle);
+        m_Vector2s.unbind(programHandle);
+        m_Vector3s.unbind(programHandle);
+        m_Vector4s.unbind(programHandle);
+        m_Mat4x4s .unbind(programHandle);
+        
+    }
     
 }
 
@@ -98,3 +100,11 @@ void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Ve
 void Model::setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                 &aMat4x4 ){m_Mat4x4s .put(aUniformName,aMat4x4); }
 
 const Math::Mat4x4& Model::getModelMatrix() const{return m_ModelMatrix;}
+
+void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
+{
+    m_ModelMatrix.setIdentity();
+    m_ModelMatrix.translate(aWorldPos);
+    m_ModelMatrix.rotate(aRotation);
+    
+}

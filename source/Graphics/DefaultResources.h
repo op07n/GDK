@@ -8,6 +8,7 @@
 #include "Texture.h"
 #include "ShaderProgram.h"
 #include "Mesh.h"
+#include "Memory/default_ptr.h"
 
 namespace GDK
 {
@@ -18,18 +19,18 @@ namespace GDK
             /// Creates the checkeredTextureOfDeath.
             /// Very low resolution tiled texture, alternating white a blue.
             /// Useful as a fallback when the intended texture has failed to load.
-            Texture createCheckeredTextureOfDeath();
+            Memory::default_ptr<Texture> getCheckeredTextureOfDeath();
             
             /// Creates the PinkShaderOfDeath.
             /// Muls verts through standard MVP but colors all frags an obnoxious fluorescent pink.
             /// Useful as a fallback shader.
-            ShaderProgram createPinkShaderOfDeath();
+            Memory::default_ptr<ShaderProgram> getPinkShaderOfDeath();
             
             /// Basic alphacutoff shader
-            ShaderProgram createAlphaCutOff();
+            Memory::default_ptr<ShaderProgram> getAlphaCutOff();
             
             /// Make a basic quad
-            Mesh createQuad();
+            Memory::default_ptr<Mesh> getQuad();
             
         }
     

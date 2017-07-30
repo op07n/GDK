@@ -8,9 +8,7 @@
 //std inc
 #include <iostream>
 
-using namespace GDK;
-using namespace ECS;
-using namespace GFX;
+using namespace GDK::ECS::GFX;
 
 std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::GraphicsScene& a)
 {
@@ -61,12 +59,12 @@ void GraphicsScene::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::C
     
 }
 
-void GraphicsScene::draw()
+void GraphicsScene::draw(const Math::IntVector2 &aFrameBufferSize)
 {
     for(size_t i = 0, s = m_Cameras.size(); i < s; i++)
     {
         if (auto camera = m_Cameras[i].lock())
-            camera->draw();
+            camera->draw(aFrameBufferSize);
         else
             m_Cameras.erase(m_Cameras.begin()+i);
         

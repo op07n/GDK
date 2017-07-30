@@ -13,6 +13,7 @@
 namespace GDK{namespace ECS{class GameObject;}}
 namespace GDK{namespace ECS{class SceneGraph;}}
 namespace GDK{namespace ECS{class Component; }}
+namespace GDK{namespace Math{class IntVector2;}}
 
 namespace GDK
 {
@@ -98,7 +99,7 @@ namespace GDK
             //
             void update();
             void fixedUpdate();
-            void draw();
+            void draw(const Math::IntVector2& aFrameBufferSize);
             
             std::weak_ptr<GameObject> addGameObject();
       

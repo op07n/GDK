@@ -38,10 +38,10 @@ std::weak_ptr<GameObject> Scene::addGameObject()
     
 }
 
-void Scene::draw()
+void Scene::draw(const Math::IntVector2& aFrameBufferSize)
 {
     for(size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
-        m_SceneGraphs[i]->draw();
+        m_SceneGraphs[i]->draw(aFrameBufferSize);
     
 }
 
@@ -80,6 +80,21 @@ void Scene::update()
         break;
             
     }
+    
+}
+
+void Scene::OnComponentAddedToAGameObject(const std::weak_ptr<Component> &aComponent)
+{
+    //parseRequireSceneGraphsAnnotation(aComponent);
+    
+    for (size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
+        m_SceneGraphs[i]->OnComponentAddedToAGameObject(aComponent);
+    
+}
+
+void Scene::OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&)
+{
+    throw GDK::Exception("OnComponentAddedToAGameObject not supported");
     
 }
 

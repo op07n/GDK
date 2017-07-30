@@ -10,6 +10,7 @@
 
 namespace GDK{namespace ECS{class Scene;}}
 namespace GDK{namespace ECS{class Component;}}
+namespace GDK{namespace Math{class IntVector2;}}
 
 namespace GDK
 {
@@ -29,7 +30,7 @@ namespace GDK
         protected:
             Scene* getMyScene() {return m_MyScene;}
             
-            virtual void draw()        = 0;
+            virtual void draw(const Math::IntVector2 &aFrameBufferSize) = 0;
             virtual void fixedUpdate() = 0;
             virtual void update()      = 0;
             

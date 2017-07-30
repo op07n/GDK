@@ -6,6 +6,7 @@
 #include <iostream>
 //gdk inc
 #include "DefaultResources.h"
+#include "Memory/default_ptr.h"
 
 using namespace GDK;
 using namespace GFX;
@@ -25,5 +26,5 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::MeshManager& a)
 }
 
 MeshManager::MeshManager()
-: resource_manager(Mesh(GFX::DefaultResources::createQuad()))
+: resource_manager(GFX::DefaultResources::getQuad().lock())
 {}

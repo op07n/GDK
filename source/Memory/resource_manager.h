@@ -64,6 +64,11 @@ namespace GDK
             , m_Default(std::make_shared<T>(std::move(aDefault)))
             {}
             
+            resource_manager(const std::shared_ptr<T> &aDefault)
+            : m_Map()
+            , m_Default(aDefault)
+            {}
+            
             resource_manager() = delete;
             resource_manager(const resource_manager&) = delete;
             resource_manager(resource_manager&&) = default;

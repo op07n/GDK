@@ -6,6 +6,7 @@
 
 //gdk inc
 #include "EntityComponentSystem/Graphics/GraphicsComponent.h"
+#include "Graphics/Camera.h"
 //std inc
 #include <iosfwd>
 
@@ -25,13 +26,33 @@ namespace GDK
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);
                 friend GDK::ECS::GFX::GraphicsScene;
                 
-                void draw();
+                GDK::GFX::Camera m_Camera;
+                
+                void draw(const Math::IntVector2& aFrameBufferSize);
                 
             protected:
                 virtual void initialize()  override final;
                 virtual void update()      override final;
                 virtual void fixedUpdate() override final;
       
+            public:
+                // Accessors
+                void setViewportPosition(const Math::Vector2&);
+                void setViewportPosition(const float &x, const float &y);
+                Math::Vector2 getViewportPosition();
+                
+                void setViewportSize(const Math::Vector2&);
+                void setViewportSize(const float &x, const float &y);
+                Math::Vector2 getViewportSize();
+                
+                const Math::Mat4x4& getProjectionMatrix() const;
+                
+                void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
+                const Math::Mat4x4& getViewMatrix() const;
+                
+                // Constructors, destructors
+                Camera(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {};
+                
             };
 
             std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);

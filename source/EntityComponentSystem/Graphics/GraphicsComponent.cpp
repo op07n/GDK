@@ -5,9 +5,7 @@
 //std inc
 #include <iostream>
 
-using namespace GDK;
-using namespace ECS;
-using namespace GFX;
+using namespace GDK::ECS::GFX;
 
 std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::GraphicsComponent& a)
 {
@@ -17,3 +15,7 @@ std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Graphic
     << "}"; return s;
 
 }
+
+GraphicsComponent::GraphicsComponent(const std::weak_ptr<GameObject> &aGameObject)
+: ECS::Component(aGameObject)
+{}

@@ -60,14 +60,14 @@ namespace GDK
             void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
             
             // public methods
-            void draw(const Camera&);
+            void draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectionMatrix);
             
             // Mutating operators
             Model& operator=(const Model&) = delete;
       
             // Constructors, destructors
             Model(const std::string &aName, const Memory::default_ptr<Mesh>&, const Memory::default_ptr<ShaderProgram>&);
-            Model() = delete;
+            Model();
             Model(const Model&) = delete;
             Model(Model&&) = delete;
             ~Model() = default;
