@@ -20,14 +20,14 @@ namespace GDK
         {
             // Data members
             const std::string name;
-            const int size;
+            const unsigned short size;
             
             // Mutating operators
             VertexAttribute& operator=(const VertexAttribute&) = default;
       
             // Constructors, destructors
             VertexAttribute() = delete;
-            VertexAttribute(const std::string &aName, const int &aSize);
+            VertexAttribute(const std::string &aName, const unsigned short &aSize);
             VertexAttribute(const VertexAttribute&) = default;
             VertexAttribute(VertexAttribute&&) = default;
             ~VertexAttribute() = default;

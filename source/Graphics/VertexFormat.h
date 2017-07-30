@@ -27,15 +27,15 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&);
     
             // Data members
-            std::map<std::string,int> m_Format;
-            int m_NumberOfAttributes;
-            int m_TotalNumberOfAttributeComponents;
+            std::map<std::string, unsigned short> m_Format;
+            size_t m_NumberOfAttributes;
+            unsigned short m_TotalNumberOfAttributeComponents;
             
         public:
             // Accessors
-            int getSumOfAttributeComponents() const;
-            int getNumberOfAttributes();
-            int getAttributeSize(const std::string &aAttributeName);
+            unsigned int getSumOfAttributeComponents() const;
+            size_t getNumberOfAttributes();
+            unsigned short getAttributeSize(const std::string &aAttributeName);
             std::vector<std::string> getNames();
             
             // Mutating operators

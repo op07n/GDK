@@ -40,13 +40,13 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexFormat& a)
 
 VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
 {
-    m_NumberOfAttributes = (int)aAttributes.size();
-    int attributeComponentCount = 0;
+    m_NumberOfAttributes = aAttributes.size();
+    unsigned short attributeComponentCount = 0;
 
     //Process attribute data
-    for(int i = 0, s = m_NumberOfAttributes; i < s; i++)
+    for(size_t i = 0, s = m_NumberOfAttributes; i < s; i++)
     {
-        m_Format.insert(std::pair<std::string,int>(aAttributes[i].name, aAttributes[i].size));
+        m_Format.insert(std::pair<std::string,unsigned short>(aAttributes[i].name, aAttributes[i].size));
         attributeComponentCount+= aAttributes[i].size;
         
     }
@@ -55,15 +55,15 @@ VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
     
 }
 
-int VertexFormat::getSumOfAttributeComponents() const {return m_TotalNumberOfAttributeComponents;}
-int VertexFormat::getNumberOfAttributes(){return m_NumberOfAttributes;}
-int VertexFormat::getAttributeSize(const std::string &aAttributeName){return m_Format.at(aAttributeName);}
+unsigned int VertexFormat::getSumOfAttributeComponents() const {return m_TotalNumberOfAttributeComponents;}
+size_t VertexFormat::getNumberOfAttributes(){return m_NumberOfAttributes;}
+unsigned short VertexFormat::getAttributeSize(const std::string &aAttributeName){return m_Format.at(aAttributeName);}
 
 std::vector<std::string> VertexFormat::getNames()
 {
     std::vector<std::string> keys;// = new String[m_NumberOfAttributes];
     
-    for(std::map<std::string,int>::iterator it = m_Format.begin(); it != m_Format.end(); ++it)
+    for(std::map<std::string,unsigned short>::iterator it = m_Format.begin(); it != m_Format.end(); ++it)
         keys.push_back(it->first);
     
     return keys;

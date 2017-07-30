@@ -13,7 +13,7 @@ using namespace GFX;
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCollection& a)
 {
     s.clear(); s << "{";
-    int i = 0;
+    size_t i = 0;
     for (auto &pair : a.m_Map)
     {
         auto texture = pair.second.lock();

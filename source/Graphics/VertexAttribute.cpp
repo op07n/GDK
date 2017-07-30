@@ -19,7 +19,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexAttribute& 
 
 }
 
-VertexAttribute::VertexAttribute(const std::string &aName, const int &aSize)
+VertexAttribute::VertexAttribute(const std::string &aName, const unsigned short &aSize)
 : name(aName)
 , size(aSize)
 {}

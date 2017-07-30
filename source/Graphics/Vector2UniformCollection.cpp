@@ -14,7 +14,7 @@ using namespace GFX;
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Vector2UniformCollection& a)
 {
     s.clear(); s << "{";
-    int i = 0;
+    size_t i = 0;
     for (auto& pair : a.m_Map)
         s << i << ": " << "{Name: " << pair.first << ", " << "Vector2: " << *pair.second.get() << "}";
     s << "}"; return s;

@@ -8,6 +8,10 @@
 #include "EntityComponentSystem/SceneGraph.h"
 //std inc
 #include <iosfwd>
+#include <vector>
+#include <memory>
+
+namespace GDK{namespace ECS{namespace GFX{class Camera;}}}
 
 namespace GDK
 {
@@ -21,11 +25,24 @@ namespace GDK
             class GraphicsScene final : public ECS::SceneGraph
             {
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::GraphicsScene&);
-
+                
+            public:
+                class Drawable
+                {
+                protected:
+                    virtual void draw(const std::weak_ptr<Camera> &aCamera) = 0;
+                    
+                public:
+                    virtual ~Drawable() = default;
+                    
+                };
+                
+            private:
                 // Data members
+                std::vector<std::weak_ptr<Camera>>   m_Cameras;
+                std::vector<std::weak_ptr<Drawable>> m_Drawables;
                 
             protected:
-                
                 // SceneGraph interface
                 virtual void draw()        override final;
                 virtual void fixedUpdate() override final;
