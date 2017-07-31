@@ -1,0 +1,50 @@
+// © ${YEAR} Joseph Cameron - All Rights Reserved
+// Project: GDK
+// Created on ${DATE}.
+#ifndef GDK_ECS_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
+#define GDK_ECS_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
+
+//gdk inc
+#include "EntityComponentSystem/Component.h"
+//std inc
+#include <iosfwd>
+
+namespace GDK
+{
+    namesapce ECS
+    {
+        namespace ${NAMESPACE}
+        {
+            /*!
+            No description provided for ${CLASSNAME} component
+            */
+            class ${CLASSNAME} final : public Component
+            {
+                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::${NAMESPACE}::${CLASSNAME}&);
+      
+                // Data members
+
+            protected:
+                virtual void initialize()  override final;
+                virtual void update()      override final;
+                virtual void fixedUpdate() override final;
+
+            public:
+                // Accessors
+      
+                // Public methods
+
+                // Constructors, destructors
+                ${CLASSNAME}(const std::weak_ptr<GameObject> &a) : Component(a) {};
+
+            };
+
+            std::ostream& operator<< (std::ostream&, const GDK::ECS::${NAMESPACE}::${CLASSNAME}&);
+
+        }
+
+    }
+
+}
+
+#endif /* GDK_ECS_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H  */

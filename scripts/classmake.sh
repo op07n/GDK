@@ -22,7 +22,7 @@ else
 
     #   Generate The Header
     #Copy template header to buffer
-    headerTemplateData=`cat sourcetemplates/headertemplate`
+    headerTemplateData=`cat newclass_sourcetemplates/headertemplate`
 
     #Apply symbols to buffer
     headerTemplateData="${headerTemplateData//\$\{PROJECTNAMEUPPER\}/$projectName_Upper}"
@@ -41,7 +41,7 @@ else
 
     #   Generate The CPP
     #Copy template cpp to buffer
-    cppTemplateData=`cat sourcetemplates/cpptemplate`
+    cppTemplateData=`cat newclass_sourcetemplates/cpptemplate`
 
     #Apply symbols to buffer
     cppTemplateData="${cppTemplateData//\$\{PROJECTNAMEUPPER\}/$projectName_Upper}"

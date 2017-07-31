@@ -11,7 +11,7 @@ import re
 parser = argparse.ArgumentParser(description='Replace tabs with spaces.')
 parser.add_argument('root_directory', type=str, default='.', nargs='?',
                    help='directory to run the script in')
-parser.add_argument('spaces_for_tab', type=int, default=2, nargs='?',
+parser.add_argument('spaces_for_tab', type=int, default=4, nargs='?',
                    help='number of spaces for one tab')
 parser.add_argument('file_mask_regex', default=".*", nargs='?',
                    help='file name mask regex')

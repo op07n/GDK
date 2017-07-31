@@ -57,7 +57,7 @@ namespace GDK
             GFXsizei     m_VertexCount;
             VertexFormat m_VertexFormat;
             
-            PrimitiveMode m_PrimitiveMode = PrimitiveMode::Triangles;
+            PrimitiveMode m_PrimitiveMode;
             
         public:
             // Accessors
