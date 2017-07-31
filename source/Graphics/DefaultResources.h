@@ -35,6 +35,9 @@ namespace GDK
             /// Make a unit length cube
             Memory::default_ptr<Mesh> getCube();
             
+            /// Make a cylinder
+            Memory::default_ptr<Mesh> getCylinder();
+            
         }
     
     }

@@ -22,12 +22,6 @@ namespace GDK
         {
             friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
             
-            // Data members
-            std::string m_Name;
-            GFXuint m_VertexBufferHandle;
-            int m_VertexCount;
-            VertexFormat m_VertexFormat;
-            
         public:
             /*!
              Hint to the graphics device about how the vertex data will be used.
@@ -41,6 +35,31 @@ namespace GDK
                 Dynamic
             };
             
+            /*
+             Determines the primitive type used at the primitive assembly stage.
+             */
+            enum class PrimitiveMode
+            {
+                Triangles,
+                Lines,
+                Points
+                
+            };
+            
+        private:
+            // Data members
+            std::string m_Name;
+            
+            GFXuint  m_IndexBufferHandle;
+            GFXsizei m_IndexCount;
+            
+            GFXuint      m_VertexBufferHandle;
+            GFXsizei     m_VertexCount;
+            VertexFormat m_VertexFormat;
+            
+            PrimitiveMode m_PrimitiveMode = PrimitiveMode::Triangles;
+            
+        public:
             // Accessors
             std::string getName() const;
             GFXuint getHandle() const;
@@ -53,7 +72,7 @@ namespace GDK
             Mesh& operator=(const Mesh&) = default;
       
             // Constructors, destructors
-            Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, const VertexFormat &aVertexFormat, const Mesh::Type &aType);
+            Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData = std::vector<GFXushort>(), const PrimitiveMode &aPrimitiveMode = PrimitiveMode::Triangles);
             Mesh() = delete;
             Mesh(const Mesh&) = delete;
             Mesh(Mesh&&);

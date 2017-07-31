@@ -27,49 +27,29 @@ GLenum MeshTypeToOpenGLDrawType(const Mesh::Type &aType)
     switch (aType)
     {
         case Mesh::Type::Dynamic:
-            return GL_DYNAMIC_DRAW;
-        break;
+        return GL_DYNAMIC_DRAW;
         
-        default:
         case Mesh::Type::Static:
-            return GL_STATIC_DRAW;
-        break;
+        return GL_STATIC_DRAW;
         
     }
     
 }
 
-Mesh::Mesh(const std::string &aName, const std::vector<GFXfloat> &aVertexData, const VertexFormat &aVertexFormat, const Mesh::Type &aType)
-: m_Name(aName)
-, m_VertexBufferHandle(0)
-, m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
-, m_VertexFormat(aVertexFormat)
+GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPrimitiveMode)
 {
-    GLint type = MeshTypeToOpenGLDrawType(aType);
-    
-    // Create and populate a VBO
-    glGenBuffers(1, &m_VertexBufferHandle);
-    glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferHandle);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * aVertexData.size(), &aVertexData[0], type);
-    glBindBuffer(GL_ARRAY_BUFFER,0);
-    
-}
-
-Mesh::~Mesh()
-{
-    if (m_VertexBufferHandle > 0)
-        glDeleteBuffers(1, &m_VertexBufferHandle);
-    
-}
-
-Mesh::Mesh(Mesh&& a)
-{
-    m_Name               = a.m_Name;
-    m_VertexBufferHandle = a.m_VertexBufferHandle;
-    m_VertexCount        = a.m_VertexCount;
-    m_VertexFormat       = a.m_VertexFormat;
-    
-    a.m_VertexBufferHandle = 0;
+    switch (aPrimitiveMode)
+    {
+        case Mesh::PrimitiveMode::Triangles:
+        return GL_TRIANGLES;
+            
+        case Mesh::PrimitiveMode::Lines:
+        return GL_LINES;
+        
+        case Mesh::PrimitiveMode::Points:
+        return GL_POINTS;
+            
+    }
     
 }
 
@@ -79,19 +59,102 @@ void Mesh::draw(const GFXuint aShaderProgramHandle)
     
     m_VertexFormat.enableAttributes(aShaderProgramHandle);
     
-    glDrawArrays( GL_TRIANGLES, 0, m_VertexCount );
+    GLenum primitiveMode = PrimitiveModeToOpenGLPrimitiveType(m_PrimitiveMode);
+    
+    if (m_IndexBufferHandle > 0)
+    {
+        Debug::log(m_IndexBufferHandle);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBufferHandle);
+        
+        glDrawElements
+        (
+            primitiveMode,
+            m_IndexCount,
+            GL_UNSIGNED_SHORT,
+            (void*)0
+        );
+        
+    }
+    else
+    {
+        glDrawArrays( primitiveMode, 0, m_VertexCount );
+    
+    }
     
 }
 
 void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType)
 {
     m_VertexFormat = aNewVertexFormat;
-    m_VertexCount  = (int)(aNewVertexData.size()/aNewVertexFormat.getSumOfAttributeComponents());
-    GLint type = MeshTypeToOpenGLDrawType(aNewType);
+    m_VertexCount  = (GFXsizei)(aNewVertexData.size()/aNewVertexFormat.getSumOfAttributeComponents());
+    GFXint type = MeshTypeToOpenGLDrawType(aNewType);
     
     glBindBuffer (GL_ARRAY_BUFFER, m_VertexBufferHandle);
-    glBufferData (GL_ARRAY_BUFFER, sizeof(GLfloat) * aNewVertexData.size(), &aNewVertexData[0], type);
+    glBufferData (GL_ARRAY_BUFFER, sizeof(GFXfloat) * aNewVertexData.size(), &aNewVertexData[0], type);
     glBindBuffer (GL_ARRAY_BUFFER,0);
+    
+}
+
+// Constructors & Destructors
+Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData, const PrimitiveMode &aPrimitiveMode)
+: m_Name(aName)
+, m_PrimitiveMode(aPrimitiveMode)
+, m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
+, m_VertexFormat(aVertexFormat)
+, m_VertexBufferHandle([aVertexData,aType]() -> GFXuint
+{
+    GFXuint vbo = 0;
+ 
+    // Create and populate a VBO
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GFXfloat) * aVertexData.size(), &aVertexData[0], MeshTypeToOpenGLDrawType(aType));
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    
+    return vbo;
+
+}())
+, m_IndexCount((GFXsizei)aIndexData.size())
+, m_IndexBufferHandle([aIndexData,aType]() -> GFXuint
+{
+    if (aIndexData.size() <= 0)
+        return GFXuint(0);
+    
+    GFXuint ibo;
+    
+    //Create and pop the IBO
+    glGenBuffers(1, &ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, aIndexData.size() * sizeof(GFXushort), &aIndexData[0], MeshTypeToOpenGLDrawType(aType));
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
+    
+    return ibo;
+    
+}())
+{}
+
+Mesh::~Mesh()
+{
+    if (m_VertexBufferHandle > 0)
+        glDeleteBuffers(1, &m_VertexBufferHandle);
+    
+    if (m_IndexBufferHandle > 0)
+        glDeleteBuffers(1, &m_IndexBufferHandle);
+    
+}
+
+Mesh::Mesh(Mesh&& a)
+{
+    m_Name               = std::move(a.m_Name);
+    m_IndexBufferHandle  = std::move(a.m_IndexBufferHandle);
+    m_IndexCount         = std::move(a.m_IndexCount);
+    m_VertexBufferHandle = std::move(a.m_VertexBufferHandle);
+    m_VertexCount        = std::move(a.m_VertexCount);
+    m_VertexFormat       = std::move(a.m_VertexFormat);
+    m_PrimitiveMode      = std::move(a.m_PrimitiveMode);
+    
+    a.m_IndexBufferHandle  = 0;
+    a.m_VertexBufferHandle = 0;
     
 }
 

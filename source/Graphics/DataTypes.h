@@ -13,10 +13,14 @@ namespace GDK
          These must match their OpenGL equivalents, so definitions should be platform specific.
          GFX types are used instead of GL to avoid unnecessary propagation of gl headers.
          */
-        using GFXint   = int;
-        using GFXuint  = unsigned int;
-        using GFXfloat = float;
-        using GFXbyte  = unsigned char;
+        using GFXint    = int;
+        using GFXuint   = unsigned int;
+        using GFXfloat  = float;
+        using GFXbyte   = unsigned char;
+        using GFXsizei  = int;
+        
+        using GFXushort = unsigned short; //?
+        
         
     }
 
