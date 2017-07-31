@@ -6,6 +6,7 @@
 
 //gdk inc
 #include "EntityComponentSystem/Component.h"
+#include "Debug/Exception.h"
 //std inc
 #include <iosfwd>
 
@@ -36,7 +37,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                ${CLASSNAME}(const std::weak_ptr<GameObject> &a) : Component(a) {}
+                ${CLASSNAME}(const std::weak_ptr<GameObject> &a) : Component(a) {throw GDK::Exception("${CLASSNAME} is a stub!");}
 
             };
 

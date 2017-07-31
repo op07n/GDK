@@ -6,6 +6,7 @@
 
 //gdk inc
 #include "EntityComponentSystem/SceneGraph.h"
+#include "Debug/Exception.h"
 //std inc
 #include <iosfwd>
 
@@ -39,7 +40,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                ${CLASSNAME}(Scene *a) : SceneGraph(a){}
+                ${CLASSNAME}(Scene *a) : SceneGraph(a){throw GDK::Exception("${CLASSNAME} is a stub!");}
 
             };
 
