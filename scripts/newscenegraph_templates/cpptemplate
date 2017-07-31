@@ -18,19 +18,31 @@ std::ostream& GDK::ECS::${NAMESPACE}::operator<<(std::ostream& s, const GDK::ECS
 
 }
 
-void ${NAMESPACE}::initialize()
+void ${CLASSNAME}::draw(const Math::IntVector2 &aFrameBufferSize)
 {
 
 
 }
 
-void ${NAMESPACE}::update()
+void ${CLASSNAME}::fixedUpdate()
 {
 
 
 }
 
-void ${NAMESPACE}::fixedUpdate()
+void ${CLASSNAME}::update()
+{
+
+
+}
+
+void ${CLASSNAME}::OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component> &a)
+{
+
+
+}
+
+void ${CLASSNAME}::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
 
 
