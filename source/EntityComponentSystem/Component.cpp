@@ -7,7 +7,6 @@
 //std inc
 #include <iostream>
 
-
 using namespace GDK;
 using namespace ECS;
 
