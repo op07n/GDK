@@ -92,6 +92,10 @@
 		48E1E4D01F12023400D01A6E /* stb_implementation.c in Sources */ = {isa = PBXBuildFile; fileRef = 48E1E4CF1F12023400D01A6E /* stb_implementation.c */; };
 		48E5F75E1F243E0C00ABDD0F /* Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E5F75C1F243E0C00ABDD0F /* Keyboard.h */; };
 		48E5F75F1F243E0C00ABDD0F /* Keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48E5F75D1F243E0C00ABDD0F /* Keyboard.cpp */; };
+		48EC8AE61F2EC6A6005DD8F3 /* AudioScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 48EC8AE51F2EC6A6005DD8F3 /* AudioScene.h */; };
+		48EC8AEB1F2EC6BF005DD8F3 /* Listener.h in Headers */ = {isa = PBXBuildFile; fileRef = 48EC8AE81F2EC6BF005DD8F3 /* Listener.h */; };
+		48EC8AEC1F2EC6BF005DD8F3 /* AudioScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48EC8AE91F2EC6BF005DD8F3 /* AudioScene.cpp */; };
+		48EC8AED1F2EC6BF005DD8F3 /* Listener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48EC8AEA1F2EC6BF005DD8F3 /* Listener.cpp */; };
 		48FFC4C81F01DB88003932BA /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC4C61F01DB88003932BA /* Window.cpp */; };
 		48FFC4C91F01DB88003932BA /* Window.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4C71F01DB88003932BA /* Window.h */; };
 		48FFC4CD1F01DEFA003932BA /* Vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FFC4CB1F01DEFA003932BA /* Vector3.h */; };
@@ -192,6 +196,10 @@
 		48E1E4CF1F12023400D01A6E /* stb_implementation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stb_implementation.c; path = ../../includes/Common/stb/stb_implementation.c; sourceTree = "<group>"; };
 		48E5F75C1F243E0C00ABDD0F /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keyboard.h; path = ../../source/Input/Keyboard.h; sourceTree = "<group>"; };
 		48E5F75D1F243E0C00ABDD0F /* Keyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Keyboard.cpp; path = ../../source/Input/Keyboard.cpp; sourceTree = "<group>"; };
+		48EC8AE51F2EC6A6005DD8F3 /* AudioScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioScene.h; path = ../../source/EntityComponentSystem/Audio/AudioScene.h; sourceTree = "<group>"; };
+		48EC8AE81F2EC6BF005DD8F3 /* Listener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listener.h; path = ../../source/EntityComponentSystem/Audio/Listener.h; sourceTree = "<group>"; };
+		48EC8AE91F2EC6BF005DD8F3 /* AudioScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioScene.cpp; path = ../../source/EntityComponentSystem/Audio/AudioScene.cpp; sourceTree = "<group>"; };
+		48EC8AEA1F2EC6BF005DD8F3 /* Listener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Listener.cpp; path = ../../source/EntityComponentSystem/Audio/Listener.cpp; sourceTree = "<group>"; };
 		48FFC4C61F01DB88003932BA /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = ../../source/Graphics/Window.cpp; sourceTree = "<group>"; };
 		48FFC4C71F01DB88003932BA /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = ../../source/Graphics/Window.h; sourceTree = "<group>"; };
 		48FFC4CB1F01DEFA003932BA /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = ../../source/Math/Vector3.h; sourceTree = "<group>"; };
@@ -220,6 +228,7 @@
 		4828B0B41F2971D7007F184F /* EntityComponentSystem */ = {
 			isa = PBXGroup;
 			children = (
+				48EC8AE71F2EC6AF005DD8F3 /* Audio */,
 				488285FB1F2D749C00D9945B /* Graphics */,
 				4828B0B51F2971E7007F184F /* Component.h */,
 				4828B0BA1F2971E7007F184F /* Component.cpp */,
@@ -366,6 +375,17 @@
 			name = Input;
 			sourceTree = "<group>";
 		};
+		48EC8AE71F2EC6AF005DD8F3 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				48EC8AE51F2EC6A6005DD8F3 /* AudioScene.h */,
+				48EC8AE91F2EC6BF005DD8F3 /* AudioScene.cpp */,
+				48EC8AE81F2EC6BF005DD8F3 /* Listener.h */,
+				48EC8AEA1F2EC6BF005DD8F3 /* Listener.cpp */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		48FFC4CA1F01DEF4003932BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +493,8 @@
 				484B412F1F12DD0E00CE92B4 /* FloatUniformCollection.h in Headers */,
 				484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */,
 				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
+				48EC8AEB1F2EC6BF005DD8F3 /* Listener.h in Headers */,
+				48EC8AE61F2EC6A6005DD8F3 /* AudioScene.h in Headers */,
 				4828B0BF1F2971E7007F184F /* Component.h in Headers */,
 				48459FF41F1B180F000C957F /* MeshManager.h in Headers */,
 				48459FEC1F1AF922000C957F /* TextureManager.h in Headers */,
@@ -557,6 +579,7 @@
 				483C31BC1F0A0ED5002A7870 /* Model.cpp in Sources */,
 				488285FA1F2D747200D9945B /* GraphicsScene.cpp in Sources */,
 				48FFC4D51F01EC0C003932BA /* Quaternion.cpp in Sources */,
+				48EC8AED1F2EC6BF005DD8F3 /* Listener.cpp in Sources */,
 				4828B0C81F2971E7007F184F /* SceneGraph.cpp in Sources */,
 				4898C0D31F245951007F3B88 /* Mouse.cpp in Sources */,
 				48459FEB1F1AF922000C957F /* TextureManager.cpp in Sources */,
@@ -577,6 +600,7 @@
 				48E5F75F1F243E0C00ABDD0F /* Keyboard.cpp in Sources */,
 				4896442E1F23ED350016909E /* Mat4x4UniformCollection.cpp in Sources */,
 				4899AF611F009239009B4E73 /* Color.cpp in Sources */,
+				48EC8AEC1F2EC6BF005DD8F3 /* AudioScene.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,
 				483C31B41F0A0040002A7870 /* DefaultResources.cpp in Sources */,

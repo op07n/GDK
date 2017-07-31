@@ -18,19 +18,19 @@ std::ostream& GDK::ECS::${NAMESPACE}::operator<<(std::ostream& s, const GDK::ECS
 
 }
 
-void ${NAMESPACE}::initialize()
+void ${CLASSNAME}::initialize()
 {
 
 
 }
 
-void ${NAMESPACE}::update()
+void ${CLASSNAME}::update()
 {
 
 
 }
 
-void ${NAMESPACE}::fixedUpdate()
+void ${CLASSNAME}::fixedUpdate()
 {
 
 

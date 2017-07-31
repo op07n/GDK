@@ -1,11 +1,12 @@
-// © ${YEAR} Joseph Cameron - All Rights Reserved
+// © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
-// Created on ${DATE}.
-#ifndef GDK_ECS_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
-#define GDK_ECS_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H
+// Created on 17-07-30.
+#ifndef GDK_ECS_AUDIO_AUDIOSCENE_H
+#define GDK_ECS_AUDIO_AUDIOSCENE_H
 
 //gdk inc
 #include "EntityComponentSystem/SceneGraph.h"
+#include "Debug/Exception.h"
 //std inc
 #include <iosfwd>
 
@@ -13,14 +14,14 @@ namespace GDK
 {
     namespace ECS
     {
-        namespace ${NAMESPACE}
+        namespace Audio
         {
             /*!
-            No description provided for ${CLASSNAME} scenegraph
+            No description provided for AudioScene scenegraph
             */
-            class ${CLASSNAME} final : public SceneGraph
+            class AudioScene final : public SceneGraph
             {
-                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::${NAMESPACE}::${CLASSNAME}&);
+                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Audio::AudioScene&);
                 
                 // Data members
 
@@ -39,11 +40,11 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                ${CLASSNAME}(Scene *a) : SceneGraph(a){}
+                AudioScene(Scene *a) : SceneGraph(a){throw GDK::Exception("AudioScene is a stub!");}
 
             };
 
-            std::ostream& operator<< (std::ostream&, const GDK::ECS::${NAMESPACE}::${CLASSNAME}&);
+            std::ostream& operator<< (std::ostream&, const GDK::ECS::Audio::AudioScene&);
 
         }
 
@@ -51,4 +52,4 @@ namespace GDK
 
 }
 
-#endif /* GDK_ECS_${NAMESPACEUPPER}_${CLASSNAMEUPPER}_H  */
+#endif /* GDK_ECS_AUDIO_AUDIOSCENE_H  */

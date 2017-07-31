@@ -11,7 +11,7 @@
 
 namespace GDK
 {
-    namesapce ECS
+    namespace ECS
     {
         namespace ${NAMESPACE}
         {
@@ -36,7 +36,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                ${CLASSNAME}(const std::weak_ptr<GameObject> &a) : Component(a) {};
+                ${CLASSNAME}(const std::weak_ptr<GameObject> &a) : Component(a) {}
 
             };
 
