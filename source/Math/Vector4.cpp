@@ -69,3 +69,15 @@ Vector4& Vector4::operator*=(const float &aScalar)
     return *this;
     
 }
+
+bool Vector4::operator==(const Vector4 &a) const
+{
+    return x == a.x && y == a.y && z == a.z && w == a.w ? true : false;
+    
+}
+
+bool Vector4::operator!=(const Vector4 &a) const
+{
+    return x != a.x || y != a.y || z != a.z || w != a.w ? true : false;
+    
+}

@@ -22,6 +22,8 @@ namespace GDK
             float x, y, z, w;
             
             //Mutating operators
+            bool operator==(const Vector4&) const;
+            bool operator!=(const Vector4&) const;
             Vector4& operator+=(const Vector4&);
             Vector4& operator*=(const float&);
             Vector4& operator=(const Vector4&) = default;
