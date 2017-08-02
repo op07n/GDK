@@ -24,75 +24,42 @@ std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::IntVector2& a)
     << "x: " << a.x << ", "
     << "y: " << a.y
     << "}"; return s;
-    
 }
 
 //Contructors
-IntVector2::IntVector2(const int &aX, const int &aY)
+IntVector2::IntVector2(const int &aX, const int &aY) noexcept
 : x(aX)
 , y(aY)
 {}
 
-Vector2 IntVector2::toVector2()
+Vector2 IntVector2::toVector2() const
 {
     return Vector2(x,y);
-    
 }
 
 // Non mutating operators
-IntVector2 IntVector2::operator+(const IntVector2 &aIntVector2)
-{
-    return IntVector2
-    (
-     x + aIntVector2.x,
-     y + aIntVector2.y
-     
-    );
-    
+bool IntVector2::operator==(const IntVector2 &a) const{
+    return x == a.x && y == a.y ? true : false;
 }
 
-IntVector2 IntVector2::operator-(const IntVector2 &aIntVector2)
-{
-    return IntVector2
-    (
-     x - aIntVector2.x,
-     y - aIntVector2.y
-     
-    );
-    
+bool IntVector2::operator!=(const IntVector2 &a) const{
+    return x != a.x || y != a.y ? true : false;
 }
 
-IntVector2 IntVector2::operator*(const float &aScalar)
-{
-    return IntVector2
-    (
-     x * aScalar,
-     y * aScalar
-     
-    );
-    
+IntVector2 IntVector2::operator+(const IntVector2 &aIntVector2) const{
+    return IntVector2(x + aIntVector2.x, y + aIntVector2.y);
 }
 
-IntVector2 IntVector2::operator*(const float &aScalar) const
-{
-    return IntVector2
-    (
-     x * aScalar,
-     y * aScalar
-     
-    );
-    
+IntVector2 IntVector2::operator-(const IntVector2 &aIntVector2) const{
+    return IntVector2(x - aIntVector2.x, y - aIntVector2.y);
 }
 
-IntVector2 IntVector2::operator*(const Vector2& aVector2) const
-{
-    return IntVector2
-    (
-        x * aVector2.x,
-        y * aVector2.y
-    
-    );
-    
+IntVector2 IntVector2::operator*(const float &aScalar) const{
+    return IntVector2(x * aScalar, y * aScalar);
+}
+
+IntVector2 IntVector2::operator*(const Vector2& aVector2) const{
+    return IntVector2(x * aVector2.x, y * aVector2.y);
 }
 
 // Mutating operators
@@ -100,25 +67,19 @@ IntVector2& IntVector2::operator+=(const IntVector2 &aIntVector2)
 {
     x += aIntVector2.x;
     y += aIntVector2.y;
-    
     return *this;
-    
 }
 
 IntVector2& IntVector2::operator-=(const IntVector2 &aIntVector2)
 {
     x -= aIntVector2.x;
     y -= aIntVector2.y;
-    
     return *this;
-    
 }
 
 IntVector2& IntVector2::operator*=(const float &aScalar)
 {
     x *= aScalar;
     y *= aScalar;
-    
     return *this;
-    
 }

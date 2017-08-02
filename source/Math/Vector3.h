@@ -26,9 +26,10 @@ namespace GDK
             //void normalizeAndScale(const float &aScalar);
             
             // Non mutating operators
-            Vector3 operator+(const Vector3&);
-            Vector3 operator-(const Vector3&);
-            Vector3 operator*(const float&);
+            bool operator==(const Vector3&) const;
+            bool operator!=(const Vector3&) const;
+            Vector3 operator+(const Vector3&) const;
+            Vector3 operator-(const Vector3&) const;
             Vector3 operator*(const float&) const;
             
             // Mutating operators
@@ -38,11 +39,11 @@ namespace GDK
             Vector3& operator=(const Vector3&) = default;
             
             // Constructors & Destructors
-            Vector3(const float &aX, const float &aY, const float &aZ);
-            Vector3() = default;
-            Vector3(const Vector3& aVector3) = default;
-            Vector3(Vector3&&) = default;
-            ~Vector3() = default;
+            Vector3(const float &aX, const float &aY, const float &aZ) noexcept;
+            Vector3() noexcept = default;
+            Vector3(const Vector3& aVector3) noexcept = default;
+            Vector3(Vector3&&) noexcept = default;
+            ~Vector3() noexcept = default;
             
             // Special values
             static const Vector3 Up;

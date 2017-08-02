@@ -27,12 +27,12 @@ namespace GDK
             Vector4& operator=(const Vector4&) = default;
             
             // Constructors & Destructors
-            Vector4(const Vector3& aVector3, const float &aW = 1.);
-            Vector4(const float &aX, const float &aY, const float &aZ, const float &aW);
-            Vector4();
-            Vector4(const Vector4&) = default;
-            Vector4(Vector4&&) = default;
-            ~Vector4() = default;
+            Vector4(const Vector3& aVector3, const float &aW = 1.) noexcept;
+            Vector4(const float &aX, const float &aY, const float &aZ, const float &aW) noexcept;
+            Vector4() noexcept;
+            Vector4(const Vector4&) noexcept = default;
+            Vector4(Vector4&&) noexcept = default;
+            ~Vector4() noexcept = default;
             
             // Special values
             static const Vector4 Zero;

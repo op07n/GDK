@@ -30,22 +30,34 @@ std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a)
 }
 
 //ctors
-Vector3::Vector3(const float &aX, const float &aY, const float &aZ)
+Vector3::Vector3(const float &aX, const float &aY, const float &aZ) noexcept
 : x(aX)
 , y(aY)
 , z(aZ)
 {}
 
 //operators
-Vector3 Vector3::operator+(const Vector3 &aVector)
+Vector3 Vector3::operator+(const Vector3 &aVector) const
 {
     return Vector3(aVector.x + x, aVector.y + y, aVector.z + z);
     
 }
 
-Vector3 Vector3::operator-(const Vector3 &aVector)
+Vector3 Vector3::operator-(const Vector3 &aVector) const
 {
     return Vector3(aVector.x - x, aVector.y - y, aVector.z - z);
+    
+}
+
+bool Vector3::operator==(const Vector3 &a) const
+{
+    return x == a.x && y == a.y && z == a.z ? true : false;
+    
+}
+
+bool Vector3::operator!=(const Vector3 &a) const
+{
+    return x != a.x || y != a.y || z != a.z ? true : false;
     
 }
 
@@ -69,18 +81,6 @@ Vector3& Vector3::operator-=(const Vector3 &aVector)
     
 }
 
-Vector3 Vector3::operator*(const float &aScalar)
-{
-    return Vector3
-    (
-     x * aScalar,
-     y * aScalar,
-     z * aScalar
-     
-     );
-    
-}
-
 Vector3 Vector3::operator*(const float &aScalar) const
 {
     return Vector3
@@ -90,7 +90,6 @@ Vector3 Vector3::operator*(const float &aScalar) const
      z * aScalar
      
      );
-    
     
 }
 

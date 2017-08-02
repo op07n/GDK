@@ -23,12 +23,13 @@ namespace GDK
             // Data members
             int x,y;
             
-            Vector2 toVector2();
+            Vector2 toVector2() const;
             
             // Non mutating operators
-            IntVector2 operator+(const IntVector2&);
-            IntVector2 operator-(const IntVector2&);
-            IntVector2 operator*(const float &aScalar);
+            bool operator==(const IntVector2&) const;
+            bool operator!=(const IntVector2&) const;
+            IntVector2 operator+(const IntVector2&) const;
+            IntVector2 operator-(const IntVector2&) const;
             IntVector2 operator*(const float &aScalar) const;
             IntVector2 operator*(const Vector2& aVector2) const;
             
@@ -39,11 +40,11 @@ namespace GDK
             IntVector2& operator=(const IntVector2&) = default;
             
             // Constructors & Destructors
-            IntVector2(const int &aX, const int &aY);
-            IntVector2() = default;
-            IntVector2(const IntVector2&) = default;
-            IntVector2(IntVector2&&) = default;
-            ~IntVector2() = default;
+            IntVector2(const int &aX, const int &aY) noexcept;
+            IntVector2() noexcept = default;
+            IntVector2(const IntVector2&) noexcept = default;
+            IntVector2(IntVector2&&) noexcept = default;
+            ~IntVector2() noexcept = default;
             
             // Special values
             static const IntVector2 Up;

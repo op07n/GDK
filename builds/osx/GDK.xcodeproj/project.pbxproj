@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48101E081F314BC000A2AC40 /* Collider.h in Headers */ = {isa = PBXBuildFile; fileRef = 48101E061F314BC000A2AC40 /* Collider.h */; };
+		48101E091F314BC000A2AC40 /* Collider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48101E071F314BC000A2AC40 /* Collider.cpp */; };
 		4818CB091F12BDB900D33510 /* UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4818CB071F12BDB900D33510 /* UniformCollection.h */; };
 		4828B0BF1F2971E7007F184F /* Component.h in Headers */ = {isa = PBXBuildFile; fileRef = 4828B0B51F2971E7007F184F /* Component.h */; };
 		4828B0C01F2971E7007F184F /* GameObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4828B0B61F2971E7007F184F /* GameObject.h */; };
@@ -114,7 +116,6 @@
 		4898E45F1F0330B600825E3E /* IntVector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E45D1F0330B600825E3E /* IntVector2.h */; };
 		4898E4621F03378D00825E3E /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4898E4601F03378D00825E3E /* Plane.cpp */; };
 		4898E4631F03378D00825E3E /* Plane.h in Headers */ = {isa = PBXBuildFile; fileRef = 4898E4611F03378D00825E3E /* Plane.h */; };
-		4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5B1F008EE0009B4E73 /* Macros.h */; };
 		4899AF601F009239009B4E73 /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 4899AF5E1F009239009B4E73 /* Color.h */; };
 		4899AF611F009239009B4E73 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4899AF5F1F009239009B4E73 /* Color.cpp */; };
 		48C6539E1F05D1090001EDD6 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48C6539C1F05D1090001EDD6 /* Logger.cpp */; };
@@ -139,6 +140,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48101E061F314BC000A2AC40 /* Collider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collider.h; path = ../../source/EntityComponentSystem/Physics2D/Collider.h; sourceTree = "<group>"; };
+		48101E071F314BC000A2AC40 /* Collider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Collider.cpp; path = ../../source/EntityComponentSystem/Physics2D/Collider.cpp; sourceTree = "<group>"; };
 		481644451EFF63BC004DA647 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../Includes/OSX/libglfw3.a; sourceTree = "<group>"; };
 		481644471EFF63CC004DA647 /* glew.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glew.c; path = ../../Includes/Common/glew/src/glew.c; sourceTree = "<group>"; };
 		4818CB071F12BDB900D33510 /* UniformCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniformCollection.h; path = ../../source/Graphics/UniformCollection.h; sourceTree = "<group>"; };
@@ -319,7 +322,6 @@
 		4898E45D1F0330B600825E3E /* IntVector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntVector2.h; path = ../../source/Math/IntVector2.h; sourceTree = "<group>"; };
 		4898E4601F03378D00825E3E /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Plane.cpp; path = ../../source/Math/Plane.cpp; sourceTree = "<group>"; };
 		4898E4611F03378D00825E3E /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plane.h; path = ../../source/Math/Plane.h; sourceTree = "<group>"; };
-		4899AF5B1F008EE0009B4E73 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ../../source/Utilities/Macros.h; sourceTree = "<group>"; };
 		4899AF5E1F009239009B4E73 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Color.h; path = ../../source/Graphics/Color.h; sourceTree = "<group>"; };
 		4899AF5F1F009239009B4E73 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Color.cpp; path = ../../source/Graphics/Color.cpp; sourceTree = "<group>"; };
 		48B2494B1EFF6DA800A70F35 /* libGDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -546,6 +548,8 @@
 				48353BBE1F3007CA000A28C5 /* ComponentInterface.h */,
 				48353BB61F3003A9000A28C5 /* SceneGraph.h */,
 				48353BB71F3003A9000A28C5 /* SceneGraph.cpp */,
+				48101E061F314BC000A2AC40 /* Collider.h */,
+				48101E071F314BC000A2AC40 /* Collider.cpp */,
 				48353BC41F301575000A28C5 /* Rigidbody.h */,
 				48353BC51F301575000A28C5 /* Rigidbody.cpp */,
 			);
@@ -598,14 +602,6 @@
 				488285F51F2D747200D9945B /* GraphicsComponent.cpp */,
 			);
 			name = Graphics;
-			sourceTree = "<group>";
-		};
-		4899AF5A1F008ED4009B4E73 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				4899AF5B1F008EE0009B4E73 /* Macros.h */,
-			);
-			name = Utilities;
 			sourceTree = "<group>";
 		};
 		4899AF5D1F00921D009B4E73 /* Graphics */ = {
@@ -668,7 +664,6 @@
 				483CA4971F04814600E51C4F /* Debug */,
 				48FFC4CA1F01DEF4003932BA /* Math */,
 				4899AF5D1F00921D009B4E73 /* Graphics */,
-				4899AF5A1F008ED4009B4E73 /* Utilities */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -772,6 +767,7 @@
 				48E5F75E1F243E0C00ABDD0F /* Keyboard.h in Headers */,
 				48353B641F2FFCAA000A28C5 /* b2PolygonShape.h in Headers */,
 				488286011F2D7A1E00D9945B /* Mesh.h in Headers */,
+				48101E081F314BC000A2AC40 /* Collider.h in Headers */,
 				4899AF601F009239009B4E73 /* Color.h in Headers */,
 				48353B491F2FFC86000A28C5 /* b2BroadPhase.h in Headers */,
 				4898E4571F03261700825E3E /* Vector4.h in Headers */,
@@ -833,7 +829,6 @@
 				48353B621F2FFCAA000A28C5 /* b2CircleShape.h in Headers */,
 				48353B3A1F2FFC6C000A28C5 /* Box2D.h in Headers */,
 				48459FEC1F1AF922000C957F /* TextureManager.h in Headers */,
-				4899AF5C1F008EE0009B4E73 /* Macros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +943,7 @@
 				48EC8AEC1F2EC6BF005DD8F3 /* AudioScene.cpp in Sources */,
 				48353BC31F300A7E000A28C5 /* CollisionInfo.cpp in Sources */,
 				48353B521F2FFC86000A28C5 /* b2Collision.cpp in Sources */,
+				48101E091F314BC000A2AC40 /* Collider.cpp in Sources */,
 				483C31B81F0A00F1002A7870 /* Texture.cpp in Sources */,
 				4898E45E1F0330B600825E3E /* IntVector2.cpp in Sources */,
 				48353BC71F301575000A28C5 /* Rigidbody.cpp in Sources */,

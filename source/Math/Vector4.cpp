@@ -26,21 +26,21 @@ std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector4& a)
 }
 
 //Constructors
-Vector4::Vector4()
+Vector4::Vector4() noexcept
 : x(0.)
 , y(0.)
 , z(0.)
 , w(1.)
 {}
 
-Vector4::Vector4(const Vector3 &aVector3, const float &aW)
+Vector4::Vector4(const Vector3 &aVector3, const float &aW) noexcept
 : x(aVector3.x)
 , y(aVector3.y)
 , z(aVector3.z)
 , w(aW)
 {}
 
-Vector4::Vector4(const float &aX, const float &aY, const float &aZ, const float &aW)
+Vector4::Vector4(const float &aX, const float &aY, const float &aZ, const float &aW) noexcept
 : x(aX)
 , y(aY)
 , z(aZ)

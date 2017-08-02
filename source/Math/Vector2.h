@@ -30,9 +30,10 @@ namespace GDK
             void normalize();
             
             // Non mutating operators
-            Vector2 operator+(const Vector2&);
-            Vector2 operator-(const Vector2&);
-            Vector2 operator*(const float&);
+            bool operator==(const Vector2&) const;
+            bool operator!=(const Vector2&) const;
+            Vector2 operator+(const Vector2&) const;
+            Vector2 operator-(const Vector2&) const;
             Vector2 operator*(const float&) const;
             
             // Mutating operators
@@ -42,12 +43,12 @@ namespace GDK
             Vector2& operator=(const Vector2&) = default;
             
             // Constructors & Destructors
-            Vector2(const float&);
-            Vector2(const float &aX, const float &aY);
-            Vector2() = default;
-            Vector2(const Vector2&) = default;
-            Vector2(Vector2&&) = default;
-            ~Vector2() = default;
+            Vector2(const float&) noexcept;
+            Vector2(const float &aX, const float &aY) noexcept;
+            Vector2() noexcept = default;
+            Vector2(const Vector2&) noexcept = default;
+            Vector2(Vector2&&) noexcept = default;
+            ~Vector2() noexcept = default;
             
             // Special values
             static const Vector2 Up;

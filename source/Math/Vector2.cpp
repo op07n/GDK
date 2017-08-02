@@ -27,67 +27,49 @@ std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector2& a)
 }
 
 //ctors
-Vector2::Vector2(const float &aX, const float &aY)
+Vector2::Vector2(const float &aX, const float &aY) noexcept
 : x(aX)
 , y(aY)
 {}
 
-Vector2::Vector2(const float &aScalar)
+Vector2::Vector2(const float &aScalar) noexcept
 : x(aScalar)
 , y(aScalar)
 {}
 
 //operators
-Vector2 Vector2::operator+(const Vector2 &aVector)
-{
-    return Vector2(aVector.x + x, aVector.y + y);
-    
+bool Vector2::operator==(const Vector2 &a) const{
+    return x == a.x && y == a.y ? true : false;
 }
 
-Vector2 Vector2::operator-(const Vector2 &aVector)
-{
+bool Vector2::operator!=(const Vector2 &a) const{
+    return x != a.x || y != a.y ? true : false;
+}
+
+Vector2 Vector2::operator+(const Vector2 &aVector) const{
+    return Vector2(aVector.x + x, aVector.y + y);
+}
+
+Vector2 Vector2::operator-(const Vector2 &aVector) const{
     return Vector2(aVector.x - x, aVector.y - y);
-    
 }
 
 Vector2& Vector2::operator+=(const Vector2 &aVector)
 {
     x += aVector.x;
     y += aVector.y;
-    
     return *this;
-    
 }
 
 Vector2& Vector2::operator-=(const Vector2 &aVector)
 {
     x -= aVector.x;
     y -= aVector.y;
-    
     return *this;
-    
 }
 
-Vector2 Vector2::operator*(const float &aScalar)
-{
-    return Vector2
-    (
-     x * aScalar,
-     y * aScalar
-     
-     );
-    
-}
-
-Vector2 Vector2::operator*(const float &aScalar) const
-{
-    return Vector2
-    (
-     x * aScalar,
-     y * aScalar
-     
-     );
-    
+Vector2 Vector2::operator*(const float &aScalar) const{
+    return Vector2(x * aScalar, y * aScalar);
 }
 
 Vector2& Vector2::operator*=(const float &aScalar)

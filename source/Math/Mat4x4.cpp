@@ -200,7 +200,7 @@ void Mat4x4::set
  const float& a01, const float& a11, const float& a21, const float& a31,
  const float& a02, const float& a12, const float& a22, const float& a32,
  const float& a03, const float& a13, const float& a23, const float& a33
-)
+) noexcept
 {
     m[0][0] = a00; m[1][0] = a10; m[2][0] = a20; m[3][0] = a30;
     m[0][1] = a01; m[1][1] = a11; m[2][1] = a21; m[3][1] = a31;
@@ -229,7 +229,7 @@ Mat4x4 Mat4x4::operator*(const Mat4x4 &a)
 }
 
 // Constructors
-Mat4x4::Mat4x4()
+Mat4x4::Mat4x4() noexcept
 : m
 {
     1.,0.,0.,0.,
@@ -246,7 +246,7 @@ Mat4x4::Mat4x4
  const float& a01, const float& a11, const float& a21, const float& a31,
  const float& a02, const float& a12, const float& a22, const float& a32,
  const float& a03, const float& a13, const float& a23, const float& a33
-)
+) noexcept
 : m
 {
     a00,a01,a02,a03,

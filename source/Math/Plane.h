@@ -25,11 +25,11 @@ namespace GDK
             Plane& operator=(const Plane&) = default;
             
             // Constructors & Destructors
-            Plane(const Vector3& aPosition, const Vector3& aNormal);
-            Plane() = delete;
-            Plane(const Plane&) = default;
-            Plane(Plane&&) = default;
-            ~Plane() = default;
+            Plane(const Vector3& aPosition, const Vector3& aNormal) noexcept;
+            Plane() noexcept = delete;
+            Plane(const Plane&) noexcept = default;
+            Plane(Plane&&) noexcept = default;
+            ~Plane() noexcept = default;
             
         };
         

@@ -31,12 +31,12 @@ namespace GDK
             Quaternion& operator=(const Quaternion&) = default;
             
             // Constructors & Destructors
-            Quaternion(const Vector3&);
-            Quaternion(const float& aX, const float& aY, const float& aZ, const float& aW);
-            Quaternion();
-            Quaternion(const Quaternion&) = default;
-            Quaternion(Quaternion&&) = default;
-            ~Quaternion() = default;
+            Quaternion(const Vector3&) noexcept;
+            Quaternion(const float& aX, const float& aY, const float& aZ, const float& aW) noexcept;
+            Quaternion() noexcept;
+            Quaternion(const Quaternion&) noexcept = default;
+            Quaternion(Quaternion&&) noexcept = default;
+            ~Quaternion() noexcept = default;
             
             // Special values
             static const Quaternion Identity;

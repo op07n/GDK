@@ -28,10 +28,10 @@ std::ostream& GDK::Math::operator<< (std::ostream& s, const Math::Quaternion& a)
 }
 
 //ctors
-Quaternion::Quaternion() : x(0.), y(0.), z(0.), w(1.)
+Quaternion::Quaternion() noexcept : x(0.), y(0.), z(0.), w(1.)
 {}
 
-Quaternion::Quaternion(const Vector3 &aEulerAngles)
+Quaternion::Quaternion(const Vector3 &aEulerAngles) noexcept
 {
     setFromEuler(aEulerAngles);
     

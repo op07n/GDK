@@ -19,7 +19,7 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a)
 }
 
 // Constructors
-Plane::Plane(const Vector3& aPosition, const Vector3& aNormal)
+Plane::Plane(const Vector3& aPosition, const Vector3& aNormal) noexcept
 : position(aPosition)
 , normal(aNormal)
 {}
