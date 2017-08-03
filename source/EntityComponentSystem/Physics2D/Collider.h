@@ -12,7 +12,7 @@
 #include <iosfwd>
 #include <vector>
 
-class FixtureDef;
+class b2FixtureDef;
 
 namespace GDK{namespace ECS{namespace Physics2D{class SceneGraph;}}}
 
@@ -58,18 +58,17 @@ namespace GDK
                 
                 void checkForTransformScaleChange();
                 
-                // Collider interface
-                virtual std::vector<FixtureDef> getB2DFixtures() = 0;
-                
             protected:
+                void requestShapeRebuildOnNextTick(){m_RebuildShape = true;}
+                
                 // Component interface
-                virtual void initialize()  override final;
-                virtual void update()      override final;
+                virtual void initialize() override final;
+                virtual void update() override final;
                 virtual void fixedUpdate() override final {}
                 
+                // Collider interface
+                virtual std::vector<b2FixtureDef> getFixtures() = 0;
                 virtual void buildShape() = 0;
-                
-                void requestShapeRebuildOnNextTick(){m_RebuildShape = true;} //THINK ABOUT THIS
                 
             public:
                 // Accessors
@@ -77,7 +76,9 @@ namespace GDK
                 float getDensity() const;
                 float getFriction() const;
                 float getRestitution() const;
+                Math::Vector2 getOffset() const;
                 bool  getDrawDebugLines() const;
+                Collider::Type getColliderType() const;
                 
                 void setType(const Collider::Type &aColliderType);
                 void setDensity(const float &aDensity);

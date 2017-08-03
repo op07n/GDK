@@ -42,7 +42,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                SceneGraph(Scene *a) : ECS::SceneGraph(a){throw GDK::Exception("Physics2D::SceneGraph is a stub!");}
+                SceneGraph(Scene *a) : ECS::SceneGraph(a){/*throw GDK::Exception("Physics2D::SceneGraph is a stub!");*/}
 
             };
 

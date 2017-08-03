@@ -50,6 +50,9 @@
 		48353BC71F301575000A28C5 /* Rigidbody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48353BC51F301575000A28C5 /* Rigidbody.cpp */; };
 		4839F6301F18392A0081237A /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4839F62E1F18392A0081237A /* Exception.cpp */; };
 		4839F6311F18392A0081237A /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 4839F62F1F18392A0081237A /* Exception.h */; };
+		483A708A1F328EE900A074C5 /* SimpleCollider.h in Headers */ = {isa = PBXBuildFile; fileRef = 483A70881F328EE900A074C5 /* SimpleCollider.h */; };
+		483A708E1F329C0A00A074C5 /* BoxCollider.h in Headers */ = {isa = PBXBuildFile; fileRef = 483A708C1F329C0A00A074C5 /* BoxCollider.h */; };
+		483A708F1F329C0A00A074C5 /* BoxCollider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483A708D1F329C0A00A074C5 /* BoxCollider.cpp */; };
 		483C31891F098C53002A7870 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 483C31851F098C53002A7870 /* ShaderProgram.cpp */; };
 		483C318A1F098C53002A7870 /* ShaderProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31861F098C53002A7870 /* ShaderProgram.h */; };
 		483C31AC1F09A2B2002A7870 /* DataTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 483C31AA1F09A2B2002A7870 /* DataTypes.h */; };
@@ -255,6 +258,9 @@
 		48353BC51F301575000A28C5 /* Rigidbody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Rigidbody.cpp; path = ../../source/EntityComponentSystem/Physics2D/Rigidbody.cpp; sourceTree = "<group>"; };
 		4839F62E1F18392A0081237A /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Exception.cpp; path = ../../source/Debug/Exception.cpp; sourceTree = "<group>"; };
 		4839F62F1F18392A0081237A /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exception.h; path = ../../source/Debug/Exception.h; sourceTree = "<group>"; };
+		483A70881F328EE900A074C5 /* SimpleCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleCollider.h; path = ../../source/EntityComponentSystem/Physics2D/SimpleCollider.h; sourceTree = "<group>"; };
+		483A708C1F329C0A00A074C5 /* BoxCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoxCollider.h; path = ../../source/EntityComponentSystem/Physics2D/BoxCollider.h; sourceTree = "<group>"; };
+		483A708D1F329C0A00A074C5 /* BoxCollider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoxCollider.cpp; path = ../../source/EntityComponentSystem/Physics2D/BoxCollider.cpp; sourceTree = "<group>"; };
 		483C31851F098C53002A7870 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgram.cpp; path = ../../source/Graphics/ShaderProgram.cpp; sourceTree = "<group>"; };
 		483C31861F098C53002A7870 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgram.h; path = ../../source/Graphics/ShaderProgram.h; sourceTree = "<group>"; };
 		483C31AA1F09A2B2002A7870 /* DataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataTypes.h; path = ../../source/Graphics/DataTypes.h; sourceTree = "<group>"; };
@@ -545,11 +551,14 @@
 			children = (
 				48353BC01F300A7E000A28C5 /* CollisionInfo.h */,
 				48353BC11F300A7E000A28C5 /* CollisionInfo.cpp */,
+				483A708C1F329C0A00A074C5 /* BoxCollider.h */,
+				483A708D1F329C0A00A074C5 /* BoxCollider.cpp */,
 				48353BBE1F3007CA000A28C5 /* ComponentInterface.h */,
 				48353BB61F3003A9000A28C5 /* SceneGraph.h */,
 				48353BB71F3003A9000A28C5 /* SceneGraph.cpp */,
 				48101E061F314BC000A2AC40 /* Collider.h */,
 				48101E071F314BC000A2AC40 /* Collider.cpp */,
+				483A70881F328EE900A074C5 /* SimpleCollider.h */,
 				48353BC41F301575000A28C5 /* Rigidbody.h */,
 				48353BC51F301575000A28C5 /* Rigidbody.cpp */,
 			);
@@ -761,6 +770,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483A708A1F328EE900A074C5 /* SimpleCollider.h in Headers */,
 				4828B0C21F2971E7007F184F /* Scene.h in Headers */,
 				4898E45B1F03262200825E3E /* Mat4x4.h in Headers */,
 				48353BC61F301575000A28C5 /* Rigidbody.h in Headers */,
@@ -810,6 +820,7 @@
 				48353B4A1F2FFC86000A28C5 /* b2Collision.h in Headers */,
 				4898E4631F03378D00825E3E /* Plane.h in Headers */,
 				484B41311F12DD0E00CE92B4 /* Vector2UniformCollection.h in Headers */,
+				483A708E1F329C0A00A074C5 /* BoxCollider.h in Headers */,
 				483C31BD1F0A0ED5002A7870 /* Model.h in Headers */,
 				4896442F1F23ED350016909E /* Mat4x4UniformCollection.h in Headers */,
 				48459FF01F1B17E7000C957F /* ShaderProgramManager.h in Headers */,
@@ -897,6 +908,7 @@
 				4898E4561F03261700825E3E /* Vector4.cpp in Sources */,
 				48353BB91F3003A9000A28C5 /* SceneGraph.cpp in Sources */,
 				484B41341F12DD0E00CE92B4 /* Vector4UniformCollection.cpp in Sources */,
+				483A708F1F329C0A00A074C5 /* BoxCollider.cpp in Sources */,
 				48353B4E1F2FFC86000A28C5 /* b2BroadPhase.cpp in Sources */,
 				48353B671F2FFCAA000A28C5 /* b2CircleShape.cpp in Sources */,
 				484B41301F12DD0E00CE92B4 /* Vector2UniformCollection.cpp in Sources */,

@@ -109,3 +109,6 @@ void Collider::setOffset(const float &aX, const float &aY)
     
     requestShapeRebuildOnNextTick();
 }
+Collider::Type Collider::getColliderType() const {return m_ColliderType;}
+
+Math::Vector2 Collider::getOffset() const {return m_Offset;}
