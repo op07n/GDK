@@ -10,8 +10,10 @@
 #include <iosfwd>
 #include <memory>
 
+namespace GDK{namespace ECS{class GameObject;}}
 namespace GDK{namespace ECS{class Component;}}
 namespace GDK{namespace ECS{class SceneGraph;}}
+namespace GDK{namespace ECS{class Scene;}}
 
 namespace GDK
 {
@@ -20,11 +22,7 @@ namespace GDK
         /*!
          GameObject::Add will fail if a T already exists in its component list
          */
-        class UniqueComponent
-        {
-            friend Scene;
-            
-        };
+        class UniqueComponent{};
         
         /*!
          Gameobject will silently add a component of type T if one does not already exist in its component list
@@ -32,7 +30,7 @@ namespace GDK
         template<typename T>
         class RequireComponent
         {
-            friend Scene;
+            friend GameObject;
             static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of Component");
             
             std::shared_ptr<T> getType(){return std::shared_ptr<T>(new T());}
