@@ -63,30 +63,6 @@ namespace GDK
             std::weak_ptr<T> addComponent()
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
-                /*//Handle RequireComponent & RequireComponents annotations
-                {
-                    Annotation[] annotations = aComponentType.getAnnotations();
-                    
-                    for(int i=0,s=annotations.length;i<s;i++)
-                        if (annotations[i].annotationType().equals(RequireComponents.class))
-                        {
-                            RequireComponents rc = (RequireComponents)annotations[i];
-                            
-                            for(int j=0,t=rc.value().length;j<t;j++)
-                                if (getComponent(rc.value()[j])==null)
-                                    addComponent(rc.value()[j]);
-                                    
-                        }
-                        else if (annotations[i].annotationType().equals(RequireComponent.class))
-                        {
-                            RequireComponent rc = (RequireComponent)annotations[i];
-                            
-                            if (getComponent(rc.value())==null)
-                                addComponent(rc.value());
-                                
-                        }
-                    
-                }*/
                 
                 //Add an instance of aComponentType to Components[]
                 if (auto scene = m_MyScene.lock())
@@ -158,8 +134,8 @@ namespace GDK
         };
 
         std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
-        
-  }
+    
+    }
 
 }
 

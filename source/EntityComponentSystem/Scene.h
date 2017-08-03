@@ -77,28 +77,17 @@ namespace GDK
                 
                 auto newT = std::shared_ptr<T>(new T(this));
                 
+                for (size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
+                    if (m_SceneGraphs[i])
+                        if (typeid(m_SceneGraphs[i]) == typeid(newT))
+                            return {};
+                
                 m_SceneGraphs.push_back(newT);
                 
                 return std::weak_ptr<T>(newT);
                 
             }
             
-            /*void parseRequireSceneGraphsAnnotation(final Component aComponent)
-            {
-                RequireSceneGraphs rcg = aComponent.getClass().getAnnotation(RequireSceneGraphs.class);
-                
-                if (rcg == null) //If the component does not require any special scenegraphs, bail now
-                    return;
-                
-                for(int i=0,s=rcg.value().length;i<s;i++) //otherwise iterate required graphs...
-                    if (getSceneGraph(rcg.value()[i]) == null)//and if the required graph does not exist in this scene, add it
-                        addSceneGraph(rcg.value()[i]);
-                
-            }*/
-            
-            //
-            //
-            //
             void update();
             void fixedUpdate();
             void draw(const Math::IntVector2& aFrameBufferSize);
@@ -121,7 +110,7 @@ namespace GDK
 
         std::ostream& operator<< (std::ostream&, const ECS::Scene&);
         
-  }
+    }
 
 }
 

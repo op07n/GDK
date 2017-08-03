@@ -58,7 +58,7 @@ namespace GDK
 
         std::ostream& operator<< (std::ostream&, const ECS::Component&);
         
-  }
+    }
 
 }
 
