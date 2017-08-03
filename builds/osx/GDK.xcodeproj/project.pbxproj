@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480B953F1F32BDF200B0C34F /* ComponentAnnotations.h in Headers */ = {isa = PBXBuildFile; fileRef = 480B953E1F32BDF200B0C34F /* ComponentAnnotations.h */; };
 		48101E081F314BC000A2AC40 /* Collider.h in Headers */ = {isa = PBXBuildFile; fileRef = 48101E061F314BC000A2AC40 /* Collider.h */; };
 		48101E091F314BC000A2AC40 /* Collider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48101E071F314BC000A2AC40 /* Collider.cpp */; };
 		4818CB091F12BDB900D33510 /* UniformCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4818CB071F12BDB900D33510 /* UniformCollection.h */; };
@@ -143,6 +144,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480B953E1F32BDF200B0C34F /* ComponentAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComponentAnnotations.h; path = ../../source/EntityComponentSystem/ComponentAnnotations.h; sourceTree = "<group>"; };
 		48101E061F314BC000A2AC40 /* Collider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Collider.h; path = ../../source/EntityComponentSystem/Physics2D/Collider.h; sourceTree = "<group>"; };
 		48101E071F314BC000A2AC40 /* Collider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Collider.cpp; path = ../../source/EntityComponentSystem/Physics2D/Collider.cpp; sourceTree = "<group>"; };
 		481644451EFF63BC004DA647 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../Includes/OSX/libglfw3.a; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				48353BB51F30038C000A28C5 /* Physics2D */,
 				48EC8AE71F2EC6AF005DD8F3 /* Audio */,
 				488285FB1F2D749C00D9945B /* Graphics */,
+				480B953E1F32BDF200B0C34F /* ComponentAnnotations.h */,
 				4828B0B51F2971E7007F184F /* Component.h */,
 				4828B0BA1F2971E7007F184F /* Component.cpp */,
 				4828B0B61F2971E7007F184F /* GameObject.h */,
@@ -834,6 +837,7 @@
 				484B41251F12C4A100CE92B4 /* TextureUniformCollection.h in Headers */,
 				485908BF1F11D42F00F7A86F /* Camera.h in Headers */,
 				48EC8AEB1F2EC6BF005DD8F3 /* Listener.h in Headers */,
+				480B953F1F32BDF200B0C34F /* ComponentAnnotations.h in Headers */,
 				48EC8AE61F2EC6A6005DD8F3 /* AudioScene.h in Headers */,
 				4828B0BF1F2971E7007F184F /* Component.h in Headers */,
 				48459FF41F1B180F000C957F /* MeshManager.h in Headers */,

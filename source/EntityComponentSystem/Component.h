@@ -12,6 +12,7 @@
 
 namespace GDK{namespace ECS{class GameObject;}}
 namespace GDK{namespace ECS{class Transform;}}
+namespace GDK{namespace ECS{class Scene;}}
 
 namespace GDK
 {

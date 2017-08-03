@@ -48,6 +48,8 @@ namespace GDK
             void OnSceneGraphAdded(const std::weak_ptr<SceneGraph> &aSceneGraph);
             void OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemoved);
             
+            void logError();
+            
         public:
             // Accessors
             std::weak_ptr<GameObject> getGameObject(const std::string&);
@@ -78,9 +80,12 @@ namespace GDK
                 auto newT = std::shared_ptr<T>(new T(this));
                 
                 for (size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
-                    if (m_SceneGraphs[i])
-                        if (typeid(m_SceneGraphs[i]) == typeid(newT))
-                            return {};
+                    if (std::dynamic_pointer_cast<T>(m_SceneGraphs[i]))
+                    {
+                        logError();
+                        return {};
+                            
+                    }
                 
                 m_SceneGraphs.push_back(newT);
                 

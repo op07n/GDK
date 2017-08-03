@@ -6,6 +6,7 @@
 #include "GameObject.h"
 #include "SceneGraph.h"
 #include "Debug/Exception.h"
+#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
@@ -107,6 +108,12 @@ void Scene::OnSceneGraphAdded(const std::weak_ptr<SceneGraph> &aSceneGraph)
 void Scene::OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemoved)
 {
     throw GDK::Exception("OnSceneGraphRemoved not supported");
+    
+}
+
+void Scene::logError()
+{
+    Debug::error("user attempted to add a duplicate kind of scenegraph to the scene: ",m_Name);
     
 }
 
