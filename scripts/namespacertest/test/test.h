@@ -1,9 +1,12 @@
-testtestasdfafsd
-asdfasfd
-asdfasdf
+#ifndef _MY_CLASS_H
+#define _MY_CLASS_H
+#include "Thing.h"
+#include "Thing2.h"
 
-#define
+class MyClass
+{
+    int m_Data;
 
+};
 
-asdfsad
-asfasfd
+#endif"
