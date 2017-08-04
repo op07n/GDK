@@ -9,7 +9,7 @@
 #include "EntityComponentSystem/GameObject.h"
 #include "Math/Vector3.h"
 //3rdpart
-#include <Collision/Shapes/b2PolygonShape.h>
+//#include <Collision/Shapes/b2PolygonShape.h>
 //std inc
 #include <iosfwd>
 
@@ -34,9 +34,7 @@ namespace GDK
                 
             public:
                 // Accessors
-      
-                // Public methods
-
+                
                 // Constructors, destructors
                 BoxCollider(const std::weak_ptr<GameObject> &a) : SimpleCollider(a){}
 

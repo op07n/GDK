@@ -30,8 +30,8 @@ void BoxCollider::buildShape()
         
         float hs(1./2.);
         
-        std::array<b2Vec2,4> vertices({
-        {
+        std::array<b2Vec2,4> vertices
+        ({{
             {(-hs +offset.x)*scale.x, (-hs +offset.y)*scale.z},
             {( hs +offset.x)*scale.x, (-hs +offset.y)*scale.z},
             {( hs +offset.x)*scale.x, ( hs +offset.y)*scale.z},
