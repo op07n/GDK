@@ -6,9 +6,8 @@
 
 //gdk inc
 #include "EntityComponentSystem/Physics2D/Collider.h"
-//3rdpart
-#include <Collision/Shapes/b2Shape.h>
-#include <Box2D/Dynamics/b2Fixture.h>
+#include "Physics2D/Collision/Shapes/b2Shape.h"
+#include "Physics2D/Dynamics/b2Fixture.h"
 //std inc
 #include <iosfwd>
 #include <vector>

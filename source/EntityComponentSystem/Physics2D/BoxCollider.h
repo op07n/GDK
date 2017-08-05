@@ -8,8 +8,7 @@
 #include "EntityComponentSystem/Physics2D/SimpleCollider.h"
 #include "EntityComponentSystem/GameObject.h"
 #include "Math/Vector3.h"
-//3rdpart
-//#include <Collision/Shapes/b2PolygonShape.h>
+#include "Physics2D/Collision/Shapes/b2PolygonShape.h"
 //std inc
 #include <iosfwd>
 

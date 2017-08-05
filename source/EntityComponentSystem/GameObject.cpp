@@ -61,7 +61,12 @@ std::weak_ptr<Scene> GameObject::getScene(){return m_MyScene;}
 void GameObject::setName(const std::string &aName){m_Name = aName;}
 
 GameObject::GameObject(const std::weak_ptr<Scene> &aScene)
-: m_MyScene(aScene)
+: m_Name("Unnamed")
+, m_MyScene(aScene)
+, m_Components()
+, m_Position()
+, m_Scale(1.,1.,1.)
+, m_Rotation()
 {}
 
 void GameObject::setPosition(const Math::Vector3    &aPosition){m_Position = aPosition;}
