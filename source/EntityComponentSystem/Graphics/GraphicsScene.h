@@ -44,14 +44,14 @@ namespace GDK
                 
             private:
                 // Data members
-                std::vector<std::weak_ptr<Camera>>   m_Cameras;
-                std::vector<std::weak_ptr<Drawable>> m_Drawables;
+                std::vector<std::weak_ptr<Camera>>   m_Cameras   = {};
+                std::vector<std::weak_ptr<Drawable>> m_Drawables = {};
                 
             protected:
                 // SceneGraph interface
                 virtual void draw(const Math::IntVector2 &aFrameBufferSize) override final;
-                virtual void fixedUpdate() override final;
-                virtual void update()      override final;
+                virtual void fixedUpdate() override final {}
+                virtual void update()      override final {}
                 
                 virtual void OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component>&)     override final;
                 virtual void OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component>&) override final;

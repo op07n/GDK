@@ -38,15 +38,6 @@ void Mesh::draw(const std::weak_ptr<Camera> &aCamera)
     
 }
 
-void Mesh::initialize(){}
-void Mesh::update(){}
-void Mesh::fixedUpdate(){}
-
-// Constructors, destructors
-Mesh::Mesh(const std::weak_ptr<GameObject> &aGameObject)
-: GDK::ECS::GFX::GraphicsComponent(aGameObject)
-{}
-
 // Accessors
 void Mesh::setMesh(const Memory::default_ptr<GDK::GFX::Mesh> &a){m_Model.setMesh(a);}
 

@@ -29,13 +29,14 @@ namespace GDK
                 friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::SceneGraph&);
                 friend Rigidbody;
                 
+                using RigidbodyVector = std::vector<std::weak_ptr<Rigidbody>>;
+                
                 // Data members
-                const float c_UpdateInterval;
+                const float c_UpdateInterval = 1.f/60.f;
                 
-                b2World m_B2DWorld;
-                b2Body  *m_WorldOriginBody;
-                
-                std::vector<std::weak_ptr<Rigidbody>> m_Rigidbodies;
+                b2World         m_B2DWorld         = b2World(b2Vec2(0,0));
+                RigidbodyVector m_Rigidbodies      = {};
+                b2Body          *m_WorldOriginBody = nullptr;
                 
             protected:
                 // SceneGraph interface

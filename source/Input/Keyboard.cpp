@@ -145,7 +145,7 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
     
 }
 
-bool Keyboard::getKeyDown(const Key &aKeyCode)
+bool Keyboard::getKeyDown(const Key &aKeyCode) const
 {
     if (auto ptr = m_HandleToGLFWWindow.lock())
         return glfwGetKey(ptr.get(), glfwKeyCodeFromKey(aKeyCode));
@@ -154,7 +154,7 @@ bool Keyboard::getKeyDown(const Key &aKeyCode)
     
 }
 
-bool Keyboard::getKey(const Key &aKeyCode)
+bool Keyboard::getKey(const Key &aKeyCode) const
 {
     throw GDK::Exception("Keyboard::getKey(const Key &aKeyCode) not implemented");
 

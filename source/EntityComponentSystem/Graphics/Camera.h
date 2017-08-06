@@ -26,7 +26,7 @@ namespace GDK
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);
                 friend GDK::ECS::GFX::GraphicsScene;
                 
-                GDK::GFX::Camera m_Camera;
+                GDK::GFX::Camera m_Camera = {};
                 
                 void draw(const Math::IntVector2& aFrameBufferSize);
                 
@@ -39,11 +39,11 @@ namespace GDK
                 // Accessors
                 void setViewportPosition(const Math::Vector2&);
                 void setViewportPosition(const float &x, const float &y);
-                Math::Vector2 getViewportPosition();
+                Math::Vector2 getViewportPosition() const;
                 
                 void setViewportSize(const Math::Vector2&);
                 void setViewportSize(const float &x, const float &y);
-                Math::Vector2 getViewportSize();
+                Math::Vector2 getViewportSize() const;
                 
                 const Math::Mat4x4& getProjectionMatrix() const;
                 

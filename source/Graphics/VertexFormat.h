@@ -28,8 +28,8 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&);
     
             // Data members
-            std::vector<VertexAttribute> m_Format; //std::map<std::string, unsigned short> m_Format;
-            int m_SumOfAttributeComponents;
+            std::vector<VertexAttribute> m_Format = {};
+            int m_SumOfAttributeComponents = 0;
             
         public:
             // Public methods

@@ -28,13 +28,13 @@ namespace GDK
             friend GDK::ECS::Scene;
             
             // Data members
-            std::string m_Name;
+            std::string m_Name = "Unnamed";
             std::weak_ptr<Scene> m_MyScene;
-            std::vector<std::shared_ptr<Component>> m_Components;
+            std::vector<std::shared_ptr<Component>> m_Components  = {};
             
-            Math::Vector3 m_Position;
-            Math::Vector3 m_Scale;
-            Math::Quaternion m_Rotation;
+            Math::Vector3    m_Position = Math::Vector3::Zero;
+            Math::Vector3    m_Scale    = {1.f,1.f,1.f};
+            Math::Quaternion m_Rotation = Math::Quaternion::Identity;
             
             void update();
             void fixedUpdate();

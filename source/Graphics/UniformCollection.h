@@ -25,7 +25,7 @@ namespace GDK
         {
         protected:
             // Data members
-            std::map<std::string,T> m_Map;
+            std::map<std::string,T> m_Map = {};
             
         public:
             // Public methods
@@ -35,7 +35,7 @@ namespace GDK
                 
             }
             
-            T get(const std::string &aName)
+            T get(const std::string &aName) const
             {
                 return m_Map.find(aName);
                 

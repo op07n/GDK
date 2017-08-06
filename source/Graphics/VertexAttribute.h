@@ -19,8 +19,8 @@ namespace GDK
         struct VertexAttribute final
         {
             // Data members
-            std::string name;
-            unsigned short size;
+            std::string    name = "attribute";
+            unsigned short size = 0;
             
             // Mutating operators
             VertexAttribute& operator=(const VertexAttribute&) = default;

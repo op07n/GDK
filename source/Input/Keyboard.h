@@ -23,7 +23,7 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
             
             // Data members
-            std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow;
+            std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
             
         public:
             /*!
@@ -67,9 +67,9 @@ namespace GDK
             
             // Public methods
             /// Check if the key is being held down
-            bool getKeyDown(const Key &aKeyCode);
+            bool getKeyDown(const Key &aKeyCode) const;
             /// Check if the key was just pressed
-            bool getKey(const Key &aKeyCode);
+            bool getKey(const Key &aKeyCode) const;
             
             // Mutating operators
             Keyboard& operator=(const Keyboard&) = default;

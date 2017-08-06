@@ -44,7 +44,7 @@ static int glfwMouseButtonFromButton(const Mouse::Button &a)
     
 }
 
-bool Mouse::getButtonDown(const Button &aButton)
+bool Mouse::getButtonDown(const Button &aButton) const
 {
     if (auto ptr = m_HandleToGLFWWindow.lock())
         return glfwGetMouseButton(ptr.get(), glfwMouseButtonFromButton(aButton));
@@ -53,7 +53,7 @@ bool Mouse::getButtonDown(const Button &aButton)
     
 }
 
-Math::Vector2 Mouse::getCursorPosition()
+Math::Vector2 Mouse::getCursorPosition() const
 {
     if (auto ptr = m_HandleToGLFWWindow.lock())
     {
@@ -67,7 +67,7 @@ Math::Vector2 Mouse::getCursorPosition()
     
 }
 
-bool Mouse::getButton(const Button &aKeyCode)
+bool Mouse::getButton(const Button &aKeyCode) const
 {
     throw GDK::Exception("Mouse::getButton(const Button &aKeyCode) not implemented");
 

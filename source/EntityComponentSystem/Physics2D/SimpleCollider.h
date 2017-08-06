@@ -28,8 +28,8 @@ namespace GDK
                 
             protected:
                 // Data members
-                T m_Shape;
-                b2FixtureDef m_FixtureDefinition;
+                T            m_Shape             = {};
+                b2FixtureDef m_FixtureDefinition = {};
                 
                 virtual void buildShape() override
                 {
@@ -42,7 +42,7 @@ namespace GDK
                 
             public:
                 // Accessors
-                virtual std::vector<b2FixtureDef> getFixtures() override final {return {m_FixtureDefinition};}
+                virtual std::vector<b2FixtureDef> getFixtures() const override final {return {m_FixtureDefinition};}
                 
                 // Public methods
 

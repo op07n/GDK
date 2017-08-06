@@ -51,18 +51,17 @@ namespace GDK
                 
             private:
                 // Data members
-                std::weak_ptr<Physics2D::SceneGraph> m_Physics2DScene; //the scene
-                b2Body *m_Body; //Pos, rot, acc etc.
-                b2BodyDef m_BodyDef;
+                std::weak_ptr<Physics2D::SceneGraph> m_Physics2DScene = {}; //the scene
                 
-                b2PrismaticJoint *m_AxisFreezeJoint;
+                std::vector<b2Fixture*> m_Fixtures         = {};
+                b2BodyDef               m_BodyDef          = {};
+                b2Body                  *m_Body            = nullptr;
+                b2PrismaticJoint        *m_AxisFreezeJoint = nullptr;
+                bool                    m_RebuildRequired  = true;
                 
-                std::vector<b2Fixture*> m_Fixtures; //the body
-                bool m_RebuildRequired = true;
-                
-                Math::Vector3 m_ScaleBuffer;
-                Math::Vector3 m_RotationBuffer;
-                Math::Vector3 m_PositionBuffer;
+                Math::Vector3 m_ScaleBuffer    = Math::Vector3::Zero;
+                Math::Vector3 m_RotationBuffer = Math::Vector3::Zero;
+                Math::Vector3 m_PositionBuffer = Math::Vector3::Zero;
                 
                 void buildBody();
                 void buildFixtures();
@@ -78,7 +77,7 @@ namespace GDK
                 
             public:
                 // Accessors
-                Math::Vector2 getVelocity();
+                Math::Vector2 getVelocity() const;
                 
                 void setVelocity(const Math::Vector2&);
                 void setVelocity(const float &aX,const float &aY);

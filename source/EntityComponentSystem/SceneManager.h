@@ -24,7 +24,7 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const ECS::SceneManager&);
       
             // Data members
-            std::map<std::string, std::shared_ptr<Scene>> m_Scenes;
+            std::map<std::string, std::shared_ptr<Scene>> m_Scenes = {};
 
         public:
             // Accessors

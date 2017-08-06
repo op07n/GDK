@@ -24,7 +24,7 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const Input::Mouse&);
       
             // Data members
-            std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow;
+            std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
 
         public:
             /*!
@@ -45,11 +45,11 @@ namespace GDK
             
             // Public methods
             /// Check if the button is being held down
-            bool getButtonDown(const Button &aKeyCode);
+            bool getButtonDown(const Button &aKeyCode) const;
             /// Check if the button was just pressed
-            bool getButton(const Button &aKeyCode);
+            bool getButton(const Button &aKeyCode) const;
             /// Viewcoordinate of curosr
-            Math::Vector2 getCursorPosition();
+            Math::Vector2 getCursorPosition() const;
             
             // Mutating operators
             Mouse& operator=(const Mouse&) = default;

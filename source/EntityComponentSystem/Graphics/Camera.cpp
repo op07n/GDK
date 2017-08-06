@@ -37,11 +37,11 @@ void Camera::fixedUpdate() {}
 //viewportpos
 void Camera::setViewportPosition(const Math::Vector2 &a){m_Camera.setViewportPosition(a);}
 void Camera::setViewportPosition(const float &x, const float &y){m_Camera.setViewportPosition(x,y);}
-Math::Vector2 Camera::getViewportPosition(){return m_Camera.getViewportPosition();}
+Math::Vector2 Camera::getViewportPosition() const {return m_Camera.getViewportPosition();}
 //viewportsize
 void Camera::setViewportSize(const Math::Vector2 &a){m_Camera.setViewportSize(a);}
 void Camera::setViewportSize(const float &x, const float &y){m_Camera.setViewportSize(x,y);}
-Math::Vector2 Camera::getViewportSize(){return m_Camera.getViewportSize();}
+Math::Vector2 Camera::getViewportSize() const {return m_Camera.getViewportSize();}
 //projmat
 const Math::Mat4x4& Camera::getProjectionMatrix()const{return m_Camera.getProjectionMatrix();}
 //viewmat

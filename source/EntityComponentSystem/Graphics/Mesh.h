@@ -28,7 +28,7 @@ namespace GDK
             {
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::Mesh&);
                 
-                GDK::GFX::Model m_Model;
+                GDK::GFX::Model m_Model = {};
                 
             public:
                 // Accessors
@@ -45,13 +45,13 @@ namespace GDK
                 // Drawable interface
                 virtual void draw(const std::weak_ptr<Camera> &aCamera) override final;
                 // Component interface
-                virtual void initialize()  override final;
-                virtual void update()      override final;
-                virtual void fixedUpdate() override final;
+                virtual void initialize()  override final {}
+                virtual void update()      override final {}
+                virtual void fixedUpdate() override final {}
                 
             public:
                 // Constructors, destructors
-                Mesh(const std::weak_ptr<GameObject> &aGameObject);
+                Mesh(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {}
       
             };
 

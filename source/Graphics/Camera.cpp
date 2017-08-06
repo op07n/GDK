@@ -32,17 +32,6 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a)
 }
 
 Camera::Camera()
-: m_ViewMatrix()
-, m_ProjectionMatrix()
-, m_ClearMode(ClearMode::Color)
-, m_ClearColor(Color::CornflowerBlue)
-, m_ViewportPosition(Math::Vector2::Zero)
-, m_ViewportSize(Math::Vector2(1.,1.))
-, m_ProjectionMode(ProjectionMode::Perspective)
-, m_FieldOfView(90.)
-, m_NearClippingPlane(0.001f)
-, m_FarClippingPlane(20.)
-, m_OrthoSize(10,10)
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_SCISSOR_TEST);
@@ -112,11 +101,11 @@ void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
 //viewportpos
 void Camera::setViewportPosition(const Math::Vector2 &a){m_ViewportPosition=a;}
 void Camera::setViewportPosition(const float &x, const float &y){m_ViewportPosition.x=x;m_ViewportPosition.y=y;}
-Math::Vector2 Camera::getViewportPosition(){return m_ViewportPosition;}
+Math::Vector2 Camera::getViewportPosition()const{return m_ViewportPosition;}
 //viewportsize
 void Camera::setViewportSize(const Math::Vector2 &a){m_ViewportSize=a;}
 void Camera::setViewportSize(const float &x, const float &y){m_ViewportSize.x=x;m_ViewportSize.y=y;}
-Math::Vector2 Camera::getViewportSize(){return m_ViewportSize;}
+Math::Vector2 Camera::getViewportSize()const{return m_ViewportSize;}
 //projmat
 const Math::Mat4x4& Camera::getProjectionMatrix()const{return m_ProjectionMatrix;}
 //viewmat

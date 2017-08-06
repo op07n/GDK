@@ -209,7 +209,7 @@ void Rigidbody::freezeAxis(const AxisFreezeMode &aAxisFreezeMode)
 }
 
 // Accessors
-Vector2 Rigidbody::getVelocity()
+Vector2 Rigidbody::getVelocity() const
 {
     b2Vec2 a = m_Body->GetLinearVelocity();
     return Vector2(a.x,a.y);
@@ -368,8 +368,6 @@ void Rigidbody::clearForces()
 
 // Construtors
 Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
-, m_Body(nullptr)
-, m_AxisFreezeJoint(nullptr)
 , m_Physics2DScene(([a]()->std::weak_ptr<Physics2D::SceneGraph>
 {
     if (auto gameObject = a.lock())

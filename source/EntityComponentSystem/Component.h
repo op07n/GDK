@@ -27,7 +27,7 @@ namespace GDK
             friend GDK::ECS::GameObject;
       
             // Data members
-            std::weak_ptr<GameObject> m_GameObject;
+            std::weak_ptr<GameObject> m_GameObject = {};
             bool m_DidInit = false;
             
         protected:

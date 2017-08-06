@@ -44,17 +44,17 @@ namespace GDK
                 
             private:
                 // Data members
-                Math::Vector2 m_Offset;
+                Math::Vector2 m_Offset = {0.f,0.f};
                 
-                bool m_RebuildShape = false;
+                Math::Vector3 b_ScaleBuffer = {0.f,0.f,0.f};
+                
+                bool m_RebuildShape   = false;
                 bool m_DrawDebugLines = true;
                 
-                Math::Vector3 b_ScaleBuffer;
-                
                 //fixture def data
-                float m_Friction = 0.2f;
+                float m_Friction    = 0.2f;
                 float m_Restitution = 0.0f;
-                float m_Density = 1.0f;
+                float m_Density     = 1.0f;
                 
                 Collider::Type m_ColliderType = Collider::Type::Collidable;
                 
@@ -69,7 +69,7 @@ namespace GDK
                 virtual void fixedUpdate() override final {}
                 
                 // Collider interface
-                virtual std::vector<b2FixtureDef> getFixtures() = 0;
+                virtual std::vector<b2FixtureDef> getFixtures() const = 0;
                 virtual void buildShape() = 0;
                 
             public:

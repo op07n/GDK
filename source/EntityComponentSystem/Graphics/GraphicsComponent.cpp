@@ -15,7 +15,3 @@ std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Graphic
     << "}"; return s;
 
 }
-
-GraphicsComponent::GraphicsComponent(const std::weak_ptr<GameObject> &aGameObject)
-: ECS::Component(aGameObject)
-{}

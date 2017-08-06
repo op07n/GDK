@@ -43,7 +43,7 @@ void GraphicsScene::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::C
                 if (auto currentDrawable = m_Drawables[i].lock())
                     if (currentDrawable == removedDrawable)
                         m_Drawables.erase(m_Drawables.begin()+i);
-        
+            
         }
         
         else if (auto removedCamera = std::dynamic_pointer_cast<Camera>(removedComponent))
@@ -77,6 +77,3 @@ void GraphicsScene::draw(const Math::IntVector2 &aFrameBufferSize)
     }
     
 }
-
-void GraphicsScene::fixedUpdate(){}
-void GraphicsScene::update(){}

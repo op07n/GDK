@@ -24,9 +24,9 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const Physics2D::CollisionInfo&);
             
             // Data members
-            std::weak_ptr<Collider> mine;
-            std::weak_ptr<Collider> other;
-            Math::Vector2 collisionPoint;
+            std::weak_ptr<Collider> mine  = {};
+            std::weak_ptr<Collider> other = {};
+            Math::Vector2 collisionPoint  = {};
             
             // Mutating operators
             CollisionInfo& operator=(const CollisionInfo&) = delete;

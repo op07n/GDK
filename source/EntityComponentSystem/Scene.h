@@ -39,8 +39,8 @@ namespace GDK
             // Data members
             const std::string m_Name;
             State m_SceneState = State::Active;
-            std::vector<std::shared_ptr<SceneGraph>> m_SceneGraphs;
-            std::vector<std::shared_ptr<GameObject>> m_GameObjects;
+            std::vector<std::shared_ptr<SceneGraph>> m_SceneGraphs = {};
+            std::vector<std::shared_ptr<GameObject>> m_GameObjects = {};
             
             void OnComponentAddedToAGameObject(const std::weak_ptr<Component>&);
             void OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&);

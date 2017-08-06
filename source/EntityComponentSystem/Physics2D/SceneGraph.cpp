@@ -54,7 +54,4 @@ void ECS::Physics2D::SceneGraph::OnComponentRemovedFromAGameObject(const std::we
 
 // Constructors
 ECS::Physics2D::SceneGraph::SceneGraph(Scene *a) : ECS::SceneGraph(a)
-, c_UpdateInterval(1.f/60.f)
-, m_B2DWorld(b2World(b2Vec2(0,0)))
-, m_WorldOriginBody()
 {}

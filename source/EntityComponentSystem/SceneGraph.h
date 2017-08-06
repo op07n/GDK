@@ -25,7 +25,7 @@ namespace GDK
             friend Scene;
       
             // Data members
-            Scene* m_MyScene;
+            Scene* m_MyScene = nullptr;
             
         protected:
             Scene* getMyScene() {return m_MyScene;}

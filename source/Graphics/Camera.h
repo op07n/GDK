@@ -45,21 +45,21 @@ namespace GDK
             
         private:
             // Data members
-            Math::Mat4x4 m_ViewMatrix;
-            Math::Mat4x4 m_ProjectionMatrix;
+            Math::Mat4x4 m_ViewMatrix       = Math::Mat4x4::Identity;
+            Math::Mat4x4 m_ProjectionMatrix = Math::Mat4x4::Identity;
             
-            ClearMode m_ClearMode;
-            Color m_ClearColor;
+            ClearMode m_ClearMode  = ClearMode::Color;
+            Color     m_ClearColor = Color::CornflowerBlue;
             
-            Math::Vector2 m_ViewportPosition;
-            Math::Vector2 m_ViewportSize;
+            Math::Vector2 m_ViewportPosition = Math::Vector2::Zero;
+            Math::Vector2 m_ViewportSize     = Math::Vector2(1.,1.);
             
-            ProjectionMode m_ProjectionMode;
-            float m_FieldOfView;
-            float m_NearClippingPlane;
-            float m_FarClippingPlane;
             
-            Math::Vector2 m_OrthoSize;
+            ProjectionMode m_ProjectionMode    = ProjectionMode::Perspective;
+            Math::Vector2  m_OrthoSize         = {10,10};
+            float          m_FieldOfView       = 90.;
+            float          m_NearClippingPlane = 0.001f;
+            float          m_FarClippingPlane  = 20.;
             
             //RenderTexture m_RenderTexture;
             
@@ -67,11 +67,11 @@ namespace GDK
             // Accessors
             void setViewportPosition(const Math::Vector2&);
             void setViewportPosition(const float &x, const float &y);
-            Math::Vector2 getViewportPosition();
+            Math::Vector2 getViewportPosition() const;
             
             void setViewportSize(const Math::Vector2&);
             void setViewportSize(const float &x, const float &y);
-            Math::Vector2 getViewportSize();
+            Math::Vector2 getViewportSize() const;
             
             //void setOrthographicProjection(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             //void setPerspectiveProjection(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
