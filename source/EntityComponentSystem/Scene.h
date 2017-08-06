@@ -65,7 +65,7 @@ namespace GDK
                 static_assert(std::is_base_of<SceneGraph, T>::value == true, "T must be a kind of SceneGraph");
                 
                 for(size_t i = 0, s = m_SceneGraphs.size(); i < s ; i++)
-                    if (auto ptr = dynamic_cast<T>(m_SceneGraphs[i]))
+                    if (auto ptr = std::dynamic_pointer_cast<T>(m_SceneGraphs[i]))
                         return std::weak_ptr<T>(ptr);
                 
                 return std::weak_ptr<T>();

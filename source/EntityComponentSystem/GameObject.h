@@ -8,14 +8,12 @@
 #include "Math/Vector3.h"
 #include "Math/Quaternion.h"
 #include "EntityComponentSystem/Scene.h"
+#include "EntityComponentSystem/Component.h"
 //std inc
 #include <iosfwd>
 #include <string>
 #include <memory>
 #include <vector>
-
-namespace GDK{namespace ECS{class Scene;}}
-namespace GDK{namespace ECS{class Component;}}
 
 namespace GDK
 {
@@ -44,19 +42,18 @@ namespace GDK
         public:
             // Accessors
             std::string getName();
-            std::weak_ptr<Scene> getScene();
-            size_t getComponentCount();
-            std::weak_ptr<Component> getComponent(const int &aIndex);
-            
-            void setPosition(const Math::Vector3&);
-            void setScale   (const Math::Vector3&);
-            void setRotation(const Math::Quaternion&);
-            
-            Math::Vector3    getPosition();
-            Math::Vector3    getScale();
+            Math::Vector3 getPosition();
+            Math::Vector3 getScale();
             Math::Quaternion getRotation();
+            std::weak_ptr<Scene> getScene();
+            std::weak_ptr<Component> getComponent(const int &aIndex);
+            size_t getComponentCount();
             
             void setName(const std::string &aName);
+            void setPosition(const Math::Vector3&);
+            void setPosition(const float &aX,const float &aY, const float &aZ);
+            void setScale(const Math::Vector3&);
+            void setRotation(const Math::Quaternion&);
             
             // Public methods
             template<class T>
@@ -64,20 +61,23 @@ namespace GDK
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
-                //Add an instance of aComponentType to Components[]
                 if (auto scene = m_MyScene.lock())
                 {
-                    auto newT = std::shared_ptr<T>(new T(std::weak_ptr<GameObject>(shared_from_this())));
+                    std::shared_ptr<T> spNewT(new T(std::weak_ptr<GameObject>(shared_from_this())));
+                    std::weak_ptr<T> wpNewT(spNewT);
                     
-                    m_Components.push_back(std::static_pointer_cast<Component>(newT));
+                    m_Components.push_back(std::static_pointer_cast<Component>(spNewT));
                     
-                    std::weak_ptr<Component> newComponent(m_Components.back());
-                    scene->OnComponentAddedToAGameObject(newComponent);
-                    return std::weak_ptr<T>(newT);
+                    scene->OnComponentAddedToAGameObject(wpNewT);
+                    
+                    for(size_t i = 0,s = m_Components.size()-1; i < s; i++)
+                        m_Components[i]->onOtherComponentAddedToMyGameObject(wpNewT);
+                    
+                    return wpNewT;
                     
                 }
                     
-                return std::weak_ptr<T>();
+                return {};
                 
             }
             
@@ -90,7 +90,14 @@ namespace GDK
                     for (size_t i=0;i<m_Components.size();i++)
                         if (std::dynamic_pointer_cast<T>(m_Components[i]))
                         {
-                            scene->OnComponentRemovedFromAGameObject(std::weak_ptr<Component>(m_Components[i]));
+                            std::weak_ptr<Component>removedComponent(m_Components[i]);
+                            
+                            scene->OnComponentRemovedFromAGameObject(removedComponent);
+                            
+                            for(size_t j;j<m_Components.size();j++)
+                                if (j != i)
+                                    m_Components[j]->onOtherComponentRemovedFromMyGameObject(removedComponent);
+                            
                             m_Components.erase(m_Components.begin()+i);
                             
                         }
@@ -111,9 +118,9 @@ namespace GDK
             {
                 std::vector<std::weak_ptr<T>> components;
                 
-                for (size_t i=0;i<m_Components.size();i++)
-                    if (std::dynamic_pointer_cast<T>(m_Components[i]))
-                        components.push_back(std::weak_ptr<T>(m_Components[i]));
+                //for (size_t i=0;i<m_Components.size();i++)
+                //    if (std::dynamic_pointer_cast<T>(m_Components[i]))//if (auto currentComponent = std::dynamic_pointer_cast<T>(m_Components[i]))
+               //         components.push_back(std::weak_ptr<T>(m_Components[i]));
                 
                 return components;
                 

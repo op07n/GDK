@@ -2,6 +2,8 @@
 // Project: GDK
 // Created on 17-07-31.
 #include "SceneGraph.h"
+//gdk inc
+#include "Physics2D/Common/b2Math.h"
 //std inc
 #include <iostream>
 
@@ -44,6 +46,15 @@ void ECS::Physics2D::SceneGraph::OnComponentAddedToAGameObject(const std::weak_p
 
 void ECS::Physics2D::SceneGraph::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
-
-
+    
+    
 }
+
+// Accessors
+
+// Constructors
+ECS::Physics2D::SceneGraph::SceneGraph(Scene *a) : ECS::SceneGraph(a)
+, c_UpdateInterval(1.f/60.f)
+, m_B2DWorld(b2World(b2Vec2(0,0)))
+, m_WorldOriginBody()
+{}

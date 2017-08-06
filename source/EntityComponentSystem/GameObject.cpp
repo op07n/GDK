@@ -70,6 +70,7 @@ GameObject::GameObject(const std::weak_ptr<Scene> &aScene)
 {}
 
 void GameObject::setPosition(const Math::Vector3    &aPosition){m_Position = aPosition;}
+void GameObject::setPosition(const float &aX,const float &aY, const float &aZ){m_Position.x=aX;m_Position.y=aY;m_Position.z=aZ;}
 void GameObject::setScale   (const Math::Vector3    &aScale   ){m_Scale    = aScale;   }
 void GameObject::setRotation(const Math::Quaternion &aRotation){m_Rotation = aRotation;}
 

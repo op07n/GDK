@@ -15,6 +15,7 @@
 class b2FixtureDef;
 
 namespace GDK{namespace ECS{namespace Physics2D{class SceneGraph;}}}
+namespace GDK{namespace ECS{namespace Physics2D{class Rigidbody; }}}
 
 namespace GDK
 {
@@ -29,6 +30,7 @@ namespace GDK
             {
                 friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Collider&);
                 friend Physics2D::SceneGraph;
+                friend Physics2D::Rigidbody;
                 /*!
                  Is this a physics object or is it used to detect physics objects? 
                 */

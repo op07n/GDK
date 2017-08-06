@@ -21,7 +21,7 @@ namespace GDK
         /*!
          Encapsulates behaviour and data used to manipulate GameObjects
          */
-        class Component
+        class Component //: public std::enable_shared_from_this<GameObject>
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Component&);
             friend GDK::ECS::GameObject;
@@ -38,6 +38,10 @@ namespace GDK
             ///called every fixedupdate frame
             virtual void fixedUpdate() = 0;
             
+            ///Another component was added to my gameobject
+            virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent){}
+            virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent){}
+            
         public:
             // Accessors
             std::weak_ptr<GameObject> getGameObject();
@@ -51,7 +55,7 @@ namespace GDK
         private:
             Component() = delete;
             Component(const Component&) = delete;
-            Component(Component&&) = default;
+            Component(Component&&) = delete;
         public:
             virtual ~Component() = default;
       
