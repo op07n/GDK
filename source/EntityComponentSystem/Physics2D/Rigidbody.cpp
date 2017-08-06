@@ -148,15 +148,11 @@ void Rigidbody::buildFixtures()
     {
         std::vector<std::weak_ptr<Collider>> colliders = gameObject->getComponents<Collider>();
         
-        //Destroy the fixtures
-        for(size_t i = 0, s = m_Fixtures.size(); i < s; i++)
-            m_Body->DestroyFixture(&*m_Fixtures[i]);
-        
-        m_Fixtures.clear();
+        //Reset fixture array
+        deleteAndClearFixtures();
         
         //Build / Rebuild the fixtures
         for(size_t i = 0, s = colliders.size(); i < s; i++)
-        {
             if (auto currentCollider = colliders[i].lock())
             {
                 std::vector<b2FixtureDef> fixtures =  currentCollider->getFixtures();
@@ -169,8 +165,6 @@ void Rigidbody::buildFixtures()
                 }
                 
             }
-            
-        }
         
     }
     
@@ -366,6 +360,19 @@ void Rigidbody::clearForces()
     
 }
 
+void Rigidbody::deleteAndClearFixtures()
+{
+    for(size_t i = 0, s = m_Fixtures.size(); i < s; i++)
+    {
+        delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
+        m_Body->DestroyFixture(&*m_Fixtures[i]);
+        
+    }
+    
+    m_Fixtures.clear();
+    
+}
+
 // Construtors
 Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
 , m_Physics2DScene(([a]()->std::weak_ptr<Physics2D::SceneGraph>
@@ -383,12 +390,14 @@ Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
             if (auto physcene = scene->getSceneGraph<Physics2D::SceneGraph>().lock())
                 m_Body = physcene->m_B2DWorld.CreateBody(&m_BodyDef);
     
-    //m_BodyDef.userData = new std::weak_ptr<GameObject>(shared_from_this());
+    m_BodyDef.userData = this;//new std::weak_ptr<Rigidbody>(std::dynamic_pointer_cast<Rigidbody>(shared_from_this()));
 
 }
 
 Rigidbody::~Rigidbody()
 {
+    deleteAndClearFixtures();
+    
     if (m_Body)
         if (auto physcene = m_Physics2DScene.lock())
             physcene->m_B2DWorld.DestroyBody(m_Body);

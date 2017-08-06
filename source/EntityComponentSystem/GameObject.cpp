@@ -53,7 +53,7 @@ void GameObject::fixedUpdate()
     
 }
 
-std::weak_ptr<Component> GameObject::getComponent(const int &aIndex){return m_Components[aIndex];}
+std::weak_ptr<Component> GameObject::getComponent(const size_t &aIndex){return m_Components[aIndex];}
 size_t GameObject::getComponentCount(){return m_Components.size();}
 std::string GameObject::getName(){return m_Name;}
 std::weak_ptr<Scene> GameObject::getScene(){return m_MyScene;}

@@ -65,6 +65,7 @@ namespace GDK
                 
                 void buildBody();
                 void buildFixtures();
+                void deleteAndClearFixtures();
                 
             protected:
                 // Component interface

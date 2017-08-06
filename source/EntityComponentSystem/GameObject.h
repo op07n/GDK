@@ -46,7 +46,7 @@ namespace GDK
             Math::Vector3 getScale();
             Math::Quaternion getRotation();
             std::weak_ptr<Scene> getScene();
-            std::weak_ptr<Component> getComponent(const int &aIndex);
+            std::weak_ptr<Component> getComponent(const size_t &aIndex);
             size_t getComponentCount();
             
             void setName(const std::string &aName);
@@ -109,7 +109,9 @@ namespace GDK
             {
                 for (size_t i=0;i<m_Components.size();i++)
                     if (std::dynamic_pointer_cast<T>(m_Components[i]))
-                        return std::weak_ptr<T>(m_Components[i]);
+                        return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components[i]));
+                
+                return {};
                 
             }
             

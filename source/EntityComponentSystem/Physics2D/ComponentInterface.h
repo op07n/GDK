@@ -5,7 +5,7 @@
 #define GDK_ECS_PHYSICS2D_COMPONENTINTERFACE_H
 
 //gdk inc
-#include "Physics2D/CollisionInfo.h"
+#include "EntityComponentSystem/Physics2D/CollisionInfo.h"
 
 namespace GDK{namespace ECS{class SceneGraph;}}
 
@@ -21,6 +21,9 @@ namespace GDK
             class ComponentInterface
             {
                 friend ECS::Physics2D::SceneGraph;
+                
+                virtual void OnTriggerEnter(const GDK::Physics2D::CollisionInfo&) = 0;
+                virtual void OnTriggerExit (const GDK::Physics2D::CollisionInfo&) = 0;
                 
                 virtual void OnCollisionEnter(const GDK::Physics2D::CollisionInfo&) = 0;
                 virtual void OnCollisionExit (const GDK::Physics2D::CollisionInfo&) = 0;

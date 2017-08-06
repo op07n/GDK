@@ -10,7 +10,7 @@
 #include <iosfwd>
 #include <memory>
 
-namespace GDK{namespace Physics2D{class Collider;}}
+namespace GDK{namespace ECS{namespace Physics2D{class Collider;}}}
 
 namespace GDK
 {
@@ -24,15 +24,15 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const Physics2D::CollisionInfo&);
             
             // Data members
-            std::weak_ptr<Collider> mine  = {};
-            std::weak_ptr<Collider> other = {};
+            std::weak_ptr<ECS::Physics2D::Collider> mine  = {};
+            std::weak_ptr<ECS::Physics2D::Collider> other = {};
             Math::Vector2 collisionPoint  = {};
             
             // Mutating operators
             CollisionInfo& operator=(const CollisionInfo&) = delete;
       
             // Constructors, destructors
-            CollisionInfo(const std::weak_ptr<Collider> &aMine, const std::weak_ptr<Collider> &aOther, const Math::Vector2 &aCollisionPoint);
+            CollisionInfo(const std::weak_ptr<ECS::Physics2D::Collider> &aMine, const std::weak_ptr<ECS::Physics2D::Collider> &aOther, const Math::Vector2 &aCollisionPoint);
             CollisionInfo() = delete;
             CollisionInfo(const CollisionInfo&) = delete;
             CollisionInfo(CollisionInfo&&) = delete;

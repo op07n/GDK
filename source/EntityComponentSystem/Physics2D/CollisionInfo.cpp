@@ -17,7 +17,7 @@ std::ostream& GDK::Physics2D::operator<<(std::ostream& s, const Physics2D::Colli
 
 }
 
-CollisionInfo::CollisionInfo(const std::weak_ptr<Collider> &aMine, const std::weak_ptr<Collider> &aOther, const Math::Vector2 &aCollisionPoint)
+CollisionInfo::CollisionInfo(const std::weak_ptr<ECS::Physics2D::Collider> &aMine, const std::weak_ptr<ECS::Physics2D::Collider> &aOther, const Math::Vector2 &aCollisionPoint)
 : mine(aMine)
 , other(aOther)
 , collisionPoint(aCollisionPoint)

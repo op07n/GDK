@@ -21,7 +21,7 @@ namespace GDK
         /*!
          Encapsulates behaviour and data used to manipulate GameObjects
          */
-        class Component //: public std::enable_shared_from_this<GameObject>
+        class Component : public std::enable_shared_from_this<Component>
         {
             friend std::ostream& operator<< (std::ostream&, const ECS::Component&);
             friend GDK::ECS::GameObject;
