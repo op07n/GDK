@@ -63,8 +63,15 @@ namespace GDK
                 
                 if (auto scene = m_MyScene.lock())
                 {
-                    std::shared_ptr<T> spNewT(new T(std::weak_ptr<GameObject>(shared_from_this())));
-                    std::weak_ptr<T> wpNewT(spNewT);
+                    std::weak_ptr<GameObject> wpThis = std::weak_ptr<GameObject>(shared_from_this());
+                    
+                    std::shared_ptr<T> spNewT(new T());
+                    std::weak_ptr<T>   wpNewT(spNewT);
+                    
+                    std::shared_ptr<Component> spNewComponent = std::dynamic_pointer_cast<Component>(spNewT);
+                    
+                    spNewComponent->m_GameObject = wpThis;
+                    spNewComponent->onAddedToGameObject(wpThis);
                     
                     m_Components.push_back(std::static_pointer_cast<Component>(spNewT));
                     
@@ -91,7 +98,6 @@ namespace GDK
                         if (std::dynamic_pointer_cast<T>(m_Components[i]))
                         {
                             std::weak_ptr<Component>removedComponent(m_Components[i]);
-                            
                             scene->OnComponentRemovedFromAGameObject(removedComponent);
                             
                             for(size_t j;j<m_Components.size();j++)

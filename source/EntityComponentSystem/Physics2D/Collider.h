@@ -68,6 +68,8 @@ namespace GDK
                 virtual void update() override final;
                 virtual void fixedUpdate() override final {}
                 
+                virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) override {buildShape();}
+                
                 // Collider interface
                 virtual std::vector<b2FixtureDef> getFixtures() const = 0;
                 virtual void buildShape() = 0;
@@ -90,7 +92,7 @@ namespace GDK
                 void setDrawDebugLines(const bool &a);
                 
                 // Constructors, destructors
-                Collider(const std::weak_ptr<GameObject> &a) : Component(a) {}
+                //Collider(const std::weak_ptr<GameObject> &a) : Component(a) {}
 
             };
 

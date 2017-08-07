@@ -37,10 +37,13 @@ namespace GDK
             virtual void update() {}
             ///called every fixedupdate frame
             virtual void fixedUpdate() {}
-            
             ///Another component was added to my gameobject
-            virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent){}
-            virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent){}
+            virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent) {}
+            ///Another component was removed from my gameobject
+            virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent) {}
+            ///This component instance was added to a gameobject
+            virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) {}
+            //virtual void onRemovedFromGameObject(const std::weak_ptr<GameObject>&) {}
             
         public:
             // Accessors
@@ -51,9 +54,8 @@ namespace GDK
       
         protected:
             // Constructors, destructors
-            Component(const std::weak_ptr<GameObject>&);
+            Component() = default;//(const std::weak_ptr<GameObject>&);
         private:
-            Component() = delete;
             Component(const Component&) = delete;
             Component(Component&&) = delete;
         public:

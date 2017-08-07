@@ -51,7 +51,7 @@ namespace GDK
                 const Math::Mat4x4& getViewMatrix() const;
                 
                 // Constructors, destructors
-                Camera(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {};
+                //Camera(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {};
                 
             };
 

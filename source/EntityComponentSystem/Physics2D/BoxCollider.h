@@ -35,7 +35,7 @@ namespace GDK
                 // Accessors
                 
                 // Constructors, destructors
-                BoxCollider(const std::weak_ptr<GameObject> &a) : SimpleCollider(a){}
+                //BoxCollider(const std::weak_ptr<GameObject> &a) : SimpleCollider(a){}
 
             };
 

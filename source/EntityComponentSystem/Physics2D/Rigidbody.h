@@ -76,6 +76,8 @@ namespace GDK
                 virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent) override final;
                 virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent) override final;
                 
+                virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) override final;
+                
             public:
                 // Accessors
                 Math::Vector2 getVelocity() const;
@@ -120,7 +122,7 @@ namespace GDK
                 void freezeAxis(const AxisFreezeMode&);
 
                 // Constructors, destructors
-                Rigidbody(const std::weak_ptr<GameObject> &a);
+                //Rigidbody(const std::weak_ptr<GameObject> &a);
                 virtual ~Rigidbody();
 
             };

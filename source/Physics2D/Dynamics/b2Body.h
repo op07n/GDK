@@ -775,10 +775,9 @@ inline void b2Body::ApplyForceToCenter(const b2Vec2& force, bool wake)
 		m_force += force;
 	}
 }
-#include "Debug/Logger.h"
+
 inline void b2Body::ApplyTorque(float32 torque, bool wake)
 {
-    GDK::Debug::log("b2Body::ApplyTorque ",torque,", ",wake);
 	if (m_type != b2_dynamicBody)
 	{
 		return;
@@ -786,7 +785,6 @@ inline void b2Body::ApplyTorque(float32 torque, bool wake)
 
 	if (wake && (m_flags & e_awakeFlag) == 0)
 	{
-        GDK::Debug::log("wegood");
 		SetAwake(true);
 	}
 

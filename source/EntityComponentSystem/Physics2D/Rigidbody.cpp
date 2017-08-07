@@ -50,7 +50,7 @@ void Rigidbody::update()
 
 
 }
-#include"Debug/Logger.h"
+
 void Rigidbody::fixedUpdate()
 {
     if (m_RebuildRequired)
@@ -67,9 +67,6 @@ void Rigidbody::fixedUpdate()
                 
                 gameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 gameObject->setRotation(Quaternion({0,b2Rot,0}));
-                
-                Debug::log("Rigidbody rotation: ",b2Rot);
-                //Debug::log(gameObject->getPosition(),", ",gameObject->getRotation());
                 
             } break;
             
@@ -370,16 +367,33 @@ void Rigidbody::deleteAndClearFixtures()
     for(size_t i = 0, s = m_Fixtures.size(); i < s; i++)
     {
         //delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
-        m_Body->DestroyFixture(&*m_Fixtures[i]);
+        //m_Body->DestroyFixture(&*m_Fixtures[i]);
         
     }
     
-    m_Fixtures.clear();
+    //m_Fixtures.clear();
+    
+}
+
+void Rigidbody::onAddedToGameObject(const std::weak_ptr<GameObject> &a)
+{
+    if (auto gameObject = a.lock())
+        if (auto scene = gameObject->getScene().lock())
+            m_Physics2DScene = scene->getSceneGraph<Physics2D::SceneGraph>().lock();
+    
+    if (auto gameObject = a.lock())
+        if (auto scene = gameObject->getScene().lock())
+            if (auto physcene = scene->getSceneGraph<Physics2D::SceneGraph>().lock())
+                m_Body = physcene->m_B2DWorld.CreateBody(&m_BodyDef);
+        
+    m_BodyDef.userData = this;
+        
+    buildBody();
     
 }
 
 // Construtors
-Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
+/*Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
 , m_Physics2DScene(([a]()->std::weak_ptr<Physics2D::SceneGraph>
 {
     if (auto gameObject = a.lock())
@@ -396,8 +410,10 @@ Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
                 m_Body = physcene->m_B2DWorld.CreateBody(&m_BodyDef);
     
     m_BodyDef.userData = this;
+    
+    buildBody();
 
-}
+}*/
 
 Rigidbody::~Rigidbody()
 {

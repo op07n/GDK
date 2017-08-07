@@ -33,6 +33,7 @@ namespace GDK
                 
                 virtual void buildShape() override
                 {
+                    m_FixtureDefinition.shape       = &m_Shape;
                     m_FixtureDefinition.density     = getDensity();
                     m_FixtureDefinition.friction    = getFriction();
                     m_FixtureDefinition.restitution = getRestitution();
@@ -47,7 +48,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                SimpleCollider(const std::weak_ptr<GameObject> &a) : Collider(a){}
+                //SimpleCollider(const std::weak_ptr<GameObject> &a) : Collider(a){}
 
             };
             

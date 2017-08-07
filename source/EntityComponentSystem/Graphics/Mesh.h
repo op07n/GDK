@@ -51,7 +51,7 @@ namespace GDK
                 
             public:
                 // Constructors, destructors
-                Mesh(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {}
+                //Mesh(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {}
       
             };
 

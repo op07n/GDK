@@ -37,7 +37,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                Listener(const std::weak_ptr<GameObject> &a) : Component(a){throw GDK::Exception("Listener is a stub!");}
+                Listener(){throw GDK::Exception("Listener is a stub!");}
 
             };
 

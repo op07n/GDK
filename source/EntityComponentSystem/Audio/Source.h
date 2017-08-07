@@ -37,7 +37,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                Source(const std::weak_ptr<GameObject> &a) : Component(a) {throw GDK::Exception("Source is a stub!");}
+                Source(){throw GDK::Exception("Source is a stub!");}
 
             };
 
