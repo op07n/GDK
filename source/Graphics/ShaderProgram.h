@@ -23,8 +23,8 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
             
             // Data members
-            std::string m_Name;
-            GFXuint m_ProgramHandle;
+            std::string m_Name = {};
+            GFXuint m_ProgramHandle = 0;
             
         public:
             // Public interface

@@ -31,8 +31,8 @@ namespace GDK
         {
             friend std::ostream& operator<< (std::ostream& stream, const GFX::Window&);
             
-            std::string m_Title;
-            std::shared_ptr<GLFWwindow> m_HandleToGLFWWindow;
+            std::string m_Title = {};
+            std::shared_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
             
             std::function<void(const Window&)> m_OnInit;
             std::function<void(const Window&)> m_OnUpdate;

@@ -19,7 +19,7 @@ namespace GDK
         struct Vector4 final
         {
             // Data members
-            float x, y, z, w;
+            float x = 0.0f, y = 0.0f, z = 0.0f, w = 1.0f;
             
             //Mutating operators
             bool operator==(const Vector4&) const;

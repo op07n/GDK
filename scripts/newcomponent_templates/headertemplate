@@ -37,7 +37,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                ${CLASSNAME}(const std::weak_ptr<GameObject> &a) : Component(a) {throw GDK::Exception("${CLASSNAME} is a stub!");}
+                ${CLASSNAME}() {throw GDK::Exception("${CLASSNAME} is a stub!");}
 
             };
 

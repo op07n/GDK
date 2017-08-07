@@ -34,17 +34,17 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const GFX::Model&);
             
             // Data members
-            std::string m_Name;
-            Math::Mat4x4 m_ModelMatrix;
+            std::string m_Name = {};
+            Math::Mat4x4 m_ModelMatrix = {};
             Memory::default_ptr<Mesh> m_Mesh;
             Memory::default_ptr<ShaderProgram> m_ShaderProgram;
             
-            TextureUniformCollection m_Textures;
-            FloatUniformCollection   m_Floats;
-            Vector2UniformCollection m_Vector2s;
-            Vector3UniformCollection m_Vector3s;
-            Vector4UniformCollection m_Vector4s;
-            Mat4x4UniformCollection  m_Mat4x4s;
+            TextureUniformCollection m_Textures = {};
+            FloatUniformCollection   m_Floats   = {};
+            Vector2UniformCollection m_Vector2s = {};
+            Vector3UniformCollection m_Vector3s = {};
+            Vector4UniformCollection m_Vector4s = {};
+            Mat4x4UniformCollection  m_Mat4x4s  = {};
             
         public:
             // Accessors

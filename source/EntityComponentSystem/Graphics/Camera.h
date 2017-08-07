@@ -50,9 +50,6 @@ namespace GDK
                 void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
                 const Math::Mat4x4& getViewMatrix() const;
                 
-                // Constructors, destructors
-                //Camera(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {};
-                
             };
 
             std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);

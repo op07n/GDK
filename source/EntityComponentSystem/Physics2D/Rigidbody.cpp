@@ -123,7 +123,6 @@ void Rigidbody::buildBody()
             
             m_BodyDef.position = {position.x,position.z};
             m_BodyDef.angle = -rotation.y;
-            //Debug.log(getGameObject().get().getName(),rotation.y);
             
         }
     
@@ -366,12 +365,12 @@ void Rigidbody::deleteAndClearFixtures()
 {
     for(size_t i = 0, s = m_Fixtures.size(); i < s; i++)
     {
-        //delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
-        //m_Body->DestroyFixture(&*m_Fixtures[i]);
+        delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
+        m_Body->DestroyFixture(&*m_Fixtures[i]);
         
     }
     
-    //m_Fixtures.clear();
+    m_Fixtures.clear();
     
 }
 
@@ -391,29 +390,6 @@ void Rigidbody::onAddedToGameObject(const std::weak_ptr<GameObject> &a)
     buildBody();
     
 }
-
-// Construtors
-/*Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
-, m_Physics2DScene(([a]()->std::weak_ptr<Physics2D::SceneGraph>
-{
-    if (auto gameObject = a.lock())
-        if (auto scene = gameObject->getScene().lock())
-            return scene->getSceneGraph<Physics2D::SceneGraph>().lock();
-    
-    return {};
-    
-})())
-{
-    if (auto gameObject = a.lock())
-        if (auto scene = gameObject->getScene().lock())
-            if (auto physcene = scene->getSceneGraph<Physics2D::SceneGraph>().lock())
-                m_Body = physcene->m_B2DWorld.CreateBody(&m_BodyDef);
-    
-    m_BodyDef.userData = this;
-    
-    buildBody();
-
-}*/
 
 Rigidbody::~Rigidbody()
 {

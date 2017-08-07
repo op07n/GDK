@@ -62,5 +62,5 @@ Texture::~Texture()
     
 }
 
-std::string Texture::getName(){return m_Name;}
-GFXuint Texture::getHandle(){return m_Handle;}
+std::string Texture::getName()const{return m_Name;}
+GFXuint Texture::getHandle()const{return m_Handle;}

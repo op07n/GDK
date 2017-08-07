@@ -17,7 +17,7 @@ namespace GDK
         struct Vector2 final
         {
             // Data members
-            float x, y;
+            float x = 0.0f, y = 0.0f;
             
             // Non mutating operations
             /// squareroot of the sum of the 2nd power of the components

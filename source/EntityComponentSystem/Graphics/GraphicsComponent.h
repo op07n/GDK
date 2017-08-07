@@ -24,9 +24,6 @@ namespace GDK
             {
                 friend std::ostream& operator<< (std::ostream&, const ECS::GFX::GraphicsComponent&);
                 
-            protected:
-                //GraphicsComponent(const std::weak_ptr<GameObject> &aGameObject) : Component(aGameObject) {}
-                
             };
 
             std::ostream& operator<< (std::ostream&, const ECS::GFX::GraphicsComponent&);

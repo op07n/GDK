@@ -45,11 +45,6 @@ namespace GDK
                 // Accessors
                 virtual std::vector<b2FixtureDef> getFixtures() const override final {return {m_FixtureDefinition};}
                 
-                // Public methods
-
-                // Constructors, destructors
-                //SimpleCollider(const std::weak_ptr<GameObject> &a) : Collider(a){}
-
             };
             
         }

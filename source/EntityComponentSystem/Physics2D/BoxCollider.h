@@ -31,12 +31,6 @@ namespace GDK
                 // Component interface
                 virtual void buildShape() override final;
                 
-            public:
-                // Accessors
-                
-                // Constructors, destructors
-                //BoxCollider(const std::weak_ptr<GameObject> &a) : SimpleCollider(a){}
-
             };
 
             std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::BoxCollider&);

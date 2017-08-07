@@ -48,16 +48,16 @@ namespace GDK
             
         private:
             // Data members
-            std::string m_Name;
+            std::string   m_Name               = "";
             
-            GFXuint  m_IndexBufferHandle;
-            GFXsizei m_IndexCount;
+            GFXuint       m_IndexBufferHandle  = 0;
+            GFXsizei      m_IndexCount         = 0;
             
-            GFXuint      m_VertexBufferHandle;
-            GFXsizei     m_VertexCount;
-            VertexFormat m_VertexFormat;
+            GFXuint       m_VertexBufferHandle = 0;
+            GFXsizei      m_VertexCount        = 0;
+            VertexFormat  m_VertexFormat       = {};
             
-            PrimitiveMode m_PrimitiveMode;
+            PrimitiveMode m_PrimitiveMode      = PrimitiveMode::Triangles;
             
         public:
             // Accessors

@@ -19,7 +19,7 @@ namespace GDK
         struct Plane final
         {
             // Data members
-            Vector3 position, normal;
+            Vector3 position = Vector3::Zero, normal = Vector3::Zero;
             
             // Mutating operators
             Plane& operator=(const Plane&) = default;

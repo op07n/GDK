@@ -49,10 +49,6 @@ namespace GDK
                 virtual void update()      override final {}
                 virtual void fixedUpdate() override final {}
                 
-            public:
-                // Constructors, destructors
-                //Mesh(const std::weak_ptr<GameObject> &a) : GraphicsComponent(a) {}
-      
             };
 
             std::ostream& operator<< (std::ostream&, const ECS::GFX::Mesh&);

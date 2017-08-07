@@ -20,7 +20,3 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Component& a)
 }
 
 std::weak_ptr<GameObject> Component::getGameObject(){return m_GameObject;}
-
-/*Component::Component(const std::weak_ptr<GameObject> &a)
-: m_GameObject(a)
-{}*/

@@ -22,13 +22,13 @@ namespace GDK
             friend std::ostream& operator<< (std::ostream&, const GFX::Texture&);
             
             // Data members
-            std::string m_Name;
-            GFXuint m_Handle;
+            std::string m_Name = {};
+            GFXuint m_Handle = 0;
     
         public:
             // Accessors
-            std::string getName();
-            GFXuint getHandle();
+            std::string getName() const;
+            GFXuint getHandle() const;
             
             // Mutating operators
             Texture& operator=(const Texture&) = delete;

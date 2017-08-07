@@ -21,7 +21,7 @@ namespace GDK
         struct Mat4x4 final
         {
             // Data members
-            float m[4][4];
+            float m[4][4] = {};
             
             // Mutating operations
             void setIdentity();

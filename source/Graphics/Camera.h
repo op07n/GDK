@@ -45,15 +45,14 @@ namespace GDK
             
         private:
             // Data members
-            Math::Mat4x4 m_ViewMatrix       = Math::Mat4x4::Identity;
-            Math::Mat4x4 m_ProjectionMatrix = Math::Mat4x4::Identity;
+            Math::Mat4x4   m_ViewMatrix        = Math::Mat4x4::Identity;
+            Math::Mat4x4   m_ProjectionMatrix  = Math::Mat4x4::Identity;
             
-            ClearMode m_ClearMode  = ClearMode::Color;
-            Color     m_ClearColor = Color::CornflowerBlue;
+            ClearMode      m_ClearMode         = ClearMode::Color;
+            Color          m_ClearColor        = Color::CornflowerBlue;
             
-            Math::Vector2 m_ViewportPosition = Math::Vector2::Zero;
-            Math::Vector2 m_ViewportSize     = Math::Vector2(1.,1.);
-            
+            Math::Vector2  m_ViewportPosition  = Math::Vector2::Zero;
+            Math::Vector2  m_ViewportSize      = Math::Vector2(1.,1.);
             
             ProjectionMode m_ProjectionMode    = ProjectionMode::Perspective;
             Math::Vector2  m_OrthoSize         = {10,10};

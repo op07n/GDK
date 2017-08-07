@@ -21,7 +21,7 @@ namespace GDK
         struct IntVector2 final
         {
             // Data members
-            int x,y;
+            int x = 0, y = 0;
             
             Vector2 toVector2() const;
             

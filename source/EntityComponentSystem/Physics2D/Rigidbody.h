@@ -122,7 +122,6 @@ namespace GDK
                 void freezeAxis(const AxisFreezeMode&);
 
                 // Constructors, destructors
-                //Rigidbody(const std::weak_ptr<GameObject> &a);
                 virtual ~Rigidbody();
 
             };

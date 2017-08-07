@@ -19,7 +19,7 @@ namespace GDK
         struct Vector3 final
         {
             // Data members
-            float x, y, z;
+            float x = 0.0f, y = 0.0f, z = 0.0f;
             
             float length(void) const;
             void normalize(void);

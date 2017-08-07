@@ -91,9 +91,6 @@ namespace GDK
                 void setOffset(const float &aX, const float &aY);
                 void setDrawDebugLines(const bool &a);
                 
-                // Constructors, destructors
-                //Collider(const std::weak_ptr<GameObject> &a) : Component(a) {}
-
             };
 
             std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Collider&);

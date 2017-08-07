@@ -54,7 +54,7 @@ namespace GDK
                 std::vector<std::weak_ptr<Rigidbody>> m_Rigidbodies      = {};
                 b2World                               m_B2DWorld         = b2World(b2Vec2(0,0));
                 b2Body                                *m_WorldOriginBody = nullptr;
-                ContactListener                       m_ContactListener;
+                ContactListener                       m_ContactListener  = {};
                 
                 void handleContact(const bool &isBegin, b2Contact *aContact);
                 

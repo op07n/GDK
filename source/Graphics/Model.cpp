@@ -37,11 +37,6 @@ Model::Model(const std::string &aName, const Memory::default_ptr<Mesh> &aMesh, c
 : m_Name(aName)
 , m_Mesh(aMesh)
 , m_ShaderProgram(aShaderProgram)
-, m_Textures()
-, m_Floats()
-, m_Vector2s()
-, m_Vector3s()
-, m_Vector4s()
 {}
 
 Model::Model()
