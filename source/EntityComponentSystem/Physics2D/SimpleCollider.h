@@ -33,10 +33,10 @@ namespace GDK
                 
                 virtual void buildShape() override
                 {
-                    m_FixtureDefinition.density = getDensity();
-                    m_FixtureDefinition.friction = getFriction();
+                    m_FixtureDefinition.density     = getDensity();
+                    m_FixtureDefinition.friction    = getFriction();
                     m_FixtureDefinition.restitution = getRestitution();
-                    m_FixtureDefinition.isSensor = getColliderType() == Collider::Type::Trigger ? true : false;
+                    m_FixtureDefinition.isSensor    = getColliderType() == Collider::Type::Trigger ? true : false;
                     
                 }
                 

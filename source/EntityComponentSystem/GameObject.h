@@ -41,13 +41,13 @@ namespace GDK
             
         public:
             // Accessors
-            std::string getName();
-            Math::Vector3 getPosition();
-            Math::Vector3 getScale();
-            Math::Quaternion getRotation();
-            std::weak_ptr<Scene> getScene();
-            std::weak_ptr<Component> getComponent(const size_t &aIndex);
-            size_t getComponentCount();
+            std::string getName() const;
+            Math::Vector3 getPosition() const;
+            Math::Vector3 getScale() const;
+            Math::Quaternion getRotation() const;
+            std::weak_ptr<Scene> getScene() const;
+            std::weak_ptr<Component> getComponent(const size_t &aIndex) const;
+            size_t getComponentCount() const;
             
             void setName(const std::string &aName);
             void setPosition(const Math::Vector3&);
@@ -120,9 +120,9 @@ namespace GDK
             {
                 std::vector<std::weak_ptr<T>> components;
                 
-                //for (size_t i=0;i<m_Components.size();i++)
-                //    if (std::dynamic_pointer_cast<T>(m_Components[i]))//if (auto currentComponent = std::dynamic_pointer_cast<T>(m_Components[i]))
-               //         components.push_back(std::weak_ptr<T>(m_Components[i]));
+                for (size_t i=0;i<m_Components.size();i++)
+                    if (std::dynamic_pointer_cast<T>(m_Components[i]))//if (auto currentComponent = std::dynamic_pointer_cast<T>(m_Components[i]))
+                        components.push_back(std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components[i])));
                 
                 return components;
                 

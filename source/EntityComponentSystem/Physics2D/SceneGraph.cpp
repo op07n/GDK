@@ -88,9 +88,11 @@ void ECS::Physics2D::SceneGraph::invokeOnCollisionExit(const std::weak_ptr<Colli
                         colliderInterface->OnCollisionExit(aColisionInfo);
 
 }
-
+#include "Debug/Logger.h"
 void ECS::Physics2D::SceneGraph::handleContact(const bool &isBegin, b2Contact *aContact)
 {
+    Debug::log(__PRETTY_FUNCTION__);
+    
     std::weak_ptr<Collider> colliderA = *(std::weak_ptr<Collider>*)aContact->GetFixtureA()->GetUserData();
     std::weak_ptr<Collider> colliderB = *(std::weak_ptr<Collider>*)aContact->GetFixtureB()->GetUserData();
     

@@ -32,11 +32,11 @@ namespace GDK
             
         protected:
             ///called once per component instance, as early as possible
-            virtual void initialize() = 0;
+            virtual void initialize() {}
             ///called every update frame
-            virtual void update() = 0;
+            virtual void update() {}
             ///called every fixedupdate frame
-            virtual void fixedUpdate() = 0;
+            virtual void fixedUpdate() {}
             
             ///Another component was added to my gameobject
             virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent){}

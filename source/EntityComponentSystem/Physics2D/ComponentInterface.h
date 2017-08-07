@@ -16,17 +16,17 @@ namespace GDK
         namespace Physics2D
         {
             /*!
-            Implement this interface if you want to listen to physics2d events
+            Implement this interface if you want your component to listen to physics2d events
             */
             class ComponentInterface
             {
                 friend ECS::Physics2D::SceneGraph;
                 
-                virtual void OnTriggerEnter(const GDK::Physics2D::CollisionInfo&) = 0;
-                virtual void OnTriggerExit (const GDK::Physics2D::CollisionInfo&) = 0;
+                virtual void OnTriggerEnter(const GDK::Physics2D::CollisionInfo&) {}
+                virtual void OnTriggerExit (const GDK::Physics2D::CollisionInfo&) {}
                 
-                virtual void OnCollisionEnter(const GDK::Physics2D::CollisionInfo&) = 0;
-                virtual void OnCollisionExit (const GDK::Physics2D::CollisionInfo&) = 0;
+                virtual void OnCollisionEnter(const GDK::Physics2D::CollisionInfo&) {}
+                virtual void OnCollisionExit (const GDK::Physics2D::CollisionInfo&) {}
                 
             public:
                 virtual ~ComponentInterface() = default;

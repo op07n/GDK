@@ -50,7 +50,7 @@ void Rigidbody::update()
 
 
 }
-
+#include"Debug/Logger.h"
 void Rigidbody::fixedUpdate()
 {
     if (m_RebuildRequired)
@@ -63,10 +63,13 @@ void Rigidbody::fixedUpdate()
             case b2BodyType::b2_dynamicBody:
             {
                 b2Vec2 b2Pos = m_Body->GetPosition();
-                float b2Rot = -m_Body->GetAngle();
-            
+                float  b2Rot = -m_Body->GetAngle();
+                
                 gameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 gameObject->setRotation(Quaternion({0,b2Rot,0}));
+                
+                Debug::log("Rigidbody rotation: ",b2Rot);
+                //Debug::log(gameObject->getPosition(),", ",gameObject->getRotation());
                 
             } break;
             
@@ -87,6 +90,7 @@ void Rigidbody::fixedUpdate()
                     m_Body->SetTransform({tPos.x,tPos.z}, -tRot.y);
                 
                 m_PositionBuffer = tPos;
+                m_RotationBuffer = tRot;
             
             } break;
             
@@ -141,7 +145,7 @@ void Rigidbody::buildBody()
     }
     
 }
-
+#include "Debug/Logger.h"
 void Rigidbody::buildFixtures()
 {
     if (auto gameObject = getGameObject().lock())
@@ -156,9 +160,10 @@ void Rigidbody::buildFixtures()
             if (auto currentCollider = colliders[i].lock())
             {
                 std::vector<b2FixtureDef> fixtures =  currentCollider->getFixtures();
-        
+                
                 for(size_t j = 0, t = fixtures.size(); j < t; j++)
                 {
+                    Debug::log(fixtures[j].friction);
                     fixtures[j].userData = new std::weak_ptr<Collider>(colliders[i]);
                     m_Fixtures.push_back(m_Body->CreateFixture(&fixtures[j]));
                     
@@ -364,7 +369,7 @@ void Rigidbody::deleteAndClearFixtures()
 {
     for(size_t i = 0, s = m_Fixtures.size(); i < s; i++)
     {
-        delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
+        //delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
         m_Body->DestroyFixture(&*m_Fixtures[i]);
         
     }
@@ -390,7 +395,7 @@ Rigidbody::Rigidbody(const std::weak_ptr<GameObject> &a) : Component(a)
             if (auto physcene = scene->getSceneGraph<Physics2D::SceneGraph>().lock())
                 m_Body = physcene->m_B2DWorld.CreateBody(&m_BodyDef);
     
-    m_BodyDef.userData = this;//new std::weak_ptr<Rigidbody>(std::dynamic_pointer_cast<Rigidbody>(shared_from_this()));
+    m_BodyDef.userData = this;
 
 }
 
