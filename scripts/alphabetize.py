@@ -1,7 +1,7 @@
 # Platform: OSX
 # Name: Alphabetize
-# Function: expects \n separated value string in system clipboard, 
-# reorganizes alphabetically and overwrites output to clipboard
+# Function: given a string of \n separated values in system clipboard, 
+# reorganizes values alphabetically and writes output to system clipboard
 #
 import subprocess
 
@@ -15,7 +15,7 @@ def write_to_clipboard(output):
 _Input = read_from_clipboard()
 
 _List = _Input.split('\n')
-_List.sort()
+_List.sort(key=lambda x: x.lower())
 
 _Output = "\n".join(str(x) for x in _List)
 
