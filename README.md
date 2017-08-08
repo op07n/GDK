@@ -19,4 +19,5 @@ Objects, functions, macros for game development in C++11
 * [stb_image](https://github.com/nothings/stb) - Image decoder
 ## Tools used:
 * Doxygen
+* Python
 * Xcode
