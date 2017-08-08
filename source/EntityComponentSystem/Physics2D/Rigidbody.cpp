@@ -50,7 +50,7 @@ void Rigidbody::update()
 
 
 }
-
+#include "Math/Trigonometry.h"
 void Rigidbody::fixedUpdate()
 {
     if (m_RebuildRequired)
@@ -63,7 +63,7 @@ void Rigidbody::fixedUpdate()
             case b2BodyType::b2_dynamicBody:
             {
                 b2Vec2 b2Pos = m_Body->GetPosition();
-                float  b2Rot = -m_Body->GetAngle();
+                float  b2Rot = -m_Body->GetAngle();// * (Math::Trig::PI / 180.f);
                 
                 gameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 gameObject->setRotation(Quaternion({0,b2Rot,0}));
