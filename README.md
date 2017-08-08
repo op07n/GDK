@@ -15,7 +15,8 @@ Objects, functions, macros for game development in C++11
 
 ## Libraries used:
 * [GLFW](http://www.glfw.org/) - OpenGL context management, multiplatform window management, time, input utilities.
-
+* [Box2D](https://github.com/erincatto/Box2D) - 2D rigidbody sim
+* [stb_image](https://github.com/nothings/stb) - Image decoder
 ## Tools used:
 * Doxygen
 * Xcode
