@@ -34,14 +34,14 @@ namespace GDK
             std::string m_Title = {};
             std::shared_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
             
-            std::function<void(const Window&)> m_OnInit;
-            std::function<void(const Window&)> m_OnUpdate;
-            std::function<void(const Window&)> m_OnDraw;
-            std::function<void(const Window&)> m_OnWantsToClose;
+            std::function<void(const Window&)> m_OnInit         = nullptr;
+            std::function<void(const Window&)> m_OnUpdate       = nullptr;
+            std::function<void(const Window&)> m_OnDraw         = nullptr;
+            std::function<void(const Window&)> m_OnWantsToClose = nullptr;
             
         public:
             // Accessors
-            std::string getTitle();
+            std::string getTitle() const;
             Math::IntVector2 getFramebufferSize() const;
             std::weak_ptr<GLFWwindow> getHandleToGLFWWindow() const;
             
@@ -59,18 +59,17 @@ namespace GDK
              */
             struct ConstructionParameters
             {
-                std::function<void(const Window&)> onInit;
-                std::function<void(const Window&)> onUpdate;
-                std::function<void(const Window&)> onDraw;
-                std::function<void(const Window&)> onWantsToClose;
+                std::function<void(const Window&)> onInit         = nullptr;
+                std::function<void(const Window&)> onUpdate       = nullptr;
+                std::function<void(const Window&)> onDraw         = nullptr;
+                std::function<void(const Window&)> onWantsToClose = nullptr;
                 
-                bool fullscreen;
-                bool resizeable;
+                bool fullscreen = false;
+                bool resizeable = false;
                 
-                std::string name;
-                Math::IntVector2 windowSize;
+                std::string name = "GDK Window";
                 
-                ConstructionParameters();
+                Math::IntVector2 windowSize = {800,600};
                 
             };
             

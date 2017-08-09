@@ -26,12 +26,12 @@ namespace ${PROJECTNAME}
             // Public methods
       
             // Mutating operators
-            ${CLASSNAME}& operator=(const ${CLASSNAME}&) = delete;
+            ${CLASSNAME}& operator=(const ${CLASSNAME}&) noexcept = delete;
       
             // Constructors, destructors
-            ${CLASSNAME}() = delete;
-            ${CLASSNAME}(const ${CLASSNAME}&) = delete;
-            ${CLASSNAME}(${CLASSNAME}&&) = delete;
+            ${CLASSNAME}() noexcept = delete;
+            ${CLASSNAME}(const ${CLASSNAME}&) noexcept = delete;
+            ${CLASSNAME}(${CLASSNAME}&&) noexcept = delete;
             ~${CLASSNAME}() = delete;
       
         };

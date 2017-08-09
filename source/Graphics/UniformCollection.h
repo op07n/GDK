@@ -46,13 +46,13 @@ namespace GDK
             
             
             // Mutating operators
-            UniformCollection& operator=(const UniformCollection&) = delete;
+            UniformCollection& operator=(const UniformCollection&) noexcept = delete;
       
             // Constructors, destructors
-            UniformCollection() = default;
-            UniformCollection(const UniformCollection&) = default;
-            UniformCollection(UniformCollection&&) = delete;
-            virtual ~UniformCollection() = default;
+            UniformCollection() noexcept = default;
+            UniformCollection(const UniformCollection&) = delete;
+            UniformCollection(UniformCollection&&) noexcept = default;
+            virtual ~UniformCollection() noexcept = default;
       
         };
         

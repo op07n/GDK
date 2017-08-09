@@ -131,7 +131,7 @@ void Window::update()
     
 }
 
-std::string Window::getTitle(){return m_Title;}
+std::string Window::getTitle()const{return m_Title;}
 
 void Window::setTitle(const std::string& aTitle)
 {
@@ -149,17 +149,6 @@ Math::IntVector2 Window::getFramebufferSize() const
     return frameBufferSize;
     
 }
-
-Window::ConstructionParameters::ConstructionParameters()
-: onInit(nullptr)
-, onUpdate(nullptr)
-, onDraw(nullptr)
-, onWantsToClose(nullptr)
-, fullscreen(false)
-, resizeable(false)
-, name("GDK Window")
-, windowSize(Math::IntVector2(800,600))
-{}
 
 Window::Window(const ConstructionParameters& aParams)
 : m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})

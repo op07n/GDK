@@ -31,9 +31,9 @@ namespace GDK
             TextureUniformCollection& operator=(const TextureUniformCollection&) = delete;
       
             // Constructors, destructors
-            TextureUniformCollection() = default;
-            TextureUniformCollection(const TextureUniformCollection&) = default;
-            TextureUniformCollection(TextureUniformCollection&&) = delete;
+            TextureUniformCollection() noexcept = default;
+            TextureUniformCollection(const TextureUniformCollection&) noexcept = delete;
+            TextureUniformCollection(TextureUniformCollection&&) noexcept = default;
             ~TextureUniformCollection() = default;
       
         };
