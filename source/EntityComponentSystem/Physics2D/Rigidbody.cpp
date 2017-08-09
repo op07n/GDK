@@ -51,6 +51,7 @@ void Rigidbody::update()
 
 }
 #include "Math/Trigonometry.h"
+#include "Debug/Logger.h"
 void Rigidbody::fixedUpdate()
 {
     if (m_RebuildRequired)
@@ -64,6 +65,10 @@ void Rigidbody::fixedUpdate()
             {
                 b2Vec2 b2Pos = m_Body->GetPosition();
                 float  b2Rot = -m_Body->GetAngle();// * (Math::Trig::PI / 180.f);
+                
+                //b2Rot *= 360;
+                
+                Debug::log("ROT: ",b2Rot);
                 
                 gameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 gameObject->setRotation(Quaternion({0,b2Rot,0}));

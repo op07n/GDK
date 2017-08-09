@@ -36,10 +36,13 @@ Quaternion::Quaternion(const Vector3 &aEulerAngles) noexcept
     setFromEuler(aEulerAngles);
     
 }
-
+#include "Math/Trigonometry.h"
 //Euler convenience
-void Quaternion::setFromEuler(const Vector3 &aEulerAngles)
+void Quaternion::setFromEuler(const Vector3 &aaEulerAngles)
 {
+    Vector3 aEulerAngles = aaEulerAngles;
+    //aEulerAngles *= Math::Trig::PI/180.f;
+    
     glm::quat quat;
     quat = glm::rotate(quat, aEulerAngles.x, glm::vec3(1.0f, 0.0f, 0.0f));
     quat = glm::rotate(quat, aEulerAngles.y, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -56,6 +59,8 @@ Vector3 Quaternion::toEuler(void) const
 {
     glm::quat quaternion(w, x, y, z);
     glm::vec3 euler = glm::eulerAngles(quaternion);
+    
+    //euler *= 180.f/Math::Trig::PI;
     
     return Vector3
     (
