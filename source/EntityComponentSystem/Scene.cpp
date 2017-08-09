@@ -3,10 +3,10 @@
 // Created on 17-07-26.
 #include "Scene.h"
 //gdkinc
-#include "GameObject.h"
-#include "SceneGraph.h"
 #include "Debug/Exception.h"
 #include "Debug/Logger.h"
+#include "GameObject.h"
+#include "SceneGraph.h"
 //std inc
 #include <iostream>
 

@@ -5,10 +5,10 @@
 #define GDK_GFX_CHECKEREDTEXTUREOFDEATH_H
 
 //gdk inc
-#include "Texture.h"
-#include "ShaderProgram.h"
-#include "Mesh.h"
 #include "Memory/default_ptr.h"
+#include "Mesh.h"
+#include "ShaderProgram.h"
+#include "Texture.h"
 
 namespace GDK
 {

@@ -5,8 +5,8 @@
 //gdk inc
 #include "Debug/Exception.h"
 #include "Debug/Logger.h"
-#include "Math/Vector2.h"
 #include "Graphics/Window.h"
+#include "Math/Vector2.h"
 //thirdparty inc
 #include <GLFW/glfw3.h>
 //std inc

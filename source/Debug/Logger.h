@@ -5,9 +5,9 @@
 #define GDK_DEBUG_LOGGER_H
 
 //stdlib inc
-#include <string>
 #include <functional>
 #include <sstream>
+#include <string>
 
 namespace GDK
 {

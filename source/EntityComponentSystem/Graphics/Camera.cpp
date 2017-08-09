@@ -2,9 +2,9 @@
 // Project: GDK
 // Created on 17-07-29.
 #include "Camera.h"
-#include "Graphics/Model.h"
-#include "EntityComponentSystem/GameObject.h"
 #include "Debug/Logger.h"
+#include "EntityComponentSystem/GameObject.h"
+#include "Graphics/Model.h"
 //std inc
 #include <iostream>
 

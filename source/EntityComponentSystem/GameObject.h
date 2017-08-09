@@ -5,14 +5,14 @@
 #define GDK_ECS_GAMEOBJECT_H
 
 //gkd inc
-#include "Math/Vector3.h"
-#include "Math/Quaternion.h"
-#include "EntityComponentSystem/Scene.h"
 #include "EntityComponentSystem/Component.h"
+#include "EntityComponentSystem/Scene.h"
+#include "Math/Quaternion.h"
+#include "Math/Vector3.h"
 //std inc
 #include <iosfwd>
-#include <string>
 #include <memory>
+#include <string>
 #include <vector>
 
 namespace GDK

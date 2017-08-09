@@ -5,8 +5,8 @@
 #define GDK_GFX_VERTEXFORMAT_H
 
 //gdk inc
-#include "VertexAttribute.h"
 #include "DataTypes.h"
+#include "VertexAttribute.h"
 //std inc
 #include <iosfwd>
 #include <map>

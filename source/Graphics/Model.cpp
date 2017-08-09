@@ -1,15 +1,15 @@
 // © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
 // Created on 17-07-03.
-#include "Model.h"
-#include "Debug/Logger.h"
-#include "Math/Mat4x4.h"
-#include "Time/Time.h"
 #include "Camera.h"
+#include "Debug/Logger.h"
+#include "Debug/Logger.h"
 #include "GL.h"
 #include "Graphics/DefaultResources.h"
-#include "Debug/Logger.h"
+#include "Math/Mat4x4.h"
 #include "Memory/default_ptr.h"
+#include "Model.h"
+#include "Time/Time.h"
 //std inc
 #include <iostream>
 

@@ -3,10 +3,10 @@
 // Created on 2017-06-25.
 #include "Window.h"
 //gdk inc
-#include "GL.h"
 #include "Color.h"
 #include "Debug/Exception.h"
 #include "Debug/Logger.h"
+#include "GL.h"
 #include "Math/IntVector2.h"
 //thirdparty inc
 #include <GLFW/glfw3.h> // must come after GL

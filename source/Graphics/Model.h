@@ -5,15 +5,15 @@
 #define GDK_GFX_MODEL_H
 
 //gdk inc
-#include "ShaderProgram.h"
-#include "Mesh.h"
-#include "TextureUniformCollection.h"
 #include "FloatUniformCollection.h"
+#include "Mat4x4UniformCollection.h"
+#include "Math/Mat4x4.h"
+#include "Mesh.h"
+#include "ShaderProgram.h"
+#include "TextureUniformCollection.h"
 #include "Vector2UniformCollection.h"
 #include "Vector3UniformCollection.h"
 #include "Vector4UniformCollection.h"
-#include "Mat4x4UniformCollection.h"
-#include "Math/Mat4x4.h"
 //std inc
 #include <iosfwd>
 #include <memory>

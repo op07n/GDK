@@ -6,8 +6,8 @@
 
 //std inc
 #include <array>
-#include <memory>
 #include <functional>
+#include <memory>
 
 namespace GDK
 {

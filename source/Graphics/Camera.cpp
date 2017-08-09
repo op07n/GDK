@@ -5,14 +5,14 @@
 //std inc
 #include <iostream>
 //gdk inc
-#include "GL.h"
 #include "Color.h"
+#include "Debug/Exception.h"
+#include "GL.h"
 #include "Math/IntVector2.h"
+#include "Math/Mat4x4.h"
+#include "Math/Quaternion.h"
 #include "Math/Vector2.h"
 #include "Math/Vector3.h"
-#include "Math/Quaternion.h"
-#include "Math/Mat4x4.h"
-#include "Debug/Exception.h"
 
 using namespace GDK;
 using namespace GFX;

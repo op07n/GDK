@@ -3,9 +3,9 @@
 // Created on 17-07-22.
 #include "Keyboard.h"
 //gdkinc
-#include "Graphics/Window.h"
 #include "Debug/Exception.h"
 #include "Debug/Logger.h"
+#include "Graphics/Window.h"
 //thirdparty inc
 #include <GLFW/glfw3.h>
 //std inc

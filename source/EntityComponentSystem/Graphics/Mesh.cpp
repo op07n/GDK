@@ -3,13 +3,13 @@
 // Created on 17-07-29.
 #include "Mesh.h"
 //gdk inc
-#include "EntityComponentSystem/Graphics/Camera.h"
+#include "Debug/Logger.h"
+#include "DefaultResources.h"
 #include "EntityComponentSystem/GameObject.h"
+#include "EntityComponentSystem/Graphics/Camera.h"
+#include "Graphics/Model.h"
 #include "Graphics/Model.h"
 #include "Memory/default_ptr.h"
-#include "Graphics/Model.h"
-#include "DefaultResources.h"
-#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 

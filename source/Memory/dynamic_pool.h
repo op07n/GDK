@@ -5,9 +5,9 @@
 #define GDK_MEMORY_DYNAMIC_POOL_H
 
 //std inc
-#include <vector>
-#include <memory>
 #include <functional>
+#include <memory>
+#include <vector>
 
 namespace GDK
 {
