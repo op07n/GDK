@@ -36,7 +36,7 @@
 *.app
 
 # IDE generated files
-/workspace/*/*
+/workspace/*/
 !/workspace/*/generate.sh
 
 # Doxygen output
