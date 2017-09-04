@@ -11,7 +11,7 @@
 #include <string>
 #include <memory>
 
-class GLFWwindow;
+struct GLFWwindow;
 
 namespace GDK
 {

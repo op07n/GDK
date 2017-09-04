@@ -18,7 +18,7 @@
 #include <iosfwd>
 #include <memory>
 
-namespace GDK {namespace Math{class Mat4x4;}}
+namespace GDK {namespace Math{struct Mat4x4;}}
 namespace GDK {namespace GFX{class Camera;}}
 
 namespace GDK

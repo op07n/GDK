@@ -7,9 +7,9 @@
 //std inc
 #include <iosfwd>
 
-namespace GDK{namespace Math{class Vector2;}}
-namespace GDK{namespace Math{class Vector3;}}
-namespace GDK{namespace Math{class Quaternion;}}
+namespace GDK{namespace Math{struct Vector2;}}
+namespace GDK{namespace Math{struct Vector3;}}
+namespace GDK{namespace Math{struct Quaternion;}}
 
 namespace GDK
 {

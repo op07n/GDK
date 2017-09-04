@@ -16,8 +16,8 @@
 
 namespace GDK{namespace ECS{namespace Physics2D{class Rigidbody;}}}
 namespace GDK{namespace ECS{namespace Physics2D{class Collider;}}}
-namespace GDK{namespace Physics2D{class CollisionInfo;}}
-namespace GDK{namespace Math{class Vector2;}}
+namespace GDK{namespace Physics2D{struct CollisionInfo;}}
+namespace GDK{namespace Math{struct Vector2;}}
 class b2Body;
 
 namespace GDK

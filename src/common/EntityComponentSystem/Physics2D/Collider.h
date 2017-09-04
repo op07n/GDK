@@ -12,7 +12,7 @@
 #include <iosfwd>
 #include <vector>
 
-class b2FixtureDef;
+struct b2FixtureDef;
 
 namespace GDK{namespace ECS{namespace Physics2D{class SceneGraph;}}}
 namespace GDK{namespace ECS{namespace Physics2D{class Rigidbody; }}}

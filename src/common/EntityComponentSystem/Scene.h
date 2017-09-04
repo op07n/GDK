@@ -13,7 +13,7 @@
 namespace GDK{namespace ECS{class GameObject;}}
 namespace GDK{namespace ECS{class SceneGraph;}}
 namespace GDK{namespace ECS{class Component; }}
-namespace GDK{namespace Math{class IntVector2;}}
+namespace GDK{namespace Math{struct IntVector2;}}
 
 namespace GDK
 {

@@ -8,9 +8,9 @@
 #include <iosfwd>
 #include <memory>
 
-class GLFWwindow;
+struct GLFWwindow;
 namespace GDK{namespace GFX{class Window;}}
-namespace GDK{namespace Math{class Vector2;}}
+namespace GDK{namespace Math{struct Vector2;}}
 
 namespace GDK
 {

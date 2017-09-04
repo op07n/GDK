@@ -98,9 +98,7 @@ void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const V
 // Constructors & Destructors
 Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData, const PrimitiveMode &aPrimitiveMode)
 : m_Name(aName)
-, m_PrimitiveMode(aPrimitiveMode)
-, m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
-, m_VertexFormat(aVertexFormat)
+, m_IndexCount((GFXsizei)aIndexData.size())
 , m_VertexBufferHandle([aVertexData,aType]() -> GFXuint
 {
     GFXuint vbo = 0;
@@ -114,7 +112,7 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
     return vbo;
 
 }())
-, m_IndexCount((GFXsizei)aIndexData.size())
+, m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
 , m_IndexBufferHandle([aIndexData,aType]() -> GFXuint
 {
     if (aIndexData.size() <= 0)
@@ -131,6 +129,8 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
     return ibo;
     
 }())
+, m_VertexFormat(aVertexFormat)
+, m_PrimitiveMode(aPrimitiveMode)
 {}
 
 Mesh::~Mesh()

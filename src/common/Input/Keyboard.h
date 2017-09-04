@@ -8,7 +8,7 @@
 #include <iosfwd>
 #include <memory>
 
-class GLFWwindow;
+struct GLFWwindow;
 namespace GDK{namespace GFX{class Window;}}
 
 namespace GDK

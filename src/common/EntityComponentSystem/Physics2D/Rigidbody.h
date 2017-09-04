@@ -16,7 +16,7 @@
 class b2Fixture;
 class b2PrismaticJoint;
 
-namespace GDK{namespace Math{class Vector2;}}
+namespace GDK{namespace Math{struct Vector2;}}
 
 namespace GDK
 {
