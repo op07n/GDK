@@ -1,0 +1,10 @@
+{
+    "ProjectName" :           "GDK",
+    "BriefDescription" :      "C++11 game development kit",
+    "ProjectType" :           "StaticLibrary",
+    "MajorVersion" :          "0",
+    "MinorVersion" :          "1",
+    "SourceCodeRootPath" :    "src",
+    "StaticLibraryRootPath" : "libs",
+    "IncludePaths" : []
+}

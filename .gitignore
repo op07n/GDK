@@ -1,6 +1,43 @@
-# Ignore build outputs #
-builds/osx/Build
-# add more platforms here...
+# Prerequisites
+*.d
 
-# Ignore Doxygen output #
-docs/html
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+!/libs/*.lai
+!/libs/*.la
+!/libs/*.a
+!/libs/*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# IDE generated files
+/workspace/*/*
+!/workspace/*/generate.sh
+
+# Doxygen output
+/docs/output/*

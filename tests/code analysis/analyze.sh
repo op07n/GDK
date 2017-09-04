@@ -1,0 +1,1 @@
+python ../builder/cppcheck/analyze.py -configPath ..
