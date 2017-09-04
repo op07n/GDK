@@ -25,10 +25,11 @@
 *.la
 *.a
 *.lib
-!/libs/*.lai
-!/libs/*.la
-!/libs/*.a
-!/libs/*.lib
+!/libs
+!/libs/*/*.lai
+!/libs/*/*.la
+!/libs/*/*.a
+!/libs/*/*.lib
 
 # Executables
 *.exe
