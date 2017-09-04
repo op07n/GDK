@@ -1,1 +1,1 @@
-python ../builder/doxygen/generatedocuments.py -configPath ..
+python ../../builder/doxygen/generatedocuments.py -configPath ..
