@@ -1,5 +1,5 @@
 # GDK
-![Image](http://jfcameron.github.io/Github/EarlyRender.png)
+![alt tag](http://jfcameron.github.io/Github/EarlyRender.png "")
 
 ## Description:
 Library for multiplatform game development in C++ (C++11)
