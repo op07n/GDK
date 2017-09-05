@@ -1,3 +1,7 @@
+![asdf](https://img.shields.io/badge/development%20status-closed-lightgrey.svg)
+![asdf](https://img.shields.io/badge/platforms-win32%20|%20osx-lightgrey.svg)
+![asdf](https://img.shields.io/badge/license-MIT-blue.svg)
+
 # GDK
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
