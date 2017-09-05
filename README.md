@@ -1,10 +1,11 @@
 # GDK
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
-![asdf](https://img.shields.io/badge/development%20status-closed-lightgrey.svg)
+
+## Description:
+![asdf](https://img.shields.io/badge/development%20status-active-green.svg)
 ![asdf](https://img.shields.io/badge/platforms-win32%20|%20osx-lightgrey.svg)
 ![asdf](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Description:
 Library for multiplatform game development in C++ (C++11)
 
 ### Math
