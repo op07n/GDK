@@ -11,15 +11,12 @@ Library for multiplatform game development in C++ (C++11)
 ### Graphics
 * 3D Rendering via OpenGL
 * Multi window support
-* ...
 
 ### Physics2D
 * 2D rb sim via Box2D
 
 ### Entity Component System
 * Organize systems into an ECS
-* OODD via Scenegraphs
-* ...
 
 ### Input
 * Mouse & KB support
@@ -34,7 +31,8 @@ Library for multiplatform game development in C++ (C++11)
 * [Box2D](https://github.com/erincatto/Box2D) - 2D rigidbody sim
 * [stb_image](https://github.com/nothings/stb) - Image decoder
 * [GLM](http://glm.g-truc.net/0.9.8/index.html) - Math lib
+
 ## Tools used:
 * Doxygen
 * Python
-* Xcode
+* CMake
