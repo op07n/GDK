@@ -19,35 +19,39 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::GameObject& a)
 
 }
 
+GameObject::GameObject(const std::weak_ptr<Scene> &aScene)
+: m_MyScene(aScene)
+{}
+
 void GameObject::update() const noexcept
 {
-    for(size_t i = 0, s = m_Components.size(); i < s; i++)
+    for (auto component : m_Components)
     {
-        if (!m_Components[i]->m_DidInit)
+        if (!component->m_DidInit)
         {
-            m_Components[i]->initialize();
-            m_Components[i]->m_DidInit = true;
-                
+            component->initialize();
+            component->m_DidInit = true;
+            
         }
-            
-        m_Components[i]->update();
-            
+        
+        component->update();
+        
     }
     
 }
 
 void GameObject::fixedUpdate() const noexcept
 {
-    for(size_t i = 0, s = m_Components.size(); i < s; i++)
+    for (auto component : m_Components)
     {
-        if (!m_Components[i]->m_DidInit)
+        if (!component->m_DidInit)
         {
-            m_Components[i]->initialize();
-            m_Components[i]->m_DidInit = true;
+            component->initialize();
+            component->m_DidInit = true;
                 
         }
             
-        m_Components[i]->fixedUpdate();
+        component->fixedUpdate();
             
     }
     
@@ -59,11 +63,6 @@ std::string GameObject::getName() const noexcept{return m_Name;}
 std::weak_ptr<Scene> GameObject::getScene() const noexcept{return m_MyScene;}
 
 void GameObject::setName(const std::string &aName) noexcept{m_Name = aName;}
-
-GameObject::GameObject(const std::weak_ptr<Scene> &aScene)
-: m_MyScene(aScene)
-{}
-
 void GameObject::setPosition(const Math::Vector3    &aPosition) noexcept{m_Position = aPosition;}
 void GameObject::setPosition(const float &aX,const float &aY, const float &aZ) noexcept{m_Position.x=aX;m_Position.y=aY;m_Position.z=aZ;}
 void GameObject::setScale   (const Math::Vector3    &aScale   ) noexcept{m_Scale    = aScale;   }

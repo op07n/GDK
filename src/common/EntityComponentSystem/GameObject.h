@@ -30,7 +30,7 @@ namespace GDK
             // Data members
             std::string m_Name = "Unnamed";
             std::weak_ptr<Scene> m_MyScene;
-            std::vector<std::shared_ptr<Component>> m_Components  = {};
+            std::vector<std::shared_ptr<Component>> m_Components = {};
             
             Math::Vector3    m_Position = Math::Vector3::Zero;
             Math::Vector3    m_Scale    = {1.f,1.f,1.f};
@@ -57,11 +57,11 @@ namespace GDK
             
             // Public methods
             template<class T>
-            std::weak_ptr<T> addComponent()
+            std::weak_ptr<T> addComponent() noexcept
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
-                if (auto scene = m_MyScene.lock())
+                if (auto pScene = m_MyScene.lock())
                 {
                     std::weak_ptr<GameObject> wpThis = std::weak_ptr<GameObject>(shared_from_this());
                     
@@ -75,10 +75,10 @@ namespace GDK
                     
                     m_Components.push_back(std::static_pointer_cast<Component>(spNewT));
                     
-                    scene->OnComponentAddedToAGameObject(wpNewT);
+                    pScene->OnComponentAddedToAGameObject(wpNewT);
                     
-                    for(size_t i = 0,s = m_Components.size()-1; i < s; i++)
-                        m_Components[i]->onOtherComponentAddedToMyGameObject(wpNewT);
+                    for (auto it = m_Components.begin(), end = m_Components.end()-1; it != end; ++it)
+                        (*it)->onOtherComponentAddedToMyGameObject(wpNewT);
                     
                     return wpNewT;
                     
@@ -89,16 +89,16 @@ namespace GDK
             }
             
             template<class T>
-            void removeComponent()
+            void removeComponent() noexcept
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
-                if (auto scene = m_MyScene.lock())
+                if (auto pScene = m_MyScene.lock())
                     for (size_t i=0;i<m_Components.size();i++)
                         if (std::static_pointer_cast<T>(m_Components[i]))
                         {
                             std::weak_ptr<Component>removedComponent(m_Components[i]);
-                            scene->OnComponentRemovedFromAGameObject(removedComponent);
+                            pScene->OnComponentRemovedFromAGameObject(removedComponent);
                             
                             for(size_t j;j<m_Components.size();j++)
                                 if (j != i)
@@ -111,24 +111,24 @@ namespace GDK
             }
             
             template<class T>
-            std::weak_ptr<T> getComponent()
+            std::weak_ptr<T> getComponent() const noexcept
             {
-                for (size_t i=0;i<m_Components.size();i++)
-                    if (std::dynamic_pointer_cast<T>(m_Components[i]))
-                        return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components[i]));
+                for (auto it = m_Components.begin(), end = m_Components.end(); it != end; ++it)
+                    if (std::dynamic_pointer_cast<T>(*it))
+                        return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(*it));
                 
                 return {};
                 
             }
             
             template<class T>
-            std::vector<std::weak_ptr<T>> getComponents()
+            std::vector<std::weak_ptr<T>> getComponents() const noexcept
             {
                 std::vector<std::weak_ptr<T>> components;
                 
-                for (size_t i=0;i<m_Components.size();i++)
-                    if (std::dynamic_pointer_cast<T>(m_Components[i]))//if (auto currentComponent = std::dynamic_pointer_cast<T>(m_Components[i]))
-                        components.push_back(std::weak_ptr<T>(std::dynamic_pointer_cast<T>(m_Components[i])));
+                for (auto it = m_Components.begin(), end = m_Components.end(); it != end; ++it)
+                    if (std::dynamic_pointer_cast<T>(*it))
+                        components.push_back(std::weak_ptr<T>(std::dynamic_pointer_cast<T>(*it)));
                 
                 return components;
                 
