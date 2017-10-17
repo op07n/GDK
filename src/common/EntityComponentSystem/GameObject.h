@@ -36,24 +36,24 @@ namespace GDK
             Math::Vector3    m_Scale    = {1.f,1.f,1.f};
             Math::Quaternion m_Rotation = Math::Quaternion::Identity;
             
-            void update();
-            void fixedUpdate();
+            void update() const noexcept;
+            void fixedUpdate() const noexcept;
             
         public:
             // Accessors
-            std::string getName() const;
-            Math::Vector3 getPosition() const;
-            Math::Vector3 getScale() const;
-            Math::Quaternion getRotation() const;
-            std::weak_ptr<Scene> getScene() const;
-            std::weak_ptr<Component> getComponent(const size_t &aIndex) const;
-            size_t getComponentCount() const;
+            std::string getName() const noexcept;
+            Math::Vector3 getPosition() const noexcept;
+            Math::Vector3 getScale() const noexcept;
+            Math::Quaternion getRotation() const noexcept;
+            std::weak_ptr<Scene> getScene() const noexcept;
+            std::weak_ptr<Component> getComponent(const size_t &aIndex) const noexcept;
+            size_t getComponentCount() const noexcept;
             
-            void setName(const std::string &aName);
-            void setPosition(const Math::Vector3&);
-            void setPosition(const float &aX,const float &aY, const float &aZ);
-            void setScale(const Math::Vector3&);
-            void setRotation(const Math::Quaternion&);
+            void setName(const std::string &aName) noexcept;
+            void setPosition(const Math::Vector3&) noexcept;
+            void setPosition(const float &aX,const float &aY, const float &aZ) noexcept;
+            void setScale(const Math::Vector3&) noexcept;
+            void setRotation(const Math::Quaternion&) noexcept;
             
             // Public methods
             template<class T>
@@ -68,7 +68,7 @@ namespace GDK
                     std::shared_ptr<T> spNewT(new T());
                     std::weak_ptr<T>   wpNewT(spNewT);
                     
-                    std::shared_ptr<Component> spNewComponent = std::dynamic_pointer_cast<Component>(spNewT);
+                    std::shared_ptr<Component> spNewComponent = std::static_pointer_cast<Component>(spNewT);
                     
                     spNewComponent->m_GameObject = wpThis;
                     spNewComponent->onAddedToGameObject(wpThis);
@@ -95,7 +95,7 @@ namespace GDK
                 
                 if (auto scene = m_MyScene.lock())
                     for (size_t i=0;i<m_Components.size();i++)
-                        if (std::dynamic_pointer_cast<T>(m_Components[i]))
+                        if (std::static_pointer_cast<T>(m_Components[i]))
                         {
                             std::weak_ptr<Component>removedComponent(m_Components[i]);
                             scene->OnComponentRemovedFromAGameObject(removedComponent);
