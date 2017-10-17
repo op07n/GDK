@@ -28,7 +28,7 @@ namespace GDK
                 
                 GDK::GFX::Camera m_Camera = {};
                 
-                void draw(const Math::IntVector2& aFrameBufferSize);
+                void draw(const Math::IntVector2& aFrameBufferSize) noexcept;
                 
             protected:
                 virtual void initialize()  override final;

@@ -19,7 +19,7 @@ namespace GDK
          no unused objects exist, a new instance of T is added to the pool and returned
          */
         template<typename T>
-        class dynamic_pool
+        class dynamic_pool final
         {
             // Data members
             size_t m_InitialPoolSize;

@@ -20,7 +20,7 @@ std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Camera&
 
 }
 
-void Camera::draw(const Math::IntVector2& aFrameBufferSize)
+void Camera::draw(const Math::IntVector2& aFrameBufferSize) noexcept
 {
     if (auto gameObject = getGameObject().lock())
         m_Camera.setViewMatrix(gameObject->getPosition(), gameObject->getRotation());

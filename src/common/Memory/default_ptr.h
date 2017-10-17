@@ -25,7 +25,7 @@ namespace GDK
             
         public:
             // Public methods
-            std::shared_ptr<T> lock() const
+            std::shared_ptr<T> lock() const noexcept
             {
                 if (auto ptr = m_WeakPtr.lock())
                     return ptr;
@@ -38,15 +38,15 @@ namespace GDK
             default_ptr& operator= (const default_ptr& a) noexcept = default;
             
             // Instancing rules
-            default_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr ={} )
+            default_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr ={} ) noexcept
             : m_WeakPtr(aWeakPtr)
             , m_Default(aDefault)
             {}
             
             default_ptr() = delete;
-            default_ptr(const default_ptr&) = default;
-            default_ptr(default_ptr&&) = default;
-            ~default_ptr() = default;
+            default_ptr(const default_ptr&) noexcept = default;
+            default_ptr(default_ptr&&) noexcept = default;
+            ~default_ptr() noexcept = default;
             
         };
     

@@ -8,22 +8,22 @@
 using namespace GDK;
 using namespace Time;
 
-double currentTime(0.);
-double lastTime(0.);
+static double currentTime(0.);
+static double lastTime(0.);
 
-double Time::getTime(void)
+double Time::getTime(void) noexcept
 {
     return glfwGetTime();
 
 }
 
-double Time::getDeltaTime(void)
+double Time::getDeltaTime(void) noexcept
 {
     return currentTime;
     
 }
 
-double Time::updateDeltaTime(void)
+double Time::updateDeltaTime(void) noexcept
 {
     double time = currentTime;
     
