@@ -17,17 +17,17 @@ namespace GDK
     struct Exception : public std::runtime_error
     {
         // Mutating operators
-        Exception& operator=(const Exception&) = default;
+        Exception& operator=(const Exception&) noexcept = default;
         
         // Constructors, destructors
-        Exception(const std::string &aMessage = "");
-        Exception(const Exception&) = default;
-        Exception(Exception&&) = default;
-        ~Exception() = default;
+        Exception(const std::string &aMessage = "") noexcept;
+        Exception(const Exception&) noexcept = default;
+        Exception(Exception&&) noexcept = default;
+        ~Exception() noexcept = default;
       
     };
 
-    std::ostream& operator<< (std::ostream&, const Exception&);
+    std::ostream& operator<< (std::ostream&, const Exception&) noexcept;
     
 }
 

@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::GameObject& a)
+std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::GameObject& a) noexcept
 {
     s.clear(); s << "{"
     // << "m_Member: " << a.m_Member << ", "
@@ -19,7 +19,7 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::GameObject& a)
 
 }
 
-GameObject::GameObject(const std::weak_ptr<Scene> &aScene)
+GameObject::GameObject(const std::weak_ptr<Scene> &aScene) noexcept
 : m_MyScene(aScene)
 {}
 

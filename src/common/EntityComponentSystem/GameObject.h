@@ -24,7 +24,7 @@ namespace GDK
          */
         class GameObject final : public std::enable_shared_from_this<GameObject>
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
+            friend std::ostream& operator<< (std::ostream&, const ECS::GameObject&) noexcept;
             friend GDK::ECS::Scene;
             
             // Data members
@@ -94,10 +94,11 @@ namespace GDK
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
                 if (auto pScene = m_MyScene.lock())
-                    for (size_t i=0;i<m_Components.size();i++)
-                        if (std::static_pointer_cast<T>(m_Components[i]))
+                    for (size_t i=0; i < m_Components.size(); i++)
+                        if (std::dynamic_pointer_cast<T>(m_Components[i]))
                         {
-                            std::weak_ptr<Component>removedComponent(m_Components[i]);
+                            std::weak_ptr<Component> removedComponent(m_Components[i]);
+                            
                             pScene->OnComponentRemovedFromAGameObject(removedComponent);
                             
                             for(size_t j;j<m_Components.size();j++)
@@ -135,20 +136,20 @@ namespace GDK
             }
             
             // Mutating operators
-            GameObject& operator=(const GameObject&) = delete;
+            GameObject& operator=(const GameObject&) noexcept = delete;
       
             // Constructors, destructors
         private:
-            GameObject(const std::weak_ptr<Scene> &aScene);
-            GameObject() = delete;
-            GameObject(const GameObject&) = delete;
-            GameObject(GameObject&&) = delete;
+            GameObject(const std::weak_ptr<Scene> &aScene) noexcept;
+            GameObject() noexcept = delete;
+            GameObject(const GameObject&) noexcept = delete;
+            GameObject(GameObject&&) noexcept = delete;
         public:
-            ~GameObject() = default;
+            ~GameObject() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::GameObject&);
+        std::ostream& operator<< (std::ostream&, const ECS::GameObject&) noexcept;
     
     }
 

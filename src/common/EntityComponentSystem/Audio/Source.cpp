@@ -15,7 +15,7 @@ std::ostream& GDK::ECS::Audio::operator<<(std::ostream& s, const GDK::ECS::Audio
     // << "m_Member: " << a.m_Member << ", "
     << "Source's: " << "operator<< has not been implemented"
     << "}"; return s;
-
+    
 }
 
 void Source::initialize()

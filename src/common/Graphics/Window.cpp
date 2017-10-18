@@ -16,7 +16,7 @@ using namespace GFX;
 
 int s_InstanceCount = 0;
 
-std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a)
+std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a) noexcept
 {
     s.clear(); s << "{"
     << "m_Title: "  << a.m_Title              << ", "
@@ -98,6 +98,45 @@ static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, co
     return aGLFWWindow;
     
 }
+    
+Window::Window(const ConstructionParameters& aParams)
+: m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
+, m_Title(aParams.name)
+, m_OnInit(aParams.onInit)
+, m_OnUpdate(aParams.onUpdate)
+, m_OnDraw(aParams.onDraw)
+, m_OnWantsToClose(aParams.onWantsToClose)
+{
+    if (aParams.onWantsToClose == nullptr)
+        throw GDK::Exception("A GFX::Window's wantsToClose event was not handled!");
+        
+    if (m_OnInit != nullptr)
+        m_OnInit(*this);
+        
+    ++s_InstanceCount;
+        
+}
+    
+Window::Window(Window &&a) noexcept
+{
+    m_Title              = a.m_Title;
+    m_HandleToGLFWWindow = a.m_HandleToGLFWWindow;
+    m_OnInit             = a.m_OnInit;
+    m_OnUpdate           = a.m_OnUpdate;
+    m_OnDraw             = a.m_OnDraw;
+    m_OnWantsToClose     = a.m_OnWantsToClose;
+        
+}
+    
+Window::~Window() noexcept
+{
+    if (m_HandleToGLFWWindow.get() != nullptr)
+        --s_InstanceCount;
+        
+    if (s_InstanceCount < 0)
+        destroyGLFW();
+
+}
 
 void Window::draw()
 {
@@ -131,18 +170,18 @@ void Window::update()
     
 }
 
-std::string Window::getTitle()const{return m_Title;}
+std::string Window::getTitle()const noexcept{return m_Title;}
 
-void Window::setTitle(const std::string& aTitle)
+void Window::setTitle(const std::string& aTitle) noexcept
 {
     m_Title = aTitle;
     glfwSetWindowTitle(m_HandleToGLFWWindow.get(),aTitle.c_str());
     
 }
 
-std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const {return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);}
+std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const noexcept {return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);}
 
-Math::IntVector2 Window::getFramebufferSize() const
+Math::IntVector2 Window::getFramebufferSize() const noexcept
 {
     Math::IntVector2 frameBufferSize;
     glfwGetWindowSize(m_HandleToGLFWWindow.get(), &frameBufferSize.x, &frameBufferSize.y);
@@ -150,41 +189,3 @@ Math::IntVector2 Window::getFramebufferSize() const
     
 }
 
-Window::Window(const ConstructionParameters& aParams)
-: m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
-, m_Title(aParams.name)
-, m_OnInit(aParams.onInit)
-, m_OnUpdate(aParams.onUpdate)
-, m_OnDraw(aParams.onDraw)
-, m_OnWantsToClose(aParams.onWantsToClose)
-{
-    if (aParams.onWantsToClose == nullptr)
-        throw GDK::Exception("A GFX::Window's wantsToClose event was not handled!");
-    
-    if (m_OnInit != nullptr)
-        m_OnInit(*this);
-    
-    ++s_InstanceCount;
-    
-}
-
-Window::Window(Window &&a)
-{
-    m_Title              = a.m_Title;
-    m_HandleToGLFWWindow = a.m_HandleToGLFWWindow;
-    m_OnInit             = a.m_OnInit;
-    m_OnUpdate           = a.m_OnUpdate;
-    m_OnDraw             = a.m_OnDraw;
-    m_OnWantsToClose     = a.m_OnWantsToClose;
-    
-}
-
-Window::~Window()
-{
-    if (m_HandleToGLFWWindow.get() != nullptr)
-        --s_InstanceCount;
-    
-    if (s_InstanceCount < 0)
-        destroyGLFW();
-    
-}

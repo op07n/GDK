@@ -9,9 +9,29 @@
 using namespace GDK;
 using namespace Debug;
 
-Logger Logger::s_GDKLogger([](const std::string& aMessage){std::cerr << "D: " << aMessage << std::endl;});
-Logger Logger::s_GDKErrorLogger([](const std::string& aMessage){std::cerr << "E: " << aMessage << std::endl;});
+Logger Logger::s_GDKLogger
+(
+    [](const std::string& aMessage)
+    {
+        std::cerr << "D: " << aMessage << std::endl;
+    }
+);
 
-Logger::Logger(const std::function<void(const std::string&)> &aLoggingBehaviourCallback)
-: m_LoggingBehaviourCallback((aLoggingBehaviourCallback == nullptr)?[](const std::string& aMessage){std::clog<<aMessage<<std::endl;}:aLoggingBehaviourCallback)
+Logger Logger::s_GDKErrorLogger
+(
+    [](const std::string& aMessage)
+    {
+        std::cerr << "E: " << aMessage << std::endl;
+    }
+);
+
+Logger::Logger(const std::function<void(const std::string&)> &aLoggingBehaviourCallback) noexcept
+: m_LoggingBehaviourCallback
+(
+    aLoggingBehaviourCallback == nullptr? [](const std::string& aMessage)
+    {
+        std::clog<<aMessage<<std::endl;
+    }
+    : aLoggingBehaviourCallback
+)
 {}

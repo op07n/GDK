@@ -29,7 +29,7 @@ namespace GDK
          */
         class Window final
         {
-            friend std::ostream& operator<< (std::ostream& stream, const GFX::Window&);
+            friend std::ostream& operator<< (std::ostream& stream, const GFX::Window&) noexcept;
             
             std::string m_Title = {};
             std::shared_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
@@ -41,11 +41,11 @@ namespace GDK
             
         public:
             // Accessors
-            std::string getTitle() const;
-            Math::IntVector2 getFramebufferSize() const;
-            std::weak_ptr<GLFWwindow> getHandleToGLFWWindow() const;
+            std::string getTitle() const noexcept;
+            Math::IntVector2 getFramebufferSize() const noexcept;
+            std::weak_ptr<GLFWwindow> getHandleToGLFWWindow() const noexcept;
             
-            void setTitle(const std::string&);
+            void setTitle(const std::string&) noexcept;
             
             // Public methods
             void update();
@@ -76,12 +76,12 @@ namespace GDK
             // Constructors & Destructors
             Window(const ConstructionParameters&);
             Window(const Window&) = delete;
-            Window(Window&&);
-            ~Window();
+            Window(Window&&) noexcept;
+            ~Window() noexcept;
             
         };
         
-        std::ostream& operator<< (std::ostream& stream, const GFX::Window&);
+        std::ostream& operator<< (std::ostream& stream, const GFX::Window&) noexcept;
         
     }
     
