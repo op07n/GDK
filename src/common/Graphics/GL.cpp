@@ -88,33 +88,46 @@ bool GLH::EnableVertexAttribute(const std::string &aAttributeName, const GLuint 
     
 }
 
-std::string GLH::GetError()
+bool GLH::GetError(std::string *aErrorCode)
 {
+    std::string errorcodebuffer = "";
+    
     switch (glGetError())
     {
+        case(GL_NO_ERROR):
+            errorcodebuffer = "GL_NO_ERROR";
+            return false;
+        
         case(GL_INVALID_ENUM):
-        return "GL_INVALID_ENUM";
+            errorcodebuffer = "GL_INVALID_ENUM";
             
         case(GL_INVALID_VALUE):
-        return "GL_INVALID_VALUE";
+            errorcodebuffer = "GL_INVALID_VALUE";
             
         case(GL_INVALID_OPERATION):
-        return "GL_INVALID_OPERATION";
+            errorcodebuffer = "GL_INVALID_OPERATION";
             
         case(GL_INVALID_FRAMEBUFFER_OPERATION):
-        return "GL_INVALID_FRAMEBUFFER_OPERATION";
+            errorcodebuffer = "GL_INVALID_FRAMEBUFFER_OPERATION";
         
         case(GL_OUT_OF_MEMORY):
-        return "GL_OUT_OF_MEMORY";
-            
+            errorcodebuffer = "GL_OUT_OF_MEMORY";
+        
         default:
-        return "GL_NO_ERROR";
-            
+            errorcodebuffer = "GDK_UNHANDLED_GL_ERROR_CODE";
+        
     }
+    
+    if (aErrorCode != nullptr)
+    {
+        *aErrorCode = errorcodebuffer;
+    }
+    
+    return true;
     
 }
 
-std::vector<std::string> GLH::GetErrors()
+/*std::vector<std::string> GLH::GetErrors()
 {
     std::vector<std::string> errors;
     
@@ -129,9 +142,9 @@ std::vector<std::string> GLH::GetErrors()
     
     return errors;
     
-}
+}*/
 
-void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
+/*void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
 {
     std::vector<std::string> errors = GetErrors();
     size_t s = errors.size();
@@ -156,7 +169,7 @@ void GLH::LogErrors(const bool &aDoNotLogIfNoErrors)
     
     Debug::error(ss.str());
     
-}
+}*/
 
 void GLH::ClearErrors()
 {

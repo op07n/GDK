@@ -20,7 +20,7 @@ namespace GDK
         Exception& operator=(const Exception&) noexcept = default;
         
         // Constructors, destructors
-        Exception(const std::string &aMessage = "") noexcept;
+        Exception(const std::string &aTag, const std::string &aMessage) noexcept;
         Exception(const Exception&) noexcept = default;
         Exception(Exception&&) noexcept = default;
         ~Exception() noexcept = default;

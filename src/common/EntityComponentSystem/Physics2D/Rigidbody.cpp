@@ -10,6 +10,7 @@
 #include "Physics2D/Dynamics/Joints/b2PrismaticJoint.h"
 #include "Math/Vector2.h"
 #include "Math/Quaternion.h"
+#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
@@ -17,6 +18,8 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::Math;
 using namespace GDK::ECS::Physics2D;
+
+static constexpr auto TAG = "Rigidbody";
 
 std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream& s, const GDK::ECS::Physics2D::Rigidbody& a)
 {
@@ -68,7 +71,7 @@ void Rigidbody::fixedUpdate()
                 
                 //b2Rot *= 360;
                 
-                Debug::log("ROT: ",b2Rot);
+                Debug::log(TAG, "Rotation:", b2Rot);
                 
                 gameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 gameObject->setRotation(Quaternion({0,b2Rot,0}));
@@ -146,7 +149,7 @@ void Rigidbody::buildBody()
     }
     
 }
-#include "Debug/Logger.h"
+
 void Rigidbody::buildFixtures()
 {
     if (auto gameObject = getGameObject().lock())
@@ -164,7 +167,7 @@ void Rigidbody::buildFixtures()
                 
                 for(size_t j = 0, t = fixtures.size(); j < t; j++)
                 {
-                    Debug::log(fixtures[j].friction);
+                    Debug::log(TAG, fixtures[j].friction);
                     fixtures[j].userData = new std::weak_ptr<Collider>(colliders[i]);
                     m_Fixtures.push_back(m_Body->CreateFixture(&fixtures[j]));
                     

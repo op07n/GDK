@@ -7,9 +7,12 @@
 //gdk inc
 #include "GL.h"
 #include "Debug/Logger.h"
+#include "Debug/Exception.h"
 
 using namespace GDK;
 using namespace GFX;
+
+static constexpr auto TAG = "Mesh";
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a) noexcept
 {
@@ -22,7 +25,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a) noexcept
 
 }
 
-GLenum MeshTypeToOpenGLDrawType(const Mesh::Type &aType)
+static GLenum MeshTypeToOpenGLDrawType(const Mesh::Type &aType)
 {
     switch (aType)
     {
@@ -36,7 +39,7 @@ GLenum MeshTypeToOpenGLDrawType(const Mesh::Type &aType)
     
 }
 
-GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPrimitiveMode)
+static GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPrimitiveMode)
 {
     switch (aPrimitiveMode)
     {
@@ -63,7 +66,7 @@ void Mesh::draw(const GFXuint aShaderProgramHandle) const noexcept
     
     if (m_IndexBufferHandle > 0)
     {
-        Debug::log(m_IndexBufferHandle);
+        Debug::log(TAG, m_IndexBufferHandle);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBufferHandle);
         
         glDrawElements
@@ -100,16 +103,21 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
 : m_Name(aName)
 , m_IndexBufferHandle([aIndexData,aType]() -> GFXuint
 {
-    if (aIndexData.size() <= 0)
-        return GFXuint(0);
+    //Create and populate the IBO
+    GFXuint ibo = 0;
     
-    GFXuint ibo;
+    if (aIndexData.size() > 0)
+    {
+        glGenBuffers(1, &ibo);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GFXushort) * aIndexData.size(), &aIndexData[0], MeshTypeToOpenGLDrawType(aType));
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
     
-    //Create and pop the IBO
-    glGenBuffers(1, &ibo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, aIndexData.size() * sizeof(GFXushort), &aIndexData[0], MeshTypeToOpenGLDrawType(aType));
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
+        std::string errorCode;
+        if (GLH::GetError(&errorCode))
+            throw GDK::Exception(TAG, errorCode);
+    
+    }
     
     return ibo;
     
@@ -117,13 +125,20 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
 , m_IndexCount((GFXsizei)aIndexData.size())
 , m_VertexBufferHandle([aVertexData,aType]() -> GFXuint
 {
-    GFXuint vbo = 0;
+    if (aVertexData.size() <= 0)
+        throw GDK::Exception(TAG, "bad vertex data");
     
     // Create and populate a VBO
+    GFXuint vbo = 0;
+    
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GFXfloat) * aVertexData.size(), &aVertexData[0], MeshTypeToOpenGLDrawType(aType));
     glBindBuffer(GL_ARRAY_BUFFER,0);
+    
+    std::string errorCode;
+    if (GLH::GetError(&errorCode))
+        throw GDK::Exception(TAG, errorCode);
     
     return vbo;
     
@@ -133,7 +148,7 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
 , m_PrimitiveMode(aPrimitiveMode)
 {}
 
-Mesh::~Mesh()
+Mesh::~Mesh() noexcept
 {
     if (m_VertexBufferHandle > 0)
         glDeleteBuffers(1, &m_VertexBufferHandle);

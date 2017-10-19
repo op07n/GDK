@@ -40,7 +40,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                AudioScene(Scene *a) : SceneGraph(a){throw GDK::Exception("AudioScene is a stub!");}
+                AudioScene(Scene *a) : SceneGraph(a){throw GDK::Exception("AudioScene", "AudioScene is a stub!");}
 
             };
 

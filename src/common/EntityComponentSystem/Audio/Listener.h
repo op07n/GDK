@@ -37,7 +37,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                Listener(){throw GDK::Exception("Listener is a stub!");}
+                Listener(){throw GDK::Exception("Listener", "Listener is a stub!");}
 
             };
 

@@ -14,6 +14,8 @@
 using namespace GDK;
 using namespace GFX;
 
+static constexpr auto TAG = "Window";
+
 int s_InstanceCount = 0;
 
 std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a) noexcept
@@ -30,9 +32,9 @@ static inline void initGLFW()
     Debug::log("Initializing GLFW");
     
     // initialise GLFW
-    glfwSetErrorCallback([] (int,const char* msg) {throw GDK::Exception(msg);});
+    glfwSetErrorCallback([] (int,const char* msg) {throw GDK::Exception(TAG, msg);});
     if(!glfwInit())
-        throw GDK::Exception("glfwInit failed");
+        throw GDK::Exception(TAG, "glfwInit failed");
     
     //glfwSwapInterval(0);
     
@@ -50,7 +52,7 @@ static inline void initGLEW()
     glewExperimental = GL_TRUE; //VAO gen and bind were unavailable in non experimental.
     
     if(glewInit() != GLEW_OK)
-        throw GDK::Exception("glewInit failed");
+        throw GDK::Exception(TAG, "glewInit failed");
     
     
     while (glGetError()); //Clear errors.
@@ -79,7 +81,7 @@ static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, co
     
     aGLFWWindow = glfwCreateWindow(aScreenSize.x, aScreenSize.y, aName.c_str(), nullptr, nullptr);
     if(!aGLFWWindow)
-        throw GDK::Exception("glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
+        throw GDK::Exception(TAG, "glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
     
     glfwMakeContextCurrent(aGLFWWindow);
     
@@ -108,7 +110,7 @@ Window::Window(const ConstructionParameters& aParams)
 , m_OnWantsToClose(aParams.onWantsToClose)
 {
     if (aParams.onWantsToClose == nullptr)
-        throw GDK::Exception("A GFX::Window's wantsToClose event was not handled!");
+        throw GDK::Exception(TAG, "A GFX::Window's wantsToClose event was not handled!");
         
     if (m_OnInit != nullptr)
         m_OnInit(*this);

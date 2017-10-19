@@ -15,6 +15,8 @@
 using namespace GDK;
 using namespace Input;
 
+static constexpr auto TAG = "Mouse";
+
 std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Mouse& a)
 {
     s.clear(); s << "{"
@@ -49,7 +51,7 @@ bool Mouse::getButtonDown(const Button &aButton) const
     if (auto ptr = m_HandleToGLFWWindow.lock())
         return glfwGetMouseButton(ptr.get(), glfwMouseButtonFromButton(aButton));
     
-    throw GDK::Exception("The mouse's window has died!");
+    throw GDK::Exception(TAG, "The mouse's window has died!");
     
 }
 
@@ -63,13 +65,13 @@ Math::Vector2 Mouse::getCursorPosition() const
         
     }
     
-    throw GDK::Exception("The mouse's window has died!");
+    throw GDK::Exception(TAG, "The mouse's window has died!");
     
 }
 
 bool Mouse::getButton(const Button &aKeyCode) const
 {
-    throw GDK::Exception("Mouse::getButton(const Button &aKeyCode) not implemented");
+    throw GDK::Exception(TAG, "Mouse::getButton(const Button &aKeyCode) not implemented");
 
 }
 

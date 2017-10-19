@@ -69,14 +69,14 @@ namespace GDK
             void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic) noexcept;
             
             // Mutating operators
-            Mesh& operator=(const Mesh&) = default;
+            Mesh& operator=(const Mesh&) = delete;
       
             // Constructors, destructors
             Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData = std::vector<GFXushort>(), const PrimitiveMode &aPrimitiveMode = PrimitiveMode::Triangles);
             Mesh() = delete;
             Mesh(const Mesh&) = delete;
             Mesh(Mesh&&);
-            ~Mesh();
+            ~Mesh() noexcept;
       
         };
 

@@ -31,9 +31,9 @@ namespace GLH
     // Error detection & logging
     std::string GetShaderInfoLog(const GLuint &aShaderStageHandle);
     std::string GetProgramInfoLog(const GLuint &aShaderProgramHandle);
-    std::string GetError();
-    std::vector<std::string> GetErrors();
-    void LogErrors(const bool &aDoNotLogIfNoErrors = false);
+    bool GetError(std::string *aErrorCode = nullptr);
+    //std::vector<std::string> GetErrors();
+    //void LogErrors(const bool &aDoNotLogIfNoErrors = false);
     void ClearErrors();
     
     // Vertex binding

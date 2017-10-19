@@ -17,6 +17,8 @@
 using namespace GDK;
 using namespace Math;
 
+static constexpr auto TAG = "Mat4x4";
+
 //static const
 const Mat4x4 Mat4x4::Identity = Mat4x4();
 
@@ -43,7 +45,7 @@ void Mat4x4::setIdentity()
 
 void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
-    throw GDK::Exception("Mat4x4::setOrthographic not implemented!");
+    throw GDK::Exception(TAG, "Mat4x4::setOrthographic not implemented!");
     
 }
 
@@ -151,7 +153,7 @@ void Mat4x4::rotate(const Quaternion &aRotation)
 
 void Mat4x4::scale(const Vector3 &aPosition)
 {
-    throw GDK::Exception("Mat4x4::scale not implemented!");
+    throw GDK::Exception(TAG, "Mat4x4::scale not implemented!");
     
 }
 

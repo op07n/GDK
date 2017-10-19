@@ -13,7 +13,7 @@ Logger Logger::s_GDKLogger
 (
     [](const std::string& aMessage)
     {
-        std::cerr << "D: " << aMessage << std::endl;
+        std::cerr << "D/" << aMessage << std::endl;
     }
 );
 
@@ -21,7 +21,7 @@ Logger Logger::s_GDKErrorLogger
 (
     [](const std::string& aMessage)
     {
-        std::cerr << "E: " << aMessage << std::endl;
+        std::cerr << "E/" << aMessage << std::endl;
     }
 );
 

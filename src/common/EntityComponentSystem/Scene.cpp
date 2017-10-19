@@ -13,6 +13,8 @@
 using namespace GDK;
 using namespace ECS;
 
+static constexpr auto TAG = "Scene";
+
 std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Scene& a)
 {
     s.clear(); s << "{"
@@ -95,19 +97,19 @@ void Scene::OnComponentAddedToAGameObject(const std::weak_ptr<Component> &aCompo
 
 void Scene::OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&)
 {
-    throw GDK::Exception("OnComponentAddedToAGameObject not supported");
+    throw GDK::Exception(TAG, "OnComponentAddedToAGameObject not supported");
     
 }
 
 void Scene::OnSceneGraphAdded(const std::weak_ptr<SceneGraph> &aSceneGraph)
 {
-    throw GDK::Exception("OnSceneGraphRemoved not supported");
+    throw GDK::Exception(TAG, "OnSceneGraphRemoved not supported");
     
 }
 
 void Scene::OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemoved)
 {
-    throw GDK::Exception("OnSceneGraphRemoved not supported");
+    throw GDK::Exception(TAG, "OnSceneGraphRemoved not supported");
     
 }
 

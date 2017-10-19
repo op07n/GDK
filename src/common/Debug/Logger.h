@@ -13,8 +13,8 @@ namespace GDK
 {
     namespace Debug
     {
-        template<typename ...Args> void log(Args && ...args);
-        template<typename ...Args> void error(Args && ...args);
+        template<typename ...Args> void log(const std::string &aTag, Args && ...args);
+        template<typename ...Args> void error(const std::string &aTag, Args && ...args);
         
         /*!
          Used to render debug messages in some form. The default behaviour is to send the data to std::clog,
@@ -26,13 +26,13 @@ namespace GDK
          */
         class Logger final
         {
-            template<typename ...Args> friend void GDK::Debug::log(Args && ...args);
-            template<typename ...Args> friend void GDK::Debug::error(Args && ...args);
+            template<typename ...Args> friend void GDK::Debug::log(const std::string &aTag, Args && ...args);
+            template<typename ...Args> friend void GDK::Debug::error(const std::string &aTag, Args && ...args);
             
             static Logger s_GDKLogger;
             static Logger s_GDKErrorLogger;
             
-            std::function<void(const std::string&)> m_LoggingBehaviourCallback;
+            std::function<void(const std::string &)> m_LoggingBehaviourCallback;
             std::ostringstream m_StringBuffer;
             
             void log() noexcept
@@ -42,11 +42,19 @@ namespace GDK
                 
             }
             
-        public:
             template<typename First, typename ...Rest>
             void log(First && first, Rest && ...rest) noexcept
             {
                 m_StringBuffer << first;
+                log(std::forward<Rest>(rest)...);
+                
+            }
+            
+        public:
+            template<typename First, typename ...Rest>
+            void log(const std::string &aTag, First && first, Rest && ...rest) noexcept
+            {
+                m_StringBuffer << aTag << ": " << first;
                 log(std::forward<Rest>(rest)...);
                 
             }
@@ -65,16 +73,16 @@ namespace GDK
         };
         
         template<typename ...Args>
-        void log(Args && ...args)
+        void log(const std::string &aTag, Args && ...args)
         {
-            Logger::s_GDKLogger.log(std::forward<Args>(args)...);
+            Logger::s_GDKLogger.log(aTag, std::forward<Args>(args)...);
             
         }
         
         template<typename ...Args>
-        void error(Args && ...args)
+        void error(const std::string &aTag, Args && ...args)
         {
-            Logger::s_GDKErrorLogger.log(std::forward<Args>(args)...);
+            Logger::s_GDKErrorLogger.log(aTag, std::forward<Args>(args)...);
             
         }
         

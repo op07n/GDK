@@ -7,9 +7,7 @@
 
 using namespace GDK;
 
-Exception::Exception(const std::string &aMessage) noexcept
-: std::runtime_error(aMessage)
-{}
+//static constexpr std::string exceptionFormat = "";
 
 std::ostream& GDK::operator<<(std::ostream& stream, const Exception& aException) noexcept
 {
@@ -18,3 +16,7 @@ std::ostream& GDK::operator<<(std::ostream& stream, const Exception& aException)
     return stream;
 
 }
+
+Exception::Exception(const std::string &aTag, const std::string &aMessage) noexcept
+: std::runtime_error(aTag + ": " + aMessage)
+{}

@@ -37,7 +37,7 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                Source(){throw GDK::Exception("Source is a stub!");}
+                Source(){throw GDK::Exception("Source", "Source is a stub!");}
 
             };
 

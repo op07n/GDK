@@ -12,6 +12,8 @@
 using namespace GDK;
 using namespace GFX;
 
+static constexpr auto TAG = "ShaderProgram";
+
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgram& a) noexcept
 {
     GFXint activeAttribs = 0, activeUniforms = 0;
@@ -66,7 +68,7 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
         << std::endl << "fragment shader compilation log: " << GLH::GetShaderInfoLog(fs);
         
         Debug::error(message.str());
-        throw GDK::Exception(shortMessage);
+        throw GDK::Exception(TAG, shortMessage);
         
     }
     

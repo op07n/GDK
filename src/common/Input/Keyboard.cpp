@@ -14,6 +14,8 @@
 using namespace GDK;
 using namespace Input;
 
+static constexpr auto TAG = "Keyboard";
+
 std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Keyboard& a)
 {
     s.clear(); s << "{"
@@ -150,13 +152,13 @@ bool Keyboard::getKeyDown(const Key &aKeyCode) const
     if (auto ptr = m_HandleToGLFWWindow.lock())
         return glfwGetKey(ptr.get(), glfwKeyCodeFromKey(aKeyCode));
 
-    throw GDK::Exception("The keyboard's window has died!");
+    throw GDK::Exception(TAG, "The keyboard's window has died!");
     
 }
 
 bool Keyboard::getKey(const Key &aKeyCode) const
 {
-    throw GDK::Exception("Keyboard::getKey(const Key &aKeyCode) not implemented");
+    throw GDK::Exception(TAG, "Keyboard::getKey(const Key &aKeyCode) not implemented");
 
 }
 

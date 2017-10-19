@@ -17,6 +17,8 @@
 using namespace GDK;
 using namespace GFX;
 
+static constexpr auto TAG = "Camera";
+
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a)
 {
     s.clear(); s << "{"
@@ -40,7 +42,7 @@ Camera::Camera()
 
 static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
-    throw GDK::Exception("Camera::setOrthographicProjection not implemented!");
+    throw GDK::Exception(TAG, "Camera::setOrthographicProjection not implemented!");
     
 }
 
