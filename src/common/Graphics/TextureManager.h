@@ -19,21 +19,21 @@ namespace GDK
          */
         class TextureManager final : public resource_manager<Texture>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::TextureManager&) noexcept;
       
         public:
             // Mutating operators
             TextureManager& operator=(const TextureManager&) = default;
       
             // Constructors, destructors
-            TextureManager();
+            TextureManager() noexcept;
             TextureManager(const TextureManager&) = default;
             TextureManager(TextureManager&&) = default;
-            virtual ~TextureManager() = default;
+            virtual ~TextureManager() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::TextureManager&);
+        std::ostream& operator<< (std::ostream&, const GFX::TextureManager&) noexcept;
         
     }
 

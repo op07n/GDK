@@ -20,25 +20,25 @@ namespace GDK
          */
         class TextureUniformCollection final : public UniformCollection<Memory::default_ptr<Texture>>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&) noexcept;
             
         public:
             // Public methods
-            void bind(const GFXuint &aProgramHandle) override;
-            void unbind(const GFXuint &aProgramHandle) override;
+            void bind(const GFXuint &aProgramHandle) noexcept override;
+            void unbind(const GFXuint &aProgramHandle) noexcept override;
       
             // Mutating operators
             TextureUniformCollection& operator=(const TextureUniformCollection&) = delete;
       
             // Constructors, destructors
             TextureUniformCollection() noexcept = default;
-            TextureUniformCollection(const TextureUniformCollection&) noexcept = delete;
+            TextureUniformCollection(const TextureUniformCollection&) = delete;
             TextureUniformCollection(TextureUniformCollection&&) noexcept = default;
-            ~TextureUniformCollection() = default;
+            ~TextureUniformCollection() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::TextureUniformCollection&) noexcept;
         
     }
 

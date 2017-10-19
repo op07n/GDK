@@ -24,14 +24,14 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mat4x4UniformColl
     
 }
 
-void Mat4x4UniformCollection::bind(const GFXuint &aProgramHandle)
+void Mat4x4UniformCollection::bind(const GFXuint &aProgramHandle) noexcept
 {
     for (auto& pair : m_Map)
         GLH::BindMatrix4x4(aProgramHandle, pair.first, pair.second);
     
 }
 
-void Mat4x4UniformCollection::unbind(const GFXuint &aProgramHandle)
+void Mat4x4UniformCollection::unbind(const GFXuint &aProgramHandle) noexcept
 {
     for (auto& pair : m_Map)
         GLH::BindMatrix4x4(aProgramHandle, pair.first, Math::Mat4x4::Identity);

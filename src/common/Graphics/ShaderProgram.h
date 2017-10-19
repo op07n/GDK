@@ -20,7 +20,7 @@ namespace GDK
          */
         class ShaderProgram final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&) noexcept;
             
             // Data members
             std::string m_Name = {};
@@ -47,7 +47,7 @@ namespace GDK
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&);
+        std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&) noexcept;
         
     }
 

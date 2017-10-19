@@ -20,25 +20,25 @@ namespace GDK
          */
         class Vector4UniformCollection final : public UniformCollection<std::shared_ptr<Math::Vector4>>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&) noexcept;
       
         public:
             // Public methods
-            void bind(const GFXuint &aProgramHandle) override;
-            void unbind(const GFXuint &aProgramHandle) override;
+            void bind(const GFXuint &aProgramHandle) noexcept override;
+            void unbind(const GFXuint &aProgramHandle) noexcept override;
             
             // Mutating operators
             Vector4UniformCollection& operator=(const Vector4UniformCollection&) = delete;
       
             // Constructors, destructors
-            Vector4UniformCollection() = default;
+            Vector4UniformCollection() noexcept = default;
             Vector4UniformCollection(const Vector4UniformCollection&) = delete;
             Vector4UniformCollection(Vector4UniformCollection&&) = delete;
-            ~Vector4UniformCollection() = default;
+            ~Vector4UniformCollection() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::Vector4UniformCollection&) noexcept;
         
     }
 

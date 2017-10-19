@@ -4,7 +4,6 @@
 #include "ShaderProgram.h"
 //std inc
 #include <iostream>
-//#include <vector>
 //gdk inc
 #include "Debug/Logger.h"
 #include "GL.h"
@@ -13,7 +12,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgram& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgram& a) noexcept
 {
     GFXint activeAttribs = 0, activeUniforms = 0;
     glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_ATTRIBUTES, &activeAttribs);

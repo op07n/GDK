@@ -23,8 +23,8 @@ namespace GDK
       
         public:
             // Public methods
-            void bind(const GFXuint &aProgramHandle) override;
-            void unbind(const GFXuint &aProgramHandle) override;
+            void bind(const GFXuint &aProgramHandle) noexcept override;
+            void unbind(const GFXuint &aProgramHandle) noexcept override;
             
             // Mutating operators
             FloatUniformCollection& operator=(const FloatUniformCollection&) = delete;

@@ -98,21 +98,6 @@ void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const V
 // Constructors & Destructors
 Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData, const PrimitiveMode &aPrimitiveMode)
 : m_Name(aName)
-, m_IndexCount((GFXsizei)aIndexData.size())
-, m_VertexBufferHandle([aVertexData,aType]() -> GFXuint
-{
-    GFXuint vbo = 0;
- 
-    // Create and populate a VBO
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GFXfloat) * aVertexData.size(), &aVertexData[0], MeshTypeToOpenGLDrawType(aType));
-    glBindBuffer(GL_ARRAY_BUFFER,0);
-    
-    return vbo;
-
-}())
-, m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
 , m_IndexBufferHandle([aIndexData,aType]() -> GFXuint
 {
     if (aIndexData.size() <= 0)
@@ -129,6 +114,21 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
     return ibo;
     
 }())
+, m_IndexCount((GFXsizei)aIndexData.size())
+, m_VertexBufferHandle([aVertexData,aType]() -> GFXuint
+{
+    GFXuint vbo = 0;
+    
+    // Create and populate a VBO
+    glGenBuffers(1, &vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GFXfloat) * aVertexData.size(), &aVertexData[0], MeshTypeToOpenGLDrawType(aType));
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    
+    return vbo;
+    
+}())
+, m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
 , m_VertexFormat(aVertexFormat)
 , m_PrimitiveMode(aPrimitiveMode)
 {}

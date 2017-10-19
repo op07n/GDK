@@ -27,14 +27,14 @@ namespace GDK
       
             // Constructors, destructors
             VertexAttribute() = delete;
-            VertexAttribute(const std::string &aName, const unsigned short &aSize);
+            VertexAttribute(const std::string &aName, const unsigned short &aSize) noexcept;
             VertexAttribute(const VertexAttribute&) = default;
             VertexAttribute(VertexAttribute&&) = default;
-            ~VertexAttribute() = default;
+            ~VertexAttribute() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::VertexAttribute&);
+        std::ostream& operator<< (std::ostream&, const GFX::VertexAttribute&) noexcept;
         
     }
 

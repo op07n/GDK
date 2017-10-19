@@ -25,7 +25,7 @@ namespace GDK
          */
         class VertexFormat final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&) noexcept;
     
             // Data members
             std::vector<VertexAttribute> m_Format = {};
@@ -33,27 +33,27 @@ namespace GDK
             
         public:
             // Public methods
-            void enableAttributes(const GFXuint &aShaderProgramHandle);
-            int getSumOfAttributeComponents() const;
+            void enableAttributes(const GFXuint &aShaderProgramHandle) noexcept;
+            int getSumOfAttributeComponents() const noexcept;
             
             // Mutating operators
             VertexFormat& operator=(const VertexFormat&) = default;
       
             // Constructors, destructors
-            VertexFormat(const std::vector<VertexAttribute> &aAttributes);
-            VertexFormat() = default; // TODO: I think this should be deleted.
+            VertexFormat(const std::vector<VertexAttribute> &aAttributes) noexcept;
+            VertexFormat() = delete;
             VertexFormat(const VertexFormat&) = default;
             VertexFormat(VertexFormat&&) = default;
             ~VertexFormat() = default;
             
             // Special values
-            static VertexFormat Pos3uv2Norm3;
-            static VertexFormat Pos3uv2;
-            static VertexFormat Pos3;
+            static const VertexFormat Pos3uv2Norm3;
+            static const VertexFormat Pos3uv2;
+            static const VertexFormat Pos3;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&);
+        std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&) noexcept;
         
     }
 

@@ -100,8 +100,8 @@ static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, co
 }
     
 Window::Window(const ConstructionParameters& aParams)
-: m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
-, m_Title(aParams.name)
+: m_Title(aParams.name)
+, m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
 , m_OnInit(aParams.onInit)
 , m_OnUpdate(aParams.onUpdate)
 , m_OnDraw(aParams.onDraw)

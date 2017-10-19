@@ -11,7 +11,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgramManager& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgramManager& a) noexcept
 {
     s.clear(); s << "{";
     size_t i = 0;
@@ -25,6 +25,6 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::ShaderProgramMana
 
 }
 
-ShaderProgramManager::ShaderProgramManager()
+ShaderProgramManager::ShaderProgramManager() noexcept
 : resource_manager(GFX::DefaultResources::getPinkShaderOfDeath().lock())
 {}

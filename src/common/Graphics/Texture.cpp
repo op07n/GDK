@@ -13,7 +13,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Texture& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Texture& a) noexcept
 {
     s.clear(); s << "{"
     << "m_Name: "   << a.m_Name   << ", "
@@ -55,13 +55,21 @@ Texture::Texture(Texture&& other)
     
 }
 
-Texture::~Texture()
+Texture::~Texture() noexcept
 {
     if (m_Handle > 0)
         glDeleteBuffers(1, &m_Handle);
     
 }
 
-std::string Texture::getName()const{return m_Name;}
-GFXuint Texture::getHandle()const
-{return m_Handle;}
+std::string Texture::getName()const noexcept
+{
+    return m_Name;
+
+}
+
+GFXuint Texture::getHandle()const noexcept
+{
+    return m_Handle;
+
+}

@@ -55,7 +55,7 @@ namespace GDK
             
             GFXuint       m_VertexBufferHandle = 0;
             GFXsizei      m_VertexCount        = 0;
-            VertexFormat  m_VertexFormat       = {};
+            VertexFormat  m_VertexFormat       = VertexFormat::Pos3uv2;
             
             PrimitiveMode m_PrimitiveMode      = PrimitiveMode::Triangles;
             

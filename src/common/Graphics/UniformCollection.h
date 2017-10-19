@@ -29,24 +29,24 @@ namespace GDK
             
         public:
             // Public methods
-            void put(const std::string &aName, const T &aItem)
+            void put(const std::string &aName, const T &aItem) noexcept
             {
                 m_Map.insert({aName, aItem});
                 
             }
             
-            T get(const std::string &aName) const
+            T get(const std::string &aName) const noexcept
             {
                 return m_Map.find(aName);
                 
             }
             
-            virtual void bind(const GFXuint &aProgramHandle) = 0;
-            virtual void unbind(const GFXuint &aProgramHandle) = 0;
+            virtual void bind(const GFXuint &aProgramHandle) noexcept = 0;
+            virtual void unbind(const GFXuint &aProgramHandle) noexcept = 0;
             
             
             // Mutating operators
-            UniformCollection& operator=(const UniformCollection&) noexcept = delete;
+            UniformCollection& operator=(const UniformCollection&) = delete;
       
             // Constructors, destructors
             UniformCollection() noexcept = default;

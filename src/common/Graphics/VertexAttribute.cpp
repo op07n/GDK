@@ -10,7 +10,7 @@ using namespace GFX;
 
 
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexAttribute& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexAttribute& a) noexcept
 {
     s.clear(); s << "{"
     << "Name: " << a.name << ", "
@@ -19,7 +19,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexAttribute& 
 
 }
 
-VertexAttribute::VertexAttribute(const std::string &aName, const unsigned short &aSize)
+VertexAttribute::VertexAttribute(const std::string &aName, const unsigned short &aSize) noexcept
 : name(aName)
 , size(aSize)
 {}
