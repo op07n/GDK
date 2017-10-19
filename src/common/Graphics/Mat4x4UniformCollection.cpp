@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mat4x4UniformCollection& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mat4x4UniformCollection& a) noexcept
 {
     s.clear(); s << "{";
     size_t i = 0;

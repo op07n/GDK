@@ -67,7 +67,7 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
         << std::endl << "vertex shader compilation log: " << GLH::GetShaderInfoLog(vs) << std::endl
         << std::endl << "fragment shader compilation log: " << GLH::GetShaderInfoLog(fs);
         
-        Debug::error(message.str());
+        Debug::error(TAG, message.str());
         throw GDK::Exception(TAG, shortMessage);
         
     }

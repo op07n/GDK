@@ -75,7 +75,7 @@ namespace GDK
             Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData = std::vector<GFXushort>(), const PrimitiveMode &aPrimitiveMode = PrimitiveMode::Triangles);
             Mesh() = delete;
             Mesh(const Mesh&) = delete;
-            Mesh(Mesh&&);
+            Mesh(Mesh&&) noexcept;
             ~Mesh() noexcept;
       
         };

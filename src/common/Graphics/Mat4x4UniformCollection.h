@@ -19,7 +19,7 @@ namespace GDK
          */
         class Mat4x4UniformCollection final : public UniformCollection<Math::Mat4x4>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::Mat4x4UniformCollection&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::Mat4x4UniformCollection&) noexcept;
       
         public:
             // Public methods
@@ -37,7 +37,7 @@ namespace GDK
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::Mat4x4UniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::Mat4x4UniformCollection&) noexcept;
         
     }
 

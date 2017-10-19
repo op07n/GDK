@@ -158,7 +158,7 @@ Mesh::~Mesh() noexcept
     
 }
 
-Mesh::Mesh(Mesh&& a)
+Mesh::Mesh(Mesh&& a) noexcept
 {
     m_Name               = std::move(a.m_Name);
     m_IndexBufferHandle  = std::move(a.m_IndexBufferHandle);

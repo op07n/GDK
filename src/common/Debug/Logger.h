@@ -13,8 +13,8 @@ namespace GDK
 {
     namespace Debug
     {
-        template<typename ...Args> void log(const std::string &aTag, Args && ...args);
-        template<typename ...Args> void error(const std::string &aTag, Args && ...args);
+        template<typename ...Args> void log(const char aTag[], Args && ...args);
+        template<typename ...Args> void error(const char aTag[], Args && ...args);
         
         /*!
          Used to render debug messages in some form. The default behaviour is to send the data to std::clog,
@@ -26,8 +26,8 @@ namespace GDK
          */
         class Logger final
         {
-            template<typename ...Args> friend void GDK::Debug::log(const std::string &aTag, Args && ...args);
-            template<typename ...Args> friend void GDK::Debug::error(const std::string &aTag, Args && ...args);
+            template<typename ...Args> friend void GDK::Debug::log(const char aTag[], Args && ...args);
+            template<typename ...Args> friend void GDK::Debug::error(const char aTag[], Args && ...args);
             
             static Logger s_GDKLogger;
             static Logger s_GDKErrorLogger;
@@ -52,7 +52,7 @@ namespace GDK
             
         public:
             template<typename First, typename ...Rest>
-            void log(const std::string &aTag, First && first, Rest && ...rest) noexcept
+            void log(const char aTag[], First && first, Rest && ...rest) noexcept
             {
                 m_StringBuffer << aTag << ": " << first;
                 log(std::forward<Rest>(rest)...);
@@ -73,14 +73,14 @@ namespace GDK
         };
         
         template<typename ...Args>
-        void log(const std::string &aTag, Args && ...args)
+        void log(const char aTag[], Args && ...args)
         {
             Logger::s_GDKLogger.log(aTag, std::forward<Args>(args)...);
             
         }
         
         template<typename ...Args>
-        void error(const std::string &aTag, Args && ...args)
+        void error(const char aTag[], Args && ...args)
         {
             Logger::s_GDKErrorLogger.log(aTag, std::forward<Args>(args)...);
             

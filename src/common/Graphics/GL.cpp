@@ -16,25 +16,25 @@
 using namespace GDK;
 using namespace GFX;
 
-void GLH::Viewport(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize)
+void GLH::Viewport(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize) noexcept
 {
     glViewport(aPos.x,aPos.y,aSize.x,aSize.y);
     
 }
 
-void GLH::Scissor(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize)
+void GLH::Scissor(const GDK::Math::IntVector2& aPos, const GDK::Math::IntVector2& aSize) noexcept
 {
     glScissor(aPos.x,aPos.y,aSize.x,aSize.y);
     
 }
 
-void GLH::ClearColor(const GDK::GFX::Color &aColor)
+void GLH::ClearColor(const GDK::GFX::Color &aColor) noexcept
 {
     glClearColor(aColor.r,aColor.g,aColor.b,aColor.a);
     
 }
 
-std::string GLH::GetShaderInfoLog(const GLuint &aShaderStageHandle)
+std::string GLH::GetShaderInfoLog(const GLuint &aShaderStageHandle) noexcept
 {
     GLint bufflen = 0;
     glGetShaderiv(aShaderStageHandle, GL_INFO_LOG_LENGTH, &bufflen);
@@ -51,7 +51,7 @@ std::string GLH::GetShaderInfoLog(const GLuint &aShaderStageHandle)
     
 }
 
-std::string GLH::GetProgramInfoLog(const GLuint &aShaderProgramHandle)
+std::string GLH::GetProgramInfoLog(const GLuint &aShaderProgramHandle) noexcept
 {
     GLint maxLength = 0;
     glGetProgramiv(aShaderProgramHandle, GL_INFO_LOG_LENGTH, &maxLength);
@@ -63,7 +63,7 @@ std::string GLH::GetProgramInfoLog(const GLuint &aShaderProgramHandle)
     
 }
 
-bool GLH::EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents)
+bool GLH::EnableVertexAttribute(const std::string &aAttributeName, const GLuint &aProgramHandle, const int &aAttributeSize, const int &aAttributeOffset, const int &aTotalNumberOfVertexAttributeComponents) noexcept
 {
     GLint attribute = glGetAttribLocation(aProgramHandle, aAttributeName.c_str());
     
@@ -88,7 +88,7 @@ bool GLH::EnableVertexAttribute(const std::string &aAttributeName, const GLuint 
     
 }
 
-bool GLH::GetError(std::string *aErrorCode)
+bool GLH::GetError(std::string *aErrorCode) noexcept
 {
     std::string errorcodebuffer = "";
     
@@ -171,13 +171,13 @@ bool GLH::GetError(std::string *aErrorCode)
     
 }*/
 
-void GLH::ClearErrors()
+void GLH::ClearErrors() noexcept
 {
     while (glGetError() != GL_NO_ERROR){}
     
 }
 
-bool GLH::BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GLuint &aTextureHandle, const int aTextureUnit/*, final GLenum &aTextureType*/)
+bool GLH::BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GLuint &aTextureHandle, const int aTextureUnit/*, final GLenum &aTextureType*/) noexcept
 {
     GLint uniformHandle  = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     int theTextureType = GL_TEXTURE_2D;
@@ -206,7 +206,7 @@ bool GLH::BindTextureUniform(const GLuint &aShaderHandle, const std::string &aUn
     
 }
 
-bool GLH::Bind1FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const float &aValue)
+bool GLH::Bind1FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const float &aValue) noexcept
 {
     GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     
@@ -219,7 +219,7 @@ bool GLH::Bind1FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     
 }
 
-bool GLH::Bind2FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector2 &aVector2)
+bool GLH::Bind2FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector2 &aVector2) noexcept
 {
     GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     
@@ -232,7 +232,7 @@ bool GLH::Bind2FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     
 }
 
-bool GLH::Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector3 &aVector3)
+bool GLH::Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector3 &aVector3) noexcept
 {
     GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     
@@ -246,7 +246,7 @@ bool GLH::Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     
 }
 
-bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector4 &aVector4)
+bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector4 &aVector4) noexcept
 {
     GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     
@@ -260,7 +260,7 @@ bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     
 }
 
-bool GLH::BindMatrix4x4(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Mat4x4 &aMatrix4x4)
+bool GLH::BindMatrix4x4(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Mat4x4 &aMatrix4x4) noexcept
 {
     GLint uniformHandle = glGetUniformLocation(aShaderHandle, aUniformName.c_str());
     
