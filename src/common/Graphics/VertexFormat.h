@@ -33,7 +33,7 @@ namespace GDK
             
         public:
             // Public methods
-            void enableAttributes(const GFXuint &aShaderProgramHandle) noexcept;
+            void enableAttributes(const GFXuint &aShaderProgramHandle) const noexcept;
             int getSumOfAttributeComponents() const noexcept;
             
             // Mutating operators

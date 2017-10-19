@@ -29,11 +29,11 @@ namespace GDK
         public:
             // Public interface
             ///Setup the shader for drawing, emit a handle for use by meshes
-            GFXuint draw();
+            GFXuint draw() const noexcept;
             
             // Accessors
-            std::string getName() const;
-            GFXuint getHandle() const;
+            std::string getName() const noexcept;
+            GFXuint getHandle() const noexcept;
             
             // Mutating operators
             ShaderProgram& operator=(const ShaderProgram&) = delete;
@@ -42,8 +42,8 @@ namespace GDK
             ShaderProgram() = delete;
             ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource);
             ShaderProgram(const ShaderProgram&) = delete;
-            ShaderProgram(ShaderProgram&&);
-            ~ShaderProgram();
+            ShaderProgram(ShaderProgram&&) noexcept;
+            ~ShaderProgram() noexcept;
       
         };
 

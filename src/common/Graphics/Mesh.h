@@ -20,7 +20,7 @@ namespace GDK
          */
         class Mesh final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::Mesh&) noexcept;
             
         public:
             /*!
@@ -43,30 +43,30 @@ namespace GDK
                 Triangles,
                 Lines,
                 Points
-                
             };
             
         private:
             // Data members
-            std::string   m_Name               = "";
+            std::string   m_Name = {};
             
-            GFXuint       m_IndexBufferHandle  = 0;
-            GFXsizei      m_IndexCount         = 0;
+            GFXuint       m_IndexBufferHandle = 0;
+            GFXsizei      m_IndexCount        = 0;
             
             GFXuint       m_VertexBufferHandle = 0;
             GFXsizei      m_VertexCount        = 0;
-            VertexFormat  m_VertexFormat       = VertexFormat::Pos3uv2;
             
-            PrimitiveMode m_PrimitiveMode      = PrimitiveMode::Triangles;
+            VertexFormat  m_VertexFormat = VertexFormat::Pos3uv2;
+            
+            PrimitiveMode m_PrimitiveMode = PrimitiveMode::Triangles;
             
         public:
             // Accessors
-            std::string getName() const;
-            GFXuint getHandle() const;
+            std::string getName() const noexcept;
+            GFXuint getHandle() const noexcept;
             
             // Public functions
-            void draw(const GFXuint aShaderProgramHandle);
-            void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic);
+            void draw(const GFXuint aShaderProgramHandle) const noexcept;
+            void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic) noexcept;
             
             // Mutating operators
             Mesh& operator=(const Mesh&) = default;
@@ -80,7 +80,7 @@ namespace GDK
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::Mesh&);
+        std::ostream& operator<< (std::ostream&, const GFX::Mesh&) noexcept;
         
     }
 

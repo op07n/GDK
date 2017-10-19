@@ -56,7 +56,7 @@ VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes) noex
 })())
 {}
 
-void VertexFormat::enableAttributes(const GFXuint &aShaderProgramHandle) noexcept
+void VertexFormat::enableAttributes(const GFXuint &aShaderProgramHandle) const noexcept
 {
     int attributeOffset = 0;
     

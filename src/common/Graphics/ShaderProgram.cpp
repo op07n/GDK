@@ -31,14 +31,14 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
 : m_Name(aName)
 {
     // Compile vertex stage
-    const char* vertex_shader = aVertexSource.c_str();
+    const char *vertex_shader = aVertexSource.c_str();
     GFXuint vs = 0;
     vs = glCreateShader (GL_VERTEX_SHADER);
     glShaderSource(vs, 1, &vertex_shader, 0);
     glCompileShader(vs);
  
     // Compile fragment stage
-    const char* fragment_shader = aFragmentSource.c_str();
+    const char *fragment_shader = aFragmentSource.c_str();
     GFXuint fs = 0;
     fs = glCreateShader (GL_FRAGMENT_SHADER);
     glShaderSource (fs, 1, &fragment_shader, 0);
@@ -66,13 +66,13 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
         << std::endl << "fragment shader compilation log: " << GLH::GetShaderInfoLog(fs);
         
         Debug::error(message.str());
-        //throw GDK::Exception(shortMessage);
+        throw GDK::Exception(shortMessage);
         
     }
     
 }
 
-ShaderProgram::ShaderProgram(ShaderProgram&& aShaderProgram)
+ShaderProgram::ShaderProgram(ShaderProgram&& aShaderProgram) noexcept
 {
     m_Name = aShaderProgram.m_Name;
     m_ProgramHandle = aShaderProgram.m_ProgramHandle;
@@ -81,14 +81,14 @@ ShaderProgram::ShaderProgram(ShaderProgram&& aShaderProgram)
     
 }
 
-ShaderProgram::~ShaderProgram()
+ShaderProgram::~ShaderProgram() noexcept
 {
     if (m_ProgramHandle > 0)
         glDeleteProgram(m_ProgramHandle);
      
 }
 
-GFXuint ShaderProgram::draw()
+GFXuint ShaderProgram::draw() const noexcept
 {
     glUseProgram(m_ProgramHandle);
     //glDrawCalls();
@@ -97,5 +97,14 @@ GFXuint ShaderProgram::draw()
     
 }
 
-std::string ShaderProgram::getName() const {return m_Name;}
-GFXuint ShaderProgram::getHandle() const {return m_ProgramHandle;}
+std::string ShaderProgram::getName() const noexcept
+{
+    return m_Name;
+
+}
+    
+GFXuint ShaderProgram::getHandle() const noexcept
+{
+    return m_ProgramHandle;
+
+}

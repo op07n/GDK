@@ -19,21 +19,21 @@ namespace GDK
          */
         class MeshManager final : public resource_manager<Mesh>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::MeshManager&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::MeshManager&) noexcept;
       
         public:
             // Mutating operators
             MeshManager& operator=(const MeshManager&) = default;
       
             // Constructors, destructors
-            MeshManager();
+            MeshManager() noexcept;
             MeshManager(const MeshManager&) = default;
             MeshManager(MeshManager&&) = default;
-            virtual ~MeshManager() = default;
+            virtual ~MeshManager() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::MeshManager&);
+        std::ostream& operator<< (std::ostream&, const GFX::MeshManager&) noexcept;
         
     }
 

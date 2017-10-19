@@ -11,7 +11,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a)
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a) noexcept
 {
     s.clear(); s << "{"
     << "Name: "         << a.m_Name               << ", "
@@ -53,7 +53,7 @@ GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPrimitiveM
     
 }
 
-void Mesh::draw(const GFXuint aShaderProgramHandle)
+void Mesh::draw(const GFXuint aShaderProgramHandle) const noexcept
 {
     glBindBuffer( GL_ARRAY_BUFFER, m_VertexBufferHandle);
     
@@ -71,7 +71,7 @@ void Mesh::draw(const GFXuint aShaderProgramHandle)
             primitiveMode,
             m_IndexCount,
             GL_UNSIGNED_SHORT,
-            (void*)0
+            static_cast<void*>(0)
         );
         
     }
@@ -83,10 +83,10 @@ void Mesh::draw(const GFXuint aShaderProgramHandle)
     
 }
 
-void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType)
+void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType) noexcept
 {
     m_VertexFormat = aNewVertexFormat;
-    m_VertexCount  = (GFXsizei)(aNewVertexData.size()/aNewVertexFormat.getSumOfAttributeComponents());
+    m_VertexCount  = static_cast<GFXsizei>(aNewVertexData.size()/aNewVertexFormat.getSumOfAttributeComponents());
     GFXint type = MeshTypeToOpenGLDrawType(aNewType);
     
     glBindBuffer (GL_ARRAY_BUFFER, m_VertexBufferHandle);
@@ -159,5 +159,14 @@ Mesh::Mesh(Mesh&& a)
 }
 
 // Accessors
-std::string Mesh::getName()const{return m_Name;}
-GFXuint Mesh::getHandle()const{return m_VertexBufferHandle;}
+std::string Mesh::getName()const noexcept
+{
+    return m_Name;
+
+}
+
+GFXuint Mesh::getHandle()const noexcept
+{
+    return m_VertexBufferHandle;
+
+}
