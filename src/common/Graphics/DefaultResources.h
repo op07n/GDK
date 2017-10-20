@@ -19,24 +19,24 @@ namespace GDK
             /// Creates the checkeredTextureOfDeath.
             /// Very low resolution tiled texture, alternating white a blue.
             /// Useful as a fallback when the intended texture has failed to load.
-            Memory::default_ptr<Texture> getCheckeredTextureOfDeath();
+            Memory::default_ptr<Texture> getCheckeredTextureOfDeath() noexcept;
             
             /// Creates the PinkShaderOfDeath.
             /// Muls verts through standard MVP but colors all frags an obnoxious fluorescent pink.
             /// Useful as a fallback shader.
-            Memory::default_ptr<ShaderProgram> getPinkShaderOfDeath();
+            Memory::default_ptr<ShaderProgram> getPinkShaderOfDeath() noexcept;
             
             /// Basic alphacutoff shader
-            Memory::default_ptr<ShaderProgram> getAlphaCutOff();
+            Memory::default_ptr<ShaderProgram> getAlphaCutOff() noexcept;
             
             /// Make a unit length quad
-            Memory::default_ptr<Mesh> getQuad();
+            Memory::default_ptr<Mesh> getQuad() noexcept;
             
             /// Make a unit length cube
-            Memory::default_ptr<Mesh> getCube();
+            Memory::default_ptr<Mesh> getCube() noexcept;
             
             /// Make a cylinder
-            Memory::default_ptr<Mesh> getCylinder();
+            Memory::default_ptr<Mesh> getCylinder() noexcept;
             
         }
     

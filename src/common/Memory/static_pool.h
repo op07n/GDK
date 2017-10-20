@@ -19,7 +19,7 @@ namespace GDK
          no unused objects exist, a nullptr is returned.
          */
         template<typename T, size_t length>
-        class static_pool
+        class static_pool final
         {
             // Data members
             std::array<std::shared_ptr<T>,length> m_Pool;
@@ -27,14 +27,13 @@ namespace GDK
         public:
             // Public methods
             /// Try to get an object from the pool, will be null if all objects are in use
-            std::shared_ptr<T> get()
+            std::shared_ptr<T> get() const noexcept
             {
                 for(size_t i=0;i<m_Pool.size();i++)
                     if (m_Pool[i].use_count() == 1)
                         return m_Pool[i];
                 
                 return std::shared_ptr<T>();
-                
             }
             
             // Mutating operators
@@ -50,11 +49,8 @@ namespace GDK
             static_pool(const static_pool&) = delete;
             static_pool(static_pool&&) = delete;
             virtual ~static_pool() = default;
-      
         };
-
     }
-
 }
 
 #endif /* GDK_MEMORY_STATIC_POOL_H  */

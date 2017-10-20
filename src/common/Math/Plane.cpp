@@ -9,13 +9,12 @@ using namespace GDK;
 using namespace Math;
 
 // Stringify
-std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a)
+std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a) noexcept
 {
     s.clear(); s << "{"
     << "position: " << a.position << ", "
     << "normal: "   << a.normal
-    << "}"; return s;
-    
+    << "}"; return s;    
 }
 
 // Constructors

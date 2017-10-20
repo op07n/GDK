@@ -25,7 +25,7 @@ namespace
     
 }
 
-Memory::default_ptr<Texture> DefaultResources::getCheckeredTextureOfDeath()
+Memory::default_ptr<Texture> DefaultResources::getCheckeredTextureOfDeath() noexcept
 {
     if (!checkeredTextureOfDeath)
     {
@@ -54,7 +54,7 @@ Memory::default_ptr<Texture> DefaultResources::getCheckeredTextureOfDeath()
     
 }
 
-Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath()
+Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath() noexcept
 {
     if (!pinkShaderOfDeath)
     {
@@ -97,7 +97,7 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath()
     
 }
 
-Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff()
+Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff() noexcept
 {
     if (!alphaCutOff)
     {
@@ -155,7 +155,7 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff()
     
 }
 
-Memory::default_ptr<Mesh> DefaultResources::getQuad()
+Memory::default_ptr<Mesh> DefaultResources::getQuad() noexcept
 {
     if (!quad)
     {
@@ -181,7 +181,7 @@ Memory::default_ptr<Mesh> DefaultResources::getQuad()
     
 }
 
-Memory::default_ptr<Mesh> DefaultResources::getCube()
+Memory::default_ptr<Mesh> DefaultResources::getCube() noexcept
 {
     if (!cube)
     {
@@ -242,7 +242,7 @@ Memory::default_ptr<Mesh> DefaultResources::getCube()
     
 }
 
-Memory::default_ptr<Mesh> DefaultResources::getCylinder()
+Memory::default_ptr<Mesh> DefaultResources::getCylinder() noexcept
 {
     if (!cylinder)
     {

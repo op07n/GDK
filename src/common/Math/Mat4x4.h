@@ -24,10 +24,10 @@ namespace GDK
             float m[4][4] = {};
             
             // Mutating operations
-            void setIdentity();
+            void setIdentity() noexcept;
             
             void setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
-            void setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
+            void setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio) noexcept;
             
             void translate(const Vector3 &aTranslation);
             void rotate(const Quaternion &aRotation);
@@ -63,13 +63,10 @@ namespace GDK
             
             // Special values
             static const Mat4x4 Identity;
-            
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::Mat4x4&);
-        
+        std::ostream& operator<< (std::ostream&, const Math::Mat4x4&) noexcept;
     }
-    
 }
 
 #endif /* GDK_MATH_MAT4x4_H */

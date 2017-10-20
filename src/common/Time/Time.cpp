@@ -14,13 +14,11 @@ static double lastTime(0.);
 double Time::getTime(void) noexcept
 {
     return glfwGetTime();
-
 }
 
 double Time::getDeltaTime(void) noexcept
 {
     return currentTime;
-    
 }
 
 double Time::updateDeltaTime(void) noexcept
@@ -31,5 +29,4 @@ double Time::updateDeltaTime(void) noexcept
     lastTime = glfwGetTime();
 
     return time;
-
 }

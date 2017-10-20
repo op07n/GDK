@@ -23,7 +23,7 @@ static constexpr auto TAG = "Mat4x4";
 const Mat4x4 Mat4x4::Identity = Mat4x4();
 
 //Stringify
-std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
+std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat) noexcept
 {
     s.clear();s
     << "{" << aMat.m[0][0] << ", " << aMat.m[1][0] << ", " << aMat.m[2][0] << ", " << aMat.m[3][0] << "}\n"
@@ -34,7 +34,7 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
     
 }
 
-void Mat4x4::setIdentity()
+void Mat4x4::setIdentity() noexcept
 {
     m[0][0] = 1.; m[1][0] = 0.; m[2][0] = 0.; m[3][0] = 0.;
     m[0][1] = 0.; m[1][1] = 1.; m[2][1] = 0.; m[3][1] = 0.;
@@ -157,7 +157,7 @@ void Mat4x4::scale(const Vector3 &aPosition)
     
 }
 
-void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio) noexcept
 {
     float tanHalfFovy = (float)tan(aFieldOfView * 0.5f);
     m[0][0] = 1.0f / (aViewportAspectRatio * tanHalfFovy);
@@ -176,7 +176,6 @@ void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippin
     m[3][1] = 0.0f;
     m[3][2] =-2.0f * aFarClippingPlane * aNearClippingPlane / (aFarClippingPlane - aNearClippingPlane);
     m[3][3] = 0.0f;
-    
 }
 
 void Mat4x4::transpose()

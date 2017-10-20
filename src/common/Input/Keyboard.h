@@ -20,7 +20,7 @@ namespace GDK
          */
         class Keyboard final
         {
-            friend std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
+            friend std::ostream& operator<< (std::ostream&, const Input::Keyboard&) noexcept;
             
             // Data members
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
@@ -75,18 +75,15 @@ namespace GDK
             Keyboard& operator=(const Keyboard&) = default;
       
             // Constructors, destructors
-            Keyboard(const GFX::Window&);
+            Keyboard(const GFX::Window&) noexcept;
             Keyboard() = delete;
             Keyboard(const Keyboard&) = default;
             Keyboard(Keyboard&&) = default;
             ~Keyboard() = default;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const Input::Keyboard&);
-        
+        std::ostream& operator<< (std::ostream&, const Input::Keyboard&) noexcept;
     }
-
 }
 
 #endif /* GDK_INPUT_KEYBOARD_H  */

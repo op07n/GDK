@@ -17,17 +17,17 @@ namespace GDK
         struct Color final
         {
             // Data
-            float r = 0.f,g = 0.f,b = 0.f,a = 0.f;
+            float r = 0.f, g = 0.f, b = 0.f, a = 0.f;
             
             // instancing rules
-            Color();
-            Color(const float &aR, const float &aG, const float &aB, const float &aA = 1.);
-            Color(const Color&) = default;
-            Color(Color&&) = default;
-            ~Color() = default;
+            Color() noexcept;
+            Color(const float &aR, const float &aG, const float &aB, const float &aA = 1.) noexcept;
+            Color(const Color&) noexcept = default;
+            Color(Color&&) noexcept = default;
+            ~Color() noexcept = default;
             
             // Mutating operators
-            Color& operator=(const Color &aColor) = default;
+            Color& operator=(const Color &aColor) noexcept = default;
             
             // Special colors
             static const Color Black;
@@ -41,7 +41,7 @@ namespace GDK
             
         };
         
-        std::ostream& operator<< (std::ostream& stream, const GFX::Color& aColor);
+        std::ostream& operator<< (std::ostream& stream, const GFX::Color& aColor) noexcept;
         
     }
     

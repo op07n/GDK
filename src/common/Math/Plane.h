@@ -30,13 +30,10 @@ namespace GDK
             Plane(const Plane&) noexcept = default;
             Plane(Plane&&) noexcept = default;
             ~Plane() noexcept = default;
-            
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::Plane&);
-        
+        std::ostream& operator<< (std::ostream&, const Math::Plane&) noexcept;
     }
-    
 }
 
 #endif /* GDK_MATH_PLANE_H */

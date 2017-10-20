@@ -24,11 +24,11 @@ namespace GDK
             float x = 0.0f, y = 0.0f, z = 0.0f, w = 1.0f;
             
             // Euler convenience
-            void setFromEuler(const Vector3& aEulers);
-            Math::Vector3 toEuler(void) const;
+            void setFromEuler(const Vector3& aEulers) noexcept;
+            Math::Vector3 toEuler(void) const noexcept;
             
             // Mutating operators
-            Quaternion& operator=(const Quaternion&) = default;
+            Quaternion& operator=(const Quaternion&) noexcept = default;
             
             // Constructors & Destructors
             Quaternion(const Vector3&) noexcept;
@@ -40,13 +40,10 @@ namespace GDK
             
             // Special values
             static const Quaternion Identity;
-            
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::Quaternion&);
-        
+        std::ostream& operator<< (std::ostream&, const Math::Quaternion&) noexcept;
     }
-    
 }
 
 #endif /* GDK_MATH_QUATERNION_H */

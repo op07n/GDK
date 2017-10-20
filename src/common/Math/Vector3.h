@@ -21,22 +21,21 @@ namespace GDK
             // Data members
             float x = 0.0f, y = 0.0f, z = 0.0f;
             
-            float length(void) const;
-            void normalize(void);
-            //void normalizeAndScale(const float &aScalar);
+            float length(void) const noexcept;
+            void normalize(void) noexcept;
             
             // Non mutating operators
-            bool operator==(const Vector3&) const;
-            bool operator!=(const Vector3&) const;
-            Vector3 operator+(const Vector3&) const;
-            Vector3 operator-(const Vector3&) const;
-            Vector3 operator*(const float&) const;
+            bool operator==(const Vector3&) const noexcept;
+            bool operator!=(const Vector3&) const noexcept;
+            Vector3 operator+(const Vector3&) const noexcept;
+            Vector3 operator-(const Vector3&) const noexcept;
+            Vector3 operator*(const float&) const noexcept;
             
             // Mutating operators
-            Vector3& operator+=(const Vector3&);
-            Vector3& operator-=(const Vector3&);
-            Vector3& operator*=(const float&);
-            Vector3& operator=(const Vector3&) = default;
+            Vector3& operator+=(const Vector3&) noexcept;
+            Vector3& operator-=(const Vector3&) noexcept;
+            Vector3& operator*=(const float&) noexcept;
+            Vector3& operator=(const Vector3&) noexcept = default;
             
             // Constructors & Destructors
             Vector3(const float &aX, const float &aY, const float &aZ) noexcept;
@@ -53,13 +52,10 @@ namespace GDK
             static const Vector3 Forward;
             static const Vector3 Backward;
             static const Vector3 Zero;
-            
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::Vector3&);
-        
+        std::ostream& operator<< (std::ostream&, const Math::Vector3&) noexcept;
     }
-    
 }
 
 #endif /* GDK_MATH_VECTOR3_H */

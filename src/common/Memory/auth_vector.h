@@ -81,15 +81,12 @@ namespace GDK
             auth_vector& operator=(const auth_vector&) = delete;
             
             // Constructors, destructors
-            auth_vector() = default;
+            auth_vector() noexcept = default;
             auth_vector(const auth_vector&) = delete;
-            auth_vector(auth_vector&&) = default;
-            ~auth_vector() = default;
-            
+            auth_vector(auth_vector&&) noexcept = default;
+            ~auth_vector() noexcept = default;
         };
-        
     }
-
 }
 
 #endif /* GDK_MEMORY_AUTH_VECTOR_H  */

@@ -66,11 +66,8 @@ namespace GDK
             dynamic_pool(const dynamic_pool&) = delete;
             dynamic_pool(dynamic_pool&&) = delete;
             virtual ~dynamic_pool() = default;
-      
         };
-    
     }
-
 }
 
 #endif /* GDK_MEMORY_DYNAMIC_POOL_H  */

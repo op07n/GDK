@@ -40,14 +40,12 @@ namespace GDK
                     return Memory::default_ptr<T>(m_Default,it->second);
                 
                 return Memory::default_ptr<T>(m_Default);
-            
             }
             
             ///Add a new object to be managed
             void add(T &&t)
             {
                 m_Map.insert({t.getName(),std::make_shared<T>(std::move(t))});
-                
             }
             
             ///Destroy the managed object with the given name
@@ -73,11 +71,8 @@ namespace GDK
             resource_manager(const resource_manager&) = delete;
             resource_manager(resource_manager&&) = default;
             virtual ~resource_manager() = default;
-      
         };
-    
     }
-
 }
 
 #endif /* GDK_GFX_RESOURCEMANAGER_H  */

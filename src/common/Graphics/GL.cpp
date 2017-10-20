@@ -243,7 +243,6 @@ bool GLH::Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     
     return true;
     
-    
 }
 
 bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector4 &aVector4) noexcept
@@ -256,7 +255,6 @@ bool GLH::Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUni
     glUniform4f(uniformHandle, aVector4.x, aVector4.y, aVector4.z, aVector4.w);
     
     return true;
-    
     
 }
 

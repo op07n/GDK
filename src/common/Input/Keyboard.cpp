@@ -16,19 +16,7 @@ using namespace Input;
 
 static constexpr auto TAG = "Keyboard";
 
-std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Keyboard& a)
-{
-    s.clear(); s << "{"
-    << "m_HandleToGLFWWindow: ";
-    if (auto ptr = a.m_HandleToGLFWWindow.lock())
-        s << ptr;
-    else
-        s << "null";
-    s << "}"; return s;
-
-}
-
-static int glfwKeyCodeFromKey(const Keyboard::Key &a)
+static inline int glfwKeyCodeFromKey(const Keyboard::Key &a) noexcept
 {
     switch(a)
     {
@@ -49,6 +37,7 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
         case Keyboard::Key::PrintScreen:  return GLFW_KEY_PRINT_SCREEN;
         case Keyboard::Key::ScrollLock:   return GLFW_KEY_SCROLL_LOCK;
         case Keyboard::Key::PauseBreak:   return GLFW_KEY_PAUSE;
+        
         //Alphabetical characters
         case Keyboard::Key::Q:            return GLFW_KEY_Q;
         case Keyboard::Key::W:            return GLFW_KEY_W;
@@ -76,6 +65,7 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
         case Keyboard::Key::B:            return GLFW_KEY_B;
         case Keyboard::Key::N:            return GLFW_KEY_N;
         case Keyboard::Key::M:            return GLFW_KEY_M;
+        
         //Number row
         case Keyboard::Key::One:          return GLFW_KEY_1;
         case Keyboard::Key::Two:          return GLFW_KEY_2;
@@ -93,6 +83,7 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
         case Keyboard::Key::Backspace:    return GLFW_KEY_BACKSPACE;
         case Keyboard::Key::Home:         return GLFW_KEY_HOME;
         case Keyboard::Key::End:          return GLFW_KEY_END;
+        
         //Q row
         case Keyboard::Key::Tab:          return GLFW_KEY_TAB;
         case Keyboard::Key::OpenBracket:  return GLFW_KEY_LEFT_BRACKET;
@@ -100,6 +91,7 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
         case Keyboard::Key::Backslash:    return GLFW_KEY_BACKSLASH;
         case Keyboard::Key::Insert:       return GLFW_KEY_INSERT;
         case Keyboard::Key::PageUp:       return GLFW_KEY_PAGE_UP;
+        
         //A row
         case Keyboard::Key::Capslock:     return GLFW_KEY_CAPS_LOCK;
         case Keyboard::Key::SemiColon:    return GLFW_KEY_SEMICOLON;
@@ -107,23 +99,27 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
         case Keyboard::Key::Enter:        return GLFW_KEY_ENTER;
         case Keyboard::Key::Delete:       return GLFW_KEY_DELETE;
         case Keyboard::Key::PageDown:     return GLFW_KEY_PAGE_DOWN;
+            
         //Z row
         case Keyboard::Key::LeftShift:    return GLFW_KEY_LEFT_SHIFT;
         case Keyboard::Key::Comma:        return GLFW_KEY_COMMA;
         case Keyboard::Key::Period:       return GLFW_KEY_PERIOD;
         case Keyboard::Key::ForwardSlash: return GLFW_KEY_SLASH;
         case Keyboard::Key::RightShift:   return GLFW_KEY_RIGHT_SHIFT;
+        
         //Bottom row
         case Keyboard::Key::LeftControl:  return GLFW_KEY_LEFT_CONTROL;
         case Keyboard::Key::LeftAlt:      return GLFW_KEY_LEFT_ALT;
         case Keyboard::Key::Space:        return GLFW_KEY_SPACE;
         case Keyboard::Key::RightAlt:     return GLFW_KEY_RIGHT_ALT;
         case Keyboard::Key::RightControl: return GLFW_KEY_RIGHT_CONTROL;
+        
         //Arrow keys
         case Keyboard::Key::LeftArrow:    return GLFW_KEY_LEFT;
         case Keyboard::Key::RightArrow:   return GLFW_KEY_RIGHT;
         case Keyboard::Key::UpArrow:      return GLFW_KEY_UP;
         case Keyboard::Key::DownArrow:    return GLFW_KEY_DOWN;
+        
         //Numpad
         case Keyboard::Key::Numlock:      return GLFW_KEY_NUM_LOCK;
         case Keyboard::Key::NumSlash:     return GLFW_KEY_SLASH;
@@ -142,10 +138,26 @@ static int glfwKeyCodeFromKey(const Keyboard::Key &a)
         case Keyboard::Key::NumEnter:     return GLFW_KEY_KP_ENTER;
         case Keyboard::Key::Num0:         return GLFW_KEY_KP_0;
         case Keyboard::Key::NumPeriod:    return GLFW_KEY_KP_DECIMAL;
-            
     }
-    
 }
+
+std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Keyboard& a) noexcept
+{
+    s.clear(); s
+    << "{"
+    << "m_HandleToGLFWWindow: ";
+    
+    if (auto ptr = a.m_HandleToGLFWWindow.lock())
+        s << ptr;
+    else
+        s << "nullptr";
+    
+    s << "}"; return s;
+}
+
+Keyboard::Keyboard(const GFX::Window& aWindow) noexcept
+: m_HandleToGLFWWindow(aWindow.getHandleToGLFWWindow())
+{}
 
 bool Keyboard::getKeyDown(const Key &aKeyCode) const
 {
@@ -153,15 +165,9 @@ bool Keyboard::getKeyDown(const Key &aKeyCode) const
         return glfwGetKey(ptr.get(), glfwKeyCodeFromKey(aKeyCode));
 
     throw GDK::Exception(TAG, "The keyboard's window has died!");
-    
 }
 
 bool Keyboard::getKey(const Key &aKeyCode) const
 {
     throw GDK::Exception(TAG, "Keyboard::getKey(const Key &aKeyCode) not implemented");
-
 }
-
-Keyboard::Keyboard(const GFX::Window& aWindow)
-: m_HandleToGLFWWindow(aWindow.getHandleToGLFWWindow())
-{}

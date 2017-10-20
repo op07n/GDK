@@ -31,7 +31,7 @@ namespace GDK
       
             // Constructors, destructors
             Mat4x4UniformCollection() noexcept = default;
-            Mat4x4UniformCollection(const Mat4x4UniformCollection&) noexcept = delete;
+            Mat4x4UniformCollection(const Mat4x4UniformCollection&) = delete;
             Mat4x4UniformCollection(Mat4x4UniformCollection&&) noexcept = default;
             ~Mat4x4UniformCollection() noexcept = default;
       

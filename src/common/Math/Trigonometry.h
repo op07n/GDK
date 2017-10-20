@@ -13,26 +13,22 @@ namespace GDK
          */
         namespace Trig
         {
-            extern const float  PI;
+            extern const float PI;
             
-            float cos(const float&);
-            float sin(const float&);
-            float abs(const float&);
+            float cos(const float&) noexcept;
+            float sin(const float&) noexcept;
+            float abs(const float&) noexcept;
             
             namespace Double
             {
                 extern const double PI;
                 
-                double cos(const double&);
-                double sin(const double&);
-                double abs(const double&);
-                
+                double cos(const double&) noexcept;
+                double sin(const double&) noexcept;
+                double abs(const double&) noexcept;
             }
-      
         }
-
     }
-
 }
 
 #endif /* GDK_MATH_TRIGONOMETRY_H  */

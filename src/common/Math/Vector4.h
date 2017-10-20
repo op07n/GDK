@@ -22,11 +22,11 @@ namespace GDK
             float x = 0.0f, y = 0.0f, z = 0.0f, w = 1.0f;
             
             //Mutating operators
-            bool operator==(const Vector4&) const;
-            bool operator!=(const Vector4&) const;
-            Vector4& operator+=(const Vector4&);
-            Vector4& operator*=(const float&);
-            Vector4& operator=(const Vector4&) = default;
+            bool operator==(const Vector4&) const noexcept;
+            bool operator!=(const Vector4&) const noexcept;
+            Vector4& operator+=(const Vector4&) noexcept;
+            Vector4& operator*=(const float&) noexcept;
+            Vector4& operator=(const Vector4&) noexcept = default;
             
             // Constructors & Destructors
             Vector4(const Vector3& aVector3, const float &aW = 1.) noexcept;
@@ -38,13 +38,10 @@ namespace GDK
             
             // Special values
             static const Vector4 Zero;
-            
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::Vector4&);
-        
+        std::ostream& operator<< (std::ostream&, const Math::Vector4&) noexcept;
     }
-    
 }
 
 #endif /* GDK_MATH_VECTOR4_H */

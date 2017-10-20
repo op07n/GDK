@@ -17,7 +17,7 @@ using namespace Input;
 
 static constexpr auto TAG = "Mouse";
 
-std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Mouse& a)
+std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Mouse& a) noexcept
 {
     s.clear(); s << "{"
     << "m_HandleToGLFWWindow: ";
@@ -26,10 +26,13 @@ std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Mouse& a)
     else
         s << "null";
     s << "}"; return s;
-
 }
+    
+Mouse::Mouse(const GFX::Window &aWindow) noexcept
+: m_HandleToGLFWWindow(aWindow.getHandleToGLFWWindow())
+{}
 
-static int glfwMouseButtonFromButton(const Mouse::Button &a)
+static inline int glfwMouseButtonFromButton(const Mouse::Button &a) noexcept
 {
     switch(a)
     {
@@ -41,9 +44,7 @@ static int glfwMouseButtonFromButton(const Mouse::Button &a)
         case Mouse::Button::Six:    return GLFW_MOUSE_BUTTON_6;
         case Mouse::Button::Seven:  return GLFW_MOUSE_BUTTON_7;
         case Mouse::Button::Eight:  return GLFW_MOUSE_BUTTON_8;
-        
     }
-    
 }
 
 bool Mouse::getButtonDown(const Button &aButton) const
@@ -52,7 +53,6 @@ bool Mouse::getButtonDown(const Button &aButton) const
         return glfwGetMouseButton(ptr.get(), glfwMouseButtonFromButton(aButton));
     
     throw GDK::Exception(TAG, "The mouse's window has died!");
-    
 }
 
 Math::Vector2 Mouse::getCursorPosition() const
@@ -62,19 +62,12 @@ Math::Vector2 Mouse::getCursorPosition() const
         double x,y;
         glfwGetCursorPos(ptr.get(),&x,&y);
         return Math::Vector2((float)x,(float)y);
-        
     }
     
     throw GDK::Exception(TAG, "The mouse's window has died!");
-    
 }
 
 bool Mouse::getButton(const Button &aKeyCode) const
 {
     throw GDK::Exception(TAG, "Mouse::getButton(const Button &aKeyCode) not implemented");
-
 }
-
-Mouse::Mouse(const GFX::Window &aWindow)
-: m_HandleToGLFWWindow(aWindow.getHandleToGLFWWindow())
-{}

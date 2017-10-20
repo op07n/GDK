@@ -23,21 +23,21 @@ namespace GDK
             // Data members
             int x = 0, y = 0;
             
-            Vector2 toVector2() const;
+            Vector2 toVector2() const noexcept;
             
             // Non mutating operators
-            bool operator==(const IntVector2&) const;
-            bool operator!=(const IntVector2&) const;
-            IntVector2 operator+(const IntVector2&) const;
-            IntVector2 operator-(const IntVector2&) const;
-            IntVector2 operator*(const float &aScalar) const;
-            IntVector2 operator*(const Vector2& aVector2) const;
+            bool operator==(const IntVector2&) const noexcept;
+            bool operator!=(const IntVector2&) const noexcept;
+            IntVector2 operator+(const IntVector2&) const noexcept;
+            IntVector2 operator-(const IntVector2&) const noexcept;
+            IntVector2 operator*(const float &aScalar) const noexcept;
+            IntVector2 operator*(const Vector2& aVector2) const noexcept;
             
             // Mutating operators
-            IntVector2& operator+=(const IntVector2&);
-            IntVector2& operator-=(const IntVector2&);
-            IntVector2& operator*=(const float&);
-            IntVector2& operator=(const IntVector2&) = default;
+            IntVector2& operator+=(const IntVector2&) noexcept;
+            IntVector2& operator-=(const IntVector2&) noexcept;
+            IntVector2& operator*=(const float&) noexcept;
+            IntVector2& operator=(const IntVector2&) noexcept = default;
             
             // Constructors & Destructors
             IntVector2(const int &aX, const int &aY) noexcept;
@@ -52,13 +52,10 @@ namespace GDK
             static const IntVector2 Left;
             static const IntVector2 Right;
             static const IntVector2 Zero;
-            
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::IntVector2&);
-        
+        std::ostream& operator<< (std::ostream&, const Math::IntVector2&) noexcept;
     }
-    
 }
 
 #endif /* GDK_MATH_INTVECTOR2_H */

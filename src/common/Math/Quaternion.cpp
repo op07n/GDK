@@ -4,6 +4,7 @@
 #include "Quaternion.h"
 //math inc
 #include "Vector3.h"
+#include "Math/Trigonometry.h"
 //implementation inc
 #include <glm/gtc/quaternion.hpp>
 //std inc
@@ -16,7 +17,7 @@ using namespace Math;
 const Quaternion Quaternion::Identity = Quaternion();
 
 //stringify
-std::ostream& GDK::Math::operator<< (std::ostream& s, const Math::Quaternion& a)
+std::ostream& GDK::Math::operator<< (std::ostream& s, const Math::Quaternion& a) noexcept
 {
     s.clear(); s << "{"
     << "x: " << a.x << ", "
@@ -24,7 +25,6 @@ std::ostream& GDK::Math::operator<< (std::ostream& s, const Math::Quaternion& a)
     << "z: " << a.z << ", "
     << "w: " << a.w
     << "}"; return s;
-    
 }
 
 //ctors
@@ -34,14 +34,12 @@ Quaternion::Quaternion() noexcept : x(0.), y(0.), z(0.), w(1.)
 Quaternion::Quaternion(const Vector3 &aEulerAngles) noexcept
 {
     setFromEuler(aEulerAngles);
-    
 }
-#include "Math/Trigonometry.h"
+
 //Euler convenience
-void Quaternion::setFromEuler(const Vector3 &aaEulerAngles)
+void Quaternion::setFromEuler(const Vector3 &aaEulerAngles) noexcept
 {
     Vector3 aEulerAngles = aaEulerAngles;
-    //aEulerAngles *= Math::Trig::PI/180.f;
     
     glm::quat quat;
     quat = glm::rotate(quat, aEulerAngles.x, glm::vec3(1.0f, 0.0f, 0.0f));
@@ -52,22 +50,12 @@ void Quaternion::setFromEuler(const Vector3 &aaEulerAngles)
     y = quat.y;
     z = quat.z;
     w = quat.w;
-    
 }
 
-Vector3 Quaternion::toEuler(void) const
+Vector3 Quaternion::toEuler(void) const noexcept
 {
     glm::quat quaternion(w, x, y, z);
     glm::vec3 euler = glm::eulerAngles(quaternion);
     
-    //euler *= 180.f/Math::Trig::PI;
-    
-    return Vector3
-    (
-     euler.x,
-     euler.y,
-     euler.z
-     
-     );
-    
+    return {euler.x, euler.y, euler.z};
 }

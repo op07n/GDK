@@ -18,14 +18,14 @@ const Color Color::Blue       (0.0f,0.0f,1.0f,1.0f);
 const Color Color::DeathlyPink(1.0f,0.2f,0.8f,1.0f);
 const Color Color::CornflowerBlue
 (
- 0.3921568627450980392156862745098f,
- 0.58431372549019607843137254901961f,
- 0.92941176470588235294117647058824f,
- 1.0f
- );
+    0.3921568627450980392156862745098f,
+    0.58431372549019607843137254901961f,
+    0.92941176470588235294117647058824f,
+    1.0f
+);
 
 //operators
-std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Color& a)
+std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Color& a) noexcept
 {
     s.clear(); s << "{"
     << a.r << ", "
@@ -37,14 +37,14 @@ std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Color& a)
 }
 
 //ctors
-Color::Color()
+Color::Color() noexcept
 : r(0.)
 , g(0.)
 , b(0.)
 , a(1.)
 {}
 
-Color::Color(const float &aR, const float &aG, const float &aB, const float &aA)
+Color::Color(const float &aR, const float &aG, const float &aB, const float &aA) noexcept
 : r(aR)
 , g(aG)
 , b(aB)

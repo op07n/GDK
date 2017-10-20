@@ -31,7 +31,6 @@ namespace GDK
                     return ptr;
                 
                 return m_Default;
-                
             }
             
             // Mutating operators
@@ -47,11 +46,8 @@ namespace GDK
             default_ptr(const default_ptr&) noexcept = default;
             default_ptr(default_ptr&&) noexcept = default;
             ~default_ptr() noexcept = default;
-            
         };
-    
     }
-    
 }
 
 #endif /* GDK_MEMORY_DEFAULT_PTR_H */

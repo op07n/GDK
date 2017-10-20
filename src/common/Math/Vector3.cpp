@@ -19,14 +19,13 @@ const Vector3 Vector3::Backward = Vector3( 0.f, 0.f,-1.f);
 const Vector3 Vector3::Zero     = Vector3( 0.f, 0.f, 0.f);
 
 //stringify
-std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a)
+std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a) noexcept
 {
     s.clear(); s << "{"
     << "x: " << a.x << ", "
     << "y: " << a.y << ", "
     << "z: " << a.z
     << "}"; return s;
-    
 }
 
 //ctors
@@ -37,79 +36,79 @@ Vector3::Vector3(const float &aX, const float &aY, const float &aZ) noexcept
 {}
 
 //operators
-Vector3 Vector3::operator+(const Vector3 &aVector) const
+Vector3 Vector3::operator+(const Vector3 &aVector) const noexcept
 {
-    return Vector3(aVector.x + x, aVector.y + y, aVector.z + z);
-    
+    return
+    {
+        aVector.x + x,
+        aVector.y + y,
+        aVector.z + z
+    };
 }
 
-Vector3 Vector3::operator-(const Vector3 &aVector) const
+Vector3 Vector3::operator-(const Vector3 &aVector) const noexcept
 {
-    return Vector3(aVector.x - x, aVector.y - y, aVector.z - z);
-    
+    return
+    {
+        aVector.x - x,
+        aVector.y - y,
+        aVector.z - z
+    };
 }
 
-bool Vector3::operator==(const Vector3 &a) const
+bool Vector3::operator==(const Vector3 &a) const noexcept
 {
     return x == a.x && y == a.y && z == a.z ? true : false;
-    
 }
 
-bool Vector3::operator!=(const Vector3 &a) const
+bool Vector3::operator!=(const Vector3 &a) const noexcept
 {
     return x != a.x || y != a.y || z != a.z ? true : false;
-    
 }
 
-Vector3& Vector3::operator+=(const Vector3 &aVector)
+Vector3& Vector3::operator+=(const Vector3 &aVector) noexcept
 {
     x += aVector.x;
     y += aVector.y;
     z += aVector.z;
     
     return *this;
-    
 }
 
-Vector3& Vector3::operator-=(const Vector3 &aVector)
+Vector3& Vector3::operator-=(const Vector3 &aVector) noexcept
 {
     x -= aVector.x;
     y -= aVector.y;
     z -= aVector.z;
     
     return *this;
-    
 }
 
-Vector3 Vector3::operator*(const float &aScalar) const
+Vector3 Vector3::operator*(const float &aScalar) const noexcept
 {
-    return Vector3
-    (
-     x * aScalar,
-     y * aScalar,
-     z * aScalar
-     
-     );
-    
+    return
+    {
+        x * aScalar,
+        y * aScalar,
+        z * aScalar
+    };
 }
 
-Vector3& Vector3::operator*=(const float &aScalar)
+Vector3& Vector3::operator*=(const float &aScalar) noexcept
 {
     x *= aScalar;
     y *= aScalar;
     z *= aScalar;
     
     return *this;
-    
 }
 
-float Vector3::length(void) const
+float Vector3::length(void) const noexcept
 {
     return sqrt( (x*x) + (y*y) + (z*z) );
-    
 }
 
-void Vector3::normalize(void)
+void Vector3::normalize(void) noexcept
 {
     float magnitude = Vector3::length();
     
@@ -119,12 +118,4 @@ void Vector3::normalize(void)
     x /= magnitude;
     y /= magnitude;
     z /= magnitude;
-    
 }
-
-/*void Vector3::normalizeAndScale(const float &aScalar)
-{
-    normalize();
-    operator*=(aScalar);
-    
-}*/

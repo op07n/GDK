@@ -19,7 +19,7 @@ namespace GDK
          */
         class FloatUniformCollection final : public UniformCollection<std::shared_ptr<float>>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&);
+            friend std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&) noexcept;
       
         public:
             // Public methods
@@ -30,14 +30,14 @@ namespace GDK
             FloatUniformCollection& operator=(const FloatUniformCollection&) = delete;
       
             // Constructors, destructors
-            FloatUniformCollection() = default;
+            FloatUniformCollection() noexcept = default;
             FloatUniformCollection(const FloatUniformCollection&) = delete;
             FloatUniformCollection(FloatUniformCollection&&) = delete;
-            ~FloatUniformCollection() = default;
+            ~FloatUniformCollection() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&);
+        std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&) noexcept;
         
     }
 

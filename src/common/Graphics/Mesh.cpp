@@ -101,7 +101,7 @@ void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const V
 // Constructors & Destructors
 Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData, const PrimitiveMode &aPrimitiveMode)
 : m_Name(aName)
-, m_IndexBufferHandle([aIndexData,aType]() -> GFXuint
+, m_IndexBufferHandle([&aIndexData, &aType]() -> GFXuint
 {
     //Create and populate the IBO
     GFXuint ibo = 0;
@@ -123,7 +123,7 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
     
 }())
 , m_IndexCount((GFXsizei)aIndexData.size())
-, m_VertexBufferHandle([aVertexData,aType]() -> GFXuint
+, m_VertexBufferHandle([&aVertexData, &aType]() -> GFXuint
 {
     if (aVertexData.size() <= 0)
         throw GDK::Exception(TAG, "bad vertex data");

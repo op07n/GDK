@@ -83,15 +83,12 @@ namespace GDK
             auth_map& operator=(const auth_map&) = delete;
       
             // Constructors, destructors
-            auth_map() = default;
+            auth_map() noexcept = default;
             auth_map(const auth_map&) = delete;
-            auth_map(auth_map&&) = default;
-            ~auth_map() = default;
-      
+            auth_map(auth_map&&) noexcept = default;
+            ~auth_map() noexcept = default;
         };
-        
     }
-
 }
 
 #endif /* GDK_MEMORY_AUTH_MAP_H  */
