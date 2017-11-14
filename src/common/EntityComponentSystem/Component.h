@@ -59,7 +59,7 @@ namespace GDK
             Component(const Component&) = delete;
             Component(Component&&) = delete;
         public:
-            virtual ~Component() = default;
+            virtual ~Component() noexcept = default;
       
         };
 

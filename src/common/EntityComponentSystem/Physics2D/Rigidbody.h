@@ -122,7 +122,7 @@ namespace GDK
                 void freezeAxis(const AxisFreezeMode&);
 
                 // Constructors, destructors
-                virtual ~Rigidbody();
+                virtual ~Rigidbody() noexcept;
 
             };
 

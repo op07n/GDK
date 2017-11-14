@@ -27,30 +27,25 @@ std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream& s, const GDK::ECS::P
     // << "m_Member: " << a.m_Member << ", "
     << "Rigidbody's: " << "operator<< has not been implemented"
     << "}"; return s;
-
 }
 
 void Rigidbody::onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent)
 {
     buildFixtures();
-    
 }
 
 void Rigidbody::onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent)
 {
     buildFixtures();
-    
 }
 
 void Rigidbody::initialize()
 {
     buildFixtures();
-
 }
 
 void Rigidbody::update()
 {
-
 
 }
 #include "Math/Trigonometry.h"
@@ -366,20 +361,17 @@ void Rigidbody::clearForces()
 {
     m_Body->SetLinearVelocity({0,0});
     m_Body->SetAngularVelocity(0);
-    
 }
 
 void Rigidbody::deleteAndClearFixtures()
 {
-    for(size_t i = 0, s = m_Fixtures.size(); i < s; i++)
+    for(auto fixture : m_Fixtures)
     {
-        delete (std::weak_ptr<Collider>*)m_Fixtures[i]->GetUserData();
-        m_Body->DestroyFixture(&*m_Fixtures[i]);
-        
+        delete static_cast<std::weak_ptr<Collider>*>(fixture->GetUserData());
+        m_Body->DestroyFixture(&*fixture);
     }
     
     m_Fixtures.clear();
-    
 }
 
 void Rigidbody::onAddedToGameObject(const std::weak_ptr<GameObject> &a)
@@ -396,7 +388,6 @@ void Rigidbody::onAddedToGameObject(const std::weak_ptr<GameObject> &a)
     m_BodyDef.userData = this;
         
     buildBody();
-    
 }
 
 Rigidbody::~Rigidbody()
@@ -409,5 +400,4 @@ Rigidbody::~Rigidbody()
     
     if (m_AxisFreezeJoint)
         delete m_AxisFreezeJoint;
-    
 }
