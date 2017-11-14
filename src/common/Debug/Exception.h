@@ -17,7 +17,7 @@ namespace GDK
     struct Exception : public std::runtime_error
     {
         // Mutating operators
-        Exception& operator=(const Exception&) noexcept = default;
+        Exception &operator=(const Exception&) noexcept = default;
         
         // Constructors, destructors
         Exception(const std::string &aTag, const std::string &aMessage) noexcept;

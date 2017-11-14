@@ -8,49 +8,46 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::SceneManager& a)
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::SceneManager &a) noexcept
 {
     s.clear(); s << "{"
     // << "m_Member: " << a.m_Member << ", "
     << "SceneManager's: " << "operator<< has not been implemented"
     << "}"; return s;
-
 }
 
-std::weak_ptr<Scene> SceneManager::addScene(const std::string &aName)
+std::weak_ptr<Scene> SceneManager::addScene(const std::string &aName) noexcept
 {
     auto newScene = std::make_shared<Scene>(Scene(aName));
     m_Scenes.insert({aName,newScene});
     
     return std::weak_ptr<Scene>(newScene);
-    
 }
 
-std::weak_ptr<Scene> SceneManager::getScene(const std::string &aName)
+std::weak_ptr<Scene> SceneManager::getScene(const std::string &aName) const
 {
-    return std::weak_ptr<Scene>(m_Scenes[aName]);
-    
+    return std::weak_ptr<Scene>(m_Scenes.at(aName));
 }
 
 void SceneManager::update()
 {
-    for (auto& pair : m_Scenes)
+    for (auto &pair : m_Scenes)
         pair.second->update();
-    
 }
 
 void SceneManager::fixedUpdate()
 {
-    for (auto& pair : m_Scenes)
+    for (auto &pair : m_Scenes)
         pair.second->fixedUpdate();
-    
 }
 
 void SceneManager::draw(const Math::IntVector2 &aFrameBufferSize)
 {
-    for (auto& pair : m_Scenes)
+    for (auto &pair : m_Scenes)
         pair.second->draw(aFrameBufferSize);
-    
 }
 
-void SceneManager::erase(const std::string &aName) {m_Scenes.erase(aName);}
+void SceneManager::remove(const std::string &aName) noexcept
+{
+    m_Scenes.erase(aName);
+}

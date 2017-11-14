@@ -39,7 +39,6 @@ namespace GDK
             {
                 m_LoggingBehaviourCallback(m_StringBuffer.str());
                 m_StringBuffer.str(std::string());
-                
             }
             
             template<typename First, typename ...Rest>
@@ -47,7 +46,6 @@ namespace GDK
             {
                 m_StringBuffer << first;
                 log(std::forward<Rest>(rest)...);
-                
             }
             
         public:
@@ -56,7 +54,6 @@ namespace GDK
             {
                 m_StringBuffer << aTag << ": " << first;
                 log(std::forward<Rest>(rest)...);
-                
             }
             
             // Mutating operators
@@ -69,25 +66,20 @@ namespace GDK
             Logger(const Logger&) = default;
             Logger(Logger&&) = default;
             ~Logger() noexcept = default;
-            
         };
         
         template<typename ...Args>
         void log(const char aTag[], Args && ...args)
         {
             Logger::s_GDKLogger.log(aTag, std::forward<Args>(args)...);
-            
         }
         
         template<typename ...Args>
         void error(const char aTag[], Args && ...args)
         {
             Logger::s_GDKErrorLogger.log(aTag, std::forward<Args>(args)...);
-            
         }
-        
     }
-    
 }
 
 #endif /* GDK_DEBUG_LOGGER_H */

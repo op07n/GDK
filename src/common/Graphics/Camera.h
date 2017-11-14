@@ -88,13 +88,10 @@ namespace GDK
             Camera(const Camera&) = delete;
             Camera(Camera&&) noexcept = default;
             ~Camera() noexcept = default;
-            
         };
 
         std::ostream& operator<< (std::ostream&, const GFX::Camera&) noexcept;
-        
     }
-
 }
 
 #endif /* GDK_GFX_CAMERA_H  */

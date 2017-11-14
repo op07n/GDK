@@ -21,14 +21,14 @@ namespace GDK
          */
         class SceneGraph
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&);
+            friend std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&) noexcept;
             friend Scene;
       
             // Data members
             Scene* m_MyScene = nullptr;
             
         protected:
-            Scene* getMyScene() {return m_MyScene;}
+            Scene* getMyScene() const noexcept {return m_MyScene;}
             
             virtual void draw(const Math::IntVector2 &aFrameBufferSize) = 0;
             virtual void fixedUpdate() = 0;
@@ -47,20 +47,18 @@ namespace GDK
       
             // Constructors, destructors
         protected:
-            SceneGraph(Scene*);
+            SceneGraph(Scene*) noexcept;
         private:
             SceneGraph() = delete;
             SceneGraph(const SceneGraph&) = delete;
             SceneGraph(SceneGraph&&) = delete;
         public:
-            virtual ~SceneGraph() = default;
+            virtual ~SceneGraph() noexcept = default;
       
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&);
-        
+        std::ostream& operator<< (std::ostream&, const ECS::SceneGraph&) noexcept;
     }
-
 }
 
 #endif /* GDK_ECS_SCENEGRAPH_H  */

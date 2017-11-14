@@ -7,14 +7,11 @@
 
 using namespace GDK;
 
-//static constexpr std::string exceptionFormat = "";
-
 std::ostream& GDK::operator<<(std::ostream& stream, const Exception& aException) noexcept
 {
     stream.clear();
     stream << aException.what();
     return stream;
-
 }
 
 Exception::Exception(const std::string &aTag, const std::string &aMessage) noexcept
