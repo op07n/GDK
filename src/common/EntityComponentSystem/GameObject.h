@@ -29,7 +29,7 @@ namespace GDK
             
             // Data members
             std::string m_Name = "Unnamed";
-            std::weak_ptr<Scene> m_MyScene;
+            std::weak_ptr<Scene> m_MyScene = {};
             std::vector<std::shared_ptr<Component>> m_Components = {};
             
             Math::Vector3    m_Position = Math::Vector3::Zero;
@@ -51,7 +51,7 @@ namespace GDK
             
             void setName(const std::string &aName) noexcept;
             void setPosition(const Math::Vector3&) noexcept;
-            void setPosition(const float &aX,const float &aY, const float &aZ) noexcept;
+            void setPosition(const float aX,const float aY, const float aZ) noexcept;
             void setScale(const Math::Vector3&) noexcept;
             void setRotation(const Math::Quaternion&) noexcept;
             
@@ -81,11 +81,9 @@ namespace GDK
                         (*it)->onOtherComponentAddedToMyGameObject(wpNewT);
                     
                     return wpNewT;
-                    
                 }
                     
                 return {};
-                
             }
             
             template<class T>
@@ -106,9 +104,7 @@ namespace GDK
                                     m_Components[j]->onOtherComponentRemovedFromMyGameObject(removedComponent);
                             
                             m_Components.erase(m_Components.begin()+i);
-                            
                         }
-                
             }
             
             template<class T>
@@ -119,7 +115,6 @@ namespace GDK
                         return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(*it));
                 
                 return {};
-                
             }
             
             template<class T>
@@ -132,7 +127,6 @@ namespace GDK
                         components.push_back(std::weak_ptr<T>(std::dynamic_pointer_cast<T>(*it)));
                 
                 return components;
-                
             }
             
             // Mutating operators
@@ -146,13 +140,10 @@ namespace GDK
             GameObject(GameObject&&) noexcept = delete;
         public:
             ~GameObject() noexcept = default;
-      
         };
 
         std::ostream& operator<< (std::ostream&, const ECS::GameObject&) noexcept;
-    
     }
-
 }
 
 #endif /* GDK_ECS_GAMEOBJECT_H  */

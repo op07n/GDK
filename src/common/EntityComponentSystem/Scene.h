@@ -24,7 +24,7 @@ namespace GDK
          */
         class Scene final : public std::enable_shared_from_this<Scene>
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::Scene&);
+            friend std::ostream& operator<< (std::ostream&, const ECS::Scene&) noexcept;
             friend GameObject;
       
         public:
@@ -32,7 +32,6 @@ namespace GDK
             {
                 Active,
                 Paused
-                
             };
             
         private:
@@ -52,9 +51,9 @@ namespace GDK
             
         public:
             // Accessors
-            std::weak_ptr<GameObject> getGameObject(const std::string&);
-            std::string getName() const;
-            State getSceneState() const;
+            std::weak_ptr<GameObject> getGameObject(const std::string&) const noexcept;
+            std::string getName() const noexcept;
+            State getSceneState() const noexcept;
             
             void setState(const State&);
       
@@ -69,7 +68,6 @@ namespace GDK
                         return std::weak_ptr<T>(ptr);
                 
                 return std::weak_ptr<T>();
-                
             }
             
             template<class T>
@@ -83,14 +81,12 @@ namespace GDK
                     if (std::dynamic_pointer_cast<T>(m_SceneGraphs[i]))
                     {
                         logError();
-                        return {};
-                            
+                        return {}; 
                     }
                 
                 m_SceneGraphs.push_back(newT);
                 
                 return std::weak_ptr<T>(newT);
-                
             }
             
             void update();
@@ -103,20 +99,17 @@ namespace GDK
             Scene& operator=(const Scene&) = delete;
       
             // Constructors, destructors
-            Scene(const std::string &aName);
+            Scene(const std::string &aName) noexcept;
         private:
             Scene() = delete;
             Scene(const Scene&) = delete;
         public:
             Scene(Scene&&) = default;
-            ~Scene() = default;
-      
+            ~Scene() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::Scene&);
-        
+        std::ostream& operator<< (std::ostream&, const ECS::Scene&) noexcept;
     }
-
 }
 
 #endif /* GDK_ECS_SCENE_H  */

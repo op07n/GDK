@@ -15,37 +15,33 @@ using namespace ECS;
 
 static constexpr auto TAG = "Scene";
 
-std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Scene& a)
+std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Scene& a) noexcept
 {
     s.clear(); s << "{"
     // << "m_Member: " << a.m_Member << ", "
     << "Scene's: " << "operator<< has not been implemented"
     << "}"; return s;
-
 }
 
-std::weak_ptr<GameObject> Scene::getGameObject(const std::string &aGameObjectName)
+std::weak_ptr<GameObject> Scene::getGameObject(const std::string &aGameObjectName) const noexcept
 {
     for(size_t i = 0, s = m_GameObjects.size(); i < s; i++)
         if (m_GameObjects[i]->getName() == aGameObjectName)
             return std::weak_ptr<GameObject>(m_GameObjects[i]);
     
     return std::weak_ptr<GameObject>();
-    
 }
 
 std::weak_ptr<GameObject> Scene::addGameObject()
 {
     m_GameObjects.push_back(std::shared_ptr<GameObject>(new GameObject(std::weak_ptr<Scene>(shared_from_this()))));
     return m_GameObjects.back();
-    
 }
 
-void Scene::draw(const Math::IntVector2& aFrameBufferSize)
+void Scene::draw(const Math::IntVector2 &aFrameBufferSize)
 {
-    for(size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
-        m_SceneGraphs[i]->draw(aFrameBufferSize);
-    
+    for(auto sceneGraph : m_SceneGraphs)
+        sceneGraph->draw(aFrameBufferSize);
 }
 
 void Scene::fixedUpdate()
@@ -62,9 +58,7 @@ void Scene::fixedUpdate()
             
         default:
         break;
-            
     }
-    
 }
 
 void Scene::update()
@@ -81,9 +75,7 @@ void Scene::update()
             
         default:
         break;
-            
     }
-    
 }
 
 void Scene::OnComponentAddedToAGameObject(const std::weak_ptr<Component> &aComponent)
@@ -92,33 +84,28 @@ void Scene::OnComponentAddedToAGameObject(const std::weak_ptr<Component> &aCompo
     
     for (size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
         m_SceneGraphs[i]->OnComponentAddedToAGameObject(aComponent);
-    
 }
 
 void Scene::OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&)
 {
     throw GDK::Exception(TAG, "OnComponentAddedToAGameObject not supported");
-    
 }
 
 void Scene::OnSceneGraphAdded(const std::weak_ptr<SceneGraph> &aSceneGraph)
 {
     throw GDK::Exception(TAG, "OnSceneGraphRemoved not supported");
-    
 }
 
 void Scene::OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemoved)
 {
     throw GDK::Exception(TAG, "OnSceneGraphRemoved not supported");
-    
 }
 
 void Scene::logError()
 {
     Debug::error("user attempted to add a duplicate kind of scenegraph to the scene: ",m_Name);
-    
 }
 
-Scene::Scene(const std::string &aName)
+Scene::Scene(const std::string &aName) noexcept
 : m_Name(aName)
 {}

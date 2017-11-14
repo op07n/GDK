@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Component& a)
+std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a) noexcept
 {
     s.clear(); s << "{"
     // << "m_Member: " << a.m_Member << ", "
@@ -19,4 +19,7 @@ std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::Component& a)
 
 }
 
-std::weak_ptr<GameObject> Component::getGameObject(){return m_GameObject;}
+std::weak_ptr<GameObject> Component::getGameObject() const noexcept
+{
+    return m_GameObject;
+}

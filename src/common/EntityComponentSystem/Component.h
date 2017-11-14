@@ -5,7 +5,7 @@
 #define GDK_ECS_COMPONENT_H
 
 //gdk inc
-//#include "EntityComponentSystem/GameObject.h"
+
 //std inc
 #include <iosfwd>
 #include <memory>
@@ -23,7 +23,7 @@ namespace GDK
          */
         class Component : public std::enable_shared_from_this<Component>
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::Component&);
+            friend std::ostream& operator<< (std::ostream&, const ECS::Component&) noexcept;
             friend GDK::ECS::GameObject;
       
             // Data members
@@ -47,26 +47,23 @@ namespace GDK
             
         public:
             // Accessors
-            std::weak_ptr<GameObject> getGameObject();
+            std::weak_ptr<GameObject> getGameObject() const noexcept;
             
             // Mutating operators
             Component& operator=(const Component&) = delete;
       
         protected:
             // Constructors, destructors
-            Component() = default;//(const std::weak_ptr<GameObject>&);
+            Component() noexcept = default;
         private:
             Component(const Component&) = delete;
             Component(Component&&) = delete;
         public:
             virtual ~Component() noexcept = default;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::Component&);
-        
+        std::ostream& operator<< (std::ostream&, const ECS::Component&) noexcept;
     }
-
 }
 
 #endif /* GDK_ECS_COMPONENT_H  */

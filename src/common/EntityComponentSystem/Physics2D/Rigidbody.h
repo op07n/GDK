@@ -29,7 +29,7 @@ namespace GDK
             */
             class Rigidbody final : public Component
             {
-                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Rigidbody&);
+                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Rigidbody&) noexcept;
             public:
                 ///Prevent movement along the chosen axis
                 enum class AxisFreezeMode
@@ -37,7 +37,6 @@ namespace GDK
                     X,
                     Y,
                     None
-                    
                 };
                 
                 ///Type of rigidbody: does it move? Is it frozen?
@@ -46,7 +45,6 @@ namespace GDK
                     Dynamic,
                     Kinematic,
                     Static
-                    
                 };
                 
             private:
@@ -123,15 +121,11 @@ namespace GDK
 
                 // Constructors, destructors
                 virtual ~Rigidbody() noexcept;
-
             };
 
-            std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Rigidbody&);
-
+            std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Rigidbody&) noexcept;
         }
-
     }
-
 }
 
 #endif /* GDK_ECS_PHYSICS2D_RIGIDBODY_H  */
