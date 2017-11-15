@@ -1,6 +1,6 @@
 // © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
-// Created on 17-07-08.
+// Created on 2017-06-25.
 #ifndef GDK_GFX_CAMERA_H
 #define GDK_GFX_CAMERA_H
 

@@ -1,6 +1,6 @@
-// © ${YEAR} Joseph Cameron - All Rights Reserved
+// © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
-// Created on ${DATE}.
+// Created on 2017-06-25.
 #include "Camera.h"
 //std inc
 #include <iostream>
@@ -36,8 +36,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a) noexce
 Camera::Camera() noexcept
 {
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_SCISSOR_TEST);
-    
+    glEnable(GL_SCISSOR_TEST);   
 }
 
 static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)

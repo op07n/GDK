@@ -7,13 +7,13 @@
 
 using namespace GDK;
 
-std::ostream& GDK::operator<<(std::ostream& stream, const Exception& aException) noexcept
+std::ostream &GDK::operator<<(std::ostream &stream, const Exception &aException) noexcept
 {
     stream.clear();
     stream << aException.what();
     return stream;
 }
 
-Exception::Exception(const std::string &aTag, const std::string &aMessage) noexcept
+/*Exception::Exception(const std::string &aTag, const std::string &aMessage) noexcept
 : std::runtime_error(aTag + ": " + aMessage)
-{}
+{}*/

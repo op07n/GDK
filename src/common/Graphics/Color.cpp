@@ -33,7 +33,6 @@ std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Color& a) noexce
     << a.b << ", "
     << a.a
     << "}"; return s;
-    
 }
 
 //ctors

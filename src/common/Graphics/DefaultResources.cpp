@@ -22,7 +22,6 @@ namespace
     std::shared_ptr<Mesh> quad;
     std::shared_ptr<Mesh> cube;
     std::shared_ptr<Mesh> cylinder;
-    
 }
 
 Memory::default_ptr<Texture> DefaultResources::getCheckeredTextureOfDeath() noexcept
@@ -47,11 +46,9 @@ Memory::default_ptr<Texture> DefaultResources::getCheckeredTextureOfDeath() noex
         });
         
         ::checkeredTextureOfDeath = std::make_shared<Texture>(GFX::Texture("CheckeredTextureOfDeath",textureData));
-
     }
     
     return Memory::default_ptr<Texture>(::checkeredTextureOfDeath);
-    
 }
 
 Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath() noexcept
@@ -90,11 +87,9 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath() noex
         )V0G0N";
     
         ::pinkShaderOfDeath = std::make_shared<ShaderProgram>(ShaderProgram("PinkShaderOfDeath",vertexShaderSource,fragmentShaderSource));
-    
     }
 
     return Memory::default_ptr<ShaderProgram>(::pinkShaderOfDeath);
-    
 }
 
 Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff() noexcept
@@ -148,11 +143,9 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff() noexcept
         )V0G0N";
         
         ::alphaCutOff = std::make_shared<ShaderProgram>(ShaderProgram("AlphaCutOff",vertexShaderSource,fragmentShaderSource));
-        
     }
     
     return Memory::default_ptr<ShaderProgram>(::alphaCutOff);
-    
 }
 
 Memory::default_ptr<Mesh> DefaultResources::getQuad() noexcept
@@ -174,11 +167,9 @@ Memory::default_ptr<Mesh> DefaultResources::getQuad() noexcept
         });
         
         ::quad = std::make_shared<Mesh>(Mesh("Quad",Mesh::Type::Static,VertexFormat::Pos3uv2,data));
-        
     }
     
     return Memory::default_ptr<Mesh>(::quad);
-    
 }
 
 Memory::default_ptr<Mesh> DefaultResources::getCube() noexcept
@@ -235,11 +226,9 @@ Memory::default_ptr<Mesh> DefaultResources::getCube() noexcept
         });
         
         ::cube = std::make_shared<Mesh>(Mesh("Cube",Mesh::Type::Static,VertexFormat::Pos3uv2Norm3,data));
-        
     }
     
     return Memory::default_ptr<Mesh>(::cube);
-    
 }
 
 Memory::default_ptr<Mesh> DefaultResources::getCylinder() noexcept
@@ -492,13 +481,10 @@ Memory::default_ptr<Mesh> DefaultResources::getCylinder() noexcept
             0, 1, 0, 0.5002245, 0.4999442, 0, 1, 0, 
             -0.4755286, 1, -0.1545086, 0.9720596, 0.6532523, 0, 1, 0, 
             
-
         });
         
         ::cylinder = std::make_shared<Mesh>(Mesh("Cylinder",Mesh::Type::Static,VertexFormat::Pos3uv2Norm3,data));
-        
     }
     
     return Memory::default_ptr<Mesh>(::cylinder);
-    
 }

@@ -103,7 +103,7 @@ void Scene::OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemo
 
 void Scene::logError()
 {
-    Debug::error("user attempted to add a duplicate kind of scenegraph to the scene: ",m_Name);
+    Debug::error(TAG, "user attempted to add a duplicate kind of scenegraph to the scene: ",m_Name);
 }
 
 Scene::Scene(const std::string &aName) noexcept
