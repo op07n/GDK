@@ -62,7 +62,7 @@ namespace GDK
         
         Exception(const Exception &) noexcept = default;
         Exception(Exception &&) noexcept = default;
-        ~Exception() noexcept = default;
+        virtual ~Exception() noexcept = default;
     };
 
     std::ostream &operator<< (std::ostream &, const Exception &) noexcept;
