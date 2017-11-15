@@ -17,29 +17,29 @@ namespace GDK
      */
     class Exception : public std::runtime_error
     {
-        std::string log(std::ostringstream &sstream) noexcept
+        std::string toString(std::ostringstream &sstream) noexcept
         {
             return sstream.str();
         }
         
-        std::string log(std::ostringstream &&sstream) noexcept
+        std::string toString(std::ostringstream &&sstream) noexcept
         {
-            return sstream.str();
-        }
-        
-        template<typename First, typename ...Rest>
-        std::string log(std::ostringstream &sstream, First && first, Rest && ...rest) noexcept
-        {
-            sstream << first;
-            log(sstream, std::forward<Rest>(rest)...);
             return sstream.str();
         }
         
         template<typename First, typename ...Rest>
-        std::string log(std::ostringstream &&sstream, First && first, Rest && ...rest) noexcept
+        std::string toString(std::ostringstream &sstream, First && first, Rest && ...rest) noexcept
         {
             sstream << first;
-            log(sstream, std::forward<Rest>(rest)...);
+            toString(sstream, std::forward<Rest>(rest)...);
+            return sstream.str();
+        }
+        
+        template<typename First, typename ...Rest>
+        std::string toString(std::ostringstream &&sstream, First && first, Rest && ...rest) noexcept
+        {
+            sstream << first;
+            toString(sstream, std::forward<Rest>(rest)...);
             return sstream.str();
         }
         
@@ -57,7 +57,7 @@ namespace GDK
             sstream << first;
             return sstream.str();
         }())
-        .append(log(std::ostringstream(), std::forward<Rest>(rest)...)))
+        .append(toString(std::ostringstream(), std::forward<Rest>(rest)...)))
         {}
         
         Exception(const Exception &) noexcept = default;
