@@ -26,24 +26,25 @@ namespace GDK
             Vector2 toVector2() const noexcept;
             
             // Non mutating operators
-            bool operator==(const IntVector2&) const noexcept;
-            bool operator!=(const IntVector2&) const noexcept;
-            IntVector2 operator+(const IntVector2&) const noexcept;
-            IntVector2 operator-(const IntVector2&) const noexcept;
-            IntVector2 operator*(const float &aScalar) const noexcept;
-            IntVector2 operator*(const Vector2& aVector2) const noexcept;
+            bool operator==(const IntVector2 &) const noexcept;
+            bool operator!=(const IntVector2 &) const noexcept;
+            IntVector2 operator+(const IntVector2 &) const noexcept;
+            IntVector2 operator-(const IntVector2 &) const noexcept;
+            IntVector2 operator*(const float aScalar) const noexcept;
+            IntVector2 operator*(const Vector2 &aVector2) const noexcept;
             
             // Mutating operators
-            IntVector2& operator+=(const IntVector2&) noexcept;
-            IntVector2& operator-=(const IntVector2&) noexcept;
-            IntVector2& operator*=(const float&) noexcept;
-            IntVector2& operator=(const IntVector2&) noexcept = default;
+            IntVector2 &operator+=(const IntVector2 &) noexcept;
+            IntVector2 &operator-=(const IntVector2 &) noexcept;
+            IntVector2 &operator*=(const float) noexcept;
+            IntVector2 &operator=(const IntVector2 &) noexcept = default;
+            IntVector2 &operator=(IntVector2 &&) noexcept = default;
             
-            // Constructors & Destructors
-            IntVector2(const int &aX, const int &aY) noexcept;
+            // Constructors  &Destructors
+            IntVector2(const int aX, const int aY) noexcept;
             IntVector2() noexcept = default;
-            IntVector2(const IntVector2&) noexcept = default;
-            IntVector2(IntVector2&&) noexcept = default;
+            IntVector2(const IntVector2 &) noexcept = default;
+            IntVector2(IntVector2 &&) noexcept = default;
             ~IntVector2() noexcept = default;
             
             // Special values
@@ -54,7 +55,7 @@ namespace GDK
             static const IntVector2 Zero;
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::IntVector2&) noexcept;
+        std::ostream &operator<< (std::ostream &, const Math::IntVector2 &) noexcept;
     }
 }
 

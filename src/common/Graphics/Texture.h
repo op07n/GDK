@@ -19,7 +19,7 @@ namespace GDK
          */
         class Texture final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::Texture&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Texture &) noexcept;
             
             // Data members
             std::string m_Name = {};
@@ -31,10 +31,11 @@ namespace GDK
             GFXuint getHandle() const noexcept;
             
             // Mutating operators
-            Texture& operator=(const Texture&) = delete;
+            Texture &operator=(const Texture&) = delete;
+            Texture &operator=(Texture&&) = delete;
       
             // Constructors, destructors
-            Texture(const std::string &aName,std::vector<GFXbyte>& aRGBA32PNGTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
+            Texture(const std::string &aName, std::vector<GFXbyte>& aRGBA32PNGTextureData /*GFXuint repeatmode = 0, GFXuint magfilter = 0*/);
             Texture() = delete;
             Texture(const Texture&) = delete;
             Texture(Texture&&);
@@ -42,10 +43,8 @@ namespace GDK
       
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::Texture&) noexcept;
-        
+        std::ostream &operator<< (std::ostream &, const GFX::Texture &) noexcept;
     }
-
 }
 
 #endif /* GDK_GFX_TEXTURE_H  */

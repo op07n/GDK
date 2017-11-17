@@ -25,7 +25,7 @@ namespace GDK
          */
         class VertexFormat final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::VertexFormat &) noexcept;
     
             // Data members
             std::vector<VertexAttribute> m_Format = {};
@@ -33,30 +33,28 @@ namespace GDK
             
         public:
             // Public methods
-            void enableAttributes(const GFXuint &aShaderProgramHandle) const noexcept;
+            void enableAttributes(const GFXuint aShaderProgramHandle) const noexcept;
             int getSumOfAttributeComponents() const noexcept;
             
             // Mutating operators
             VertexFormat& operator=(const VertexFormat&) = default;
+            VertexFormat& operator=(VertexFormat&&) = default;
       
             // Constructors, destructors
             VertexFormat(const std::vector<VertexAttribute> &aAttributes) noexcept;
             VertexFormat() = delete;
-            VertexFormat(const VertexFormat&) = default;
-            VertexFormat(VertexFormat&&) = default;
+            VertexFormat(const VertexFormat &) = default;
+            VertexFormat(VertexFormat &&) = default;
             ~VertexFormat() = default;
             
             // Special values
             static const VertexFormat Pos3uv2Norm3;
             static const VertexFormat Pos3uv2;
             static const VertexFormat Pos3;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::VertexFormat&) noexcept;
-        
+        std::ostream &operator<< (std::ostream &, const GFX::VertexFormat &) noexcept;
     }
-
 }
 
 #endif /* GDK_GFX_VERTEXFORMAT_H  */

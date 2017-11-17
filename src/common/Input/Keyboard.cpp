@@ -14,7 +14,7 @@
 using namespace GDK;
 using namespace Input;
 
-static constexpr auto TAG = "Keyboard";
+static constexpr char TAG[] = "Keyboard";
 
 static inline int glfwKeyCodeFromKey(const Keyboard::Key &a) noexcept
 {
@@ -141,7 +141,7 @@ static inline int glfwKeyCodeFromKey(const Keyboard::Key &a) noexcept
     }
 }
 
-std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Keyboard& a) noexcept
+std::ostream& GDK::Input::operator<<(std::ostream &s, const Input::Keyboard &a) noexcept
 {
     s.clear(); s
     << "{"
@@ -155,7 +155,7 @@ std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Keyboard& a) 
     s << "}"; return s;
 }
 
-Keyboard::Keyboard(const GFX::Window& aWindow) noexcept
+Keyboard::Keyboard(const GFX::Window &aWindow) noexcept
 : m_HandleToGLFWWindow(aWindow.getHandleToGLFWWindow())
 {}
 

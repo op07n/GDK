@@ -30,8 +30,8 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat) 
     << "{" << aMat.m[0][1] << ", " << aMat.m[1][1] << ", " << aMat.m[2][1] << ", " << aMat.m[3][1] << "}\n"
     << "{" << aMat.m[0][2] << ", " << aMat.m[1][2] << ", " << aMat.m[2][2] << ", " << aMat.m[3][2] << "}\n"
     << "{" << aMat.m[0][3] << ", " << aMat.m[1][3] << ", " << aMat.m[2][3] << ", " << aMat.m[3][3] << "}\n";
-    return s;
     
+    return s;
 }
 
 void Mat4x4::setIdentity() noexcept
@@ -40,13 +40,11 @@ void Mat4x4::setIdentity() noexcept
     m[0][1] = 0.; m[1][1] = 1.; m[2][1] = 0.; m[3][1] = 0.;
     m[0][2] = 0.; m[1][2] = 0.; m[2][2] = 1.; m[3][2] = 0.;
     m[0][3] = 0.; m[1][3] = 0.; m[2][3] = 0.; m[3][3] = 1.;
-    
 }
 
 void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
     throw GDK::Exception(TAG, "Mat4x4::setOrthographic not implemented!");
-    
 }
 
 void Mat4x4::translate(const Vector3 &a) //TODO: CONSIDER
@@ -55,7 +53,6 @@ void Mat4x4::translate(const Vector3 &a) //TODO: CONSIDER
     m[3][1] = m[0][1] * a.x + m[1][1] * a.y + m[2][1] * a.z + m[3][1];
     m[3][2] = m[0][2] * a.x + m[1][2] * a.y + m[2][2] * a.z + m[3][2];
     m[3][3] = m[0][3] * a.x + m[1][3] * a.y + m[2][3] * a.z + m[3][3];
-    
 }
 
 void Mat4x4::rotate(const Quaternion &aRotation)
@@ -86,7 +83,6 @@ void Mat4x4::rotate(const Quaternion &aRotation)
     tmp2 = q.x*q.w;
     m[2][1] = 2.0 * (tmp1 + tmp2)*invs ;
     m[1][2] = 2.0 * (tmp1 - tmp2)*invs ;
-    
 }
 
 /*void Mat4x4::rotate(const Vector3 &aEulers)
@@ -154,7 +150,6 @@ void Mat4x4::rotate(const Quaternion &aRotation)
 void Mat4x4::scale(const Vector3 &aPosition)
 {
     throw GDK::Exception(TAG, "Mat4x4::scale not implemented!");
-    
 }
 
 void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio) noexcept
@@ -185,14 +180,12 @@ void Mat4x4::transpose()
     float t02 = m[2][0]; float t12 = m[2][1]; float t22 = m[2][2]; float t32 = m[2][3];
     float t03 = m[3][0]; float t13 = m[3][1]; float t23 = m[3][2]; float t33 = m[3][3];
     
-    set
-    (
-     t00, t10, t20, t30,
-     t01, t11, t21, t31,
-     t02, t12, t22, t32,
-     t03, t13, t23, t33
-     );
-    
+    set(
+        t00, t10, t20, t30,
+        t01, t11, t21, t31,
+        t02, t12, t22, t32,
+        t03, t13, t23, t33
+    );
 }
 
 void Mat4x4::set
@@ -207,7 +200,6 @@ void Mat4x4::set
     m[0][1] = a01; m[1][1] = a11; m[2][1] = a21; m[3][1] = a31;
     m[0][2] = a02; m[1][2] = a12; m[2][2] = a22; m[3][2] = a32;
     m[0][3] = a03; m[1][3] = a13; m[2][3] = a23; m[3][3] = a33;
-    
 }
 
 // Operators
@@ -217,16 +209,16 @@ Mat4x4& Mat4x4::operator*=(const Mat4x4& a)
     m[0][1] *= a.m[0][1]; m[1][1] *= a.m[1][1]; m[2][1] *= a.m[2][1]; m[3][1] *= a.m[3][1];
     m[0][2] *= a.m[0][2]; m[1][2] *= a.m[1][2]; m[2][2] *= a.m[2][2]; m[3][2] *= a.m[3][2];
     m[0][3] *= a.m[0][3]; m[1][3] *= a.m[1][3]; m[2][3] *= a.m[2][3]; m[3][3] *= a.m[3][3];
-    return *this;
     
+    return *this;
 }
 
 Mat4x4 Mat4x4::operator*(const Mat4x4 &a)
 {
     Mat4x4 r(*this);
     r *= a;
-    return r;
     
+    return r;
 }
 
 // Constructors
@@ -237,7 +229,6 @@ Mat4x4::Mat4x4() noexcept
     {0.,1.,0.,0.},
     {0.,0.,1.,0.},
     {0.,0.,0.,1.},
-    
 }
 {}
 
@@ -254,6 +245,5 @@ Mat4x4::Mat4x4
     {a10,a11,a12,a13},
     {a20,a21,a22,a23},
     {a30,a31,a32,a33},
-    
 }
 {}

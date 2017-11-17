@@ -51,17 +51,18 @@ namespace GDK
             Math::Vector2 getCursorPosition() const;
             
             // Mutating operators
-            Mouse& operator=(const Mouse&) noexcept = default;
+            Mouse& operator=(const Mouse &) noexcept = default;
+            Mouse& operator=(Mouse &&) noexcept = default;
       
             // Constructors, destructors
-            Mouse(const GFX::Window&) noexcept;
+            Mouse(const GFX::Window &) noexcept;
             Mouse() = delete;
-            Mouse(const Mouse&) noexcept = default;
-            Mouse(Mouse&&) noexcept = default;
+            Mouse(const Mouse &) noexcept = default;
+            Mouse(Mouse &&) noexcept = default;
             ~Mouse() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const Input::Mouse&) noexcept;
+        std::ostream &operator<< (std::ostream &, const Input::Mouse &) noexcept;
     }
 }
 

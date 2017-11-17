@@ -18,16 +18,19 @@ const IntVector2 IntVector2::Right = IntVector2( 1, 0);
 const IntVector2 IntVector2::Zero  = IntVector2( 0, 0);
 
 // Stringify
-std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::IntVector2& a) noexcept
+std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::IntVector2 &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "x: " << a.x << ", "
     << "y: " << a.y
-    << "}"; return s;
+    << "}";
+    
+    return s;
 }
 
 //Contructors
-IntVector2::IntVector2(const int &aX, const int &aY) noexcept
+IntVector2::IntVector2(const int aX, const int aY) noexcept
 : x(aX)
 , y(aY)
 {}
@@ -58,7 +61,7 @@ IntVector2 IntVector2::operator-(const IntVector2 &aIntVector2) const noexcept
     return IntVector2(x - aIntVector2.x, y - aIntVector2.y);
 }
 
-IntVector2 IntVector2::operator*(const float &aScalar) const noexcept
+IntVector2 IntVector2::operator*(const float aScalar) const noexcept
 {
     return IntVector2(x * aScalar, y * aScalar);
 }
@@ -73,6 +76,7 @@ IntVector2& IntVector2::operator+=(const IntVector2 &aIntVector2) noexcept
 {
     x += aIntVector2.x;
     y += aIntVector2.y;
+    
     return *this;
 }
 
@@ -80,12 +84,14 @@ IntVector2& IntVector2::operator-=(const IntVector2 &aIntVector2) noexcept
 {
     x -= aIntVector2.x;
     y -= aIntVector2.y;
+    
     return *this;
 }
 
-IntVector2& IntVector2::operator*=(const float &aScalar) noexcept
+IntVector2& IntVector2::operator*=(const float aScalar) noexcept
 {
     x *= aScalar;
     y *= aScalar;
+    
     return *this;
 }

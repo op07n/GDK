@@ -12,16 +12,21 @@ using namespace GFX;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCollection& a) noexcept
 {
-    s.clear(); s << "{";
+    s.clear(); s
+    
+    << "{";
+    
     size_t i = 0;
+    
     for (auto &pair : a.m_Map)
     {
         auto texture = pair.second.lock();
         s << i << ": " << "{Name: " << pair.first << ", " << "Texture: " << *texture.get() << "}";
-        
     }
-    s << "}"; return s;
-
+    
+    s << "}";
+    
+    return s;
 }
 
 void TextureUniformCollection::bind(const GFXuint aProgramHandle) noexcept
@@ -31,9 +36,7 @@ void TextureUniformCollection::bind(const GFXuint aProgramHandle) noexcept
     {
         auto texture = pair.second.lock();
         GLH::BindTextureUniform(aProgramHandle, pair.first, texture->getHandle(), i++);
-        
     }
-    
 }
 
 void TextureUniformCollection::unbind(const GFXuint aProgramHandle) noexcept
@@ -41,5 +44,4 @@ void TextureUniformCollection::unbind(const GFXuint aProgramHandle) noexcept
     int i = 0;
     for (auto &pair : m_Map)
         GLH::BindTextureUniform(aProgramHandle, pair.first, 0, i++);
-    
 }

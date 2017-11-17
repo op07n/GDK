@@ -20,7 +20,7 @@ namespace GDK
          */
         class Keyboard final
         {
-            friend std::ostream& operator<< (std::ostream&, const Input::Keyboard&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const Input::Keyboard &) noexcept;
             
             // Data members
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
@@ -62,27 +62,28 @@ namespace GDK
                 Num4,Num5,Num6,
                 Num1,Num2,Num3,NumEnter,
                 Num0,NumPeriod
-                
             };
             
             // Public methods
             /// Check if the key is being held down
             bool getKeyDown(const Key &aKeyCode) const;
+            
             /// Check if the key was just pressed
             bool getKey(const Key &aKeyCode) const;
             
             // Mutating operators
-            Keyboard& operator=(const Keyboard&) = default;
+            Keyboard &operator=(const Keyboard &) = default;
+            Keyboard &operator=(Keyboard &&) = default;
       
             // Constructors, destructors
-            Keyboard(const GFX::Window&) noexcept;
+            Keyboard(const GFX::Window &) noexcept;
             Keyboard() = delete;
-            Keyboard(const Keyboard&) = default;
-            Keyboard(Keyboard&&) = default;
+            Keyboard(const Keyboard &) = default;
+            Keyboard(Keyboard &&) = default;
             ~Keyboard() = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const Input::Keyboard&) noexcept;
+        std::ostream &operator<< (std::ostream &, const Input::Keyboard &) noexcept;
     }
 }
 

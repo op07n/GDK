@@ -13,22 +13,23 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Texture& a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Texture &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "m_Name: "   << a.m_Name   << ", "
     << "m_Handle: " << a.m_Handle
-    << "}"; return s;
+    << "}";
     
+    return s;
 }
 
-Texture::Texture(const std::string &aName, std::vector<GFXbyte>& aTextureData)
+Texture::Texture(const std::string &aName, std::vector<GFXbyte> &aTextureData)
 : m_Name(aName)
 {
     //decode the png rgba32 data
-    GFXbyte *decodedData;
     int width, height, components;
-    decodedData = stbi_load_from_memory(&aTextureData[0], (int)aTextureData.size(), &width, &height, &components, 4);
+    GFXbyte *decodedData = stbi_load_from_memory(&aTextureData[0], (int)aTextureData.size(), &width, &height, &components, 4);
     
     //Copy the texture data to video memory
     glGenTextures(1, &m_Handle);
@@ -43,7 +44,6 @@ Texture::Texture(const std::string &aName, std::vector<GFXbyte>& aTextureData)
     //Cleanup
     glBindTexture( GL_TEXTURE_2D,0);
     stbi_image_free(decodedData);
-    
 }
 
 Texture::Texture(Texture&& other)
@@ -52,24 +52,20 @@ Texture::Texture(Texture&& other)
     m_Handle = other.m_Handle;
     
     other.m_Handle = 0;
-    
 }
 
 Texture::~Texture() noexcept
 {
     if (m_Handle > 0)
         glDeleteBuffers(1, &m_Handle);
-    
 }
 
 std::string Texture::getName()const noexcept
 {
     return m_Name;
-
 }
 
 GFXuint Texture::getHandle()const noexcept
 {
     return m_Handle;
-
 }

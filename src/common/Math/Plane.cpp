@@ -11,14 +11,18 @@ using namespace Math;
 // Stringify
 std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    
+    << "{"
     << "position: " << a.position << ", "
     << "normal: "   << a.normal
-    << "}"; return s;    
+    << "}";
+    
+    return s;
 }
 
 // Constructors
-Plane::Plane(const Vector3& aPosition, const Vector3& aNormal) noexcept
+Plane::Plane(const Vector3 &aPosition, const Vector3 &aNormal) noexcept
 : position(aPosition)
 , normal(aNormal)
 {}

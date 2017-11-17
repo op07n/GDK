@@ -10,13 +10,16 @@ using namespace GFX;
 
 
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::VertexAttribute& a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::VertexAttribute &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    
+    << "{"
     << "Name: " << a.name << ", "
     << "Size: " << a.size
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 VertexAttribute::VertexAttribute(const std::string &aName, const unsigned short &aSize) noexcept

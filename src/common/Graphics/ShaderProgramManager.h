@@ -19,24 +19,22 @@ namespace GDK
          */
         class ShaderProgramManager final : public resource_manager<ShaderProgram>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::ShaderProgramManager &) noexcept;
             
         public:
             // Mutating operators
-            ShaderProgramManager& operator=(const ShaderProgramManager&) = default;
+            ShaderProgramManager &operator=(const ShaderProgramManager &) = default;
+            ShaderProgramManager &operator=(ShaderProgramManager &&) = default;
       
             // Constructors, destructors
             ShaderProgramManager() noexcept;
-            ShaderProgramManager(const ShaderProgramManager&) = default;
-            ShaderProgramManager(ShaderProgramManager&&) = default;
+            ShaderProgramManager(const ShaderProgramManager &) = default;
+            ShaderProgramManager(ShaderProgramManager &&) = default;
             virtual ~ShaderProgramManager() noexcept = default;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::ShaderProgramManager&) noexcept;
-        
+        std::ostream &operator<< (std::ostream &, const GFX::ShaderProgramManager &) noexcept;
     }
-
 }
 
 #endif /* GDK_GFX_SHADERPROGRAMMANAGER_H  */

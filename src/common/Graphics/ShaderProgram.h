@@ -20,7 +20,7 @@ namespace GDK
          */
         class ShaderProgram final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::ShaderProgram &) noexcept;
             
             // Data members
             std::string m_Name = {};
@@ -36,21 +36,19 @@ namespace GDK
             GFXuint getHandle() const noexcept;
             
             // Mutating operators
-            ShaderProgram& operator=(const ShaderProgram&) = delete;
+            ShaderProgram& operator=(const ShaderProgram &) = delete;
+            ShaderProgram& operator=(ShaderProgram &&) = delete;
       
             // Constructors, destructors
             ShaderProgram() = delete;
-            ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource);
-            ShaderProgram(const ShaderProgram&) = delete;
-            ShaderProgram(ShaderProgram&&) noexcept;
+            ShaderProgram(const std::string &aName, const std::string &aVertexSource, const std::string &aFragmentSource);
+            ShaderProgram(const ShaderProgram &) = delete;
+            ShaderProgram(ShaderProgram &&) noexcept;
             ~ShaderProgram() noexcept;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::ShaderProgram&) noexcept;
-        
+        std::ostream &operator<< (std::ostream &, const GFX::ShaderProgram &) noexcept;   
     }
-
 }
 
 #endif /* GDK_GFX_SHADERPROGRAM_H  */

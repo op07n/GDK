@@ -14,17 +14,20 @@
 using namespace GDK;
 using namespace GFX;
 
-static constexpr auto TAG = "Window";
+static constexpr char TAG[] = "Window";
 
 int s_InstanceCount = 0;
 
-std::ostream& GDK::GFX::operator<< (std::ostream& s, const GFX::Window& a) noexcept
+std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Window &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    
+    << "{"
     << "m_Title: "  << a.m_Title              << ", "
     << "m_Handle: " << a.m_HandleToGLFWWindow
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 static inline void initGLFW()
@@ -37,14 +40,12 @@ static inline void initGLFW()
         throw GDK::Exception(TAG, "glfwInit failed");
     
     //glfwSwapInterval(0);
-    
 }
 
 static inline void destroyGLFW()
 {
     Debug::log("Destroying GLFW");
     glfwTerminate();
-    
 }
 
 static inline void initGLEW()
@@ -54,18 +55,16 @@ static inline void initGLEW()
     if(glewInit() != GLEW_OK)
         throw GDK::Exception(TAG, "glewInit failed");
     
-    
     while (glGetError()); //Clear errors.
     
     // log device info
     Debug::log("OpenGL version: ", glGetString(GL_VERSION));
-    Debug::log("GLSL version: "  , glGetString(GL_SHADING_LANGUAGE_VERSION));
-    Debug::log("Vendor: "        , glGetString(GL_VENDOR));
-    Debug::log("Renderer: "      , glGetString(GL_RENDERER));
-    
+    Debug::log("GLSL version: ",   glGetString(GL_SHADING_LANGUAGE_VERSION));
+    Debug::log("Vendor: ",         glGetString(GL_VENDOR));
+    Debug::log("Renderer: ",       glGetString(GL_RENDERER));
 }
 
-static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::string &aName)
+static inline GLFWwindow *initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::string &aName)
 {
     if (s_InstanceCount <= 0)
         initGLFW();
@@ -80,6 +79,7 @@ static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, co
     glfwWindowHint(GLFW_RESIZABLE, true);
     
     aGLFWWindow = glfwCreateWindow(aScreenSize.x, aScreenSize.y, aName.c_str(), nullptr, nullptr);
+    
     if(!aGLFWWindow)
         throw GDK::Exception(TAG, "glfwCreateWindow failed. Can your hardware handle OpenGL 3.2?");
     
@@ -90,20 +90,18 @@ static inline GLFWwindow* initGLFWWindow(const Math::IntVector2 &aScreenSize, co
         initGLEW();
         
         GLuint vao = 0;
-        glGenVertexArrays(1,&vao);
+        glGenVertexArrays(1, &vao);
         glBindVertexArray(vao);
-    
     }
     
     GLH::ClearColor(GFX::Color::CornflowerBlue);
     
     return aGLFWWindow;
-    
 }
     
-Window::Window(const ConstructionParameters& aParams)
+Window::Window(const ConstructionParameters &aParams)
 : m_Title(aParams.name)
-, m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize,aParams.name),[](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
+, m_HandleToGLFWWindow(initGLFWWindow(aParams.windowSize, aParams.name), [](GLFWwindow* ptr){glfwDestroyWindow(ptr);})
 , m_OnInit(aParams.onInit)
 , m_OnUpdate(aParams.onUpdate)
 , m_OnDraw(aParams.onDraw)
@@ -116,7 +114,6 @@ Window::Window(const ConstructionParameters& aParams)
         m_OnInit(*this);
         
     ++s_InstanceCount;
-        
 }
     
 Window::Window(Window &&a) noexcept
@@ -127,7 +124,6 @@ Window::Window(Window &&a) noexcept
     m_OnUpdate           = a.m_OnUpdate;
     m_OnDraw             = a.m_OnDraw;
     m_OnWantsToClose     = a.m_OnWantsToClose;
-        
 }
     
 Window::~Window() noexcept
@@ -137,7 +133,6 @@ Window::~Window() noexcept
         
     if (s_InstanceCount < 0)
         destroyGLFW();
-
 }
 
 void Window::draw()
@@ -148,7 +143,6 @@ void Window::draw()
         m_OnDraw(*this);
     
     glfwSwapBuffers(m_HandleToGLFWWindow.get());
-    
 }
 
 void Window::update()
@@ -161,33 +155,35 @@ void Window::update()
             m_OnUpdate(*this);
         
         glfwPollEvents();
-        
     }
     else
     {
         if (m_OnWantsToClose != nullptr)
             m_OnWantsToClose(*this);
-        
     }
-    
 }
 
-std::string Window::getTitle()const noexcept{return m_Title;}
+std::string Window::getTitle()const noexcept
+{
+    return m_Title;
+}
 
 void Window::setTitle(const std::string& aTitle) noexcept
 {
     m_Title = aTitle;
     glfwSetWindowTitle(m_HandleToGLFWWindow.get(),aTitle.c_str());
-    
 }
 
-std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const noexcept {return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);}
+std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const noexcept
+{
+    return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);
+}
 
 Math::IntVector2 Window::getFramebufferSize() const noexcept
 {
     Math::IntVector2 frameBufferSize;
     glfwGetWindowSize(m_HandleToGLFWWindow.get(), &frameBufferSize.x, &frameBufferSize.y);
-    return frameBufferSize;
     
+    return frameBufferSize;
 }
 

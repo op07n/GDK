@@ -23,21 +23,19 @@ namespace GDK
             unsigned short size = 0;
             
             // Mutating operators
-            VertexAttribute& operator=(const VertexAttribute&) = default;
+            VertexAttribute &operator=(const VertexAttribute &) = default;
+            VertexAttribute &operator=(VertexAttribute &&) = default;
       
             // Constructors, destructors
             VertexAttribute() = delete;
             VertexAttribute(const std::string &aName, const unsigned short &aSize) noexcept;
-            VertexAttribute(const VertexAttribute&) = default;
-            VertexAttribute(VertexAttribute&&) = default;
+            VertexAttribute(const VertexAttribute &) = default;
+            VertexAttribute(VertexAttribute &&) = default;
             ~VertexAttribute() noexcept = default;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::VertexAttribute&) noexcept;
-        
+        std::ostream &operator<< (std::ostream &, const GFX::VertexAttribute &) noexcept;
     }
-
 }
 
 #endif /* GDK_GFX_VERTEXATTRIBUTE_H  */

@@ -32,32 +32,27 @@ namespace GDK
             void put(const std::string &aName, const T &aItem) noexcept
             {
                 m_Map.insert({aName, aItem});
-                
             }
             
             T get(const std::string &aName) const noexcept
             {
                 return m_Map.find(aName);
-                
             }
             
             virtual void bind(const GFXuint aProgramHandle) noexcept = 0;
             virtual void unbind(const GFXuint aProgramHandle) noexcept = 0;
             
-            
             // Mutating operators
-            UniformCollection& operator=(const UniformCollection&) = delete;
+            UniformCollection &operator=(const UniformCollection &) = delete;
+            UniformCollection &operator=(UniformCollection &&) = delete;
       
             // Constructors, destructors
             UniformCollection() noexcept = default;
-            UniformCollection(const UniformCollection&) = delete;
-            UniformCollection(UniformCollection&&) noexcept = default;
+            UniformCollection(const UniformCollection &) = delete;
+            UniformCollection(UniformCollection &&) noexcept = default;
             virtual ~UniformCollection() noexcept = default;
-      
         };
-        
     }
-
 }
 
 #endif /* GDK_GFX_UNIFORMCOLLECTION_H  */

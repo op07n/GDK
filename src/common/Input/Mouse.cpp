@@ -15,17 +15,22 @@
 using namespace GDK;
 using namespace Input;
 
-static constexpr auto TAG = "Mouse";
+static constexpr char TAG[] = "Mouse";
 
-std::ostream& GDK::Input::operator<<(std::ostream& s, const Input::Mouse& a) noexcept
+std::ostream &GDK::Input::operator<<(std::ostream &s, const Input::Mouse &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "m_HandleToGLFWWindow: ";
+    
     if (auto ptr = a.m_HandleToGLFWWindow.lock())
         s << ptr;
     else
         s << "null";
-    s << "}"; return s;
+    
+    s << "}";
+    
+    return s;
 }
     
 Mouse::Mouse(const GFX::Window &aWindow) noexcept
@@ -61,7 +66,8 @@ Math::Vector2 Mouse::getCursorPosition() const
     {
         double x,y;
         glfwGetCursorPos(ptr.get(),&x,&y);
-        return Math::Vector2((float)x,(float)y);
+        
+        return Math::Vector2(static_cast<float>(x), static_cast<float>(y));
     }
     
     throw GDK::Exception(TAG, "The mouse's window has died!");
