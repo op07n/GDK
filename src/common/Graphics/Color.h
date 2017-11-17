@@ -21,9 +21,9 @@ namespace GDK
             
             // instancing rules
             Color() noexcept;
-            Color(const float &aR, const float &aG, const float &aB, const float &aA = 1.) noexcept;
-            Color(const Color&) noexcept = default;
-            Color(Color&&) noexcept = default;
+            Color(const float aR, const float aG, const float aB, const float aA = 1.) noexcept;
+            Color(const Color &) noexcept = default;
+            Color(Color &&) noexcept = default;
             ~Color() noexcept = default;
             
             // Mutating operators
@@ -38,13 +38,10 @@ namespace GDK
             static const Color Blue;
             static const Color DeathlyPink;
             static const Color CornflowerBlue;
-            
         };
         
-        std::ostream& operator<< (std::ostream& stream, const GFX::Color& aColor) noexcept;
-        
+        std::ostream &operator<< (std::ostream &stream, const GFX::Color &aColor) noexcept;
     }
-    
 }
 
 #endif /* GDK_GFX_COLOR_H */

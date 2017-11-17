@@ -24,8 +24,8 @@ namespace GDK
             
         public:
             // Public methods
-            void bind(const GFXuint &aProgramHandle) noexcept override;
-            void unbind(const GFXuint &aProgramHandle) noexcept override;
+            void bind(const GFXuint aProgramHandle) noexcept override;
+            void unbind(const GFXuint aProgramHandle) noexcept override;
       
             // Mutating operators
             TextureUniformCollection& operator=(const TextureUniformCollection&) = delete;

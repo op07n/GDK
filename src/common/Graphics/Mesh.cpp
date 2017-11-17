@@ -16,13 +16,15 @@ static constexpr auto TAG = "Mesh";
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "Name: "         << a.m_Name               << ", "
     << "Handle: "       << a.m_VertexBufferHandle << ", "
     << "VertexCount: "  << a.m_VertexCount        << ", "
     << "VertexFormat: " << a.m_VertexFormat
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 static GLenum MeshTypeToOpenGLDrawType(const Mesh::Type &aType)
@@ -30,13 +32,11 @@ static GLenum MeshTypeToOpenGLDrawType(const Mesh::Type &aType)
     switch (aType)
     {
         case Mesh::Type::Dynamic:
-        return GL_DYNAMIC_DRAW;
+            return GL_DYNAMIC_DRAW;
         
         case Mesh::Type::Static:
-        return GL_STATIC_DRAW;
-        
+            return GL_STATIC_DRAW;
     }
-    
 }
 
 static GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPrimitiveMode)
@@ -44,16 +44,14 @@ static GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPri
     switch (aPrimitiveMode)
     {
         case Mesh::PrimitiveMode::Triangles:
-        return GL_TRIANGLES;
+            return GL_TRIANGLES;
             
         case Mesh::PrimitiveMode::Lines:
-        return GL_LINES;
+            return GL_LINES;
         
         case Mesh::PrimitiveMode::Points:
-        return GL_POINTS;
-            
+            return GL_POINTS;
     }
-    
 }
 
 void Mesh::draw(const GFXuint aShaderProgramHandle) const noexcept
@@ -76,14 +74,11 @@ void Mesh::draw(const GFXuint aShaderProgramHandle) const noexcept
             GL_UNSIGNED_SHORT,
             static_cast<void*>(0)
         );
-        
     }
     else
     {
         glDrawArrays( primitiveMode, 0, m_VertexCount );
-    
     }
-    
 }
 
 void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType) noexcept
@@ -95,7 +90,6 @@ void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const V
     glBindBuffer (GL_ARRAY_BUFFER, m_VertexBufferHandle);
     glBufferData (GL_ARRAY_BUFFER, sizeof(GFXfloat) * aNewVertexData.size(), &aNewVertexData[0], type);
     glBindBuffer (GL_ARRAY_BUFFER,0);
-    
 }
 
 // Constructors & Destructors
@@ -116,11 +110,9 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
         std::string errorCode;
         if (GLH::GetError(&errorCode))
             throw GDK::Exception(TAG, errorCode);
-    
     }
     
     return ibo;
-    
 }())
 , m_IndexCount((GFXsizei)aIndexData.size())
 , m_VertexBufferHandle([&aVertexData, &aType]() -> GFXuint
@@ -141,7 +133,6 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
         throw GDK::Exception(TAG, errorCode);
     
     return vbo;
-    
 }())
 , m_VertexCount((int)aVertexData.size()/aVertexFormat.getSumOfAttributeComponents())
 , m_VertexFormat(aVertexFormat)
@@ -155,7 +146,6 @@ Mesh::~Mesh() noexcept
     
     if (m_IndexBufferHandle > 0)
         glDeleteBuffers(1, &m_IndexBufferHandle);
-    
 }
 
 Mesh::Mesh(Mesh&& a) noexcept
@@ -170,18 +160,15 @@ Mesh::Mesh(Mesh&& a) noexcept
     
     a.m_IndexBufferHandle  = 0;
     a.m_VertexBufferHandle = 0;
-    
 }
 
 // Accessors
 std::string Mesh::getName()const noexcept
 {
     return m_Name;
-
 }
 
 GFXuint Mesh::getHandle()const noexcept
 {
     return m_VertexBufferHandle;
-
 }

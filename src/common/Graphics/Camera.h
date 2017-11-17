@@ -12,7 +12,7 @@
 #include <iosfwd>
 
 namespace GDK{namespace Math{struct IntVector2;}}
-namespace GDK{namespace Math{struct Vector3;}}
+namespace GDK{namespace Math{struct Vector3;   }}
 namespace GDK{namespace Math{struct Quaternion;}}
 
 namespace GDK
@@ -62,12 +62,12 @@ namespace GDK
             
         public:
             // Accessors
-            void setViewportPosition(const Math::Vector2&) noexcept;
-            void setViewportPosition(const float &x, const float &y) noexcept;
+            void setViewportPosition(const Math::Vector2 &) noexcept;
+            void setViewportPosition(const float x, const float y) noexcept;
             Math::Vector2 getViewportPosition() const noexcept;
             
             void setViewportSize(const Math::Vector2&) noexcept;
-            void setViewportSize(const float &x, const float &y) noexcept;
+            void setViewportSize(const float x, const float y) noexcept;
             Math::Vector2 getViewportSize() const noexcept;
             
             //void setOrthographicProjection(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
@@ -75,22 +75,22 @@ namespace GDK
             const Math::Mat4x4& getProjectionMatrix() const noexcept;
             
             void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept;
-            const Math::Mat4x4& getViewMatrix() const noexcept;
+            const Math::Mat4x4 &getViewMatrix() const noexcept;
             
             // Public methods
-            void draw(const Math::IntVector2& aFrameBufferSize);
+            void draw(const Math::IntVector2 &aFrameBufferSize);
             
             // Mutating operators
-            Camera& operator=(const Camera&) = delete;
+            Camera& operator=(const Camera &) = delete;
       
             // Constructors, destructors
             Camera() noexcept;
-            Camera(const Camera&) = delete;
-            Camera(Camera&&) noexcept = default;
+            Camera(const Camera &) = delete;
+            Camera(Camera &&) noexcept = default;
             ~Camera() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::Camera&) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Camera &) noexcept;
     }
 }
 

@@ -41,8 +41,8 @@ namespace GDK
                 
             }
             
-            virtual void bind(const GFXuint &aProgramHandle) noexcept = 0;
-            virtual void unbind(const GFXuint &aProgramHandle) noexcept = 0;
+            virtual void bind(const GFXuint aProgramHandle) noexcept = 0;
+            virtual void unbind(const GFXuint aProgramHandle) noexcept = 0;
             
             
             // Mutating operators

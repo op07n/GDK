@@ -46,7 +46,6 @@ namespace GLH
     bool Bind3FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector3 &aVector3) noexcept;
     bool Bind4FloatUniform(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Vector4 &aVector4) noexcept;
     bool BindMatrix4x4(const GLuint &aShaderHandle, const std::string &aUniformName, const GDK::Math::Mat4x4 &aMatrix4x4) noexcept;
-    
 }
 
 #endif /* GDK_GFX_GL_H  */

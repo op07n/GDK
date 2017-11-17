@@ -20,14 +20,14 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Vector3UniformCol
     
 }
 
-void Vector3UniformCollection::bind(const GFXuint &aProgramHandle) noexcept
+void Vector3UniformCollection::bind(const GFXuint aProgramHandle) noexcept
 {
     for (auto& pair : m_Map)
         GLH::Bind3FloatUniform(aProgramHandle, pair.first, *pair.second.get());
     
 }
 
-void Vector3UniformCollection::unbind(const GFXuint &aProgramHandle) noexcept
+void Vector3UniformCollection::unbind(const GFXuint aProgramHandle) noexcept
 {
     for (auto& pair : m_Map)
         GLH::Bind3FloatUniform(aProgramHandle, pair.first, Math::Vector3::Zero);

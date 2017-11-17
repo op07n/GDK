@@ -77,13 +77,10 @@ namespace GDK
             Mesh(const Mesh&) = delete;
             Mesh(Mesh&&) noexcept;
             ~Mesh() noexcept;
-      
         };
 
         std::ostream& operator<< (std::ostream&, const GFX::Mesh&) noexcept;
-        
     }
-
 }
 
 #endif /* GDK_GFX_MESH_H  */

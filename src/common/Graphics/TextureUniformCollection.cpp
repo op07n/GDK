@@ -24,7 +24,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCol
 
 }
 
-void TextureUniformCollection::bind(const GFXuint &aProgramHandle) noexcept
+void TextureUniformCollection::bind(const GFXuint aProgramHandle) noexcept
 {
     int i = 0;
     for (auto &pair : m_Map)
@@ -36,7 +36,7 @@ void TextureUniformCollection::bind(const GFXuint &aProgramHandle) noexcept
     
 }
 
-void TextureUniformCollection::unbind(const GFXuint &aProgramHandle) noexcept
+void TextureUniformCollection::unbind(const GFXuint aProgramHandle) noexcept
 {
     int i = 0;
     for (auto &pair : m_Map)

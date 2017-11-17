@@ -19,7 +19,8 @@ using namespace Math;
 
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Model& a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "Name: "          << a.m_Name                  << ", "
     << "m_ModelMatrix: " << a.m_ModelMatrix        // << ", "
     << "Mesh: "          << *a.m_Mesh.lock()          << ", "
@@ -29,8 +30,9 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Model& a) noexcep
     << "m_Vector2s: "    << a.m_Vector2s              << ", "
     << "m_Vector3s: "    << a.m_Vector3s              << ", "
     << "m_Vector4s: "    << a.m_Vector4s
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 Model::Model(const std::string &aName, const Memory::default_ptr<Mesh> &aMesh, const Memory::default_ptr<ShaderProgram> &aShaderProgram) noexcept
@@ -84,9 +86,7 @@ void Model::draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectio
         m_Vector3s.unbind(programHandle);
         m_Vector4s.unbind(programHandle);
         m_Mat4x4s .unbind(programHandle);
-        
     }
-    
 }
 
 // Accessors
@@ -104,11 +104,9 @@ void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
     m_ModelMatrix.setIdentity();
     m_ModelMatrix.translate(aWorldPos);
     m_ModelMatrix.rotate(aRotation);
-    
 }
 
 void Model::setMesh(const Memory::default_ptr<Mesh> &a) noexcept
 {
     m_Mesh = a;
-
 }

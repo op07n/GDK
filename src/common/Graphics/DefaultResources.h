@@ -37,11 +37,8 @@ namespace GDK
             
             /// Make a cylinder
             Memory::default_ptr<Mesh> getCylinder() noexcept;
-            
         }
-    
     }
-
 }
 
 #endif /* GDK_GFX_CHECKEREDTEXTUREOFDEATH_H  */

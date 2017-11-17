@@ -13,27 +13,26 @@ using namespace GFX;
 std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mat4x4UniformCollection& a) noexcept
 {
     s.clear(); s << "{";
+    
     size_t i = 0;
+    
     for (auto& pair : a.m_Map)
     {
         auto mat4x4 = pair.second;
         s << i << ": " << "{Name: " << pair.first << ", " << "Matrix: " << mat4x4 << "}";
-        
     }
-    s << "}"; return s;
     
+    s << "}"; return s;
 }
 
-void Mat4x4UniformCollection::bind(const GFXuint &aProgramHandle) noexcept
+void Mat4x4UniformCollection::bind(const GFXuint aProgramHandle) noexcept
 {
     for (auto& pair : m_Map)
         GLH::BindMatrix4x4(aProgramHandle, pair.first, pair.second);
-    
 }
 
-void Mat4x4UniformCollection::unbind(const GFXuint &aProgramHandle) noexcept
+void Mat4x4UniformCollection::unbind(const GFXuint aProgramHandle) noexcept
 {
     for (auto& pair : m_Map)
-        GLH::BindMatrix4x4(aProgramHandle, pair.first, Math::Mat4x4::Identity);
-    
+        GLH::BindMatrix4x4(aProgramHandle, pair.first, Math::Mat4x4::Identity);    
 }

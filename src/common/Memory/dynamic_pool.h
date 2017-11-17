@@ -14,7 +14,7 @@ namespace GDK
     namespace Memory
     {
         /*!
-         Object pool of varying length. When get is called, an object with
+         Object pool of variable length. When get is called, an object with
          a reference count of 1 (unused outside the pool) is returned. If
          no unused objects exist, a new instance of T is added to the pool and returned
          */
@@ -35,9 +35,8 @@ namespace GDK
                     if (m_Pool[i].use_count() == 1)
                         return m_Pool[i];
               
-                m_Pool.push_back(std::shared_ptr<T>(m_NewObjectInitializer()));
+                m_Pool.push_back(std::make_shared<T>(m_NewObjectInitializer()));
                 return m_Pool.back();
-              
             }
           
             /// Try to reduce poolsize back to its initial size by removing any unused items while current size is > init size
@@ -48,7 +47,6 @@ namespace GDK
                         return;
                     else if (m_Pool[i].use_count() == 1)
                         m_Pool.remove(i);
-              
             }
           
             // Mutating operators
@@ -58,14 +56,12 @@ namespace GDK
             dynamic_pool(const size_t aInitialPoolSize, const std::function<T()> aNewObjectInitializer = [](){return T();})
             : m_InitialPoolSize(aInitialPoolSize)
             , m_NewObjectInitializer(aNewObjectInitializer)
-            {
-                for(size_t i = 0, s = aInitialPoolSize;i<s;i++)
-                    m_Pool.push_back(std::make_shared<T>(m_NewObjectInitializer()));
-              
-            }
+            , m_Pool(aInitialPoolSize, std::make_shared<T>(m_NewObjectInitializer()))
+            {}
+            
             dynamic_pool(const dynamic_pool&) = delete;
             dynamic_pool(dynamic_pool&&) = delete;
-            virtual ~dynamic_pool() = default;
+            virtual ~dynamic_pool() noexcept = default;
         };
     }
 }

@@ -42,13 +42,11 @@ Camera::Camera() noexcept
 static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
     throw GDK::Exception(TAG, "Camera::setOrthographicProjection not implemented!");
-    
 }
 
 static inline void calculatePerspectiveProjection(Math::Mat4x4& aProjectionMatrix, const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
 {
     aProjectionMatrix.setPerspective(aFieldOfView, aNearClippingPlane, aFarClippingPlane, aViewportAspectRatio);
-    
 }
 
 void Camera::draw(const Math::IntVector2& aFrameBufferSize)
@@ -62,32 +60,29 @@ void Camera::draw(const Math::IntVector2& aFrameBufferSize)
     switch(m_ProjectionMode)
     {
         case ProjectionMode::Perspective:
-        calculatePerspectiveProjection(m_ProjectionMatrix,m_FieldOfView,m_NearClippingPlane,m_FarClippingPlane,m_ViewportSize.getAspectRatio());
-        break;
+            calculatePerspectiveProjection(m_ProjectionMatrix,m_FieldOfView,m_NearClippingPlane,m_FarClippingPlane,m_ViewportSize.getAspectRatio());
+            break;
             
         case ProjectionMode::Orthographic:
-        calculateOrthographicProjection(m_ProjectionMatrix,m_OrthoSize,m_NearClippingPlane,m_FarClippingPlane,m_ViewportSize.getAspectRatio());
-        break;
-            
+            calculateOrthographicProjection(m_ProjectionMatrix,m_OrthoSize,m_NearClippingPlane,m_FarClippingPlane,m_ViewportSize.getAspectRatio());
+            break;
     }
     
     switch(m_ClearMode)
     {
         case ClearMode::Color:
-        GLH::ClearColor(m_ClearColor);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        break;
+            GLH::ClearColor(m_ClearColor);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            break;
             
         case ClearMode::DepthOnly:
-        glClear(GL_DEPTH_BUFFER_BIT);
-        break;
+            glClear(GL_DEPTH_BUFFER_BIT);
+            break;
             
         default:
-        case ClearMode::Nothing:
-        break;
-            
+            case ClearMode::Nothing:
+            break;
     }
-    
 }
 
 void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept
@@ -103,7 +98,7 @@ void Camera::setViewportPosition(const Math::Vector2 &a) noexcept
     m_ViewportPosition=a;
 }
 
-void Camera::setViewportPosition(const float &x, const float &y) noexcept
+void Camera::setViewportPosition(const float x, const float y) noexcept
 {
     m_ViewportPosition.x=x;
     m_ViewportPosition.y=y;
@@ -119,7 +114,7 @@ void Camera::setViewportSize(const Math::Vector2 &a) noexcept
     m_ViewportSize=a;
 }
     
-void Camera::setViewportSize(const float &x, const float &y) noexcept
+void Camera::setViewportSize(const float x, const float y) noexcept
 {
     m_ViewportSize.x=x;m_ViewportSize.y=y;
 }

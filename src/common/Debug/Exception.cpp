@@ -13,7 +13,3 @@ std::ostream &GDK::operator<<(std::ostream &stream, const Exception &aException)
     stream << aException.what();
     return stream;
 }
-
-/*Exception::Exception(const std::string &aTag, const std::string &aMessage) noexcept
-: std::runtime_error(aTag + ": " + aMessage)
-{}*/

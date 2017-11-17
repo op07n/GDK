@@ -30,13 +30,10 @@ namespace GDK
             MeshManager(const MeshManager&) = default;
             MeshManager(MeshManager&&) = default;
             virtual ~MeshManager() noexcept = default;
-      
         };
 
         std::ostream& operator<< (std::ostream&, const GFX::MeshManager&) noexcept;
-        
     }
-
 }
 
 #endif /* GDK_GFX_MESHMANAGER_H  */

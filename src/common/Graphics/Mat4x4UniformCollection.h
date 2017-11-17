@@ -23,8 +23,8 @@ namespace GDK
       
         public:
             // Public methods
-            void bind(const GFXuint &aProgramHandle) noexcept override;
-            void unbind(const GFXuint &aProgramHandle) noexcept override;
+            void bind(const GFXuint aProgramHandle) noexcept override;
+            void unbind(const GFXuint aProgramHandle) noexcept override;
       
             // Mutating operators
             Mat4x4UniformCollection& operator=(const Mat4x4UniformCollection&) = delete;
@@ -34,13 +34,10 @@ namespace GDK
             Mat4x4UniformCollection(const Mat4x4UniformCollection&) = delete;
             Mat4x4UniformCollection(Mat4x4UniformCollection&&) noexcept = default;
             ~Mat4x4UniformCollection() noexcept = default;
-      
         };
 
         std::ostream& operator<< (std::ostream&, const GFX::Mat4x4UniformCollection&) noexcept;
-        
     }
-
 }
 
 #endif /* GDK_GFX_MAT4X4UNIFORMCOLLECTION_H  */

@@ -72,13 +72,10 @@ namespace GDK
             Model(const Model&) = delete;
             Model(Model&&) = delete;
             ~Model() noexcept = default;
-      
         };
         
         std::ostream& operator<< (std::ostream&, const GFX::Model&) noexcept;
-        
     }
-
 }
 
 #endif /* GDK_GFX_MODEL_H  */

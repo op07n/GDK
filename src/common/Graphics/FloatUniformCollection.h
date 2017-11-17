@@ -19,28 +19,25 @@ namespace GDK
          */
         class FloatUniformCollection final : public UniformCollection<std::shared_ptr<float>>
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&) noexcept;
+            friend std::ostream& operator<< (std::ostream &, const GFX::FloatUniformCollection &) noexcept;
       
         public:
             // Public methods
-            void bind(const GFXuint &aProgramHandle) noexcept override;
-            void unbind(const GFXuint &aProgramHandle) noexcept override;
+            void bind(const GFXuint aProgramHandle) noexcept override;
+            void unbind(const GFXuint aProgramHandle) noexcept override;
             
             // Mutating operators
-            FloatUniformCollection& operator=(const FloatUniformCollection&) = delete;
+            FloatUniformCollection &operator=(const FloatUniformCollection &) = delete;
       
             // Constructors, destructors
             FloatUniformCollection() noexcept = default;
-            FloatUniformCollection(const FloatUniformCollection&) = delete;
-            FloatUniformCollection(FloatUniformCollection&&) = delete;
+            FloatUniformCollection(const FloatUniformCollection &) = delete;
+            FloatUniformCollection(FloatUniformCollection &&) = delete;
             ~FloatUniformCollection() noexcept = default;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::FloatUniformCollection&) noexcept;
-        
+        std::ostream &operator<< (std::ostream &, const GFX::FloatUniformCollection &) noexcept;
     }
-
 }
 
 #endif /* GDK_GFX_FLOATUNIFORMCOLLECTION_H  */
