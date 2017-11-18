@@ -27,7 +27,7 @@ namespace GDK
     
         public:
             // Accessors
-            std::string getName() const noexcept;
+            std::string const &getName() const noexcept;
             GFXuint getHandle() const noexcept;
             
             // Mutating operators

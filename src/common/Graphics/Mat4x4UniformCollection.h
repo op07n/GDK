@@ -5,8 +5,8 @@
 #define GDK_GFX_MAT4X4UNIFORMCOLLECTION_H
 
 //gdk inc
-#include "UniformCollection.h"
 #include "Math/Mat4x4.h"
+#include "UniformCollection.h"
 //std inc
 #include <iosfwd>
 
@@ -36,7 +36,7 @@ namespace GDK
             ~Mat4x4UniformCollection() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const GFX::Mat4x4UniformCollection&) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Mat4x4UniformCollection &) noexcept;
     }
 }
 

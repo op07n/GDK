@@ -60,7 +60,7 @@ Texture::~Texture() noexcept
         glDeleteBuffers(1, &m_Handle);
 }
 
-std::string Texture::getName()const noexcept
+std::string const &Texture::getName()const noexcept
 {
     return m_Name;
 }

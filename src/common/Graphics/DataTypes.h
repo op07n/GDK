@@ -18,10 +18,8 @@ namespace GDK
         using GFXfloat  = float;
         using GFXbyte   = unsigned char;
         using GFXsizei  = int;
-        using GFXushort = unsigned short;        
-        
+        using GFXushort = unsigned short;
     }
-
 }
 
 #endif /* GDK_GFX_DATATYPES_H  */

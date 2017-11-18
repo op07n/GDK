@@ -42,7 +42,6 @@ Memory::default_ptr<Texture> DefaultResources::getCheckeredTextureOfDeath() noex
             0x30, 0xea, 0xf8, 0xff, 0x1f, 0x00, 0xd3, 0x06, 0xab, 0x21, 0x92, 0xd9,
             0xa4, 0x0f, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42,
             0x60, 0x82
-        
         });
         
         ::checkeredTextureOfDeath = std::make_shared<Texture>(GFX::Texture("CheckeredTextureOfDeath",textureData));
@@ -67,7 +66,6 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath() noex
         void main ()
         {
             gl_Position = _MVP * vec4(a_Position,1.0);
-    
         }
 
         )V0G0N";
@@ -81,7 +79,6 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getPinkShaderOfDeath() noex
         void main()
         {
             out_Frag = vec4(1,0.2,0.8,1);
-        
         }
     
         )V0G0N";
@@ -115,7 +112,6 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff() noexcept
             v_UV = a_UV;
             //gl_Position = _MVP * vec4(a_Position,1.0);
             gl_Position = _Projection * _View * _Model * vec4(a_Position,1.0);
-        
         }
 
         )V0G0N";
@@ -137,7 +133,6 @@ Memory::default_ptr<ShaderProgram> DefaultResources::getAlphaCutOff() noexcept
                 discard;
             
             out_Frag = frag;
-        
         }
 
         )V0G0N";

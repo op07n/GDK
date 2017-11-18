@@ -50,7 +50,8 @@ namespace GDK
             }
             
             // Mutating operators
-            Logger& operator=(const Logger&) = default;
+            Logger &operator=(const Logger &) = default;
+            Logger &operator=(Logger &) = default;
             
             // Constructors & destructors
             /// Change log behavior by passing a function pointer to your own logging function.

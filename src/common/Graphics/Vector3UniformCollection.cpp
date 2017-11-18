@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector3UniformCollection &ßa) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector3UniformCollection &a) noexcept
 {
     s.clear(); s
     

@@ -13,7 +13,6 @@ using namespace GFX;
 std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::VertexAttribute &a) noexcept
 {
     s.clear(); s
-    
     << "{"
     << "Name: " << a.name << ", "
     << "Size: " << a.size

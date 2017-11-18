@@ -19,9 +19,10 @@ using namespace GFX;
 
 static constexpr auto TAG = "Camera";
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Camera &a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "m_ViewMatrix:\n"       << a.m_ViewMatrix        // << ", "
     << "m_ProjectionMatrix:\n" << a.m_ProjectionMatrix  // << ", "
     << "m_ViewportPosition: "  << a.m_ViewportPosition  << ", "
@@ -29,8 +30,9 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Camera& a) noexce
     << "m_FieldOfView: "       << a.m_FieldOfView       << ", "
     << "m_NearClippingPlane: " << a.m_NearClippingPlane << ", "
     << "m_FarClippingPlane: "  << a.m_FarClippingPlane
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 Camera::Camera() noexcept
@@ -39,20 +41,20 @@ Camera::Camera() noexcept
     glEnable(GL_SCISSOR_TEST);   
 }
 
-static inline void calculateOrthographicProjection(Math::Mat4x4& aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+static inline void calculateOrthographicProjection(Math::Mat4x4 &aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio)
 {
     throw GDK::Exception(TAG, "Camera::setOrthographicProjection not implemented!");
 }
 
-static inline void calculatePerspectiveProjection(Math::Mat4x4& aProjectionMatrix, const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+static inline void calculatePerspectiveProjection(Math::Mat4x4& aProjectionMatrix, const float aFieldOfView, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio)
 {
     aProjectionMatrix.setPerspective(aFieldOfView, aNearClippingPlane, aFarClippingPlane, aViewportAspectRatio);
 }
 
-void Camera::draw(const Math::IntVector2& aFrameBufferSize)
+void Camera::draw(const Math::IntVector2 &aFrameBufferSize)
 {
-    Math::IntVector2 viewportPixelPosition(aFrameBufferSize*m_ViewportPosition);
-    Math::IntVector2 viewportPixelSize(aFrameBufferSize*m_ViewportSize);
+    Math::IntVector2 viewportPixelPosition(aFrameBufferSize * m_ViewportPosition);
+    Math::IntVector2 viewportPixelSize    (aFrameBufferSize * m_ViewportSize);
     
     GLH::Viewport(viewportPixelPosition, viewportPixelSize);
     GLH::Scissor (viewportPixelPosition, viewportPixelSize);
@@ -95,13 +97,13 @@ void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
 // accessors
 void Camera::setViewportPosition(const Math::Vector2 &a) noexcept
 {
-    m_ViewportPosition=a;
+    m_ViewportPosition = a;
 }
 
 void Camera::setViewportPosition(const float x, const float y) noexcept
 {
-    m_ViewportPosition.x=x;
-    m_ViewportPosition.y=y;
+    m_ViewportPosition.x = x;
+    m_ViewportPosition.y = y;
 }
 
 Math::Vector2 Camera::getViewportPosition() const noexcept
@@ -111,12 +113,13 @@ Math::Vector2 Camera::getViewportPosition() const noexcept
 
 void Camera::setViewportSize(const Math::Vector2 &a) noexcept
 {
-    m_ViewportSize=a;
+    m_ViewportSize = a;
 }
     
 void Camera::setViewportSize(const float x, const float y) noexcept
 {
-    m_ViewportSize.x=x;m_ViewportSize.y=y;
+    m_ViewportSize.x = x;
+    m_ViewportSize.y = y;
 }
 
 Math::Vector2 Camera::getViewportSize() const noexcept
@@ -124,12 +127,12 @@ Math::Vector2 Camera::getViewportSize() const noexcept
     return m_ViewportSize;
 }
 
-const Math::Mat4x4& Camera::getProjectionMatrix() const noexcept
+const Math::Mat4x4 &Camera::getProjectionMatrix() const noexcept
 {
     return m_ProjectionMatrix;
 }
 
-const Math::Mat4x4& Camera::getViewMatrix() const noexcept
+const Math::Mat4x4 &Camera::getViewMatrix() const noexcept
 {
     return m_ViewMatrix;
 }

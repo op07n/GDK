@@ -50,7 +50,7 @@ namespace GDK
         
         // Constructors, destructors
         template<typename First, typename ...Rest>
-        Exception(const char aTag[], First && first, Rest && ...rest) noexcept
+        Exception(const char aTag[], First &&first, Rest &&...rest) noexcept
         : std::runtime_error(std::string(aTag).append(": ").append([&first]()
         {
             std::ostringstream sstream;

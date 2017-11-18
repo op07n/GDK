@@ -28,6 +28,7 @@ namespace GDK
             
             // Mutating operators
             Color& operator=(const Color &aColor) noexcept = default;
+            Color& operator=(Color &&aColor) noexcept = default;
             
             // Special colors
             static const Color Black;

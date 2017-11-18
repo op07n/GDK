@@ -5,16 +5,16 @@
 //std inc
 #include <iostream>
 //gdk inc
-#include "GL.h"
-#include "Debug/Logger.h"
 #include "Debug/Exception.h"
+#include "Debug/Logger.h"
+#include "GL.h"
 
 using namespace GDK;
 using namespace GFX;
 
-static constexpr auto TAG = "Mesh";
+static constexpr char TAG[] = "Mesh";
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::Mesh& a) noexcept
+std::ostream& GDK::GFX::operator<<(std::ostream &s, const GFX::Mesh &a) noexcept
 {
     s.clear(); s
     << "{"
@@ -163,7 +163,7 @@ Mesh::Mesh(Mesh&& a) noexcept
 }
 
 // Accessors
-std::string Mesh::getName()const noexcept
+std::string const &Mesh::getName()const noexcept
 {
     return m_Name;
 }

@@ -90,14 +90,40 @@ void Model::draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectio
 }
 
 // Accessors
-void Model::setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture) noexcept{m_Textures.put(aUniformName,aTexture);}
-void Model::setFloat  (const std::string &aUniformName, const std::shared_ptr<float>       &aFloat  ) noexcept{m_Floats  .put(aUniformName,aFloat);  }
-void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Vector2>     &aVector2) noexcept{m_Vector2s.put(aUniformName,aVector2);}
-void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Vector3>     &aVector3) noexcept{m_Vector3s.put(aUniformName,aVector3);}
-void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Vector4>     &aVector4) noexcept{m_Vector4s.put(aUniformName,aVector4);}
-void Model::setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                 &aMat4x4 ) noexcept{m_Mat4x4s .put(aUniformName,aMat4x4); }
+void Model::setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture> &aTexture) noexcept
+{
+    m_Textures.put(aUniformName,aTexture);
+}
 
-const Math::Mat4x4& Model::getModelMatrix() const noexcept{return m_ModelMatrix;}
+void Model::setFloat(const std::string &aUniformName, const std::shared_ptr<float> &aFloat) noexcept
+{
+    m_Floats  .put(aUniformName,aFloat);
+}
+
+void Model::setVector2(const std::string &aUniformName, const std::shared_ptr<Vector2> &aVector2) noexcept
+{
+    m_Vector2s.put(aUniformName,aVector2);
+}
+
+void Model::setVector3(const std::string &aUniformName, const std::shared_ptr<Vector3> &aVector3) noexcept
+{
+    m_Vector3s.put(aUniformName,aVector3);
+}
+
+void Model::setVector4(const std::string &aUniformName, const std::shared_ptr<Vector4> &aVector4) noexcept
+{
+    m_Vector4s.put(aUniformName,aVector4);
+}
+
+void Model::setMat4x4 (const std::string &aUniformName, const Math::Mat4x4 &aMat4x4 ) noexcept
+{
+    m_Mat4x4s .put(aUniformName,aMat4x4);
+}
+
+const Math::Mat4x4& Model::getModelMatrix() const noexcept
+{
+    return m_ModelMatrix;
+}
 
 void Model::setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept
 {

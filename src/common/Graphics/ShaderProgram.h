@@ -32,12 +32,12 @@ namespace GDK
             GFXuint draw() const noexcept;
             
             // Accessors
-            std::string getName() const noexcept;
+            std::string const &getName() const noexcept;
             GFXuint getHandle() const noexcept;
             
             // Mutating operators
-            ShaderProgram& operator=(const ShaderProgram &) = delete;
-            ShaderProgram& operator=(ShaderProgram &&) = delete;
+            ShaderProgram &operator=(const ShaderProgram &) = delete;
+            ShaderProgram &operator=(ShaderProgram &&) = delete;
       
             // Constructors, destructors
             ShaderProgram() = delete;

@@ -11,7 +11,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::MeshManager& a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::MeshManager &a) noexcept
 {
     s.clear(); s
     << "{";

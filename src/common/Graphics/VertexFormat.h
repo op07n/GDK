@@ -37,8 +37,8 @@ namespace GDK
             int getSumOfAttributeComponents() const noexcept;
             
             // Mutating operators
-            VertexFormat& operator=(const VertexFormat&) = default;
-            VertexFormat& operator=(VertexFormat&&) = default;
+            VertexFormat& operator=(const VertexFormat &) = default;
+            VertexFormat& operator=(VertexFormat &&) = default;
       
             // Constructors, destructors
             VertexFormat(const std::vector<VertexAttribute> &aAttributes) noexcept;

@@ -54,6 +54,7 @@ ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertex
     
     GFXint status = -1;
     glGetProgramiv(m_ProgramHandle, GL_LINK_STATUS, &status);
+    
     if (status == GL_FALSE)
     {
         std::ostringstream message;
@@ -94,7 +95,7 @@ GFXuint ShaderProgram::draw() const noexcept
     return m_ProgramHandle;
 }
 
-std::string ShaderProgram::getName() const noexcept
+std::string const &ShaderProgram::getName() const noexcept
 {
     return m_Name;
 }

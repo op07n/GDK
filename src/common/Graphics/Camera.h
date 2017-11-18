@@ -24,7 +24,7 @@ namespace GDK
          */
         class Camera final
         {
-            friend std::ostream& operator<< (std::ostream&, const GFX::Camera&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Camera &) noexcept;
             
         public:
             /// Describes camera clear behaviour
@@ -34,6 +34,7 @@ namespace GDK
                 Color,
                 DepthOnly
             };
+            
             /// The camera's projection mode
             enum class ProjectionMode
             {
@@ -66,13 +67,13 @@ namespace GDK
             void setViewportPosition(const float x, const float y) noexcept;
             Math::Vector2 getViewportPosition() const noexcept;
             
-            void setViewportSize(const Math::Vector2&) noexcept;
+            void setViewportSize(const Math::Vector2 &) noexcept;
             void setViewportSize(const float x, const float y) noexcept;
             Math::Vector2 getViewportSize() const noexcept;
             
             //void setOrthographicProjection(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             //void setPerspectiveProjection(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
-            const Math::Mat4x4& getProjectionMatrix() const noexcept;
+            const Math::Mat4x4 &getProjectionMatrix() const noexcept;
             
             void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept;
             const Math::Mat4x4 &getViewMatrix() const noexcept;
@@ -82,6 +83,7 @@ namespace GDK
             
             // Mutating operators
             Camera& operator=(const Camera &) = delete;
+            Camera& operator=(Camera &&) = delete;
       
             // Constructors, destructors
             Camera() noexcept;

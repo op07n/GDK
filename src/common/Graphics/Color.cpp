@@ -27,8 +27,8 @@ const Color Color::CornflowerBlue
 //operators
 std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Color &a) noexcept
 {
-    s.clear();
-    s << "{"
+    s.clear(); s
+    << "{"
     << a.r << ", "
     << a.g << ", "
     << a.b << ", "

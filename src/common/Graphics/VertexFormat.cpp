@@ -45,8 +45,8 @@ VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes) noex
 {
     int buf = 0;
     
-    for(size_t i = 0, s = aAttributes.size(); i < s; i++)
-        buf += aAttributes[i].size;
+    for (auto attribute : aAttributes)
+        buf += attribute.size;
     
     return buf;
     
@@ -57,10 +57,10 @@ void VertexFormat::enableAttributes(const GFXuint aShaderProgramHandle) const no
 {
     int attributeOffset = 0;
     
-    for(size_t i = 0, s = m_Format.size(); i < s; i++)
+    for(auto attribute : m_Format)
     {
-        std::string attributeName = m_Format[i].name;
-        int attributeSize = m_Format[i].size;
+        std::string attributeName = attribute.name;
+        int attributeSize = attribute.size;
         
         GLH::EnableVertexAttribute(attributeName, aShaderProgramHandle, attributeSize, attributeOffset, m_SumOfAttributeComponents);
         

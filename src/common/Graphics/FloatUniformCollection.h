@@ -28,6 +28,7 @@ namespace GDK
             
             // Mutating operators
             FloatUniformCollection &operator=(const FloatUniformCollection &) = delete;
+            FloatUniformCollection &operator=(FloatUniformCollection &&) = delete;
       
             // Constructors, destructors
             FloatUniformCollection() noexcept = default;
