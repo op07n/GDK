@@ -33,16 +33,22 @@ namespace GDK
         protected:
             ///called once per component instance, as early as possible
             virtual void initialize() {}
+            
             ///called every update frame
             virtual void update() {}
+            
             ///called every fixedupdate frame
             virtual void fixedUpdate() {}
+            
             ///Another component was added to my gameobject
             virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent) {}
+            
             ///Another component was removed from my gameobject
             virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent) {}
+            
             ///This component instance was added to a gameobject
             virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) {}
+            
             //virtual void onRemovedFromGameObject(const std::weak_ptr<GameObject>&) {}
             
         public:
@@ -50,7 +56,8 @@ namespace GDK
             std::weak_ptr<GameObject> getGameObject() const noexcept;
             
             // Mutating operators
-            Component& operator=(const Component&) = delete;
+            Component& operator=(const Component &) = delete;
+            Component& operator=(Component &&) = delete;
       
         protected:
             // Constructors, destructors
