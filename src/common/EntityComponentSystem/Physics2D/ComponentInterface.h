@@ -30,13 +30,9 @@ namespace GDK
                 
             public:
                 virtual ~ComponentInterface() = default;
-                
             };
-
         }
-
     }
-
 }
 
 #endif /* GDK_ECS_PHYSICS2D_COMPONENTINTERFACE_H  */

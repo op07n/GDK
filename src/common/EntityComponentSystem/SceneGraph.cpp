@@ -8,13 +8,15 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::SceneGraph& a) noexcept
+std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::SceneGraph &a) noexcept
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "SceneGraph's: " << "operator<< has not been implemented"
-    << "}"; return s;
-
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 SceneGraph::SceneGraph(Scene *a) noexcept

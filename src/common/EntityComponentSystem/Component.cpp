@@ -10,13 +10,15 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a) noexcept
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a) noexcept
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "Component's: " << "operator<< has not been implemented"
-    << "}"; return s;
-
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 std::weak_ptr<GameObject> Component::getGameObject() const noexcept

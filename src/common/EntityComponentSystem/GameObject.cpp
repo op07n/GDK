@@ -10,12 +10,15 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream& s, const ECS::GameObject& a) noexcept
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a) noexcept
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "GameObject's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 GameObject::GameObject(const std::weak_ptr<Scene> &aScene) noexcept
@@ -30,7 +33,6 @@ void GameObject::update() const noexcept
         {
             component->initialize();
             component->m_DidInit = true;
-            
         }
         
         component->update();
@@ -52,12 +54,12 @@ void GameObject::fixedUpdate() const noexcept
     }
 }
 
-std::weak_ptr<Component> GameObject::getComponent(const size_t &aIndex) const noexcept
+std::weak_ptr<Component> GameObject::getComponent(const size_t aIndex) const noexcept
 {
     return m_Components[aIndex];
 }
 
-size_t GameObject::getComponentCount() const noexcept
+size_t const &&GameObject::getComponentCount() const noexcept
 {
     return m_Components.size();
 }

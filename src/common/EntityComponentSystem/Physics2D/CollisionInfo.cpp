@@ -8,13 +8,15 @@
 using namespace GDK;
 using namespace Physics2D;
 
-std::ostream& GDK::Physics2D::operator<<(std::ostream& s, const Physics2D::CollisionInfo& a)
+std::ostream& GDK::Physics2D::operator<<(std::ostream &s, const Physics2D::CollisionInfo &a)
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "CollisionInfo's: " << "operator<< has not been implemented"
-    << "}"; return s;
-
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 CollisionInfo::CollisionInfo(const std::weak_ptr<ECS::Physics2D::Collider> &aMine, const std::weak_ptr<ECS::Physics2D::Collider> &aOther, const Math::Vector2 &aCollisionPoint)

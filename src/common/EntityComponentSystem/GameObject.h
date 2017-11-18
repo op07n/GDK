@@ -24,7 +24,7 @@ namespace GDK
          */
         class GameObject final : public std::enable_shared_from_this<GameObject>
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::GameObject&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const ECS::GameObject &) noexcept;
             friend GDK::ECS::Scene;
             
             // Data members
@@ -46,14 +46,14 @@ namespace GDK
             Math::Vector3 getScale() const noexcept;
             Math::Quaternion getRotation() const noexcept;
             std::weak_ptr<Scene> getScene() const noexcept;
-            std::weak_ptr<Component> getComponent(const size_t &aIndex) const noexcept;
-            size_t getComponentCount() const noexcept;
+            std::weak_ptr<Component> getComponent(const size_t aIndex) const noexcept;
+            size_t const &&getComponentCount() const noexcept;
             
             void setName(const std::string &aName) noexcept;
-            void setPosition(const Math::Vector3&) noexcept;
+            void setPosition(const Math::Vector3 &) noexcept;
             void setPosition(const float aX,const float aY, const float aZ) noexcept;
-            void setScale(const Math::Vector3&) noexcept;
-            void setRotation(const Math::Quaternion&) noexcept;
+            void setScale(const Math::Vector3 &) noexcept;
+            void setRotation(const Math::Quaternion &) noexcept;
             
             // Public methods
             template<class T>
@@ -92,14 +92,14 @@ namespace GDK
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
                 if (auto pScene = m_MyScene.lock())
-                    for (size_t i=0; i < m_Components.size(); i++)
+                    for (size_t i = 0; i < m_Components.size(); i++)
                         if (std::dynamic_pointer_cast<T>(m_Components[i]))
                         {
                             std::weak_ptr<Component> removedComponent(m_Components[i]);
                             
                             pScene->OnComponentRemovedFromAGameObject(removedComponent);
                             
-                            for(size_t j;j<m_Components.size();j++)
+                            for(size_t j; j < m_Components.size(); j++)
                                 if (j != i)
                                     m_Components[j]->onOtherComponentRemovedFromMyGameObject(removedComponent);
                             
@@ -130,19 +130,20 @@ namespace GDK
             }
             
             // Mutating operators
-            GameObject& operator=(const GameObject&) noexcept = delete;
-      
+            GameObject &operator=(const GameObject &) noexcept = delete;
+            GameObject &operator=(GameObject &&) noexcept = delete;
+            
             // Constructors, destructors
         private:
             GameObject(const std::weak_ptr<Scene> &aScene) noexcept;
             GameObject() noexcept = delete;
-            GameObject(const GameObject&) noexcept = delete;
-            GameObject(GameObject&&) noexcept = delete;
+            GameObject(const GameObject &) noexcept = delete;
+            GameObject(GameObject &&) noexcept = delete;
         public:
             ~GameObject() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::GameObject&) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::GameObject &) noexcept;
     }
 }
 

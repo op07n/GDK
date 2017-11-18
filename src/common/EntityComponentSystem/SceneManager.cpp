@@ -10,10 +10,13 @@ using namespace ECS;
 
 std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::SceneManager &a) noexcept
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "SceneManager's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 std::weak_ptr<Scene> SceneManager::addScene(const std::string &aName) noexcept

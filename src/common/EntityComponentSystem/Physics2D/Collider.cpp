@@ -12,13 +12,17 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Physics2D;
 
-std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream& s, const GDK::ECS::Physics2D::Collider& a)
-{
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "Collider's: " << "operator<< has not been implemented"
-    << "}"; return s;
+constexpr char TAG[] = "Collider";
 
+std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::Collider &a)
+{
+    s.clear(); s
+    << "{"
+    << "Collider's: " << "operator<< has not been implemented"
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 void Collider::checkForTransformScaleChange()
@@ -31,15 +35,12 @@ void Collider::checkForTransformScaleChange()
             requestShapeRebuildOnNextTick();
         
         b_ScaleBuffer = scale;
-        
     }
-    
 }
 
 void Collider::initialize()
 {
     requestShapeRebuildOnNextTick();
-
 }
 
 void Collider::update()
@@ -50,65 +51,74 @@ void Collider::update()
     {
         buildShape();
         m_RebuildShape = false;
-        
     }
-
 }
 
 // Accessors
-Collider::Type Collider::getType() const
-{
-    return m_ColliderType;
-}
 float Collider::getFriction() const
 {
     return m_Friction;
 }
+
 float Collider::getDensity() const
 {
     return m_Density;
 }
+
 float Collider::getRestitution() const
 {
     return m_Restitution;
 }
+
 bool Collider::getDrawDebugLines() const
 {
     return m_DrawDebugLines;
 }
 
-void Collider::setType(const Collider::Type &aColliderType)
+void Collider::setType(const Collider::Type aColliderType)
 {
     m_ColliderType=aColliderType;
     requestShapeRebuildOnNextTick();
 }
-void Collider::setDrawDebugLines(const bool &aBoolean)
+
+void Collider::setDrawDebugLines(const bool aBoolean)
 {
     m_DrawDebugLines=aBoolean;
     requestShapeRebuildOnNextTick();
 }
-void Collider::setFriction(const float &aFriction)
+
+void Collider::setFriction(const float aFriction)
 {
     m_Friction=aFriction;
     requestShapeRebuildOnNextTick();
 }
-void Collider::setDensity(const float &aDensity)
+
+void Collider::setDensity(const float aDensity)
 {
     m_Density=aDensity;
     requestShapeRebuildOnNextTick();
 }
-void Collider::setRestitution(const float &aRestitution)
+
+void Collider::setRestitution(const float aRestitution)
 {
     m_Restitution=aRestitution;
     requestShapeRebuildOnNextTick();
 }
-void Collider::setOffset(const float &aX, const float &aY)
+
+void Collider::setOffset(const float aX, const float aY)
 {
     m_Offset.x = aX;
     m_Offset.y = aY;
     
     requestShapeRebuildOnNextTick();
 }
-Collider::Type Collider::getColliderType() const {return m_ColliderType;}
 
-Math::Vector2 Collider::getOffset() const {return m_Offset;}
+Collider::Type Collider::getColliderType() const
+{
+    return m_ColliderType;
+}
+
+Math::Vector2 const &Collider::getOffset() const
+{
+    return m_Offset;
+}

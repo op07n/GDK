@@ -19,14 +19,17 @@ using namespace GDK::ECS;
 using namespace GDK::Math;
 using namespace GDK::ECS::Physics2D;
 
-static constexpr auto TAG = "Rigidbody";
+static constexpr char TAG[] = "Rigidbody";
 
-std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream& s, const GDK::ECS::Physics2D::Rigidbody& a) noexcept
+std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::Rigidbody &a) noexcept
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "Rigidbody's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 void Rigidbody::onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent)
@@ -55,7 +58,7 @@ void Rigidbody::fixedUpdate()
     if (m_RebuildRequired)
         buildBody();
     
-    if (auto gameObject = getGameObject().lock())
+    if (auto pGameObject = getGameObject().lock())
     {
         switch (m_Body->GetType())
         {
@@ -68,16 +71,16 @@ void Rigidbody::fixedUpdate()
                 
                 Debug::log(TAG, "Rotation:", b2Rot);
                 
-                gameObject->setPosition(b2Pos.x,0,b2Pos.y);
-                gameObject->setRotation(Quaternion({0,b2Rot,0}));
+                pGameObject->setPosition(b2Pos.x,0,b2Pos.y);
+                pGameObject->setRotation(Quaternion({0,b2Rot,0}));
                 
             } break;
             
             case b2BodyType::b2_kinematicBody:
             case b2BodyType::b2_staticBody:
             {
-                Vector3 tPos = gameObject->getPosition();
-                Vector3 tRot = gameObject->getRotation().toEuler();
+                Vector3 tPos = pGameObject->getPosition();
+                Vector3 tRot = pGameObject->getRotation().toEuler();
             
                 //Check for rotation changes
                 if (tRot != m_RotationBuffer)
@@ -95,7 +98,7 @@ void Rigidbody::fixedUpdate()
             } break;
         }
     
-        Vector3 scale = gameObject->getScale();
+        Vector3 scale = pGameObject->getScale();
     
         if (m_ScaleBuffer != scale)
             buildFixtures();
@@ -126,7 +129,7 @@ void Rigidbody::buildBody()
         }
     
         //Create the body in the world
-        if (auto physcene = m_Physics2DScene.lock())
+        if (auto physcene = m_MyPhysics2DScene.lock())
         {
             if (m_Body)
                 physcene->m_B2DWorld.DestroyBody(m_Body);
@@ -140,9 +143,9 @@ void Rigidbody::buildBody()
 
 void Rigidbody::buildFixtures()
 {
-    if (auto gameObject = getGameObject().lock())
+    if (auto pGameObject = getGameObject().lock())
     {
-        std::vector<std::weak_ptr<Collider>> colliders = gameObject->getComponents<Collider>();
+        std::vector<std::weak_ptr<Collider>> colliders = pGameObject->getComponents<Collider>();
         
         //Reset fixture array
         deleteAndClearFixtures();
@@ -167,7 +170,7 @@ void Rigidbody::buildFixtures()
 
 void Rigidbody::freezeAxis(const AxisFreezeMode &aAxisFreezeMode)
 {
-    if (auto physcene = m_Physics2DScene.lock())
+    if (auto physcene = m_MyPhysics2DScene.lock())
     {
         if (m_AxisFreezeJoint)
         {
@@ -206,12 +209,12 @@ void Rigidbody::setVelocity(const GDK::Math::Vector2 &aVelocity)
     setVelocity(aVelocity.x,aVelocity.y);
 }
 
-void Rigidbody::setVelocity(const float &aX,const float &aY)
+void Rigidbody::setVelocity(const float aX,const float aY)
 {
     m_Body->SetLinearVelocity(b2Vec2(aX,aY));
 }
 
-void Rigidbody::setVelocityX(const float &aX)
+void Rigidbody::setVelocityX(const float aX)
 {
     b2Vec2 v = m_Body->GetLinearVelocity();
     v.x = aX;
@@ -232,7 +235,7 @@ void Rigidbody::normalizeVelocity()
     m_Body->SetLinearVelocity(v);
 }
 
-void Rigidbody::scaleVelocity(const float &aScalar)
+void Rigidbody::scaleVelocity(const float aScalar)
 {
     b2Vec2 v = m_Body->GetLinearVelocity();
     v.x*=aScalar;
@@ -240,7 +243,7 @@ void Rigidbody::scaleVelocity(const float &aScalar)
     m_Body->SetLinearVelocity(v);
 }
 
-void Rigidbody::applyImpulse(const float &aX,const float &aY)
+void Rigidbody::applyImpulse(const float aX, const float aY)
 {
     m_Body->ApplyLinearImpulse({aX,aY},{0,0},true);
 }
@@ -250,17 +253,17 @@ void Rigidbody::applyForce(const Vector2 &aForce)
     m_Body->ApplyForceToCenter({aForce.x,aForce.y},true);
 }
 
-void Rigidbody::applyForce(const float &aX,const float &aY)
+void Rigidbody::applyForce(const float aX, const float aY)
 {
     m_Body->ApplyForceToCenter({aX,aY},true);
 }
 
-void Rigidbody::applyTorque(const float &aTorque)
+void Rigidbody::applyTorque(const float aTorque)
 {
     m_Body->ApplyTorque(-aTorque,true);
 }
 
-void Rigidbody::setType(const Type &aType)
+void Rigidbody::setType(const Type aType)
 {
     switch (aType)
     {
@@ -278,17 +281,17 @@ void Rigidbody::setType(const Type &aType)
     }
 }
 
-void Rigidbody::freezeRotation(const bool &aFreeze)
+void Rigidbody::freezeRotation(const bool aFreeze)
 {
     m_Body->SetFixedRotation(aFreeze);
 }
 
-void Rigidbody::setLinearDamping(const float &aLinearDamping)
+void Rigidbody::setLinearDamping(const float aLinearDamping)
 {
     m_Body->SetLinearDamping(aLinearDamping);
 }
 
-void Rigidbody::setAngularDamping(const float &aAngularDamping)
+void Rigidbody::setAngularDamping(const float aAngularDamping)
 {
     m_Body->SetAngularDamping(aAngularDamping);
 }
@@ -298,12 +301,12 @@ bool Rigidbody::isRotationFrozen()
     return m_Body->IsFixedRotation();
 }
 
-void Rigidbody::setLinearVelocity(const float &aX, const float &aY)
+void Rigidbody::setLinearVelocity(const float aX, const float aY)
 {
     m_Body->SetLinearVelocity({aX,aY});
 }
 
-void Rigidbody::setPosition(const float &aX,const float &aY,const float &aZ)
+void Rigidbody::setPosition(const float aX, const float aY, const float aZ)
 {
     m_Body->SetTransform({aX,aZ}, m_Body->GetAngle());
     
@@ -311,7 +314,7 @@ void Rigidbody::setPosition(const float &aX,const float &aY,const float &aZ)
         g->setPosition(aX,aY,aZ);
 }
 
-void Rigidbody::setPosition(const float &aX,const float &aY)
+void Rigidbody::setPosition(const float aX, const float aY)
 {
     m_Body->SetTransform({aX,aY}, m_Body->GetAngle());
     
@@ -319,12 +322,12 @@ void Rigidbody::setPosition(const float &aX,const float &aY)
         g->setPosition(aX,g->getPosition().y,aY);
 }
 
-void Rigidbody::setGravityScale(const float &aScalar)
+void Rigidbody::setGravityScale(const float aScalar)
 {
     m_Body->SetGravityScale(aScalar);
 }
 
-void Rigidbody::setRotation(const float &aRotation)
+void Rigidbody::setRotation(const float aRotation)
 {
     m_Body->SetTransform(m_Body->GetPosition(), -aRotation);
     
@@ -353,7 +356,7 @@ void Rigidbody::onAddedToGameObject(const std::weak_ptr<GameObject> &a)
 {
     if (auto gameObject = a.lock())
         if (auto scene = gameObject->getScene().lock())
-            m_Physics2DScene = scene->getSceneGraph<Physics2D::SceneGraph>().lock();
+            m_MyPhysics2DScene = scene->getSceneGraph<Physics2D::SceneGraph>().lock();
     
     if (auto gameObject = a.lock())
         if (auto scene = gameObject->getScene().lock())
@@ -370,7 +373,7 @@ Rigidbody::~Rigidbody() noexcept
     deleteAndClearFixtures();
     
     if (m_Body)
-        if (auto physcene = m_Physics2DScene.lock())
+        if (auto physcene = m_MyPhysics2DScene.lock())
             physcene->m_B2DWorld.DestroyBody(m_Body);
     
     if (m_AxisFreezeJoint)

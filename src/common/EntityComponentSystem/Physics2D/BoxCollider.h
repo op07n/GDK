@@ -25,20 +25,16 @@ namespace GDK
             */
             class BoxCollider final : public SimpleCollider<b2PolygonShape>
             {
-                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::BoxCollider&);
+                friend std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::BoxCollider &);
                 
             protected:
                 // Component interface
                 virtual void buildShape() override final;
-                
             };
 
-            std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::BoxCollider&);
-
+            std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::BoxCollider &);
         }
-
     }
-
 }
 
 #endif /* GDK_ECS_PHYSICS2D_BOXCOLLIDER_H  */

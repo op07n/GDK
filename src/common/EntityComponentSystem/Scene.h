@@ -24,7 +24,7 @@ namespace GDK
          */
         class Scene final : public std::enable_shared_from_this<Scene>
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::Scene&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const ECS::Scene &) noexcept;
             friend GameObject;
       
         public:
@@ -37,12 +37,14 @@ namespace GDK
         private:
             // Data members
             const std::string m_Name;
+            
             State m_SceneState = State::Active;
+            
             std::vector<std::shared_ptr<SceneGraph>> m_SceneGraphs = {};
             std::vector<std::shared_ptr<GameObject>> m_GameObjects = {};
             
-            void OnComponentAddedToAGameObject(const std::weak_ptr<Component>&);
-            void OnComponentRemovedFromAGameObject(const std::weak_ptr<Component>&);
+            void OnComponentAddedToAGameObject(const std::weak_ptr<Component> &);
+            void OnComponentRemovedFromAGameObject(const std::weak_ptr<Component> &);
             
             void OnSceneGraphAdded(const std::weak_ptr<SceneGraph> &aSceneGraph);
             void OnSceneGraphRemoved(const std::weak_ptr<SceneGraph> &aSceneGraphRemoved);
@@ -51,11 +53,11 @@ namespace GDK
             
         public:
             // Accessors
-            std::weak_ptr<GameObject> getGameObject(const std::string&) const noexcept;
-            std::string getName() const noexcept;
-            State getSceneState() const noexcept;
+            std::weak_ptr<GameObject> getGameObject(const std::string &) const noexcept;
+            std::string const &getName() const noexcept;
+            State const &getSceneState() const noexcept;
             
-            void setState(const State&);
+            void setState(const State &);
       
             // Public methods
             template<class T>
@@ -63,8 +65,8 @@ namespace GDK
             {
                 static_assert(std::is_base_of<SceneGraph, T>::value == true, "T must be a kind of SceneGraph");
                 
-                for(size_t i = 0, s = m_SceneGraphs.size(); i < s ; i++)
-                    if (auto ptr = std::dynamic_pointer_cast<T>(m_SceneGraphs[i]))
+                for(auto sceneGraph : m_SceneGraphs)
+                    if (auto ptr = std::dynamic_pointer_cast<T>(sceneGraph))
                         return std::weak_ptr<T>(ptr);
                 
                 return std::weak_ptr<T>();
@@ -77,8 +79,8 @@ namespace GDK
                 
                 auto newT = std::shared_ptr<T>(new T(this));
                 
-                for (size_t i = 0, s = m_SceneGraphs.size(); i < s; i++)
-                    if (std::dynamic_pointer_cast<T>(m_SceneGraphs[i]))
+                for(auto sceneGraph : m_SceneGraphs)
+                    if (std::dynamic_pointer_cast<T>(sceneGraph))
                     {
                         logError();
                         return {}; 
@@ -91,24 +93,25 @@ namespace GDK
             
             void update();
             void fixedUpdate();
-            void draw(const Math::IntVector2& aFrameBufferSize);
+            void draw(const Math::IntVector2 &aFrameBufferSize);
             
             std::weak_ptr<GameObject> addGameObject();
       
             // Mutating operators
-            Scene& operator=(const Scene&) = delete;
+            Scene &operator=(const Scene &) = delete;
+            Scene &operator=(Scene &&) = delete;
       
             // Constructors, destructors
             Scene(const std::string &aName) noexcept;
         private:
             Scene() = delete;
-            Scene(const Scene&) = delete;
+            Scene(const Scene &) = delete;
         public:
-            Scene(Scene&&) = default;
+            Scene(Scene &&) = default;
             ~Scene() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::Scene&) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::Scene &) noexcept;
     }
 }
 

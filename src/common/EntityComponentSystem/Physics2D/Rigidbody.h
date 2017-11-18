@@ -30,6 +30,7 @@ namespace GDK
             class Rigidbody final : public Component
             {
                 friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Rigidbody&) noexcept;
+                
             public:
                 ///Prevent movement along the chosen axis
                 enum class AxisFreezeMode
@@ -49,13 +50,13 @@ namespace GDK
                 
             private:
                 // Data members
-                std::weak_ptr<Physics2D::SceneGraph> m_Physics2DScene = {}; //the scene
+                std::weak_ptr<Physics2D::SceneGraph> m_MyPhysics2DScene = {};
                 
-                std::vector<b2Fixture*> m_Fixtures         = {};
-                b2BodyDef               m_BodyDef          = {};
-                b2Body                  *m_Body            = nullptr;
-                b2PrismaticJoint        *m_AxisFreezeJoint = nullptr;
-                bool                    m_RebuildRequired  = true;
+                std::vector<b2Fixture*> m_Fixtures = {};
+                b2BodyDef m_BodyDef = {};
+                b2Body *m_Body = nullptr;
+                b2PrismaticJoint *m_AxisFreezeJoint = nullptr;
+                bool m_RebuildRequired  = true;
                 
                 Math::Vector3 m_ScaleBuffer    = Math::Vector3::Zero;
                 Math::Vector3 m_RotationBuffer = Math::Vector3::Zero;
@@ -74,56 +75,56 @@ namespace GDK
                 virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent) override final;
                 virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent) override final;
                 
-                virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) override final;
+                virtual void onAddedToGameObject(const std::weak_ptr<GameObject> &) override final;
                 
             public:
                 // Accessors
                 Math::Vector2 getVelocity() const;
                 
-                void setVelocity(const Math::Vector2&);
-                void setVelocity(const float &aX,const float &aY);
+                void setVelocity(const Math::Vector2 &);
+                void setVelocity(const float aX,const float aY);
                 
-                void setVelocityX(const float &aX);
+                void setVelocityX(const float aX);
                 void setVelocityY(const float aY);
                 
                 void normalizeVelocity();
-                void scaleVelocity(const float &aScalar);
+                void scaleVelocity(const float aScalar);
                 
-                void applyImpulse(const float &aX,const float &aY);
+                void applyImpulse(const float aX,const float aY);
                 
                 void applyForce(const Math::Vector2 &aForce);
-                void applyForce(const float &aX,const float &aY);
+                void applyForce(const float aX,const float aY);
                 
-                void applyTorque(const float &aTorque);
+                void applyTorque(const float aTorque);
                 
-                void setType(const Type &aType);
+                void setType(const Type aType);
                 
-                void freezeRotation(const bool &aFreeze);
+                void freezeRotation(const bool aFreeze);
                 
-                void setLinearDamping(const float &aLinearDamping);
-                void setAngularDamping(const float &aAngularDamping);
+                void setLinearDamping(const float aLinearDamping);
+                void setAngularDamping(const float aAngularDamping);
                 
                 bool isRotationFrozen();
                 
-                void setLinearVelocity(const float &aX, const float &aY);
+                void setLinearVelocity(const float aX, const float aY);
                 
-                void setPosition(const float &aX,const float &aY,const float &aZ);
-                void setPosition(const float &aX,const float &aY);
+                void setPosition(const float aX, const float aY, const float aZ);
+                void setPosition(const float aX, const float aY);
                 
-                void setGravityScale(const float &aScalar);
+                void setGravityScale(const float aScalar);
                 
-                void setRotation(const float &aRotation);
+                void setRotation(const float aRotation);
                 
                 void clearForces();
       
                 // methods
-                void freezeAxis(const AxisFreezeMode&);
+                void freezeAxis(const AxisFreezeMode &);
 
                 // Constructors, destructors
                 virtual ~Rigidbody() noexcept;
             };
 
-            std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Rigidbody&) noexcept;
+            std::ostream& operator<< (std::ostream &, const GDK::ECS::Physics2D::Rigidbody &) noexcept;
         }
     }
 }

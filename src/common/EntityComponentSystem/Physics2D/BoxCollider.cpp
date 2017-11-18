@@ -13,12 +13,17 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Physics2D;
 
-std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream& s, const GDK::ECS::Physics2D::BoxCollider& a)
+constexpr char TAG[] = "BoxCollider";
+
+std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::BoxCollider &a)
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
+    s.clear(); s
+    << "{"
     << "BoxCollider's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
     
 void BoxCollider::buildShape()
@@ -43,7 +48,5 @@ void BoxCollider::buildShape()
         m_Shape.m_centroid.Set(offset.x, offset.y);
         
         SimpleCollider::buildShape();
-            
     }
-    
 }

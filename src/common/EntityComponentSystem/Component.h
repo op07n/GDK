@@ -23,7 +23,7 @@ namespace GDK
          */
         class Component : public std::enable_shared_from_this<Component>
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::Component&) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const ECS::Component &) noexcept;
             friend GDK::ECS::GameObject;
       
             // Data members
@@ -47,7 +47,7 @@ namespace GDK
             virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent) {}
             
             ///This component instance was added to a gameobject
-            virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) {}
+            virtual void onAddedToGameObject(const std::weak_ptr<GameObject> &) {}
             
             //virtual void onRemovedFromGameObject(const std::weak_ptr<GameObject>&) {}
             
@@ -56,20 +56,20 @@ namespace GDK
             std::weak_ptr<GameObject> getGameObject() const noexcept;
             
             // Mutating operators
-            Component& operator=(const Component &) = delete;
-            Component& operator=(Component &&) = delete;
+            Component &operator=(const Component &) = delete;
+            Component &operator=(Component &&) = delete;
       
         protected:
             // Constructors, destructors
             Component() noexcept = default;
         private:
-            Component(const Component&) = delete;
-            Component(Component&&) = delete;
+            Component(const Component &) = delete;
+            Component(Component &&) = delete;
         public:
             virtual ~Component() noexcept = default;
         };
 
-        std::ostream& operator<< (std::ostream&, const ECS::Component&) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::Component &) noexcept;
     }
 }
 

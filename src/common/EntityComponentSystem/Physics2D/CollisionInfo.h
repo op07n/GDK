@@ -21,7 +21,7 @@ namespace GDK
          */
         struct CollisionInfo final
         {
-            friend std::ostream& operator<< (std::ostream&, const Physics2D::CollisionInfo&);
+            friend std::ostream &operator<< (std::ostream &, const Physics2D::CollisionInfo &);
             
             // Data members
             std::weak_ptr<ECS::Physics2D::Collider> mine  = {};
@@ -29,21 +29,19 @@ namespace GDK
             Math::Vector2 collisionPoint  = {};
             
             // Mutating operators
-            CollisionInfo& operator=(const CollisionInfo&) = delete;
-      
+            CollisionInfo &operator=(const CollisionInfo &) = delete;
+            CollisionInfo &operator=(CollisionInfo &&) = delete;
+            
             // Constructors, destructors
             CollisionInfo(const std::weak_ptr<ECS::Physics2D::Collider> &aMine, const std::weak_ptr<ECS::Physics2D::Collider> &aOther, const Math::Vector2 &aCollisionPoint);
             CollisionInfo() = delete;
             CollisionInfo(const CollisionInfo&) = delete;
             CollisionInfo(CollisionInfo&&) = delete;
             ~CollisionInfo() = default;
-      
         };
 
-        std::ostream& operator<< (std::ostream&, const Physics2D::CollisionInfo&);
-        
+        std::ostream& operator<< (std::ostream &, const Physics2D::CollisionInfo &);
     }
-
 }
 
 #endif /* GDK_PHYSICS2D_COLLISIONINFO_H  */

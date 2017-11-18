@@ -21,7 +21,7 @@ namespace GDK
          */
         class SceneManager final
         {
-            friend std::ostream& operator<< (std::ostream&, const ECS::SceneManager&) noexcept;
+            friend std::ostream& operator<< (std::ostream &, const ECS::SceneManager &) noexcept;
       
             // Data members
             std::map<std::string, std::shared_ptr<Scene>> m_Scenes = {};
@@ -39,16 +39,17 @@ namespace GDK
             void draw(const Math::IntVector2 &aFrameBufferSize);
             
             // Mutating operators
-            SceneManager& operator=(const SceneManager&) = delete;
-      
+            SceneManager &operator=(const SceneManager &) = delete;
+            SceneManager &&operator=(SceneManager &&) = delete;
+            
             // Constructors, destructors
             SceneManager() noexcept = default;
-            SceneManager(const SceneManager&) = delete;
-            SceneManager(SceneManager&&) = default;
+            SceneManager(const SceneManager &) = delete;
+            SceneManager(SceneManager &&) = default;
             ~SceneManager() = default;
         };
 
-        std::ostream &operator<< (std::ostream&, const ECS::SceneManager&) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::SceneManager &) noexcept;
     }
 }
 

@@ -28,18 +28,19 @@ namespace GDK
             */
             class Collider : public Component
             {
-                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Collider&);
+                friend std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::Collider &);
                 friend Physics2D::SceneGraph;
                 friend Physics2D::Rigidbody;
-                /*!
-                 Is this a physics object or is it used to detect physics objects? 
-                */
+                
             public:
+                /*!
+                 Collidable: block rigidbody movement
+                 Trigger: detect but do not block movement
+                 */
                 enum class Type
                 {
                     Collidable,
                     Trigger,
-                    
                 };
                 
             private:
@@ -68,7 +69,7 @@ namespace GDK
                 virtual void update() override final;
                 virtual void fixedUpdate() override final {}
                 
-                virtual void onAddedToGameObject(const std::weak_ptr<GameObject>&) override {buildShape();}
+                virtual void onAddedToGameObject(const std::weak_ptr<GameObject> &) override {buildShape();}
                 
                 // Collider interface
                 virtual std::vector<b2FixtureDef> getFixtures() const = 0;
@@ -76,29 +77,24 @@ namespace GDK
                 
             public:
                 // Accessors
-                Collider::Type getType() const;
                 float getDensity() const;
                 float getFriction() const;
                 float getRestitution() const;
-                Math::Vector2 getOffset() const;
-                bool  getDrawDebugLines() const;
+                Math::Vector2 const &getOffset() const;
+                bool getDrawDebugLines() const;
                 Collider::Type getColliderType() const;
                 
-                void setType(const Collider::Type &aColliderType);
-                void setDensity(const float &aDensity);
-                void setFriction(const float &aFriction);
-                void setRestitution(const float &aRestitution);
-                void setOffset(const float &aX, const float &aY);
-                void setDrawDebugLines(const bool &a);
-                
+                void setType(const Collider::Type aColliderType);
+                void setDensity(const float aDensity);
+                void setFriction(const float aFriction);
+                void setRestitution(const float aRestitution);
+                void setOffset(const float aX, const float aY);
+                void setDrawDebugLines(const bool a);
             };
 
-            std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::Collider&);
-
+            std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::Collider &);
         }
-
     }
-
 }
 
 #endif /* GDK_ECS_PHYSICS2D_COLLIDER_H  */
