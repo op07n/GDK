@@ -28,7 +28,7 @@ namespace GDK
                 
             protected:
                 // Data members
-                T            m_Shape             = {};
+                T m_Shape = {};
                 b2FixtureDef m_FixtureDefinition = {};
                 
                 virtual void buildShape() override
@@ -38,19 +38,17 @@ namespace GDK
                     m_FixtureDefinition.friction    = getFriction();
                     m_FixtureDefinition.restitution = getRestitution();
                     m_FixtureDefinition.isSensor    = getColliderType() == Collider::Type::Trigger ? true : false;
-                    
                 }
                 
             public:
                 // Accessors
-                virtual std::vector<b2FixtureDef> getFixtures() const override final {return {m_FixtureDefinition};}
-                
+                virtual std::vector<b2FixtureDef> getFixtures() const override final
+                {
+                    return {m_FixtureDefinition};
+                }
             };
-            
         }
-
     }
-
 }
 
 #endif /* GDK_ECS_PHYSICS2D_SIMPLECOLLIDER_H  */

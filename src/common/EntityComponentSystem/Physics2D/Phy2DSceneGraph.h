@@ -29,9 +29,9 @@ namespace GDK
             /*!
             No description provided for SceneGraph scenegraph
             */
-            class SceneGraph final : public ECS::SceneGraph
+            class Phy2DSceneGraph final : public ECS::SceneGraph
             {
-                friend std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::SceneGraph&);
+                friend std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::Phy2DSceneGraph &);
                 friend Rigidbody;
                 
                 /*!
@@ -56,12 +56,12 @@ namespace GDK
                 b2Body                                *m_WorldOriginBody = nullptr;
                 ContactListener                       m_ContactListener  = {};
                 
-                void handleContact(const bool &isBegin, b2Contact *aContact);
+                void handleContact(const bool isBegin, b2Contact *aContact);
                 
-                void invokeOnTriggerEnter  (const std::weak_ptr<Collider>&,const GDK::Physics2D::CollisionInfo&);
-                void invokeOnTriggerExit   (const std::weak_ptr<Collider>&,const GDK::Physics2D::CollisionInfo&);
-                void invokeOnCollisionEnter(const std::weak_ptr<Collider>&,const GDK::Physics2D::CollisionInfo&);
-                void invokeOnCollisionExit (const std::weak_ptr<Collider>&,const GDK::Physics2D::CollisionInfo&);
+                void invokeOnTriggerEnter  (const std::weak_ptr<Collider> &,const GDK::Physics2D::CollisionInfo &);
+                void invokeOnTriggerExit   (const std::weak_ptr<Collider> &,const GDK::Physics2D::CollisionInfo &);
+                void invokeOnCollisionEnter(const std::weak_ptr<Collider> &,const GDK::Physics2D::CollisionInfo &);
+                void invokeOnCollisionExit (const std::weak_ptr<Collider> &,const GDK::Physics2D::CollisionInfo &);
                 
             protected:
                 // SceneGraph interface
@@ -69,8 +69,8 @@ namespace GDK
                 virtual void fixedUpdate() override final;
                 virtual void update()      override final {};
                 
-                virtual void OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component>&)     override final;
-                virtual void OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component>&) override final;
+                virtual void OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component> &)     override final;
+                virtual void OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &) override final;
 
             public:
                 // Accessors
@@ -79,16 +79,13 @@ namespace GDK
                 // Public methods
 
                 // Constructors, destructors
-                SceneGraph(Scene *a);
+                Phy2DSceneGraph(Scene *a);
 
             };
 
-            std::ostream& operator<< (std::ostream&, const GDK::ECS::Physics2D::SceneGraph&);
-
+            std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::Phy2DSceneGraph &);
         }
-
     }
-
 }
 
 #endif /* GDK_ECS_PHYSICS2D_SCENEGRAPH_H  */

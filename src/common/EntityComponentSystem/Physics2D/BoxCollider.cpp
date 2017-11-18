@@ -19,7 +19,7 @@ std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::P
 {
     s.clear(); s
     << "{"
-    << "BoxCollider's: " << "operator<< has not been implemented"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
     << "}";
     

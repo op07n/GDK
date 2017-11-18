@@ -5,7 +5,7 @@
 #define GDK_ECS_PHYSICS2D_RIGIDBODY_H
 
 //gdk inc
-#include "EntityComponentSystem/Physics2D/SceneGraph.h"
+#include "EntityComponentSystem/Physics2D/Phy2DSceneGraph.h"
 #include "EntityComponentSystem/Component.h"
 #include "Physics2D/Dynamics/b2Fixture.h"
 #include "Math/Vector3.h"
@@ -50,7 +50,7 @@ namespace GDK
                 
             private:
                 // Data members
-                std::weak_ptr<Physics2D::SceneGraph> m_MyPhysics2DScene = {};
+                std::weak_ptr<Physics2D::Phy2DSceneGraph> m_MyPhysics2DScene = {};
                 
                 std::vector<b2Fixture*> m_Fixtures = {};
                 b2BodyDef m_BodyDef = {};

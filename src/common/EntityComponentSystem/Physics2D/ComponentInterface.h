@@ -20,13 +20,13 @@ namespace GDK
             */
             class ComponentInterface
             {
-                friend ECS::Physics2D::SceneGraph;
+                friend ECS::Physics2D::Phy2DSceneGraph;
                 
-                virtual void OnTriggerEnter(const GDK::Physics2D::CollisionInfo&) {}
-                virtual void OnTriggerExit (const GDK::Physics2D::CollisionInfo&) {}
+                virtual void OnTriggerEnter(const GDK::Physics2D::CollisionInfo &) {}
+                virtual void OnTriggerExit (const GDK::Physics2D::CollisionInfo &) {}
                 
-                virtual void OnCollisionEnter(const GDK::Physics2D::CollisionInfo&) {}
-                virtual void OnCollisionExit (const GDK::Physics2D::CollisionInfo&) {}
+                virtual void OnCollisionEnter(const GDK::Physics2D::CollisionInfo &) {}
+                virtual void OnCollisionExit (const GDK::Physics2D::CollisionInfo &) {}
                 
             public:
                 virtual ~ComponentInterface() = default;

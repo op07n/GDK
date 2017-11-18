@@ -8,7 +8,9 @@
 using namespace GDK;
 using namespace Physics2D;
 
-std::ostream& GDK::Physics2D::operator<<(std::ostream &s, const Physics2D::CollisionInfo &a)
+static constexpr char TAG[] = "Physics2D";
+
+std::ostream &GDK::Physics2D::operator<<(std::ostream &s, const Physics2D::CollisionInfo &a)
 {
     s.clear(); s
     << "{"

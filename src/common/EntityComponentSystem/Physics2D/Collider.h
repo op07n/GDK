@@ -14,8 +14,8 @@
 
 struct b2FixtureDef;
 
-namespace GDK{namespace ECS{namespace Physics2D{class SceneGraph;}}}
-namespace GDK{namespace ECS{namespace Physics2D{class Rigidbody; }}}
+namespace GDK{namespace ECS{namespace Physics2D{class Phy2DSceneGraph;}}}
+namespace GDK{namespace ECS{namespace Physics2D{class Rigidbody;}}}
 
 namespace GDK
 {
@@ -29,7 +29,7 @@ namespace GDK
             class Collider : public Component
             {
                 friend std::ostream &operator<< (std::ostream &, const GDK::ECS::Physics2D::Collider &);
-                friend Physics2D::SceneGraph;
+                friend Physics2D::Phy2DSceneGraph;
                 friend Physics2D::Rigidbody;
                 
             public:

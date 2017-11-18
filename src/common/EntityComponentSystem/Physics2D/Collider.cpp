@@ -18,7 +18,7 @@ std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::P
 {
     s.clear(); s
     << "{"
-    << "Collider's: " << "operator<< has not been implemented"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
     << "}";
     
@@ -77,31 +77,36 @@ bool Collider::getDrawDebugLines() const
 
 void Collider::setType(const Collider::Type aColliderType)
 {
-    m_ColliderType=aColliderType;
+    m_ColliderType = aColliderType;
+    
     requestShapeRebuildOnNextTick();
 }
 
 void Collider::setDrawDebugLines(const bool aBoolean)
 {
-    m_DrawDebugLines=aBoolean;
+    m_DrawDebugLines = aBoolean;
+    
     requestShapeRebuildOnNextTick();
 }
 
 void Collider::setFriction(const float aFriction)
 {
-    m_Friction=aFriction;
+    m_Friction = aFriction;
+    
     requestShapeRebuildOnNextTick();
 }
 
 void Collider::setDensity(const float aDensity)
 {
-    m_Density=aDensity;
+    m_Density = aDensity;
+    
     requestShapeRebuildOnNextTick();
 }
 
 void Collider::setRestitution(const float aRestitution)
 {
-    m_Restitution=aRestitution;
+    m_Restitution = aRestitution;
+    
     requestShapeRebuildOnNextTick();
 }
 

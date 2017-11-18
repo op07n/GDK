@@ -1,7 +1,7 @@
 // © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
 // Created on 17-07-31.
-#include "SceneGraph.h"
+#include "Phy2DSceneGraph.h"
 //gdk inc
 #include "Math/Vector2.h"
 #include "Physics2D/Common/b2Math.h"
@@ -18,34 +18,35 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Physics2D;
 
-std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream& s, const GDK::ECS::Physics2D::SceneGraph& a)
-{
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "SceneGraph's: " << "operator<< has not been implemented"
-    << "}"; return s;
+static constexpr char TAG[] = "Phy2DSceneGraph";
 
+std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::Phy2DSceneGraph &a)
+{
+    s.clear(); s
+    << "{"
+    << TAG << "'s: " << "operator<< has not been implemented"
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
-void ECS::Physics2D::SceneGraph::fixedUpdate()
+void ECS::Physics2D::Phy2DSceneGraph::fixedUpdate()
 {
     m_B2DWorld.Step(c_UpdateInterval, 1, 1);
-    
 }
 
-void ECS::Physics2D::SceneGraph::OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component> &a)
-{
-
-
-}
-
-void ECS::Physics2D::SceneGraph::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &a)
+void ECS::Physics2D::Phy2DSceneGraph::OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
     
+}
+
+void ECS::Physics2D::Phy2DSceneGraph::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &a)
+{
     
 }
 
-void ECS::Physics2D::SceneGraph::invokeOnTriggerEnter(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
+void ECS::Physics2D::Phy2DSceneGraph::invokeOnTriggerEnter(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
 {
     if (auto spCollider = aCollider.lock())
         if (auto spGameObject = spCollider->getGameObject().lock())
@@ -53,10 +54,9 @@ void ECS::Physics2D::SceneGraph::invokeOnTriggerEnter(const std::weak_ptr<Collid
                 if (auto component = spGameObject->getComponent(i).lock())
                     if (auto colliderInterface = std::dynamic_pointer_cast<ComponentInterface>(component))
                         colliderInterface->OnTriggerEnter(aColisionInfo);
-    
 }
 
-void ECS::Physics2D::SceneGraph::invokeOnTriggerExit(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
+void ECS::Physics2D::Phy2DSceneGraph::invokeOnTriggerExit(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
 {
     if (auto spCollider = aCollider.lock())
         if (auto spGameObject = spCollider->getGameObject().lock())
@@ -64,10 +64,9 @@ void ECS::Physics2D::SceneGraph::invokeOnTriggerExit(const std::weak_ptr<Collide
                 if (auto component = spGameObject->getComponent(i).lock())
                     if (auto colliderInterface = std::dynamic_pointer_cast<ComponentInterface>(component))
                         colliderInterface->OnTriggerExit(aColisionInfo);
-    
 }
 
-void ECS::Physics2D::SceneGraph::invokeOnCollisionEnter(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
+void ECS::Physics2D::Phy2DSceneGraph::invokeOnCollisionEnter(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
 {
     if (auto spCollider = aCollider.lock())
         if (auto spGameObject = spCollider->getGameObject().lock())
@@ -75,10 +74,9 @@ void ECS::Physics2D::SceneGraph::invokeOnCollisionEnter(const std::weak_ptr<Coll
                 if (auto component = spGameObject->getComponent(i).lock())
                     if (auto colliderInterface = std::dynamic_pointer_cast<ComponentInterface>(component))
                         colliderInterface->OnCollisionEnter(aColisionInfo);
-
 }
 
-void ECS::Physics2D::SceneGraph::invokeOnCollisionExit(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
+void ECS::Physics2D::Phy2DSceneGraph::invokeOnCollisionExit(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)
 {
     if (auto spCollider = aCollider.lock())
         if (auto spGameObject = spCollider->getGameObject().lock())
@@ -86,13 +84,12 @@ void ECS::Physics2D::SceneGraph::invokeOnCollisionExit(const std::weak_ptr<Colli
                 if (auto component = spGameObject->getComponent(i).lock())
                     if (auto colliderInterface = std::dynamic_pointer_cast<ComponentInterface>(component))
                         colliderInterface->OnCollisionExit(aColisionInfo);
-
 }
 
-void ECS::Physics2D::SceneGraph::handleContact(const bool &isBegin, b2Contact *aContact)
+void ECS::Physics2D::Phy2DSceneGraph::handleContact(const bool isBegin, b2Contact *aContact)
 {
-    std::weak_ptr<Collider> colliderA = *(std::weak_ptr<Collider>*)aContact->GetFixtureA()->GetUserData();
-    std::weak_ptr<Collider> colliderB = *(std::weak_ptr<Collider>*)aContact->GetFixtureB()->GetUserData();
+    std::weak_ptr<Collider> colliderA = *static_cast<std::weak_ptr<Collider>*>(aContact->GetFixtureA()->GetUserData());
+    std::weak_ptr<Collider> colliderB = *static_cast<std::weak_ptr<Collider>*>(aContact->GetFixtureB()->GetUserData());
     
     Math::Vector2 collisionNormal = {0,0}; //TODO: calculate these
     Math::Vector2 collisionPoint  = {0,0};
@@ -106,15 +103,12 @@ void ECS::Physics2D::SceneGraph::handleContact(const bool &isBegin, b2Contact *a
         {
             invokeOnTriggerEnter(colliderA,collisionInfoA);
             invokeOnTriggerEnter(colliderB,collisionInfoB);
-            
         }
         else
         {
             invokeOnTriggerExit(colliderA,collisionInfoA);
             invokeOnTriggerExit(colliderB,collisionInfoB);
-            
         }
-        
     }
     else
     {
@@ -122,24 +116,23 @@ void ECS::Physics2D::SceneGraph::handleContact(const bool &isBegin, b2Contact *a
         {
             invokeOnCollisionEnter(colliderA,collisionInfoA);
             invokeOnCollisionEnter(colliderB,collisionInfoB);
-            
         }
         else
         {
             invokeOnCollisionExit(colliderA,collisionInfoA);
             invokeOnCollisionExit(colliderB,collisionInfoB);
-            
         }
-        
     }
-    
 }
 
 // Accessors
-void ECS::Physics2D::SceneGraph::setGraivty(const Math::Vector2 &a){m_B2DWorld.SetGravity({a.x,a.y});}
+void ECS::Physics2D::Phy2DSceneGraph::setGraivty(const Math::Vector2 &a)
+{
+    m_B2DWorld.SetGravity({a.x, a.y});
+}
 
 // Constructors
-ECS::Physics2D::SceneGraph::SceneGraph(Scene *a) : ECS::SceneGraph(a)
+ECS::Physics2D::Phy2DSceneGraph::Phy2DSceneGraph(Scene *a) : ECS::SceneGraph(a)
 {
     m_ContactListener.ContactHandler = [this](const bool &isBegin, b2Contact *aContact){handleContact(isBegin,aContact);};
     m_B2DWorld.SetContactListener(&m_ContactListener);
@@ -150,5 +143,4 @@ ECS::Physics2D::SceneGraph::SceneGraph(Scene *a) : ECS::SceneGraph(a)
     bodyDef.position = {0,0};
     bodyDef.type = b2BodyType::b2_staticBody;
     m_WorldOriginBody = m_B2DWorld.CreateBody(&bodyDef);
-    
 }

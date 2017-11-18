@@ -4,7 +4,7 @@
 #include "Rigidbody.h"
 //gdk inc
 #include "EntityComponentSystem/GameObject.h"
-#include "EntityComponentSystem/Physics2D/SceneGraph.h"
+#include "EntityComponentSystem/Physics2D/Phy2DSceneGraph.h"
 #include "EntityComponentSystem/Physics2D/Collider.h"
 #include "Physics2D/Dynamics/b2Body.h"
 #include "Physics2D/Dynamics/Joints/b2PrismaticJoint.h"
@@ -356,11 +356,11 @@ void Rigidbody::onAddedToGameObject(const std::weak_ptr<GameObject> &a)
 {
     if (auto gameObject = a.lock())
         if (auto scene = gameObject->getScene().lock())
-            m_MyPhysics2DScene = scene->getSceneGraph<Physics2D::SceneGraph>().lock();
+            m_MyPhysics2DScene = scene->getSceneGraph<Physics2D::Phy2DSceneGraph>().lock();
     
     if (auto gameObject = a.lock())
         if (auto scene = gameObject->getScene().lock())
-            if (auto physcene = scene->getSceneGraph<Physics2D::SceneGraph>().lock())
+            if (auto physcene = scene->getSceneGraph<Physics2D::Phy2DSceneGraph>().lock())
                 m_Body = physcene->m_B2DWorld.CreateBody(&m_BodyDef);
         
     m_BodyDef.userData = this;
