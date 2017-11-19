@@ -118,7 +118,7 @@ namespace GDK
                 void clearForces();
       
                 // methods
-                void freezeAxis(const AxisFreezeMode &);
+                void freezeAxis(const AxisFreezeMode);
 
                 // Constructors, destructors
                 virtual ~Rigidbody() noexcept;

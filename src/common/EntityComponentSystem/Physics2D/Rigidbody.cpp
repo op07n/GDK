@@ -72,7 +72,7 @@ void Rigidbody::fixedUpdate()
                 Debug::log(TAG, "Rotation:", b2Rot);
                 
                 pGameObject->setPosition(b2Pos.x,0,b2Pos.y);
-                pGameObject->setRotation(Quaternion({0,b2Rot,0}));
+                //pGameObject->setRotation(Quaternion({0,b2Rot/5.f,0}));
                 
             } break;
             
@@ -168,7 +168,7 @@ void Rigidbody::buildFixtures()
     }
 }
 
-void Rigidbody::freezeAxis(const AxisFreezeMode &aAxisFreezeMode)
+void Rigidbody::freezeAxis(const AxisFreezeMode aAxisFreezeMode)
 {
     if (auto physcene = m_MyPhysics2DScene.lock())
     {
@@ -224,22 +224,28 @@ void Rigidbody::setVelocityX(const float aX)
 void Rigidbody::setVelocityY(const float aY)
 {
     b2Vec2 v = m_Body->GetLinearVelocity();
+    
     v.y = aY;
+    
     m_Body->SetLinearVelocity(v);
 }
 
 void Rigidbody::normalizeVelocity()
 {
     b2Vec2 v = m_Body->GetLinearVelocity();
+    
     v.Normalize();
+    
     m_Body->SetLinearVelocity(v);
 }
 
 void Rigidbody::scaleVelocity(const float aScalar)
 {
     b2Vec2 v = m_Body->GetLinearVelocity();
-    v.x*=aScalar;
-    v.y*=aScalar;
+    
+    v.x *= aScalar;
+    v.y *= aScalar;
+    
     m_Body->SetLinearVelocity(v);
 }
 
@@ -260,7 +266,12 @@ void Rigidbody::applyForce(const float aX, const float aY)
 
 void Rigidbody::applyTorque(const float aTorque)
 {
-    m_Body->ApplyTorque(-aTorque,true);
+    float buf = aTorque;
+    
+    buf *= -1.f;
+    //buf *= 1.f / 10.f;
+    
+    m_Body->ApplyTorque(buf,true);
 }
 
 void Rigidbody::setType(const Type aType)

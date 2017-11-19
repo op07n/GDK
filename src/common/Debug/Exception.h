@@ -28,7 +28,7 @@ namespace GDK
         }
         
         template<typename First, typename ...Rest>
-        std::string toString(std::ostringstream &sstream, First && first, Rest && ...rest) noexcept
+        std::string toString(std::ostringstream &sstream, First &&first, Rest &&...rest) noexcept
         {
             sstream << first;
             toString(sstream, std::forward<Rest>(rest)...);
@@ -36,7 +36,7 @@ namespace GDK
         }
         
         template<typename First, typename ...Rest>
-        std::string toString(std::ostringstream &&sstream, First && first, Rest && ...rest) noexcept
+        std::string toString(std::ostringstream &&sstream, First &&first, Rest &&...rest) noexcept
         {
             sstream << first;
             toString(sstream, std::forward<Rest>(rest)...);

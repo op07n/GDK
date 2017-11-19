@@ -51,7 +51,7 @@ namespace GDK
             
             void setName(const std::string &aName) noexcept;
             void setPosition(const Math::Vector3 &) noexcept;
-            void setPosition(const float aX,const float aY, const float aZ) noexcept;
+            void setPosition(const float aX, const float aY, const float aZ) noexcept;
             void setScale(const Math::Vector3 &) noexcept;
             void setRotation(const Math::Quaternion &) noexcept;
             
@@ -77,8 +77,8 @@ namespace GDK
                     
                     pScene->OnComponentAddedToAGameObject(wpNewT);
                     
-                    for (auto it = m_Components.begin(), end = m_Components.end()-1; it != end; ++it)
-                        (*it)->onOtherComponentAddedToMyGameObject(wpNewT);
+                    for (auto component : m_Components)
+                        component->onOtherComponentAddedToMyGameObject(wpNewT);
                     
                     return wpNewT;
                 }
@@ -110,9 +110,9 @@ namespace GDK
             template<class T>
             std::weak_ptr<T> getComponent() const noexcept
             {
-                for (auto it = m_Components.begin(), end = m_Components.end(); it != end; ++it)
-                    if (std::dynamic_pointer_cast<T>(*it))
-                        return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(*it));
+                for (auto component : m_Components)
+                    if (std::dynamic_pointer_cast<T>(component))
+                        return std::weak_ptr<T>(std::dynamic_pointer_cast<T>(component));
                 
                 return {};
             }
