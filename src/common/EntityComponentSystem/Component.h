@@ -41,10 +41,10 @@ namespace GDK
             virtual void fixedUpdate() {}
             
             ///Another component was added to my gameobject
-            virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent) {}
+            virtual void onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &) {}
             
             ///Another component was removed from my gameobject
-            virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent) {}
+            virtual void onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &) {}
             
             ///This component instance was added to a gameobject
             virtual void onAddedToGameObject(const std::weak_ptr<GameObject> &) {}

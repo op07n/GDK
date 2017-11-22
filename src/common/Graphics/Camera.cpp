@@ -43,6 +43,12 @@ Camera::Camera() noexcept
 
 static inline void calculateOrthographicProjection(Math::Mat4x4 &aProjectionMatrix, const Math::Vector2 &aOrthoSize, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio)
 {
+    (void)aProjectionMatrix;
+    (void)aOrthoSize;
+    (void)aNearClippingPlane;
+    (void)aFarClippingPlane;
+    (void)aViewportAspectRatio;
+    
     throw GDK::Exception(TAG, "Camera::setOrthographicProjection not implemented!");
 }
 

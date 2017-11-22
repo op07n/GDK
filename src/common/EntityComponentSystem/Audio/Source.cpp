@@ -9,29 +9,32 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Audio;
 
-std::ostream& GDK::ECS::Audio::operator<<(std::ostream& s, const GDK::ECS::Audio::Source& a)
+static constexpr char TAG[] = "Source";
+
+std::ostream &GDK::ECS::Audio::operator<<(std::ostream &s, const GDK::ECS::Audio::Source &a)
 {
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "Source's: " << "operator<< has not been implemented"
-    << "}"; return s;
+    (void)a;
     
+    s.clear(); s
+    << "{"
+    << TAG << "'s: " << "operator<< has not been implemented"
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 void Source::initialize()
 {
-
 
 }
 
 void Source::update()
 {
 
-
 }
 
 void Source::fixedUpdate()
 {
-
 
 }

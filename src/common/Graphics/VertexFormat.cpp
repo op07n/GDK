@@ -11,6 +11,8 @@
 using namespace GDK;
 using namespace GFX;
 
+static constexpr char TAG[] = "VertexFormat";
+
 // Special values
 VertexFormat const VertexFormat::Pos3uv2Norm3(
 {
@@ -32,8 +34,10 @@ VertexFormat const VertexFormat::Pos3(
 
 std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::VertexFormat &a) noexcept
 {
+    (void)a;
+    
     s << "{";
-    s << "notimp Vertexformat";
+    s << TAG << " << not implemented.";
     s << "}";
     
     return s;

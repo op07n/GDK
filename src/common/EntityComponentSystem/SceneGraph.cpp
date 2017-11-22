@@ -10,6 +10,8 @@ using namespace ECS;
 
 std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::SceneGraph &a) noexcept
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
     << "SceneGraph's: " << "operator<< has not been implemented"

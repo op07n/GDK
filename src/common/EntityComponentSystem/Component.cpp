@@ -10,11 +10,15 @@
 using namespace GDK;
 using namespace ECS;
 
+static constexpr char TAG[] = "Component";
+
 std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a) noexcept
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
-    << "Component's: " << "operator<< has not been implemented"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
     << "}";
     

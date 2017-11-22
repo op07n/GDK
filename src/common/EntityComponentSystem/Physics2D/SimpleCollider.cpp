@@ -9,5 +9,4 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Physics2D;
 
-static constexpr char TAG[] = "SimpleCollider";
-
+//static constexpr char TAG[] = "SimpleCollider";

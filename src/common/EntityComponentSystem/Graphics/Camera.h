@@ -23,12 +23,12 @@ namespace GDK
             */
             class Camera final : public GraphicsComponent
             {
-                friend std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);
+                friend std::ostream& operator<< (std::ostream &, const ECS::GFX::Camera &);
                 friend GDK::ECS::GFX::GraphicsScene;
                 
                 GDK::GFX::Camera m_Camera = {};
                 
-                void draw(const Math::IntVector2& aFrameBufferSize) noexcept;
+                void draw(const Math::IntVector2 &aFrameBufferSize) noexcept;
                 
             protected:
                 virtual void initialize()  override final;
@@ -37,27 +37,23 @@ namespace GDK
       
             public:
                 // Accessors
-                void setViewportPosition(const Math::Vector2&);
-                void setViewportPosition(const float &x, const float &y);
+                void setViewportPosition(const Math::Vector2 &);
+                void setViewportPosition(const float x, const float y);
                 Math::Vector2 getViewportPosition() const;
                 
                 void setViewportSize(const Math::Vector2&);
-                void setViewportSize(const float &x, const float &y);
+                void setViewportSize(const float x, const float y);
                 Math::Vector2 getViewportSize() const;
                 
                 const Math::Mat4x4& getProjectionMatrix() const;
                 
                 void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
-                const Math::Mat4x4& getViewMatrix() const;
-                
+                const Math::Mat4x4 &getViewMatrix() const;
             };
 
-            std::ostream& operator<< (std::ostream&, const ECS::GFX::Camera&);
-        
+            std::ostream &operator<< (std::ostream &, const ECS::GFX::Camera &);
         }
-        
     }
-
 }
 
 #endif /* GDK_ECS_GFX_CAMERA_H  */

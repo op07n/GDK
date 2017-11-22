@@ -12,9 +12,11 @@ static constexpr char TAG[] = "Physics2D";
 
 std::ostream &GDK::Physics2D::operator<<(std::ostream &s, const Physics2D::CollisionInfo &a)
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
-    << "CollisionInfo's: " << "operator<< has not been implemented"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
     << "}";
     

@@ -16,6 +16,8 @@ constexpr char TAG[] = "Collider";
 
 std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::Collider &a)
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
     << TAG << "'s: " << "operator<< has not been implemented"

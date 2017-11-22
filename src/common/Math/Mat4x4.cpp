@@ -42,8 +42,13 @@ void Mat4x4::setIdentity() noexcept
     m[0][3] = 0.; m[1][3] = 0.; m[2][3] = 0.; m[3][3] = 1.;
 }
 
-void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio)
+void Mat4x4::setOrthographic(const Math::Vector2 &aOrthoSize, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio)
 {
+    (void)aOrthoSize;
+    (void)aNearClippingPlane;
+    (void)aFarClippingPlane;
+    (void)aViewportAspectRatio;
+    
     throw GDK::Exception(TAG, "Mat4x4::setOrthographic not implemented!");
 }
 
@@ -152,7 +157,7 @@ void Mat4x4::scale(const Vector3 &aPosition)
     throw GDK::Exception(TAG, "Mat4x4::scale not implemented!");
 }
 
-void Mat4x4::setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio) noexcept
+void Mat4x4::setPerspective(const float aFieldOfView, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio) noexcept
 {
     float tanHalfFovy = (float)tan(aFieldOfView * 0.5f);
     m[0][0] = 1.0f / (aViewportAspectRatio * tanHalfFovy);

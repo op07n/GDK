@@ -65,7 +65,7 @@ namespace GDK
                 
             protected:
                 // SceneGraph interface
-                virtual void draw(const Math::IntVector2 &aFrameBufferSize) override final {}
+                virtual void draw(const Math::IntVector2 &) override final {}
                 virtual void fixedUpdate() override final;
                 virtual void update()      override final {};
                 

@@ -22,6 +22,8 @@ static constexpr char TAG[] = "Phy2DSceneGraph";
 
 std::ostream &GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::Phy2DSceneGraph &a)
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
     << TAG << "'s: " << "operator<< has not been implemented"
@@ -38,12 +40,12 @@ void ECS::Physics2D::Phy2DSceneGraph::fixedUpdate()
 
 void ECS::Physics2D::Phy2DSceneGraph::OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
-    
+    (void)a;
 }
 
 void ECS::Physics2D::Phy2DSceneGraph::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
-    
+    (void)a;
 }
 
 void ECS::Physics2D::Phy2DSceneGraph::invokeOnTriggerEnter(const std::weak_ptr<Collider> &aCollider,const GDK::Physics2D::CollisionInfo &aColisionInfo)

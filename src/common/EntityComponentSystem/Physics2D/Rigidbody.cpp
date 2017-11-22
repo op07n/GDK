@@ -23,6 +23,8 @@ static constexpr char TAG[] = "Rigidbody";
 
 std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::Physics2D::Rigidbody &a) noexcept
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
     << "Rigidbody's: " << "operator<< has not been implemented"
@@ -69,7 +71,7 @@ void Rigidbody::fixedUpdate()
                 
                 //b2Rot *= 360;
                 
-                Debug::log(TAG, "Rotation:", b2Rot);
+                //Debug::log(TAG, "Rotation:", b2Rot);
                 
                 pGameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 //pGameObject->setRotation(Quaternion({0,b2Rot/5.f,0}));
@@ -159,7 +161,7 @@ void Rigidbody::buildFixtures()
                 
                 for(size_t j = 0, t = fixtures.size(); j < t; j++)
                 {
-                    Debug::log(TAG, fixtures[j].friction);
+                    Debug::log(TAG, "Fixture friction: ", fixtures[j].friction);
                     fixtures[j].userData = new std::weak_ptr<Collider>(colliders[i]);
                     m_Fixtures.push_back(m_Body->CreateFixture(&fixtures[j]));
                 }
@@ -251,17 +253,17 @@ void Rigidbody::scaleVelocity(const float aScalar)
 
 void Rigidbody::applyImpulse(const float aX, const float aY)
 {
-    m_Body->ApplyLinearImpulse({aX,aY},{0,0},true);
+    m_Body->ApplyLinearImpulse({aX, aY}, {0, 0}, true);
 }
 
 void Rigidbody::applyForce(const Vector2 &aForce)
 {
-    m_Body->ApplyForceToCenter({aForce.x,aForce.y},true);
+    m_Body->ApplyForceToCenter({aForce.x, aForce.y}, true);
 }
 
 void Rigidbody::applyForce(const float aX, const float aY)
 {
-    m_Body->ApplyForceToCenter({aX,aY},true);
+    m_Body->ApplyForceToCenter({aX, aY}, true);
 }
 
 void Rigidbody::applyTorque(const float aTorque)
@@ -269,7 +271,6 @@ void Rigidbody::applyTorque(const float aTorque)
     float buf = aTorque;
     
     buf *= -1.f;
-    //buf *= 1.f / 10.f;
     
     m_Body->ApplyTorque(buf,true);
 }

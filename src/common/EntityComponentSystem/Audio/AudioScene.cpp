@@ -9,41 +9,42 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Audio;
 
+static constexpr char TAG[] = "AudioScene";
+
 std::ostream& GDK::ECS::Audio::operator<<(std::ostream& s, const GDK::ECS::Audio::AudioScene& a)
 {
-    s.clear(); s << "{"
+    (void)a;
+    
+    s.clear(); s
+    << "{"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
-    << "AudioScene's: " << "operator<< has not been implemented"
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 void AudioScene::draw(const Math::IntVector2 &aFrameBufferSize)
 {
-
-
+    (void)aFrameBufferSize;
 }
 
 void AudioScene::fixedUpdate()
 {
-
 
 }
 
 void AudioScene::update()
 {
 
-
 }
 
 void AudioScene::OnComponentAddedToAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
-
-
+    (void)a;
 }
 
 void AudioScene::OnComponentRemovedFromAGameObject(const std::weak_ptr<ECS::Component> &a)
 {
-
-
+    (void)a;
 }

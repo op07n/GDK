@@ -7,11 +7,17 @@
 
 using namespace GDK::ECS::GFX;
 
-std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::GraphicsComponent& a)
-{
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "GraphicsComponent's: " << "operator<< has not been implemented"
-    << "}"; return s;
+static constexpr char TAG[] = "GraphicsComponent";
 
+std::ostream &GDK::ECS::GFX::operator<<(std::ostream &s, const ECS::GFX::GraphicsComponent &a)
+{
+    (void)a;
+    
+    s.clear(); s
+    << "{"
+    << TAG << "'s: " << "operator<< has not been implemented"
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }

@@ -11,13 +11,19 @@
 using namespace GDK;
 using namespace GDK::ECS::GFX;
 
+static constexpr char TAG[] = "Camera";
+
 std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Camera& a)
 {
-    s.clear(); s << "{"
+    (void)a;
+    
+    s.clear(); s
+    << "{"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
-    << "Camera's: " << "operator<< has not been implemented"
-    << "}"; return s;
-
+    << "}";
+    
+    return s;
 }
 
 void Camera::draw(const Math::IntVector2& aFrameBufferSize) noexcept
@@ -35,14 +41,42 @@ void Camera::fixedUpdate() {}
 
 // accessors
 //viewportpos
-void Camera::setViewportPosition(const Math::Vector2 &a){m_Camera.setViewportPosition(a);}
-void Camera::setViewportPosition(const float &x, const float &y){m_Camera.setViewportPosition(x,y);}
-Math::Vector2 Camera::getViewportPosition() const {return m_Camera.getViewportPosition();}
-//viewportsize
-void Camera::setViewportSize(const Math::Vector2 &a){m_Camera.setViewportSize(a);}
-void Camera::setViewportSize(const float &x, const float &y){m_Camera.setViewportSize(x,y);}
-Math::Vector2 Camera::getViewportSize() const {return m_Camera.getViewportSize();}
-//projmat
-const Math::Mat4x4& Camera::getProjectionMatrix()const{return m_Camera.getProjectionMatrix();}
-//viewmat
-const Math::Mat4x4& Camera::getViewMatrix()const{return m_Camera.getViewMatrix();}
+void Camera::setViewportPosition(const Math::Vector2 &a)
+{
+    m_Camera.setViewportPosition(a);
+}
+
+void Camera::setViewportPosition(const float x, const float y)
+{
+    m_Camera.setViewportPosition(x,y);
+}
+
+Math::Vector2 Camera::getViewportPosition() const
+{
+    return m_Camera.getViewportPosition();
+}
+
+void Camera::setViewportSize(const Math::Vector2 &a)
+{
+    m_Camera.setViewportSize(a);
+}
+
+void Camera::setViewportSize(const float x, const float y)
+{
+    m_Camera.setViewportSize(x,y);
+}
+
+Math::Vector2 Camera::getViewportSize() const
+{
+    return m_Camera.getViewportSize();
+}
+
+const Math::Mat4x4 &Camera::getProjectionMatrix() const
+{
+    return m_Camera.getProjectionMatrix();
+}
+
+const Math::Mat4x4 &Camera::getViewMatrix() const
+{
+    return m_Camera.getViewMatrix();
+}

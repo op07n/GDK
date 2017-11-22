@@ -8,11 +8,15 @@
 using namespace GDK;
 using namespace ECS;
 
+static constexpr char TAG[] = "SceneManager";
+
 std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::SceneManager &a) noexcept
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
-    << "SceneManager's: " << "operator<< has not been implemented"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
     << "}";
     

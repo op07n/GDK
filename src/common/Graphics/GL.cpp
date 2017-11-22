@@ -160,7 +160,7 @@ bool GLH::GetError(std::string *aErrorCode) noexcept
         
     }
     
-    Debug::error(ss.str());
+    Debug::error(TAG, ss.str());
     
 }*/
 

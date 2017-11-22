@@ -9,29 +9,32 @@ using namespace GDK;
 using namespace GDK::ECS;
 using namespace GDK::ECS::Audio;
 
-std::ostream& GDK::ECS::Audio::operator<<(std::ostream& s, const GDK::ECS::Audio::Listener& a)
-{
-    s.clear(); s << "{"
-    // << "m_Member: " << a.m_Member << ", "
-    << "Listener's: " << "operator<< has not been implemented"
-    << "}"; return s;
+static constexpr char TAG[] = "Listener";
 
+std::ostream &GDK::ECS::Audio::operator<<(std::ostream &s, const GDK::ECS::Audio::Listener &a)
+{
+    (void)a;
+    
+    s.clear(); s
+    << "{"
+    << TAG << "'s: " << "operator<< has not been implemented"
+    // << "m_Member: " << a.m_Member << ", "
+    << "}";
+    
+    return s;
 }
 
 void Listener::initialize()
 {
-
 
 }
 
 void Listener::update()
 {
 
-
 }
 
 void Listener::fixedUpdate()
 {
-
 
 }

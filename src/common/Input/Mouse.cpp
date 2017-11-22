@@ -75,5 +75,6 @@ Math::Vector2 Mouse::getCursorPosition() const
 
 bool Mouse::getButton(const Button &aKeyCode) const
 {
+    (void)aKeyCode;
     throw GDK::Exception(TAG, "Mouse::getButton(const Button &aKeyCode) not implemented");
 }

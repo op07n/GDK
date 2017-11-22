@@ -169,5 +169,6 @@ bool Keyboard::getKeyDown(const Key &aKeyCode) const
 
 bool Keyboard::getKey(const Key &aKeyCode) const
 {
+    (void)aKeyCode;
     throw GDK::Exception(TAG, "Keyboard::getKey(const Key &aKeyCode) not implemented");
 }

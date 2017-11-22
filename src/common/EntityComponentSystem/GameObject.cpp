@@ -12,6 +12,8 @@ using namespace ECS;
 
 std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a) noexcept
 {
+    (void)a;
+    
     s.clear(); s
     << "{"
     << "GameObject's: " << "operator<< has not been implemented"
@@ -59,7 +61,7 @@ std::weak_ptr<Component> GameObject::getComponent(const size_t aIndex) const noe
     return m_Components[aIndex];
 }
 
-size_t const &&GameObject::getComponentCount() const noexcept
+size_t  GameObject::getComponentCount() const noexcept
 {
     return m_Components.size();
 }

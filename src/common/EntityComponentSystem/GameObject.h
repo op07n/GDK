@@ -47,7 +47,7 @@ namespace GDK
             Math::Quaternion getRotation() const noexcept;
             std::weak_ptr<Scene> getScene() const noexcept;
             std::weak_ptr<Component> getComponent(const size_t aIndex) const noexcept;
-            size_t const &&getComponentCount() const noexcept;
+            size_t getComponentCount() const noexcept;
             
             void setName(const std::string &aName) noexcept;
             void setPosition(const Math::Vector3 &) noexcept;

@@ -21,7 +21,6 @@ int s_InstanceCount = 0;
 std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Window &a) noexcept
 {
     s.clear(); s
-    
     << "{"
     << "m_Title: "  << a.m_Title              << ", "
     << "m_Handle: " << a.m_HandleToGLFWWindow
@@ -32,7 +31,7 @@ std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Window &a) noexc
 
 static inline void initGLFW()
 {
-    Debug::log("Initializing GLFW");
+    Debug::log(TAG, "Initializing GLFW");
     
     // initialise GLFW
     glfwSetErrorCallback([] (int,const char* msg) {throw GDK::Exception(TAG, msg);});
@@ -44,7 +43,7 @@ static inline void initGLFW()
 
 static inline void destroyGLFW()
 {
-    Debug::log("Destroying GLFW");
+    Debug::log(TAG, "Destroying GLFW");
     glfwTerminate();
 }
 
@@ -58,10 +57,10 @@ static inline void initGLEW()
     while (glGetError()); //Clear errors.
     
     // log device info
-    Debug::log("OpenGL version: ", glGetString(GL_VERSION));
-    Debug::log("GLSL version: ",   glGetString(GL_SHADING_LANGUAGE_VERSION));
-    Debug::log("Vendor: ",         glGetString(GL_VENDOR));
-    Debug::log("Renderer: ",       glGetString(GL_RENDERER));
+    Debug::log(TAG, "OpenGL version: ", glGetString(GL_VERSION));
+    Debug::log(TAG, "GLSL version: ",   glGetString(GL_SHADING_LANGUAGE_VERSION));
+    Debug::log(TAG, "Vendor: ",         glGetString(GL_VENDOR));
+    Debug::log(TAG, "Renderer: ",       glGetString(GL_RENDERER));
 }
 
 static inline GLFWwindow *initGLFWWindow(const Math::IntVector2 &aScreenSize, const std::string &aName)

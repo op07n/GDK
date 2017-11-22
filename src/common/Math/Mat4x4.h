@@ -26,8 +26,8 @@ namespace GDK
             // Mutating operations
             void setIdentity() noexcept;
             
-            void setOrthographic(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
-            void setPerspective(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio) noexcept;
+            void setOrthographic(const Math::Vector2 &aOrthoSize, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio);
+            void setPerspective(const float aFieldOfView, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio) noexcept;
             
             void translate(const Vector3 &aTranslation);
             void rotate(const Quaternion &aRotation);

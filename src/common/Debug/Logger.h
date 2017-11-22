@@ -33,25 +33,32 @@ namespace GDK
             static Logger s_GDKErrorLogger;
             
             std::function<void(const std::string &)> m_LoggingBehaviourCallback;
-            std::ostringstream m_StringBuffer;
             
-            void log() noexcept
+            void log(std::ostringstream &stringStream) noexcept
             {
-                m_LoggingBehaviourCallback(m_StringBuffer.str());
-                m_StringBuffer.str(std::string());
+                m_LoggingBehaviourCallback(stringStream.str());
+            }
+            
+            template<typename First, typename ...Rest>
+            void log(std::ostringstream &stringStream, First &&first, Rest &&...rest) noexcept
+            {
+                stringStream << first;
+                log(stringStream, std::forward<Rest>(rest)...);
             }
             
         public:
             template<typename First, typename ...Rest>
             void log(First &&first, Rest &&...rest) noexcept
             {
-                m_StringBuffer << first;
-                log(std::forward<Rest>(rest)...);
+                std::ostringstream stringStream;
+                stringStream << first;
+                
+                log(stringStream, std::forward<Rest>(rest)...);
             }
             
             // Mutating operators
             Logger &operator=(const Logger &) = default;
-            Logger &operator=(Logger &) = default;
+            Logger &operator=(Logger &&) noexcept = default;
             
             // Constructors & destructors
             /// Change log behavior by passing a function pointer to your own logging function.
