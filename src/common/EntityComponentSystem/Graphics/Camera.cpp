@@ -13,7 +13,7 @@ using namespace GDK::ECS::GFX;
 
 static constexpr char TAG[] = "Camera";
 
-std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Camera& a)
+std::ostream &GDK::ECS::GFX::operator<<(std::ostream &s, const ECS::GFX::Camera &a)
 {
     (void)a;
     
@@ -26,13 +26,12 @@ std::ostream& GDK::ECS::GFX::operator<<(std::ostream& s, const ECS::GFX::Camera&
     return s;
 }
 
-void Camera::draw(const Math::IntVector2& aFrameBufferSize) noexcept
+void Camera::draw(const Math::IntVector2 &aFrameBufferSize) noexcept
 {
     if (auto gameObject = getGameObject().lock())
         m_Camera.setViewMatrix(gameObject->getPosition(), gameObject->getRotation());
     
-    m_Camera.draw(aFrameBufferSize);
-    
+    m_Camera.draw(aFrameBufferSize);    
 }
 
 void Camera::initialize()  {}

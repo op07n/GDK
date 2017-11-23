@@ -70,10 +70,12 @@ void Rigidbody::fixedUpdate()
                 b2Vec2 b2Pos = m_Body->GetPosition();
                 
                 //Box2D uses radians, gdk's vector ctor is euler. = RotationInRAD*180/Math.PI
-                float  b2Rot = -m_Body->GetAngle();// * 180.f / Math::Trig::PI;
+                float  b2Rot = -m_Body->GetAngle() * 180.f / Math::Trig::PI;
                 
-                pGameObject->setPosition(b2Pos.x,0,b2Pos.y);
-                pGameObject->setRotation(Quaternion({0,b2Rot/3.f,0}));
+                Debug::log(TAG, "b2Rot (Eulers): ", b2Rot);
+                
+                pGameObject->setPosition(b2Pos.x, 0, b2Pos.y);
+                pGameObject->setRotation(Quaternion({0, b2Rot, 0}));
                 
             } break;
             

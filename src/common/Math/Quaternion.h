@@ -21,14 +21,15 @@ namespace GDK
         struct Quaternion final
         {
             //Data members
-            float x = 0.0f, y = 0.0f, z = 0.0f, w = 1.0f;
+            float x = 0.f, y = 0.f, z = 0.f, w = 1.f;
             
             // Euler convenience
             void setFromEuler(const Vector3& aEulers) noexcept;
-            Math::Vector3 toEuler(void) const noexcept;
+            Math::Vector3 toEuler() const noexcept;
             
             // Mutating operators
-            Quaternion& operator=(const Quaternion&) noexcept = default;
+            Quaternion &operator=(const Quaternion &) noexcept = default;
+            Quaternion &operator=(Quaternion &&) noexcept = default;
             
             // Constructors & Destructors
             Quaternion(const Vector3&) noexcept;
