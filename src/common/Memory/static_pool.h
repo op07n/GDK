@@ -37,7 +37,8 @@ namespace GDK
             }
             
             // Mutating operators
-            static_pool& operator=(const static_pool&) = delete;
+            static_pool &operator=(const static_pool&) noexcept = delete;
+            static_pool &operator=(static_pool&&) noexcept = delete;
       
             // Constructors, destructors
             static_pool(const std::function<T()> &aObjectInitializer = [](){return T();})

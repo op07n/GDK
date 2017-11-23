@@ -78,7 +78,8 @@ namespace GDK
             void clear() {m_Vector.clear();}
             
             // Mutating operators
-            auth_vector& operator=(const auth_vector&) = delete;
+            auth_vector& operator=(const auth_vector &) = delete;
+            auth_vector& operator=(auth_vector &&) noexcept = delete;
             
             // Constructors, destructors
             auth_vector() noexcept = default;

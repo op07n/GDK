@@ -80,8 +80,9 @@ namespace GDK
             std::pair<iterator,iterator> equal_range (const key_type& k) {m_Map.equal_range(k);}
             
             // Mutating operators
-            auth_map& operator=(const auth_map&) = delete;
-      
+            auth_map &operator=(const auth_map &) noexcept = delete;
+            auth_map &operator=(auth_map &&) noexcept = delete;
+            
             // Constructors, destructors
             auth_map() noexcept = default;
             auth_map(const auth_map&) = delete;

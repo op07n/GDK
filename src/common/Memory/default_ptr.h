@@ -34,7 +34,8 @@ namespace GDK
             }
             
             // Mutating operators
-            default_ptr& operator= (const default_ptr& a) noexcept = default;
+            default_ptr& operator= (const default_ptr &a) noexcept = default;
+            default_ptr& operator= (default_ptr &&a) noexcept = default;
             
             // Instancing rules
             default_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr ={} ) noexcept

@@ -4,11 +4,14 @@
 #include "GameObject.h"
 //gdk inc
 #include "Component.h"
+#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
 using namespace GDK;
 using namespace ECS;
+
+static constexpr char TAG[] = "GameObject";
 
 std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a) noexcept
 {
@@ -16,7 +19,7 @@ std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a) no
     
     s.clear(); s
     << "{"
-    << "GameObject's: " << "operator<< has not been implemented"
+    << TAG << "'s: " << "operator<< has not been implemented"
     // << "m_Member: " << a.m_Member << ", "
     << "}";
     

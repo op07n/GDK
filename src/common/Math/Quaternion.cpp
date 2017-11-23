@@ -19,12 +19,15 @@ const Quaternion Quaternion::Identity = Quaternion();
 //stringify
 std::ostream& GDK::Math::operator<< (std::ostream& s, const Math::Quaternion& a) noexcept
 {
-    s.clear(); s << "{"
+    s.clear(); s
+    << "{"
     << "x: " << a.x << ", "
     << "y: " << a.y << ", "
     << "z: " << a.z << ", "
     << "w: " << a.w
-    << "}"; return s;
+    << "}";
+    
+    return s;
 }
 
 //ctors
@@ -37,14 +40,14 @@ Quaternion::Quaternion(const Vector3 &aEulerAngles) noexcept
 }
 
 //Euler convenience
-void Quaternion::setFromEuler(const Vector3 &aaEulerAngles) noexcept
+void Quaternion::setFromEuler(const Vector3 &aEulerAngles) noexcept
 {
-    Vector3 aEulerAngles = aaEulerAngles;
+    Vector3 eulerAngles = aEulerAngles;
     
     glm::quat quat;
-    quat = glm::rotate(quat, aEulerAngles.x, glm::vec3(1.0f, 0.0f, 0.0f));
-    quat = glm::rotate(quat, aEulerAngles.y, glm::vec3(0.0f, 1.0f, 0.0f));
-    quat = glm::rotate(quat, aEulerAngles.z, glm::vec3(0.0f, 0.0f, 1.0f));
+    quat = glm::rotate(quat, eulerAngles.x, glm::vec3(1.0f, 0.0f, 0.0f));
+    quat = glm::rotate(quat, eulerAngles.y, glm::vec3(0.0f, 1.0f, 0.0f));
+    quat = glm::rotate(quat, eulerAngles.z, glm::vec3(0.0f, 0.0f, 1.0f));
     
     x = quat.x;
     y = quat.y;

@@ -100,7 +100,6 @@ void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternio
     m_ViewMatrix.translate(aWorldPos * -1.f);
 }
 
-// accessors
 void Camera::setViewportPosition(const Math::Vector2 &a) noexcept
 {
     m_ViewportPosition = a;

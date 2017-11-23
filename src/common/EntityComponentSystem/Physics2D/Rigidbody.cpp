@@ -3,14 +3,16 @@
 // Created on 17-07-31.
 #include "Rigidbody.h"
 //gdk inc
+#include "Debug/Logger.h"
+#include "Debug/Logger.h"
 #include "EntityComponentSystem/GameObject.h"
-#include "EntityComponentSystem/Physics2D/Phy2DSceneGraph.h"
 #include "EntityComponentSystem/Physics2D/Collider.h"
+#include "EntityComponentSystem/Physics2D/Phy2DSceneGraph.h"
+#include "Math/Quaternion.h"
+#include "Math/Trigonometry.h"
+#include "Math/Vector2.h"
 #include "Physics2D/Dynamics/b2Body.h"
 #include "Physics2D/Dynamics/Joints/b2PrismaticJoint.h"
-#include "Math/Vector2.h"
-#include "Math/Quaternion.h"
-#include "Debug/Logger.h"
 //std inc
 #include <iostream>
 
@@ -53,8 +55,7 @@ void Rigidbody::update()
 {
 
 }
-#include "Math/Trigonometry.h"
-#include "Debug/Logger.h"
+
 void Rigidbody::fixedUpdate()
 {
     if (m_RebuildRequired)
@@ -74,7 +75,7 @@ void Rigidbody::fixedUpdate()
                 //Debug::log(TAG, "Rotation:", b2Rot);
                 
                 pGameObject->setPosition(b2Pos.x,0,b2Pos.y);
-                //pGameObject->setRotation(Quaternion({0,b2Rot/5.f,0}));
+                pGameObject->setRotation(Quaternion({0,b2Rot/3.f,0}));
                 
             } break;
             
@@ -153,17 +154,17 @@ void Rigidbody::buildFixtures()
         deleteAndClearFixtures();
         
         //Build / Rebuild the fixtures
-        for(size_t i = 0, s = colliders.size(); i < s; i++)
+        for(auto wpCollider : colliders)
         {
-            if (auto currentCollider = colliders[i].lock())
+            if (auto spCurrentCollider = wpCollider.lock())
             {
-                std::vector<b2FixtureDef> fixtures =  currentCollider->getFixtures();
+                std::vector<b2FixtureDef> fixtures =  spCurrentCollider->getFixtures();
                 
-                for(size_t j = 0, t = fixtures.size(); j < t; j++)
+                for(auto fixture : fixtures)
                 {
-                    Debug::log(TAG, "Fixture friction: ", fixtures[j].friction);
-                    fixtures[j].userData = new std::weak_ptr<Collider>(colliders[i]);
-                    m_Fixtures.push_back(m_Body->CreateFixture(&fixtures[j]));
+                    Debug::log(TAG, "Fixture friction: ", fixture.friction);
+                    fixture.userData = new std::weak_ptr<Collider>(wpCollider);
+                    m_Fixtures.push_back(m_Body->CreateFixture(&fixture));
                 }
             }
         }
@@ -187,13 +188,13 @@ void Rigidbody::freezeAxis(const AxisFreezeMode aAxisFreezeMode)
         prismaticJointDef.bodyA = physcene->m_WorldOriginBody;
         prismaticJointDef.bodyB = m_Body;
         prismaticJointDef.collideConnected = false;
-        prismaticJointDef.localAnchorA.Set(0,m_Body->GetPosition().y);
+        prismaticJointDef.localAnchorA.Set(0, m_Body->GetPosition().y);
         
         if (aAxisFreezeMode == AxisFreezeMode::X)
-            prismaticJointDef.localAxisA.Set(1,0);
+            prismaticJointDef.localAxisA.Set(1, 0);
                 
         if (aAxisFreezeMode == AxisFreezeMode::Y)
-            prismaticJointDef.localAxisA.Set(0,1);
+            prismaticJointDef.localAxisA.Set(0, 1);
         
         m_AxisFreezeJoint = dynamic_cast<b2PrismaticJoint*>(physcene->m_B2DWorld.CreateJoint(&prismaticJointDef));
     }

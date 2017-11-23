@@ -29,6 +29,7 @@ namespace GDK
             
             // Data members
             std::string m_Name = "Unnamed";
+            
             std::weak_ptr<Scene> m_MyScene = {};
             std::vector<std::shared_ptr<Component>> m_Components = {};
             

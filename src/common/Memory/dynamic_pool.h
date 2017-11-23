@@ -50,7 +50,8 @@ namespace GDK
             }
           
             // Mutating operators
-            dynamic_pool& operator=(const dynamic_pool&) = delete;
+            dynamic_pool &operator=(const dynamic_pool &) = delete;
+            dynamic_pool &operator=(dynamic_pool &&) noexcept = delete;
       
             // Constructors, destructors
             dynamic_pool(const size_t aInitialPoolSize, const std::function<T()> aNewObjectInitializer = [](){return T();})
