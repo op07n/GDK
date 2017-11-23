@@ -36,12 +36,12 @@ std::ostream& GDK::ECS::Physics2D::operator<<(std::ostream &s, const GDK::ECS::P
     return s;
 }
 
-void Rigidbody::onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &aNewComponent)
+void Rigidbody::onOtherComponentAddedToMyGameObject(const std::weak_ptr<Component> &)
 {
     buildFixtures();
 }
 
-void Rigidbody::onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &aOtherComponent)
+void Rigidbody::onOtherComponentRemovedFromMyGameObject(const std::weak_ptr<Component> &)
 {
     buildFixtures();
 }
@@ -68,11 +68,9 @@ void Rigidbody::fixedUpdate()
             case b2BodyType::b2_dynamicBody:
             {
                 b2Vec2 b2Pos = m_Body->GetPosition();
-                float  b2Rot = -m_Body->GetAngle();// * (Math::Trig::PI / 180.f);
                 
-                //b2Rot *= 360;
-                
-                //Debug::log(TAG, "Rotation:", b2Rot);
+                //Box2D uses radians, gdk's vector ctor is euler. = RotationInRAD*180/Math.PI
+                float  b2Rot = -m_Body->GetAngle();// * 180.f / Math::Trig::PI;
                 
                 pGameObject->setPosition(b2Pos.x,0,b2Pos.y);
                 pGameObject->setRotation(Quaternion({0,b2Rot/3.f,0}));
@@ -121,15 +119,13 @@ void Rigidbody::buildBody()
         Vector3 rotation = gameObject->getRotation().toEuler();
         
         //Create body data...
-        {
-            m_BodyDef.type = b2BodyType::b2_dynamicBody;
-            m_BodyDef.linearDamping = 1.0f;
-            m_BodyDef.angularDamping = 1.0f;
-            m_BodyDef.fixedRotation = false;
-            
-            m_BodyDef.position = {position.x,position.z};
-            m_BodyDef.angle = -rotation.y;
-        }
+        m_BodyDef.type = b2BodyType::b2_dynamicBody;
+        m_BodyDef.linearDamping = 1.0f;
+        m_BodyDef.angularDamping = 1.0f;
+        m_BodyDef.fixedRotation = false;
+        
+        m_BodyDef.position = {position.x,position.z};
+        m_BodyDef.angle = -rotation.y;
     
         //Create the body in the world
         if (auto physcene = m_MyPhysics2DScene.lock())
@@ -158,7 +154,7 @@ void Rigidbody::buildFixtures()
         {
             if (auto spCurrentCollider = wpCollider.lock())
             {
-                std::vector<b2FixtureDef> fixtures =  spCurrentCollider->getFixtures();
+                std::vector<b2FixtureDef> fixtures = spCurrentCollider->getFixtures();
                 
                 for(auto fixture : fixtures)
                 {
@@ -220,7 +216,9 @@ void Rigidbody::setVelocity(const float aX,const float aY)
 void Rigidbody::setVelocityX(const float aX)
 {
     b2Vec2 v = m_Body->GetLinearVelocity();
+    
     v.x = aX;
+
     m_Body->SetLinearVelocity(v);
 }
 
