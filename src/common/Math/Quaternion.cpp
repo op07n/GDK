@@ -42,13 +42,22 @@ Quaternion::Quaternion(const Vector3 &aEulerAngles) noexcept
 //Euler convenience
 void Quaternion::setFromEuler(const Vector3 &aEulerAngles) noexcept
 {
-    Vector3 eulerAngles = aEulerAngles;
+    /*Vector3 eulerAngles = aEulerAngles;
     
     glm::quat quat;
     
     quat = glm::rotate(quat, eulerAngles.x, glm::vec3(1.f, 0.f, 0.f));
     quat = glm::rotate(quat, eulerAngles.y, glm::vec3(0.f, 1.f, 0.f));
-    quat = glm::rotate(quat, eulerAngles.z, glm::vec3(0.f, 0.f, 1.f));
+    quat = glm::rotate(quat, eulerAngles.z, glm::vec3(0.f, 0.f, 1.f));*/
+    
+    /*glm::quat qPitch = glm::angleAxis(aEulerAngles.x, glm::vec3(1.f, 0.f, 0.f));
+    glm::quat qYaw   = glm::angleAxis(aEulerAngles.y, glm::vec3(0.f, 1.f, 0.f));
+    glm::quat qRoll  = glm::angleAxis(aEulerAngles.z, glm::vec3(0.f, 0.f, 1.f));
+    
+    glm::quat quat = qRoll *qPitch * qYaw;*/
+    
+    glm::quat quat({aEulerAngles.x, aEulerAngles.y, aEulerAngles.z});
+    
     
     x = quat.x;
     y = quat.y;
