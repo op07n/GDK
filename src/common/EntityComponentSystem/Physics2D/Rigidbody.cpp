@@ -75,7 +75,7 @@ void Rigidbody::fixedUpdate()
                 Debug::log(TAG, "b2Rot (Eulers): ", b2Rot);
                 
                 pGameObject->setPosition(b2Pos.x, 0, b2Pos.y);
-                pGameObject->setRotation(Quaternion({0, b2Rot, 0}));
+                pGameObject->setRotation(Quaternion({0, -b2Rot, 0}));
                 
             } break;
             
