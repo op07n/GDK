@@ -70,12 +70,12 @@ void Rigidbody::fixedUpdate()
                 b2Vec2 b2Pos = m_Body->GetPosition();
                 
                 //Box2D uses radians, gdk's vector ctor is euler. = RotationInRAD*180/Math.PI
-                float  b2Rot = m_Body->GetAngle() ;/// Math::Trig::PI * 180.f;
+                float  b2Rot = m_Body->GetAngle() * Math::Trig::PI/180.f;
                 
                 Debug::log(TAG, "b2Rot (Eulers): ", b2Rot);
                 
                 pGameObject->setPosition(b2Pos.x, 0, b2Pos.y);
-                pGameObject->setRotation(Quaternion({0, -b2Rot, 0}));
+                pGameObject->setRotation(Quaternion({0, b2Rot, 0}));
                 
             } break;
             
@@ -126,7 +126,7 @@ void Rigidbody::buildBody()
         m_BodyDef.angularDamping = 1.0f;
         m_BodyDef.fixedRotation = false;
         
-        m_BodyDef.position = {position.x,position.z};
+        m_BodyDef.position = {position.x, position.z};
         m_BodyDef.angle = -rotation.y;
     
         //Create the body in the world
@@ -271,7 +271,7 @@ void Rigidbody::applyTorque(const float aTorque)
 {
     float buf = aTorque;
     
-    buf *= -1.f;
+    //buf *= -1.f;
     
     m_Body->ApplyTorque(buf,true);
 }

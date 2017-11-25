@@ -56,7 +56,15 @@ void Quaternion::setFromEuler(const Vector3 &aEulerAngles) noexcept
     
     glm::quat quat = qRoll *qPitch * qYaw;*/
     
-    glm::quat quat({aEulerAngles.x, aEulerAngles.y, aEulerAngles.z});
+    
+    //convert from euler to radian
+    glm::vec3 buff = {aEulerAngles.x, aEulerAngles.y, aEulerAngles.z};
+    
+    //buff.x *= Math::Trig::PI/180.f;
+    //buff.y *= Math::Trig::PI/180.f;
+    //buff.z *= Math::Trig::PI/180.f;
+    
+    glm::quat quat(buff);
     
     
     x = quat.x;
@@ -69,7 +77,13 @@ Vector3 Quaternion::toEuler() const noexcept
 {
     glm::quat quaternion(w, x, y, z);
     
-    glm::vec3 euler = glm::eulerAngles(quaternion);
+    //convert from radian to euler
+    glm::vec3 buff = glm::eulerAngles(quaternion);
     
-    return {euler.x, euler.y, euler.z};
+    /*buff.x *= 180.f/Math::Trig::PI;
+    buff.y *= 180.f/Math::Trig::PI;
+    buff.z *= 180.f/Math::Trig::PI;*/
+    
+    
+    return {buff.x, buff.y, buff.z};
 }
