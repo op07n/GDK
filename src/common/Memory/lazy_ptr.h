@@ -6,6 +6,7 @@
 
 //std inc
 #include <memory>
+#include <functional>
 
 namespace GDK
 {
@@ -17,26 +18,38 @@ namespace GDK
         template<typename T>
         class lazy_ptr final
         {
+        public:
+            using InitializerSignature = std::function<T *const ()>;
+
+        private:
             //Data members
-            std::weak_ptr<T> m_WeakPtr;
-            const std::shared_ptr<T> m_Default;
-            
+            const InitializerSignature m_Initializer;
+            mutable std::shared_ptr<T> m_SharedPtr = {};
+
         public:
             // Public methods
-            std::shared_ptr<T> lock() const 
+            T *get() const 
             {
-                if (auto ptr = m_WeakPtr.lock())
-                    return ptr;
+                if (!m_SharedPtr)
+                    m_SharedPtr.reset(m_Initializer());
                 
-                return m_Default;
+                return m_SharedPtr.get();
+            }
+
+            T &operator*() const
+            {
+                return *get();
+            }
+
+            T *operator->() const
+            {
+                return get();
             }
             
             // Non-mutating operators
             bool operator== (const lazy_ptr &a) const
             {
-                return 
-                    m_Default ==        a.m_Default && 
-                    m_WeakPtr.lock() == a.m_WeakPtr.lock();
+                return m_SharedPtr == a.m_SharedPtr;
             }
 
             // Mutating operators
@@ -44,9 +57,8 @@ namespace GDK
             lazy_ptr &operator= (lazy_ptr &&a) = default;
             
             // Instancing rules
-            lazy_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr/* = {}*/) 
-            : m_WeakPtr(aWeakPtr)
-            , m_Default(aDefault)
+            lazy_ptr(const InitializerSignature aInitializer)
+            : m_Initializer(aInitializer)
             {}
             
             lazy_ptr() = delete;

@@ -6,9 +6,11 @@ using namespace GDK;
 using namespace Memory;
 
 TEST_START
-{ "Unimplemented!", [&]()
+{ "dereference operator", [&]()
 {
-    test_succeeded();
+    const auto ptr = lazy_ptr<int>([](){return new int(1);});
+
+    if (*ptr) test_succeeded();
 }},
 
 TEST_END
