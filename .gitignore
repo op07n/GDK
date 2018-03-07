@@ -12,3 +12,4 @@ workspace/*
 
 docs/*
 !docs/generate-documents.sh
+!docs/icon.png
