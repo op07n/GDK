@@ -1,0 +1,29 @@
+# © 2017 Joseph Cameron - All Rights Reserved
+# Project: Hello Travis CI
+# Created on 2017-12-8.
+
+version: '1.0.{build}'
+
+image: Visual Studio 2017
+
+platform:
+  - x64
+ 
+configuration:
+  - Release
+
+install:
+  - git submodule update --init --recursive
+
+before_build:
+  - cd workspace
+  - cmake ../src -G "Visual Studio 15 2017 Win64" -DCMAKE_CXX_FLAGS="/W4 /W14640 /Ot"
+
+build:
+  project: $(APPVEYOR_BUILD_FOLDER)\workspace\ALL_BUILD.vcxproj
+  parallel: true
+  verbosity: minimal #detailed
+
+test_script:
+  - cd Release
+  - for /r "." %%a in (*.exe) do echo "Executing %%a" & %%a && echo ----
