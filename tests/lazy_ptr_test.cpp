@@ -8,7 +8,7 @@ using namespace Memory;
 TEST_START
 { "Unimplemented!", [&]()
 {
-    
+    test_succeeded();
 }},
 
 TEST_END
