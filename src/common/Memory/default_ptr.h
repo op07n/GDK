@@ -21,11 +21,11 @@ namespace GDK
         {
             //Data members
             std::weak_ptr<T> m_WeakPtr;
-            std::shared_ptr<T> m_Default;
+            const std::shared_ptr<T> m_Default;
             
         public:
             // Public methods
-            std::shared_ptr<T> lock() const noexcept
+            std::shared_ptr<T> lock() const 
             {
                 if (auto ptr = m_WeakPtr.lock())
                     return ptr;
@@ -33,20 +33,28 @@ namespace GDK
                 return m_Default;
             }
             
+            // Non-mutating operators
+            bool operator== (const default_ptr &a) const
+            {
+                return 
+                    m_Default ==        a.m_Default && 
+                    m_WeakPtr.lock() == a.m_WeakPtr.lock();
+            }
+
             // Mutating operators
-            default_ptr& operator= (const default_ptr &a) noexcept = default;
-            default_ptr& operator= (default_ptr &&a) noexcept = default;
+            default_ptr &operator= (const default_ptr &a) = default;
+            default_ptr &operator= (default_ptr &&a) = default;
             
             // Instancing rules
-            default_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr ={} ) noexcept
+            default_ptr(const std::shared_ptr<T> &aDefault, const std::shared_ptr<T> &aWeakPtr/* = {}*/) 
             : m_WeakPtr(aWeakPtr)
             , m_Default(aDefault)
             {}
             
             default_ptr() = delete;
-            default_ptr(const default_ptr&) noexcept = default;
-            default_ptr(default_ptr&&) noexcept = default;
-            ~default_ptr() noexcept = default;
+            default_ptr(const default_ptr &) = default;
+            default_ptr(default_ptr &&) = default;
+            ~default_ptr() = default;
         };
     }
 }

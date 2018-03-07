@@ -1,44 +1,14 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-!/libs
-!/libs/*/*.lai
-!/libs/*/*.la
-!/libs/*/*.a
-!/libs/*/*.lib
-
 # Executables
 *.exe
 *.out
 *.app
 
-# IDE generated files
-/workspace/*/
-!/workspace/*/generate.sh
+# Macos
+*.DS_Store
 
-# Doxygen output
-/docs/output/*
+# Repository layout
+workspace/*
+!workspace/generate.sh
+
+docs/*
+!docs/generate-documents.sh

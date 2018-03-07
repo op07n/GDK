@@ -1,0 +1,41 @@
+// © 2017 Joseph Cameron - All Rights Reserved
+// Project: Hello Travis CI
+// Created on 2017-12-7.
+// =====================================================================
+// WARNING: GENERATED FILE. Edit cmakedefines.h.in for permanent changes
+// =====================================================================
+
+#ifndef CMAKE_H
+#define CMAKE_H
+
+namespace CMake
+{
+    constexpr char Version[]   = "@CMAKE_VERSION@";
+    constexpr char Generator[] = "@CMAKE_GENERATOR@";
+
+    namespace HostSystem
+    {
+        constexpr char Name[] = "@CMAKE_HOST_SYSTEM_NAME@";
+    }
+
+    namespace Compiler
+    {
+        constexpr char ID[]      = "@CMAKE_CXX_COMPILER_ID@";
+        constexpr char Version[] = "@CMAKE_CXX_COMPILER_VERSION@";
+    }
+
+    namespace BuildFlags
+    {
+        constexpr char Debug[]                = "@CMAKE_CXX_FLAGS_DEBUG@";
+        constexpr char MinsizeRelease[]       = "@CMAKE_CXX_FLAGS_MINSIZEREL@";
+        constexpr char Release[]              = "@CMAKE_CXX_FLAGS_RELEASE@";
+        constexpr char ReleaseWithDebugInfo[] = "@CMAKE_CXX_FLAGS_RELWITHDEBINFO@";
+    }
+
+    namespace Project
+    {
+        constexpr char Name[] = "@CMAKE_PROJECT_NAME@";
+    }
+}
+
+#endif

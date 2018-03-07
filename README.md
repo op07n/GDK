@@ -2,9 +2,13 @@
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
 ## Description:
-![asdf](https://img.shields.io/badge/development%20status-active-green.svg)
-![asdf](https://img.shields.io/badge/platforms-win32%20|%20osx-lightgrey.svg)
-![asdf](https://img.shields.io/badge/license-MIT-blue.svg)
+![asdf](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg) [![Coverage Status](https://coveralls.io/repos/github/jfcameron/Hello-Travis-CI/badge.svg?branch=master)](https://coveralls.io/github/jfcameron/Hello-Travis-CI?branch=master)
+
+| VM OS | Compiler | Status | Logs |
+| --- | --- | --- | --- |
+| Ubuntu | g++ | ![](https://travis-ci.org/jfcameron/Hello-Travis-CI.svg?branch=master) | https://travis-ci.org/jfcameron/Hello-Travis-CI |
+| Macos | clang++ | ![](https://travis-ci.org/jfcameron/Hello-Travis-CI.svg?branch=master) | https://travis-ci.org/jfcameron/Hello-Travis-CI |
+| Win64 | MSVC | [![Build status](https://ci.appveyor.com/api/projects/status/3okp2yf67md7blx6?svg=true)](https://ci.appveyor.com/project/jfcameron/hello-travis-ci) | https://ci.appveyor.com/project/jfcameron/hello-travis-ci |
 
 Library for multiplatform game development in C++ (C++11)
 
