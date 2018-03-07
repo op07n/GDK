@@ -1,13 +1,42 @@
+# © 2017 Joseph Cameron - All Rights Reserved
+# Project: Hello Travis CI
+# Created on 2017-12-7.
+
+dist: trusty
+sudo: required
 language: cpp
 
-sudo: required
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      env: Code Coverage
+      before_install: pip install --user cpp-coveralls
+      script:
+        - |
+          cd workspace
+          cmake ../src -DCMAKE_CXX_FLAGS="-g -O0 -Wall -fprofile-arcs -ftest-coverage"
+          make
+          make test
+          cd ..
+          coveralls
+          
+    - os: linux
+      compiler: gcc
+      env: Build & Run Unit Tests
+      script:
+        - |
+          cd workspace
+          cmake ../src -DCMAKE_CXX_FLAGS="-pedantic -Wall -Wextra -Ofast -flto -funroll-loops -m64 -march=native"
+          make
+          make test
 
-compiler:
-  - clang
-  - gcc
-
-os:
-  - linux
-  - osx
-
-script: make test
+    - os: osx
+      compiler: clang
+      env: Build & Run Unit Tests
+      script:
+        - |
+          cd workspace
+          cmake ../src -DCMAKE_CXX_FLAGS="-pedantic -Weverything -Wno-c++98-compat -Ofast -flto -funroll-loops -m64 -march=native"
+          make
+          make test

@@ -40,3 +40,12 @@ target_compile_features(${PROJECT_NAME} ${PROJECTWIDE_COMPILER_FEATURE_REQUIREME
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE "common")
+
+project("lazy_ptr_test")
+add_executable(${PROJECT_NAME}
+    "${TEST_DIR}/lazy_ptr_test.cpp"
+)
+target_compile_features(${PROJECT_NAME} ${PROJECTWIDE_COMPILER_FEATURE_REQUIREMENTS})
+add_test(${PROJECT_NAME} ${PROJECT_NAME})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE "common")
