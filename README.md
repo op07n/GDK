@@ -7,8 +7,8 @@
 | VM OS | Compiler | Status | Logs |
 | --- | --- | --- | --- |
 | Ubuntu | g++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK |
-| Macos | clang++ | ![](https://travis-ci.org/jfcameron/Hello-Travis-CI.svg?branch=master) | https://travis-ci.org/jfcameron/Hello-Travis-CI |
-| Win64 | MSVC | [![Build status](https://ci.appveyor.com/api/projects/status/3okp2yf67md7blx6?svg=true)](https://ci.appveyor.com/project/jfcameron/hello-travis-ci) | https://ci.appveyor.com/project/jfcameron/hello-travis-ci |
+| Macos | clang++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK |
+| Win64 | MSVC | [![Build status](https://ci.appveyor.com/api/projects/status/sxivr8m9r1tjggis/branch/master?svg=true)](https://ci.appveyor.com/project/jfcameron/gdk/branch/master) |
 
 Library for multiplatform game development in C++ (C++11)
 
