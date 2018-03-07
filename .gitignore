@@ -9,6 +9,7 @@
 # Repository layout
 workspace/*
 !workspace/generate.sh
+!workspace/test.sh
 
 docs/*
 !docs/generate-documents.sh

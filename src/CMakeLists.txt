@@ -30,9 +30,11 @@ add_executable(${PROJECT_NAME}
 target_compile_features(${PROJECT_NAME} ${PROJECTWIDE_COMPILER_FEATURE_REQUIREMENTS})
 add_test(${PROJECT_NAME} ${PROJECT_NAME})]]
 
-project("static_pool_test")
+SET(TEST_DIR "../tests")
+
+project("default_ptr_test")
 add_executable(${PROJECT_NAME}
-    "../tests/static_pool_test.cpp"
+    "${TEST_DIR}/default_ptr_test.cpp"
 )
 target_compile_features(${PROJECT_NAME} ${PROJECTWIDE_COMPILER_FEATURE_REQUIREMENTS})
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
