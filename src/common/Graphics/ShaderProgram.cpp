@@ -6,8 +6,8 @@
 #include <iostream>
 //gdk inc
 #include "Debug/Logger.h"
-#include "GL.h"
 #include "Debug/Exception.h"
+#include "GL.h"
 
 using namespace GDK;
 using namespace GFX;

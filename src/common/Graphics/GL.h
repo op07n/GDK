@@ -9,7 +9,7 @@
  includes gl functions from glew and declares C++ friendly helpers in the GLH namespace
  */
 //Thirdparty inc
-#include <glew/include/GL/glew.h>
+#include <glew.h>
 //std inc
 #include <string>
 #include <vector>
