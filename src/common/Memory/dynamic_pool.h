@@ -22,18 +22,19 @@ namespace GDK
         class dynamic_pool final
         {
         public: // Types
+            using initializer_type = std::function<T()>;
+            
             using pool_type =  std::vector<std::shared_ptr<T>>;
             using value_type = typename pool_type::value_type;
             using size_type =  typename pool_type::size_type;
 
         private: // Data members
             const size_type m_InitialPoolSize;
-            const std::function<T()> m_NewObjectInitializer;
+            const initializer_type m_NewObjectInitializer;
 
             mutable pool_type m_Pool;
 
-        public:
-            // Public methods
+        public: // Public methods
             /// Get an object from the pool
             value_type get() const
             {
@@ -66,7 +67,7 @@ namespace GDK
             dynamic_pool &operator=(dynamic_pool &&) = delete;
       
             // Constructors, destructors
-            dynamic_pool(const size_t &aInitialPoolSize, const std::function<T()> &aNewObjectInitializer = [](){return T();})
+            dynamic_pool(const size_t &aInitialPoolSize, const initializer_type &aNewObjectInitializer = [](){return T();})
             : m_InitialPoolSize(aInitialPoolSize)
             , m_NewObjectInitializer(aNewObjectInitializer)
             , m_Pool(aInitialPoolSize, std::make_shared<T>(m_NewObjectInitializer()))
