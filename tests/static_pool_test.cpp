@@ -24,7 +24,10 @@ TEST_START
 
 { "get: retrieving a nullptr from exhausted pool", [&]()
 {
-    const auto pool = static_pool<bool, 1>();
+    const auto pool = static_pool<bool, 1>([&]()
+    {
+        return false;
+    });
 
     const auto ptr = pool.get();
 

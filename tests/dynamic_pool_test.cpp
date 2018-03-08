@@ -25,7 +25,10 @@ TEST_START
 {
     constexpr size_t INITIAL_SIZE = 1;
 
-    const auto dynamicPool = dynamic_pool<int>(INITIAL_SIZE);
+    const auto dynamicPool = dynamic_pool<int>(INITIAL_SIZE, [&]()
+    {
+        return int(0);
+    });
 
     const auto ptr1 = dynamicPool.get();
 
@@ -37,7 +40,10 @@ TEST_START
 
 { "Trim", [&]()
 {
-    const auto dynamicPool = dynamic_pool<float>(0);
+    const auto dynamicPool = dynamic_pool<float>(0, [&]()
+    {
+        return float(0);
+    });
 
     dynamicPool.get();
 
