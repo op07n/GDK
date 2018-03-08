@@ -1,4 +1,0 @@
-for repo in ./*/buildAll.sh; do \
-( \
-    do echo $(basename $repo); \
-); done

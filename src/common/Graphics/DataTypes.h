@@ -1,3 +1,7 @@
+//------------
+// DEPRECATED!
+//------------
+
 // © 2017 Joseph Cameron - All Rights Reserved
 // Project: GDK
 // Created on 17-07-02.

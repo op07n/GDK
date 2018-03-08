@@ -29,9 +29,7 @@ GLuint glCreateProgram()
     return 1;
 }
 
-void glAttachShader(GLuint program,
-    GLuint shader
-)
+void glAttachShader(GLuint program, GLuint shader)
 {
 
 }

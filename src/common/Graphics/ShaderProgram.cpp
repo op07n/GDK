@@ -7,16 +7,15 @@
 //gdk inc
 #include "Debug/Logger.h"
 #include "Debug/Exception.h"
-#include "GL.h"
 
 using namespace GDK;
 using namespace GFX;
 
 static constexpr char TAG[] = "ShaderProgram";
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::ShaderProgram &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::ShaderProgram &a) 
 {
-    GFXint activeAttribs = 0, activeUniforms = 0;
+    GLint activeAttribs = 0, activeUniforms = 0;
     glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_ATTRIBUTES, &activeAttribs);
     glGetProgramiv(a.m_ProgramHandle, GL_ACTIVE_UNIFORMS, &activeUniforms);
     
@@ -31,63 +30,61 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::ShaderProgram &a)
     return s;
 }
 
-ShaderProgram::ShaderProgram(const std::string &aName,const std::string &aVertexSource,const std::string &aFragmentSource)
+ShaderProgram::ShaderProgram(const std::string &aName, const std::string &aVertexSource, const std::string &aFragmentSource)
 : m_Name(aName)
+, m_ProgramHandle([&]()
 {
     // Compile vertex stage
-    const char *vertex_shader = aVertexSource.c_str();
-    GFXuint vs = glCreateShader (GL_VERTEX_SHADER);
+    const char *const vertex_shader = aVertexSource.c_str();
+    const GLuint vs = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vs, 1, &vertex_shader, 0);
     glCompileShader(vs);
  
     // Compile fragment stage
-    const char *fragment_shader = aFragmentSource.c_str();
-    GFXuint fs = glCreateShader (GL_FRAGMENT_SHADER);
+    const char *const fragment_shader = aFragmentSource.c_str();
+    const GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fs, 1, &fragment_shader, 0);
     glCompileShader(fs);
     
     // Link the program
-    m_ProgramHandle = glCreateProgram ();
-    glAttachShader(m_ProgramHandle, vs);
-    glAttachShader(m_ProgramHandle, fs);
-    glLinkProgram(m_ProgramHandle);
+    GLuint programHandle = glCreateProgram();
+    glAttachShader(programHandle, vs);
+    glAttachShader(programHandle, fs);
+    glLinkProgram(programHandle);
     
-    GFXint status = -1;
-    glGetProgramiv(m_ProgramHandle, GL_LINK_STATUS, &status);
+    GLint status = -1;
+    glGetProgramiv(programHandle, GL_LINK_STATUS, &status);
     
     if (status == GL_FALSE)
     {
         std::ostringstream message;
         
-        message << "The shader " << aName << " has failed to compile!";
-        
-        std::string shortMessage(message.str().append(" See error log for details"));
-        
-        message << std::endl
-        << std::endl << "program compilation log: " << GLH::GetProgramInfoLog(m_ProgramHandle) << std::endl
-        << std::endl << "vertex shader compilation log: " << GLH::GetShaderInfoLog(vs) << std::endl
+        message << "The shader: \"" << aName << "\" has failed to compile!" << std::endl
+        << std::endl << "program compilation log: " <<         GLH::GetProgramInfoLog(programHandle) << std::endl
+        << std::endl << "vertex shader compilation log: " <<   GLH::GetShaderInfoLog(vs) << std::endl
         << std::endl << "fragment shader compilation log: " << GLH::GetShaderInfoLog(fs);
         
-        Debug::error(TAG, message.str());
-        throw GDK::Exception(TAG, shortMessage);
+        throw GDK::Exception(TAG, message.str());
     }
-}
 
-ShaderProgram::ShaderProgram(ShaderProgram &&aShaderProgram) noexcept
+    return programHandle;
+}())
+{}
+
+ShaderProgram::ShaderProgram(ShaderProgram &&aShaderProgram) 
 {
-    m_Name = aShaderProgram.m_Name;
-    m_ProgramHandle = aShaderProgram.m_ProgramHandle;
+    m_Name =          std::move(aShaderProgram.m_Name);
+    m_ProgramHandle = std::move(aShaderProgram.m_ProgramHandle);
     
     aShaderProgram.m_ProgramHandle = 0;
 }
 
-ShaderProgram::~ShaderProgram() noexcept
+ShaderProgram::~ShaderProgram() 
 {
-    if (m_ProgramHandle > 0)
-        glDeleteProgram(m_ProgramHandle);
+    if (m_ProgramHandle > 0) glDeleteProgram(m_ProgramHandle);
 }
 
-GFXuint ShaderProgram::draw() const noexcept
+GLuint ShaderProgram::draw() const 
 {
     glUseProgram(m_ProgramHandle);
     //glDrawCalls();
@@ -95,12 +92,12 @@ GFXuint ShaderProgram::draw() const noexcept
     return m_ProgramHandle;
 }
 
-std::string const &ShaderProgram::getName() const noexcept
+std::string ShaderProgram::getName() const 
 {
     return m_Name;
 }
     
-GFXuint ShaderProgram::getHandle() const noexcept
+GLuint ShaderProgram::getHandle() const 
 {
     return m_ProgramHandle;
 }

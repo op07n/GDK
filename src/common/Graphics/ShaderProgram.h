@@ -8,7 +8,7 @@
 #include <iosfwd>
 #include <string>
 //gfx inc
-#include "DataTypes.h"
+#include "GL.h"
 
 namespace GDK
 {
@@ -20,20 +20,19 @@ namespace GDK
          */
         class ShaderProgram final
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::ShaderProgram &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::ShaderProgram &);
             
             // Data members
             std::string m_Name = {};
-            GFXuint m_ProgramHandle = 0;
+            GLuint m_ProgramHandle = 0;
             
-        public:
-            // Public interface
+        public: // Public interface
             ///Setup the shader for drawing, emit a handle for use by meshes
-            GFXuint draw() const noexcept;
+            GLuint draw() const;
             
             // Accessors
-            std::string const &getName() const noexcept;
-            GFXuint getHandle() const noexcept;
+            std::string getName() const;
+            GLuint getHandle() const;
             
             // Mutating operators
             ShaderProgram &operator=(const ShaderProgram &) = delete;
@@ -43,11 +42,11 @@ namespace GDK
             ShaderProgram() = delete;
             ShaderProgram(const std::string &aName, const std::string &aVertexSource, const std::string &aFragmentSource);
             ShaderProgram(const ShaderProgram &) = delete;
-            ShaderProgram(ShaderProgram &&) noexcept;
-            ~ShaderProgram() noexcept;
+            ShaderProgram(ShaderProgram &&);
+            ~ShaderProgram();
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::ShaderProgram &) noexcept;   
+        std::ostream &operator<< (std::ostream &, const GFX::ShaderProgram &);
     }
 }
 
