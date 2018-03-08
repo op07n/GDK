@@ -24,18 +24,34 @@ namespace GDK
         private:
             //Data members
             const InitializerSignature m_Initializer;
+
             mutable std::shared_ptr<T> m_SharedPtr = {};
+
+            mutable bool m_Initialized = false;
+
+            void initialize() const
+            {
+                m_SharedPtr.reset(m_Initializer());
+                
+                m_Initialized = true;
+            }
 
         public:
             // Public methods
+            /// Check if the lazy_ptr has initialized its internal ptr
+            bool initialized() const
+            {
+                return m_Initialized;
+            }
+
             T *get() const 
             {
-                if (!m_SharedPtr)
-                    m_SharedPtr.reset(m_Initializer());
+                if (!m_Initialized) initialize();
                 
                 return m_SharedPtr.get();
             }
 
+            // Non-mutating operators
             T &operator*() const
             {
                 return *get();
@@ -46,10 +62,9 @@ namespace GDK
                 return get();
             }
             
-            // Non-mutating operators
-            bool operator== (const lazy_ptr &a) const
+            bool operator==(const lazy_ptr &a) const
             {
-                return m_SharedPtr == a.m_SharedPtr;
+                return m_Initializer == a.m_Initializer;
             }
 
             // Mutating operators

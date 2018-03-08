@@ -13,4 +13,25 @@ TEST_START
     if (*ptr) test_succeeded();
 }},
 
+{ "struct dereference operator", [&]()
+{
+    struct data { int val; };
+    
+    const auto ptr = lazy_ptr<data>([](){return new (data){1};});
+
+    if (ptr->val) test_succeeded();
+}},
+
+{ "initialized", [&]()
+{
+    const auto ptr = lazy_ptr<int>([](){return new int(123);});
+
+    if (!ptr.initialized())
+    {
+        int &data = *ptr;
+
+        if (ptr.initialized()) test_succeeded();
+    }
+}},
+
 TEST_END

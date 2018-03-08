@@ -20,21 +20,22 @@ namespace GDK
         template<typename KeyT, typename ValueT>
         class auth_map final
         {
-            using iterator               = typename std::map<KeyT, std::shared_ptr<ValueT>>::iterator;
-            using const_iterator         = typename std::map<KeyT, std::shared_ptr<ValueT>>::const_iterator;
-            using reverse_iterator       = typename std::map<KeyT, std::shared_ptr<ValueT>>::reverse_iterator;
+        public: // Nested types
+            using iterator =               typename std::map<KeyT, std::shared_ptr<ValueT>>::iterator;
+            using const_iterator =         typename std::map<KeyT, std::shared_ptr<ValueT>>::const_iterator;
+            using reverse_iterator =       typename std::map<KeyT, std::shared_ptr<ValueT>>::reverse_iterator;
             using const_reverse_iterator = typename std::map<KeyT, std::shared_ptr<ValueT>>::const_reverse_iterator;
-            using mapped_type            = typename std::map<KeyT, std::shared_ptr<ValueT>>::mapped_type;
-            using key_type               = typename std::map<KeyT, std::shared_ptr<ValueT>>::key_type;
-            using value_type             = typename std::map<KeyT, std::shared_ptr<ValueT>>::value_type;
-            using size_type              = typename std::map<KeyT, std::shared_ptr<ValueT>>::size_type;
-            using mapped_type_weakptr    = typename std::weak_ptr<ValueT>;
-            using mapped_type_sharedptr  = typename std::shared_ptr<ValueT>;
+            using mapped_type =            typename std::map<KeyT, std::shared_ptr<ValueT>>::mapped_type;
+            using key_type =               typename std::map<KeyT, std::shared_ptr<ValueT>>::key_type;
+            using value_type =             typename std::map<KeyT, std::shared_ptr<ValueT>>::value_type;
+            using size_type =              typename std::map<KeyT, std::shared_ptr<ValueT>>::size_type;
+            using mapped_type_weakptr =    typename std::weak_ptr<ValueT>;
+            using mapped_type_sharedptr =  typename std::shared_ptr<ValueT>;
             
-            // Data members
+        private: // Data members
             std::map<KeyT, mapped_type_sharedptr> m_Map;
 
-        public:
+        public: // Public API
             // Iterators
             iterator               begin()         noexcept {return m_Map.begin();  }
             const_iterator         begin()   const noexcept {return m_Map.begin();  }
@@ -51,7 +52,7 @@ namespace GDK
             const_reverse_iterator crend() const noexcept {return m_Map.crend();}
             
             // Capacity
-            bool   empty()       const noexcept {return m_Map.empty();   }
+            bool      empty()    const noexcept {return m_Map.empty();   }
             size_type size()     const noexcept {return m_Map.size();    }
             size_type max_size() const noexcept {return m_Map.max_size();}
             

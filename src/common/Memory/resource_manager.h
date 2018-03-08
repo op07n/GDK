@@ -14,7 +14,7 @@
 
 namespace GDK
 {
-    namespace GFX
+    namespace Memory
     {
         /*!
          A resource manager is responsible for solely managing the lifetime of some object T.
@@ -24,13 +24,12 @@ namespace GDK
         template<typename T>
         class resource_manager
         {
-        protected:
-            // Data members
+        protected: // Data members
             std::map<std::string,std::shared_ptr<T>> m_Map;
+
             std::shared_ptr<T> m_Default;
             
-        public:
-            // Public methods
+        public: // Public methods
             ///Get a default_ptr to a managed object
             Memory::default_ptr<T> get(const std::string &aName)
             {
@@ -50,6 +49,7 @@ namespace GDK
             
             ///Destroy the managed object with the given name
             void remove(const std::string &aName){m_Map.erase(aName);}
+
             ///Destroy all managed objects
             void clear(){m_Map.clear();}
             

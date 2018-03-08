@@ -19,7 +19,7 @@ namespace GDK
         template<typename T>
         class default_ptr final
         {
-            //Data members
+        private: //Data members
             std::weak_ptr<T> m_WeakPtr;
             const std::shared_ptr<T> m_Default;
             

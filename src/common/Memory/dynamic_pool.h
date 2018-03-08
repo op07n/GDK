@@ -21,48 +21,60 @@ namespace GDK
         template<typename T>
         class dynamic_pool final
         {
-            // Data members
-            size_t m_InitialPoolSize;
-            std::function<T()> m_NewObjectInitializer;
-            std::vector<std::shared_ptr<T>> m_Pool;
+        public: // Types
+            using pool_type =  std::vector<std::shared_ptr<T>>;
+            using value_type = typename pool_type::value_type;
+            using size_type =  typename pool_type::size_type;
+
+        private: // Data members
+            const size_type m_InitialPoolSize;
+            const std::function<T()> m_NewObjectInitializer;
+
+            mutable pool_type m_Pool;
 
         public:
             // Public methods
             /// Get an object from the pool
-            std::shared_ptr<T> get()
+            value_type get() const
             {
-                for(size_t i=0;i<m_Pool.size();i++)
-                    if (m_Pool[i].use_count() == 1)
-                        return m_Pool[i];
+                for (const auto &item : m_Pool)
+                    if (item.use_count() == 1)
+                        return item;
               
                 m_Pool.push_back(std::make_shared<T>(m_NewObjectInitializer()));
+                
                 return m_Pool.back();
             }
           
             /// Try to reduce poolsize back to its initial size by removing any unused items while current size is > init size
-            void trim()
+            void trim() const
             {
-                for(size_t i=0;i<m_Pool.size();i++)
+                for (size_type i = 0; i < m_Pool.size(); ++i)
                     if (m_Pool.size() <= m_InitialPoolSize)
                         return;
                     else if (m_Pool[i].use_count() == 1)
-                        m_Pool.remove(i);
+                        m_Pool.erase(m_Pool.begin() + i);
+            }
+
+            size_type size() const
+            {
+                return m_Pool.size();
             }
           
             // Mutating operators
             dynamic_pool &operator=(const dynamic_pool &) = delete;
-            dynamic_pool &operator=(dynamic_pool &&) noexcept = delete;
+            dynamic_pool &operator=(dynamic_pool &&) = delete;
       
             // Constructors, destructors
-            dynamic_pool(const size_t aInitialPoolSize, const std::function<T()> aNewObjectInitializer = [](){return T();})
+            dynamic_pool(const size_t &aInitialPoolSize, const std::function<T()> &aNewObjectInitializer = [](){return T();})
             : m_InitialPoolSize(aInitialPoolSize)
             , m_NewObjectInitializer(aNewObjectInitializer)
             , m_Pool(aInitialPoolSize, std::make_shared<T>(m_NewObjectInitializer()))
             {}
             
-            dynamic_pool(const dynamic_pool&) = delete;
-            dynamic_pool(dynamic_pool&&) = delete;
-            virtual ~dynamic_pool() noexcept = default;
+            dynamic_pool(const dynamic_pool &) = delete;
+            dynamic_pool(dynamic_pool &&) = default;
+            ~dynamic_pool() = default;
         };
     }
 }

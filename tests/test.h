@@ -9,16 +9,16 @@
 #include <utility>
 
 #define test_succeeded()\
-{\
-    jfc::test::finalstatus = 0;\
+[&](){\
+    jfc::test::finalstatus = jfc::test::SUCCESS;\
     return;\
-}\
+}()\
 
 #define test_failed()\
-{\
-    jfc::test::finalstatus = 1;\
+[&](){\
+    jfc::test::finalstatus = jfc::test::FAILURE;\
     return;\
-}\
+}()\
 
 #define TEST_START \
 static const char *const FILENAME()\
@@ -39,7 +39,8 @@ static const char *const FILENAME()\
 using UnitTest = std::pair<const std::string, const std::function<void()>>;\
 \
 namespace jfc{ namespace test{\
-    auto finalstatus = 1;\
+    constexpr auto SUCCESS = 0, FAILURE = 1;\
+    auto finalstatus = FAILURE;\
     auto currentTestName = std::string();\
 }}\
 \
@@ -52,7 +53,7 @@ int main()\
     \
     for (auto currentTest : unitTests)\
     {\
-        jfc::test::finalstatus = 1;\
+        jfc::test::finalstatus = jfc::test::FAILURE;\
         \
         jfc::test::currentTestName = std::get<0>(currentTest);\
         \
@@ -64,10 +65,10 @@ int main()\
         {\
             std::cout << ex.what() << std::endl;\
             \
-            jfc::test::finalstatus = 1;\
+            jfc::test::finalstatus = jfc::test::FAILURE;\
         }\
         \
-        jfc::test::finalstatus == 1 ?\
+        jfc::test::finalstatus == jfc::test::FAILURE ?\
             std::cout << FILENAME() << ": " << jfc::test::currentTestName << ": \033[0;31mfailed!\033[0m\n" :\
             std::cout << FILENAME() << ": " << jfc::test::currentTestName << ": \033[0;32msucceeded!\033[0m\n"\
         ;\
