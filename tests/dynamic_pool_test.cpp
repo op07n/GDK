@@ -21,7 +21,7 @@ TEST_START
     if (const auto ptr = dynamicPool.get() && dynamicPool.size() == INITIAL_SIZE) test_succeeded();
 }},
 
-/*{ "Get: grow", [&]()
+{ "Get: grow", [&]()
 {
     constexpr size_t INITIAL_SIZE = 1;
 
@@ -33,9 +33,9 @@ TEST_START
     {
         if (dynamicPool.size() > INITIAL_SIZE) test_succeeded();
     }
-}},*/
+}},
 
-/*{ "Trim", [&]()
+{ "Trim", [&]()
 {
     const auto dynamicPool = dynamic_pool<float>(0);
 
@@ -44,6 +44,6 @@ TEST_START
     dynamicPool.trim();
 
     if (dynamicPool.size() == 0) test_succeeded();
-}},*/
+}},
 
 TEST_END
