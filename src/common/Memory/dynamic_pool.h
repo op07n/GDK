@@ -61,13 +61,13 @@ namespace GDK
             {
                 return m_Pool.size();
             }
-          
+
             // Mutating operators
             dynamic_pool &operator=(const dynamic_pool &) = delete;
             dynamic_pool &operator=(dynamic_pool &&) = delete;
       
             // Constructors, destructors
-            dynamic_pool(const size_t &aInitialPoolSize, const initializer_type &aNewObjectInitializer = (initializer_type)[](){return T();})
+            dynamic_pool(const size_t &aInitialPoolSize, const initializer_type &aNewObjectInitializer = [](){return T();})
             : m_InitialPoolSize(aInitialPoolSize)
             , m_NewObjectInitializer(aNewObjectInitializer)
             , m_Pool(aInitialPoolSize, std::make_shared<T>(m_NewObjectInitializer()))
