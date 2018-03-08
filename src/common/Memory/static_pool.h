@@ -46,7 +46,7 @@ namespace GDK
             static_pool &operator=(static_pool &&) = default;
       
             // Constructors, destructors
-            static_pool(const std::function<T()> &aItemInitializer = [](){return (T){};})
+            static_pool(const std::function<T()> &aItemInitializer = [](){return T();})
             : m_Pool([this, &aItemInitializer]()
             {
                 collection_type pool;
