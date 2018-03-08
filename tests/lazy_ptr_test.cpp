@@ -30,6 +30,8 @@ TEST_START
     {
         int &data = *ptr;
 
+        (void)data;
+
         if (ptr.initialized()) test_succeeded();
     }
 }},
