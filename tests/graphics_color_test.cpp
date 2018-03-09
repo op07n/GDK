@@ -1,5 +1,7 @@
 #include "test.h"
 
+#include <sstream>
+
 #include "Graphics/Color.h"
 
 using namespace GDK;
@@ -13,11 +15,15 @@ TEST_START
     if (color == Color::Black) test_succeeded();
 }},
 
-/*
-{ "Example", [&]()
+{ "operator<<", [&]()
 {
-    
+    auto sstream = std::stringstream();
+
+    const auto color = Color::Green;
+
+    sstream << color;
+
+    if (sstream.str().size()) test_succeeded();
 }},
-*/
 
 TEST_END
