@@ -21,25 +21,25 @@ namespace GDK
          */
         class Vector2UniformCollection final : public UniformCollection<std::shared_ptr<Math::Vector2>>
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::Vector2UniformCollection &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Vector2UniformCollection &);
       
         public:
             // Public methods
-            void bind(const GFXuint aProgramHandle) noexcept override;
-            void unbind(const GFXuint aProgramHandle) noexcept override;
+            void bind(const GFXuint aProgramHandle) override;
+            void unbind(const GFXuint aProgramHandle) override;
             
             // Mutating operators
             Vector2UniformCollection &operator=(const Vector2UniformCollection &) = delete;
             Vector2UniformCollection &operator=(Vector2UniformCollection &&) = delete;
       
             // Constructors, destructors
-            Vector2UniformCollection() noexcept = default;
+            Vector2UniformCollection() = default;
             Vector2UniformCollection(const Vector2UniformCollection &) = delete;
             Vector2UniformCollection(Vector2UniformCollection &&) = delete;
-            ~Vector2UniformCollection() noexcept = default;
+            ~Vector2UniformCollection() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::Vector2UniformCollection &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Vector2UniformCollection &);
     }
 }
 

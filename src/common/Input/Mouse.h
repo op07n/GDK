@@ -21,7 +21,7 @@ namespace GDK
         */
         class Mouse final
         {
-            friend std::ostream& operator<< (std::ostream&, const Input::Mouse&) noexcept;
+            friend std::ostream& operator<< (std::ostream&, const Input::Mouse&);
       
             // Data members
             std::weak_ptr<GLFWwindow> m_HandleToGLFWWindow = {};
@@ -51,18 +51,18 @@ namespace GDK
             Math::Vector2 getCursorPosition() const;
             
             // Mutating operators
-            Mouse& operator=(const Mouse &) noexcept = default;
-            Mouse& operator=(Mouse &&) noexcept = default;
+            Mouse& operator=(const Mouse &) = default;
+            Mouse& operator=(Mouse &&) = default;
       
             // Constructors, destructors
-            Mouse(const GFX::Window &) noexcept;
+            Mouse(const GFX::Window &);
             Mouse() = delete;
-            Mouse(const Mouse &) noexcept = default;
-            Mouse(Mouse &&) noexcept = default;
-            ~Mouse() noexcept = default;
+            Mouse(const Mouse &) = default;
+            Mouse(Mouse &&) = default;
+            ~Mouse() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const Input::Mouse &) noexcept;
+        std::ostream &operator<< (std::ostream &, const Input::Mouse &);
     }
 }
 

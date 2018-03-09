@@ -12,7 +12,7 @@ using namespace ECS;
 
 static constexpr char TAG[] = "Component";
 
-std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a) noexcept
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a)
 {
     (void)a;
     
@@ -25,7 +25,7 @@ std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Component &a) noe
     return s;
 }
 
-std::weak_ptr<GameObject> Component::getGameObject() const noexcept
+std::weak_ptr<GameObject> Component::getGameObject() const
 {
     return m_GameObject;
 }

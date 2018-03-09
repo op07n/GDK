@@ -23,7 +23,7 @@ static constexpr auto TAG = "Mat4x4";
 const Mat4x4 Mat4x4::Identity = Mat4x4();
 
 //Stringify
-std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat) noexcept
+std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat)
 {
     s.clear();s
     << "{" << aMat.m[0][0] << ", " << aMat.m[1][0] << ", " << aMat.m[2][0] << ", " << aMat.m[3][0] << "}\n"
@@ -34,7 +34,7 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Mat4x4& aMat) 
     return s;
 }
 
-void Mat4x4::setIdentity() noexcept
+void Mat4x4::setIdentity()
 {
     m[0][0] = 1.; m[1][0] = 0.; m[2][0] = 0.; m[3][0] = 0.;
     m[0][1] = 0.; m[1][1] = 1.; m[2][1] = 0.; m[3][1] = 0.;
@@ -162,7 +162,7 @@ void Mat4x4::scale(const Vector3 &aPosition)
     throw GDK::Exception(TAG, "Mat4x4::scale not implemented!");
 }
 
-void Mat4x4::setPerspective(const float aFieldOfView, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio) noexcept
+void Mat4x4::setPerspective(const float aFieldOfView, const float aNearClippingPlane, const float aFarClippingPlane, const float aViewportAspectRatio)
 {
     float tanHalfFovy = (float)tan(aFieldOfView * 0.5f);
     m[0][0] = 1.0f / (aViewportAspectRatio * tanHalfFovy);
@@ -204,7 +204,7 @@ void Mat4x4::set
  const float& a01, const float& a11, const float& a21, const float& a31,
  const float& a02, const float& a12, const float& a22, const float& a32,
  const float& a03, const float& a13, const float& a23, const float& a33
-) noexcept
+)
 {
     m[0][0] = a00; m[1][0] = a10; m[2][0] = a20; m[3][0] = a30;
     m[0][1] = a01; m[1][1] = a11; m[2][1] = a21; m[3][1] = a31;
@@ -232,7 +232,7 @@ Mat4x4 Mat4x4::operator*(const Mat4x4 &a)
 }
 
 // Constructors
-Mat4x4::Mat4x4() noexcept
+Mat4x4::Mat4x4()
 : m
 {
     {1.,0.,0.,0.},
@@ -248,7 +248,7 @@ Mat4x4::Mat4x4
  const float& a01, const float& a11, const float& a21, const float& a31,
  const float& a02, const float& a12, const float& a22, const float& a32,
  const float& a03, const float& a13, const float& a23, const float& a33
-) noexcept
+)
 : m
 {
     {a00,a01,a02,a03},

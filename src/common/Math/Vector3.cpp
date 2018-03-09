@@ -19,7 +19,7 @@ const Vector3 Vector3::Backward = Vector3( 0.f, 0.f,-1.f);
 const Vector3 Vector3::Zero     = Vector3( 0.f, 0.f, 0.f);
 
 //stringify
-std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a) noexcept
+std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a)
 {
     s.clear(); s << "{"
     << "x: " << a.x << ", "
@@ -29,14 +29,14 @@ std::ostream& GDK::Math::operator<<(std::ostream& s,const Math::Vector3& a) noex
 }
 
 //ctors
-Vector3::Vector3(const float &aX, const float &aY, const float &aZ) noexcept
+Vector3::Vector3(const float &aX, const float &aY, const float &aZ)
 : x(aX)
 , y(aY)
 , z(aZ)
 {}
 
 //operators
-Vector3 Vector3::operator+(const Vector3 &aVector) const noexcept
+Vector3 Vector3::operator+(const Vector3 &aVector) const
 {
     return
     {
@@ -46,7 +46,7 @@ Vector3 Vector3::operator+(const Vector3 &aVector) const noexcept
     };
 }
 
-Vector3 Vector3::operator-(const Vector3 &aVector) const noexcept
+Vector3 Vector3::operator-(const Vector3 &aVector) const
 {
     return
     {
@@ -56,17 +56,17 @@ Vector3 Vector3::operator-(const Vector3 &aVector) const noexcept
     };
 }
 
-bool Vector3::operator==(const Vector3 &a) const noexcept
+bool Vector3::operator==(const Vector3 &a) const
 {
     return x == a.x && y == a.y && z == a.z ? true : false;
 }
 
-bool Vector3::operator!=(const Vector3 &a) const noexcept
+bool Vector3::operator!=(const Vector3 &a) const
 {
     return x != a.x || y != a.y || z != a.z ? true : false;
 }
 
-Vector3& Vector3::operator+=(const Vector3 &aVector) noexcept
+Vector3& Vector3::operator+=(const Vector3 &aVector)
 {
     x += aVector.x;
     y += aVector.y;
@@ -75,7 +75,7 @@ Vector3& Vector3::operator+=(const Vector3 &aVector) noexcept
     return *this;
 }
 
-Vector3& Vector3::operator-=(const Vector3 &aVector) noexcept
+Vector3& Vector3::operator-=(const Vector3 &aVector)
 {
     x -= aVector.x;
     y -= aVector.y;
@@ -84,7 +84,7 @@ Vector3& Vector3::operator-=(const Vector3 &aVector) noexcept
     return *this;
 }
 
-Vector3 Vector3::operator*(const float &aScalar) const noexcept
+Vector3 Vector3::operator*(const float &aScalar) const
 {
     return
     {
@@ -94,7 +94,7 @@ Vector3 Vector3::operator*(const float &aScalar) const noexcept
     };
 }
 
-Vector3& Vector3::operator*=(const float &aScalar) noexcept
+Vector3& Vector3::operator*=(const float &aScalar)
 {
     x *= aScalar;
     y *= aScalar;
@@ -103,12 +103,12 @@ Vector3& Vector3::operator*=(const float &aScalar) noexcept
     return *this;
 }
 
-float Vector3::length(void) const noexcept
+float Vector3::length(void) const
 {
     return sqrt( (x*x) + (y*y) + (z*z) );
 }
 
-void Vector3::normalize(void) noexcept
+void Vector3::normalize(void)
 {
     float magnitude = Vector3::length();
     

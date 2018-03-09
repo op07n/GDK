@@ -14,7 +14,7 @@ using namespace Math;
 const Vector4 Vector4::Zero = Vector4( 0.,0.,0.,0.);
 
 //Stringify
-std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector4& a) noexcept
+std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector4& a)
 {
     s.clear(); s << "{"
     << "x: " << a.x << ", "
@@ -25,21 +25,21 @@ std::ostream& GDK::Math::operator<<(std::ostream& s, const Math::Vector4& a) noe
 }
 
 //Constructors
-Vector4::Vector4() noexcept
+Vector4::Vector4()
 : x(0.)
 , y(0.)
 , z(0.)
 , w(1.)
 {}
 
-Vector4::Vector4(const Vector3 &aVector3, const float &aW) noexcept
+Vector4::Vector4(const Vector3 &aVector3, const float &aW)
 : x(aVector3.x)
 , y(aVector3.y)
 , z(aVector3.z)
 , w(aW)
 {}
 
-Vector4::Vector4(const float &aX, const float &aY, const float &aZ, const float &aW) noexcept
+Vector4::Vector4(const float &aX, const float &aY, const float &aZ, const float &aW)
 : x(aX)
 , y(aY)
 , z(aZ)
@@ -47,7 +47,7 @@ Vector4::Vector4(const float &aX, const float &aY, const float &aZ, const float 
 {}
 
 //Operators
-Vector4& Vector4::operator+=(const Vector4 &aVector4) noexcept
+Vector4& Vector4::operator+=(const Vector4 &aVector4)
 {
     x += aVector4.x;
     y += aVector4.y;
@@ -57,7 +57,7 @@ Vector4& Vector4::operator+=(const Vector4 &aVector4) noexcept
     return *this;
 }
 
-Vector4& Vector4::operator*=(const float &aScalar) noexcept
+Vector4& Vector4::operator*=(const float &aScalar)
 {
     x *= aScalar;
     y *= aScalar;
@@ -67,12 +67,12 @@ Vector4& Vector4::operator*=(const float &aScalar) noexcept
     return *this;
 }
 
-bool Vector4::operator==(const Vector4 &a) const noexcept
+bool Vector4::operator==(const Vector4 &a) const
 {
     return x == a.x && y == a.y && z == a.z && w == a.w ? true : false;
 }
 
-bool Vector4::operator!=(const Vector4 &a) const noexcept
+bool Vector4::operator!=(const Vector4 &a) const
 {
     return x != a.x || y != a.y || z != a.z || w != a.w ? true : false;
 }

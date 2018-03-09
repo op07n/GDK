@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCollection& a) noexcept
+std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCollection& a)
 {
     s.clear(); s
     
@@ -29,7 +29,7 @@ std::ostream& GDK::GFX::operator<<(std::ostream& s, const GFX::TextureUniformCol
     return s;
 }
 
-void TextureUniformCollection::bind(const GFXuint aProgramHandle) noexcept
+void TextureUniformCollection::bind(const GFXuint aProgramHandle)
 {
     int i = 0;
     for (auto &pair : m_Map)
@@ -39,7 +39,7 @@ void TextureUniformCollection::bind(const GFXuint aProgramHandle) noexcept
     }
 }
 
-void TextureUniformCollection::unbind(const GFXuint aProgramHandle) noexcept
+void TextureUniformCollection::unbind(const GFXuint aProgramHandle)
 {
     int i = 0;
     for (auto &pair : m_Map)

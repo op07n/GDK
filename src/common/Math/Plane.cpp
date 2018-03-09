@@ -9,7 +9,7 @@ using namespace GDK;
 using namespace Math;
 
 // Stringify
-std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a) noexcept
+std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a)
 {
     s.clear(); s
     
@@ -22,7 +22,7 @@ std::ostream& GDK::Math::operator<< (std::ostream &s, const Math::Plane &a) noex
 }
 
 // Constructors
-Plane::Plane(const Vector3 &aPosition, const Vector3 &aNormal) noexcept
+Plane::Plane(const Vector3 &aPosition, const Vector3 &aNormal)
 : position(aPosition)
 , normal(aNormal)
 {}

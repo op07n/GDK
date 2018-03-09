@@ -20,26 +20,26 @@ namespace GDK
          */
         class Vector3UniformCollection final : public UniformCollection<std::shared_ptr<Math::Vector3>>
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::Vector3UniformCollection &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Vector3UniformCollection &);
       
         public:
             // Public methods
-            void bind(const GFXuint aProgramHandle) noexcept override;
-            void unbind(const GFXuint aProgramHandle) noexcept override;
+            void bind(const GFXuint aProgramHandle) override;
+            void unbind(const GFXuint aProgramHandle) override;
             
             // Mutating operators
             Vector3UniformCollection &operator=(const Vector3UniformCollection &) = delete;
             Vector3UniformCollection &operator=(Vector3UniformCollection &&) = delete;
             
             // Constructors, destructors
-            Vector3UniformCollection() noexcept = default;
+            Vector3UniformCollection() = default;
             Vector3UniformCollection(const Vector3UniformCollection &) = delete;
             Vector3UniformCollection(Vector3UniformCollection &&) = delete;
-            ~Vector3UniformCollection() noexcept = default;
+            ~Vector3UniformCollection() = default;
       
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::Vector3UniformCollection &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Vector3UniformCollection &);
     }
 }
 

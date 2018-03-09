@@ -19,7 +19,7 @@ namespace GDK
          */
         class MeshManager final : public resource_manager<Mesh>
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::MeshManager &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::MeshManager &);
       
         public:
             // Mutating operators
@@ -27,13 +27,13 @@ namespace GDK
             MeshManager &operator=(MeshManager &&) = default;
       
             // Constructors, destructors
-            MeshManager() noexcept;
+            MeshManager();
             MeshManager(const MeshManager &) = default;
             MeshManager(MeshManager &&) = default;
-            virtual ~MeshManager() noexcept = default;
+            virtual ~MeshManager() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::MeshManager &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::MeshManager &);
     }
 }
 

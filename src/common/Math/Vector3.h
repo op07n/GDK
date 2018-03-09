@@ -21,28 +21,28 @@ namespace GDK
             // Data members
             float x = 0.0f, y = 0.0f, z = 0.0f;
             
-            float length(void) const noexcept;
-            void normalize(void) noexcept;
+            float length(void) const;
+            void normalize(void);
             
             // Non mutating operators
-            bool operator==(const Vector3&) const noexcept;
-            bool operator!=(const Vector3&) const noexcept;
-            Vector3 operator+(const Vector3&) const noexcept;
-            Vector3 operator-(const Vector3&) const noexcept;
-            Vector3 operator*(const float&) const noexcept;
+            bool operator==(const Vector3&) const;
+            bool operator!=(const Vector3&) const;
+            Vector3 operator+(const Vector3&) const;
+            Vector3 operator-(const Vector3&) const;
+            Vector3 operator*(const float&) const;
             
             // Mutating operators
-            Vector3& operator+=(const Vector3&) noexcept;
-            Vector3& operator-=(const Vector3&) noexcept;
-            Vector3& operator*=(const float&) noexcept;
-            Vector3& operator=(const Vector3&) noexcept = default;
+            Vector3& operator+=(const Vector3&);
+            Vector3& operator-=(const Vector3&);
+            Vector3& operator*=(const float&);
+            Vector3& operator=(const Vector3&) = default;
             
             // Constructors & Destructors
-            Vector3(const float &aX, const float &aY, const float &aZ) noexcept;
-            Vector3() noexcept = default;
-            Vector3(const Vector3& aVector3) noexcept = default;
-            Vector3(Vector3&&) noexcept = default;
-            ~Vector3() noexcept = default;
+            Vector3(const float &aX, const float &aY, const float &aZ);
+            Vector3() = default;
+            Vector3(const Vector3& aVector3) = default;
+            Vector3(Vector3&&) = default;
+            ~Vector3() = default;
             
             // Special values
             static const Vector3 Up;
@@ -54,7 +54,7 @@ namespace GDK
             static const Vector3 Zero;
         };
         
-        std::ostream& operator<< (std::ostream&, const Math::Vector3&) noexcept;
+        std::ostream& operator<< (std::ostream&, const Math::Vector3&);
     }
 }
 

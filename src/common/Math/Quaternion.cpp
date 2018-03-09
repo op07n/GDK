@@ -17,7 +17,7 @@ using namespace Math;
 const Quaternion Quaternion::Identity = Quaternion();
 
 //stringify
-std::ostream &GDK::Math::operator<< (std::ostream &s, const Math::Quaternion &a) noexcept
+std::ostream &GDK::Math::operator<< (std::ostream &s, const Math::Quaternion &a)
 {
     s.clear(); s
     << "{"
@@ -31,16 +31,16 @@ std::ostream &GDK::Math::operator<< (std::ostream &s, const Math::Quaternion &a)
 }
 
 //ctors
-Quaternion::Quaternion() noexcept : x(0.f), y(0.f), z(0.f), w(1.f)
+Quaternion::Quaternion() : x(0.f), y(0.f), z(0.f), w(1.f)
 {}
 
-Quaternion::Quaternion(const Vector3 &aEulerAngles) noexcept
+Quaternion::Quaternion(const Vector3 &aEulerAngles)
 {
     setFromEuler(aEulerAngles);
 }
 
 //Euler convenience
-void Quaternion::setFromEuler(const Vector3 &aEulerAngles) noexcept
+void Quaternion::setFromEuler(const Vector3 &aEulerAngles)
 {
     /*Vector3 eulerAngles = aEulerAngles;
     
@@ -73,7 +73,7 @@ void Quaternion::setFromEuler(const Vector3 &aEulerAngles) noexcept
     w = quat.w;
 }
 
-Vector3 Quaternion::toEuler() const noexcept
+Vector3 Quaternion::toEuler() const
 {
     glm::quat quaternion(w, x, y, z);
     

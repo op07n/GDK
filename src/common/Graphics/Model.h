@@ -31,7 +31,7 @@ namespace GDK
          */
         class Model final
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::Model &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Model &);
             
             // Data members
             std::string m_Name = {};
@@ -48,34 +48,34 @@ namespace GDK
             
         public:
             // Accessors
-            void setMesh(const Memory::default_ptr<Mesh> &) noexcept;
+            void setMesh(const Memory::default_ptr<Mesh> &);
             
-            void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture>   &aTexture) noexcept;
-            void setFloat  (const std::string &aUniformName, const std::shared_ptr<float>         &aFloat  ) noexcept;
-            void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2) noexcept;
-            void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3) noexcept;
-            void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4) noexcept;
-            void setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                   &aMat4x4 ) noexcept;
+            void setTexture(const std::string &aUniformName, const Memory::default_ptr<Texture>   &aTexture);
+            void setFloat  (const std::string &aUniformName, const std::shared_ptr<float>         &aFloat  );
+            void setVector2(const std::string &aUniformName, const std::shared_ptr<Math::Vector2> &aVector2);
+            void setVector3(const std::string &aUniformName, const std::shared_ptr<Math::Vector3> &aVector3);
+            void setVector4(const std::string &aUniformName, const std::shared_ptr<Math::Vector4> &aVector4);
+            void setMat4x4 (const std::string &aUniformName, const Math::Mat4x4                   &aMat4x4 );
             
-            const Math::Mat4x4 &getModelMatrix() const noexcept;
-            void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept;
+            const Math::Mat4x4 &getModelMatrix() const;
+            void setModelMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
             
             // public methods
-            void draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectionMatrix) noexcept;
+            void draw(const Math::Mat4x4 &aViewMatrix, const Math::Mat4x4 &aProjectionMatrix);
             
             // Mutating operators
             Model &operator=(const Model &) = delete;
             Model &operator=(Model &&) = delete;
       
             // Constructors, destructors
-            Model(const std::string &aName, const Memory::default_ptr<Mesh> &, const Memory::default_ptr<ShaderProgram> &) noexcept;
-            Model() noexcept;
+            Model(const std::string &aName, const Memory::default_ptr<Mesh> &, const Memory::default_ptr<ShaderProgram> &);
+            Model();
             Model(const Model &) = delete;
             Model(Model &&) = delete;
-            ~Model() noexcept = default;
+            ~Model() = default;
         };
         
-        std::ostream &operator<< (std::ostream &, const GFX::Model &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Model &);
     }
 }
 

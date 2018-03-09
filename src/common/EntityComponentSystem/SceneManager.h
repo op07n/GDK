@@ -21,18 +21,18 @@ namespace GDK
          */
         class SceneManager final
         {
-            friend std::ostream& operator<< (std::ostream &, const ECS::SceneManager &) noexcept;
+            friend std::ostream& operator<< (std::ostream &, const ECS::SceneManager &);
       
             // Data members
             std::map<std::string, std::shared_ptr<Scene>> m_Scenes = {};
 
         public:
             // Accessors
-            std::weak_ptr<Scene> addScene(const std::string &aName) noexcept;
+            std::weak_ptr<Scene> addScene(const std::string &aName);
             std::weak_ptr<Scene> getScene(const std::string &aName) const;
             
             // Public methods
-            void remove(const std::string &aName) noexcept;
+            void remove(const std::string &aName);
             
             void update();
             void fixedUpdate();
@@ -43,13 +43,13 @@ namespace GDK
             SceneManager &&operator=(SceneManager &&) = delete;
             
             // Constructors, destructors
-            SceneManager() noexcept = default;
+            SceneManager() = default;
             SceneManager(const SceneManager &) = delete;
             SceneManager(SceneManager &&) = default;
             ~SceneManager() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const ECS::SceneManager &) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::SceneManager &);
     }
 }
 

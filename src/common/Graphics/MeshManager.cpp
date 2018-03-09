@@ -11,7 +11,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::MeshManager &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::MeshManager &a)
 {
     s.clear(); s
     << "{";
@@ -29,6 +29,6 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::MeshManager &a) n
     return s;
 }
 
-MeshManager::MeshManager() noexcept
+MeshManager::MeshManager()
 : resource_manager(GFX::DefaultResources::getQuad().lock())
 {}

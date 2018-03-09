@@ -24,7 +24,7 @@ namespace GDK
          */
         class Scene final : public std::enable_shared_from_this<Scene>
         {
-            friend std::ostream &operator<< (std::ostream &, const ECS::Scene &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const ECS::Scene &);
             friend GameObject;
       
         public:
@@ -53,9 +53,9 @@ namespace GDK
             
         public:
             // Accessors
-            std::weak_ptr<GameObject> getGameObject(const std::string &) const noexcept;
-            std::string const &getName() const noexcept;
-            State const &getSceneState() const noexcept;
+            std::weak_ptr<GameObject> getGameObject(const std::string &) const;
+            std::string const &getName() const;
+            State const &getSceneState() const;
             
             void setState(const State &);
       
@@ -102,16 +102,16 @@ namespace GDK
             Scene &operator=(Scene &&) = delete;
       
             // Constructors, destructors
-            Scene(const std::string &aName) noexcept;
+            Scene(const std::string &aName);
         private:
             Scene() = delete;
             Scene(const Scene &) = delete;
         public:
             Scene(Scene &&) = default;
-            ~Scene() noexcept = default;
+            ~Scene() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const ECS::Scene &) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::Scene &);
     }
 }
 

@@ -17,7 +17,7 @@ const Vector2 Vector2::Right = Vector2( 1.f, 0.f);
 const Vector2 Vector2::Zero  = Vector2( 0.f, 0.f);
 
 //stringify
-std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::Vector2 &a) noexcept
+std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::Vector2 &a)
 {
     s.clear(); s
     << "{"
@@ -29,38 +29,38 @@ std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::Vector2 &a) noe
 }
 
 //ctors
-Vector2::Vector2(const float aX, const float aY) noexcept
+Vector2::Vector2(const float aX, const float aY)
 : x(aX)
 , y(aY)
 {}
 
-Vector2::Vector2(const float aScalar) noexcept
+Vector2::Vector2(const float aScalar)
 : x(aScalar)
 , y(aScalar)
 {}
 
 //operators
-bool Vector2::operator==(const Vector2 &a) const noexcept
+bool Vector2::operator==(const Vector2 &a) const
 {
     return x == a.x && y == a.y ? true : false;
 }
 
-bool Vector2::operator!=(const Vector2 &a) const noexcept
+bool Vector2::operator!=(const Vector2 &a) const
 {
     return x != a.x || y != a.y ? true : false;
 }
 
-Vector2 Vector2::operator+(const Vector2 &aVector) const noexcept
+Vector2 Vector2::operator+(const Vector2 &aVector) const
 {
     return {aVector.x + x, aVector.y + y};
 }
 
-Vector2 Vector2::operator-(const Vector2 &aVector) const noexcept
+Vector2 Vector2::operator-(const Vector2 &aVector) const
 {
     return {aVector.x - x, aVector.y - y};
 }
 
-Vector2& Vector2::operator+=(const Vector2 &aVector) noexcept
+Vector2& Vector2::operator+=(const Vector2 &aVector)
 {
     x += aVector.x;
     y += aVector.y;
@@ -68,7 +68,7 @@ Vector2& Vector2::operator+=(const Vector2 &aVector) noexcept
     return *this;
 }
 
-Vector2& Vector2::operator-=(const Vector2 &aVector) noexcept
+Vector2& Vector2::operator-=(const Vector2 &aVector)
 {
     x -= aVector.x;
     y -= aVector.y;
@@ -76,12 +76,12 @@ Vector2& Vector2::operator-=(const Vector2 &aVector) noexcept
     return *this;
 }
 
-Vector2 Vector2::operator*(const float aScalar) const noexcept
+Vector2 Vector2::operator*(const float aScalar) const
 {
     return {x * aScalar, y * aScalar};
 }
 
-Vector2& Vector2::operator*=(const float aScalar) noexcept
+Vector2& Vector2::operator*=(const float aScalar)
 {
     x *= aScalar;
     y *= aScalar;
@@ -89,12 +89,12 @@ Vector2& Vector2::operator*=(const float aScalar) noexcept
     return *this;
 }
 
-float Vector2::length() const noexcept
+float Vector2::length() const
 {
     return sqrtf( (x * x) + (y * y) );
 }
 
-void Vector2::normalize() noexcept
+void Vector2::normalize()
 {
     float magnitude = Vector2::length();
     
@@ -105,7 +105,7 @@ void Vector2::normalize() noexcept
     y /= magnitude;
 }
 
-float Vector2::getAspectRatio() const noexcept
+float Vector2::getAspectRatio() const
 {
     return x / y;
 }

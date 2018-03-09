@@ -54,8 +54,8 @@ namespace GDK
             void clear(){m_Map.clear();}
             
             // Mutating operators
-            resource_manager &operator=(const resource_manager &) noexcept = delete;
-            resource_manager &operator=(resource_manager &&) noexcept = delete;
+            resource_manager &operator=(const resource_manager &) = delete;
+            resource_manager &operator=(resource_manager &&) = delete;
       
             // Constructors, destructors
             resource_manager(T &&aDefault)

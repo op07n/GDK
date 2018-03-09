@@ -18,7 +18,7 @@ const IntVector2 IntVector2::Right = IntVector2( 1, 0);
 const IntVector2 IntVector2::Zero  = IntVector2( 0, 0);
 
 // Stringify
-std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::IntVector2 &a) noexcept
+std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::IntVector2 &a)
 {
     s.clear(); s
     << "{"
@@ -30,49 +30,49 @@ std::ostream &GDK::Math::operator<<(std::ostream &s, const Math::IntVector2 &a) 
 }
 
 //Contructors
-IntVector2::IntVector2(const int aX, const int aY) noexcept
+IntVector2::IntVector2(const int aX, const int aY)
 : x(aX)
 , y(aY)
 {}
 
-Vector2 IntVector2::toVector2() const noexcept
+Vector2 IntVector2::toVector2() const
 {
     return Vector2(x,y);
 }
 
 // Non mutating operators
-bool IntVector2::operator==(const IntVector2 &a) const noexcept
+bool IntVector2::operator==(const IntVector2 &a) const
 {
     return x == a.x && y == a.y ? true : false;
 }
 
-bool IntVector2::operator!=(const IntVector2 &a) const noexcept
+bool IntVector2::operator!=(const IntVector2 &a) const
 {
     return x != a.x || y != a.y ? true : false;
 }
 
-IntVector2 IntVector2::operator+(const IntVector2 &aIntVector2) const noexcept
+IntVector2 IntVector2::operator+(const IntVector2 &aIntVector2) const
 {
     return IntVector2(x + aIntVector2.x, y + aIntVector2.y);
 }
 
-IntVector2 IntVector2::operator-(const IntVector2 &aIntVector2) const noexcept
+IntVector2 IntVector2::operator-(const IntVector2 &aIntVector2) const
 {
     return IntVector2(x - aIntVector2.x, y - aIntVector2.y);
 }
 
-IntVector2 IntVector2::operator*(const float aScalar) const noexcept
+IntVector2 IntVector2::operator*(const float aScalar) const
 {
     return IntVector2(x * aScalar, y * aScalar);
 }
 
-IntVector2 IntVector2::operator*(const Vector2& aVector2) const noexcept
+IntVector2 IntVector2::operator*(const Vector2& aVector2) const
 {
     return IntVector2(x * aVector2.x, y * aVector2.y);
 }
 
 // Mutating operators
-IntVector2& IntVector2::operator+=(const IntVector2 &aIntVector2) noexcept
+IntVector2& IntVector2::operator+=(const IntVector2 &aIntVector2)
 {
     x += aIntVector2.x;
     y += aIntVector2.y;
@@ -80,7 +80,7 @@ IntVector2& IntVector2::operator+=(const IntVector2 &aIntVector2) noexcept
     return *this;
 }
 
-IntVector2& IntVector2::operator-=(const IntVector2 &aIntVector2) noexcept
+IntVector2& IntVector2::operator-=(const IntVector2 &aIntVector2)
 {
     x -= aIntVector2.x;
     y -= aIntVector2.y;
@@ -88,7 +88,7 @@ IntVector2& IntVector2::operator-=(const IntVector2 &aIntVector2) noexcept
     return *this;
 }
 
-IntVector2& IntVector2::operator*=(const float aScalar) noexcept
+IntVector2& IntVector2::operator*=(const float aScalar)
 {
     x *= aScalar;
     y *= aScalar;

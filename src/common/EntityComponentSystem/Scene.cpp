@@ -15,7 +15,7 @@ using namespace ECS;
 
 static constexpr char TAG[] = "Scene";
 
-std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Scene &a) noexcept
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Scene &a)
 {
     s.clear(); s
     << "{"
@@ -26,7 +26,7 @@ std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::Scene &a) noexcep
     return s;
 }
 
-std::weak_ptr<GameObject> Scene::getGameObject(const std::string &aGameObjectName) const noexcept
+std::weak_ptr<GameObject> Scene::getGameObject(const std::string &aGameObjectName) const
 {
     for (auto pGameObject : m_GameObjects)
         if (pGameObject->getName() == aGameObjectName)
@@ -112,6 +112,6 @@ void Scene::logError()
     Debug::error(TAG, "user attempted to add a duplicate kind of scenegraph to the scene: ",m_Name);
 }
 
-Scene::Scene(const std::string &aName) noexcept
+Scene::Scene(const std::string &aName)
 : m_Name(aName)
 {}

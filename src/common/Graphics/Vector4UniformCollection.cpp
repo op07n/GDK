@@ -11,7 +11,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector4UniformCollection &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector4UniformCollection &a)
 {
     s.clear(); s
     
@@ -27,13 +27,13 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector4UniformCol
     return s;
 }
 
-void Vector4UniformCollection::bind(const GFXuint aProgramHandle) noexcept
+void Vector4UniformCollection::bind(const GFXuint aProgramHandle)
 {
     for (auto &pair : m_Map)
         GLH::Bind4FloatUniform(aProgramHandle, pair.first, *pair.second.get());
 }
 
-void Vector4UniformCollection::unbind(const GFXuint aProgramHandle) noexcept
+void Vector4UniformCollection::unbind(const GFXuint aProgramHandle)
 {
     for (auto &pair : m_Map)
         GLH::Bind4FloatUniform(aProgramHandle, pair.first, Math::Vector4::Zero);

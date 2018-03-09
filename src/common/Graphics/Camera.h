@@ -24,7 +24,7 @@ namespace GDK
          */
         class Camera final
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::Camera &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Camera &);
             
         public:
             /// Describes camera clear behaviour
@@ -63,20 +63,20 @@ namespace GDK
             
         public:
             // Accessors
-            void setViewportPosition(const Math::Vector2 &) noexcept;
-            void setViewportPosition(const float x, const float y) noexcept;
-            Math::Vector2 getViewportPosition() const noexcept;
+            void setViewportPosition(const Math::Vector2 &);
+            void setViewportPosition(const float x, const float y);
+            Math::Vector2 getViewportPosition() const;
             
-            void setViewportSize(const Math::Vector2 &) noexcept;
-            void setViewportSize(const float x, const float y) noexcept;
-            Math::Vector2 getViewportSize() const noexcept;
+            void setViewportSize(const Math::Vector2 &);
+            void setViewportSize(const float x, const float y);
+            Math::Vector2 getViewportSize() const;
             
             //void setOrthographicProjection(const Math::Vector2 &aOrthoSize, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
             //void setPerspectiveProjection(const float &aFieldOfView, const float &aNearClippingPlane, const float &aFarClippingPlane, const float &aViewportAspectRatio);
-            const Math::Mat4x4 &getProjectionMatrix() const noexcept;
+            const Math::Mat4x4 &getProjectionMatrix() const;
             
-            void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept;
-            const Math::Mat4x4 &getViewMatrix() const noexcept;
+            void setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation);
+            const Math::Mat4x4 &getViewMatrix() const;
             
             // Public methods
             void draw(const Math::IntVector2 &aFrameBufferSize);
@@ -86,13 +86,13 @@ namespace GDK
             Camera& operator=(Camera &&) = delete;
       
             // Constructors, destructors
-            Camera() noexcept;
+            Camera();
             Camera(const Camera &) = delete;
-            Camera(Camera &&) noexcept = default;
-            ~Camera() noexcept = default;
+            Camera(Camera &&) = default;
+            ~Camera() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::Camera &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Camera &);
     }
 }
 

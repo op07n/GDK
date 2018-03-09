@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Mat4x4UniformCollection &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Mat4x4UniformCollection &a)
 {
     s.clear(); s
     
@@ -29,13 +29,13 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Mat4x4UniformColl
     return s;
 }
 
-void Mat4x4UniformCollection::bind(const GFXuint aProgramHandle) noexcept
+void Mat4x4UniformCollection::bind(const GFXuint aProgramHandle)
 {
     for (auto &pair : m_Map)
         GLH::BindMatrix4x4(aProgramHandle, pair.first, pair.second);
 }
 
-void Mat4x4UniformCollection::unbind(const GFXuint aProgramHandle) noexcept
+void Mat4x4UniformCollection::unbind(const GFXuint aProgramHandle)
 {
     for (auto &pair : m_Map)
         GLH::BindMatrix4x4(aProgramHandle, pair.first, Math::Mat4x4::Identity);    

@@ -37,24 +37,24 @@ namespace GDK
 
         public: // Public API
             // Iterators
-            iterator               begin()         noexcept {return m_Map.begin();  }
-            const_iterator         begin()   const noexcept {return m_Map.begin();  }
-            const_iterator         cbegin()  const noexcept {return m_Map.cbegin(); }
-            reverse_iterator       rbegin()        noexcept {return m_Map.rbegin(); }
-            const_reverse_iterator rbegin()  const noexcept {return m_Map.rbegin(); }
-            const_reverse_iterator crbegin() const noexcept {return m_Map.crbegin();}
+            iterator               begin()         {return m_Map.begin();  }
+            const_iterator         begin()   const {return m_Map.begin();  }
+            const_iterator         cbegin()  const {return m_Map.cbegin(); }
+            reverse_iterator       rbegin()        {return m_Map.rbegin(); }
+            const_reverse_iterator rbegin()  const {return m_Map.rbegin(); }
+            const_reverse_iterator crbegin() const {return m_Map.crbegin();}
             
-            iterator               end()         noexcept {return m_Map.end();  }
-            const_iterator         end()   const noexcept {return m_Map.end();  }
-            const_iterator         cend()  const noexcept {return m_Map.cend(); }
-            reverse_iterator       rend()        noexcept {return m_Map.rend(); }
-            const_reverse_iterator rend()  const noexcept {return m_Map.rend(); }
-            const_reverse_iterator crend() const noexcept {return m_Map.crend();}
+            iterator               end()         {return m_Map.end();  }
+            const_iterator         end()   const {return m_Map.end();  }
+            const_iterator         cend()  const {return m_Map.cend(); }
+            reverse_iterator       rend()        {return m_Map.rend(); }
+            const_reverse_iterator rend()  const {return m_Map.rend(); }
+            const_reverse_iterator crend() const {return m_Map.crend();}
             
             // Capacity
-            bool      empty()    const noexcept {return m_Map.empty();   }
-            size_type size()     const noexcept {return m_Map.size();    }
-            size_type max_size() const noexcept {return m_Map.max_size();}
+            bool      empty()    const {return m_Map.empty();   }
+            size_type size()     const {return m_Map.size();    }
+            size_type max_size() const {return m_Map.max_size();}
             
             // Element access
             mapped_type_weakptr operator[] (const key_type& k) {return mapped_type_weakptr(m_Map[k]);}
@@ -67,7 +67,7 @@ namespace GDK
             void insert (const KeyT &aKey, ValueT &&aValue) {m_Map.insert({aKey,std::make_shared<ValueT>(std::move(aValue))});}
             void erase (const KeyT &aKey) {m_Map.erase(aKey);}
             void swap (auth_map& x) {m_Map.swap(x.m_Map);}
-            void clear() noexcept {m_Map.clear();}
+            void clear() {m_Map.clear();}
             
             // Operations
             iterator find (const key_type& k) {return m_Map.find(k);}
@@ -81,14 +81,14 @@ namespace GDK
             std::pair<iterator,iterator> equal_range (const key_type& k) {m_Map.equal_range(k);}
             
             // Mutating operators
-            auth_map &operator=(const auth_map &) noexcept = delete;
-            auth_map &operator=(auth_map &&) noexcept = delete;
+            auth_map &operator=(const auth_map &) = delete;
+            auth_map &operator=(auth_map &&) = delete;
             
             // Constructors, destructors
-            auth_map() noexcept = default;
+            auth_map() = default;
             auth_map(const auth_map&) = delete;
-            auth_map(auth_map&&) noexcept = default;
-            ~auth_map() noexcept = default;
+            auth_map(auth_map&&) = default;
+            ~auth_map() = default;
         };
     }
 }

@@ -11,7 +11,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream& GDK::GFX::operator<<(std::ostream &s, const GFX::TextureManager &a) noexcept
+std::ostream& GDK::GFX::operator<<(std::ostream &s, const GFX::TextureManager &a)
 {
     s.clear(); s
     
@@ -31,6 +31,6 @@ std::ostream& GDK::GFX::operator<<(std::ostream &s, const GFX::TextureManager &a
     return s;
 }
 
-TextureManager::TextureManager() noexcept
+TextureManager::TextureManager()
 : resource_manager(GFX::DefaultResources::getCheckeredTextureOfDeath().lock())
 {}

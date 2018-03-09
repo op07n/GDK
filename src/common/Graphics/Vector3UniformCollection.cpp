@@ -10,7 +10,7 @@
 using namespace GDK;
 using namespace GFX;
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector3UniformCollection &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector3UniformCollection &a)
 {
     s.clear(); s
     
@@ -26,13 +26,13 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Vector3UniformCol
     return s;
 }
 
-void Vector3UniformCollection::bind(const GFXuint aProgramHandle) noexcept
+void Vector3UniformCollection::bind(const GFXuint aProgramHandle)
 {
     for (auto &pair : m_Map)
         GLH::Bind3FloatUniform(aProgramHandle, pair.first, *pair.second.get());
 }
 
-void Vector3UniformCollection::unbind(const GFXuint aProgramHandle) noexcept
+void Vector3UniformCollection::unbind(const GFXuint aProgramHandle)
 {
     for (auto &pair : m_Map)
         GLH::Bind3FloatUniform(aProgramHandle, pair.first, Math::Vector3::Zero);

@@ -21,35 +21,35 @@ namespace GDK
             
             // Non mutating operations
             /// squareroot of the sum of the 2nd power of the components
-            float length() const noexcept;
+            float length() const;
             
             /// X/Y
-            float getAspectRatio() const noexcept;
+            float getAspectRatio() const;
             
             // Mutating operations
             /// Set length to 1
-            void normalize() noexcept;
+            void normalize();
             
             // Non mutating operators
-            bool operator==(const Vector2&) const noexcept;
-            bool operator!=(const Vector2&) const noexcept;
-            Vector2 operator+(const Vector2&) const noexcept;
-            Vector2 operator-(const Vector2&) const noexcept;
-            Vector2 operator*(const float) const noexcept;
+            bool operator==(const Vector2&) const;
+            bool operator!=(const Vector2&) const;
+            Vector2 operator+(const Vector2&) const;
+            Vector2 operator-(const Vector2&) const;
+            Vector2 operator*(const float) const;
             
             // Mutating operators
-            Vector2& operator+=(const Vector2&) noexcept;
-            Vector2& operator-=(const Vector2&) noexcept;
-            Vector2& operator*=(const float) noexcept;
-            Vector2& operator=(const Vector2&) noexcept = default;
+            Vector2& operator+=(const Vector2&);
+            Vector2& operator-=(const Vector2&);
+            Vector2& operator*=(const float);
+            Vector2& operator=(const Vector2&) = default;
             
             // Constructors & Destructors
-            Vector2(const float) noexcept;
-            Vector2(const float aX, const float aY) noexcept;
-            Vector2() noexcept = default;
-            Vector2(const Vector2 &) noexcept = default;
-            Vector2(Vector2 &&) noexcept = default;
-            ~Vector2() noexcept = default;
+            Vector2(const float);
+            Vector2(const float aX, const float aY);
+            Vector2() = default;
+            Vector2(const Vector2 &) = default;
+            Vector2(Vector2 &&) = default;
+            ~Vector2() = default;
             
             // Special values
             static const Vector2 Up;
@@ -59,7 +59,7 @@ namespace GDK
             static const Vector2 Zero;
         };
         
-        std::ostream &operator<< (std::ostream &, const Math::Vector2 &) noexcept;
+        std::ostream &operator<< (std::ostream &, const Math::Vector2 &);
     }
 }
 

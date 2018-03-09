@@ -14,7 +14,7 @@ using namespace GFX;
 
 static constexpr char TAG[] = "Mesh";
 
-std::ostream& GDK::GFX::operator<<(std::ostream &s, const GFX::Mesh &a) noexcept
+std::ostream& GDK::GFX::operator<<(std::ostream &s, const GFX::Mesh &a)
 {
     s.clear(); s
     << "{"
@@ -54,7 +54,7 @@ static GLenum PrimitiveModeToOpenGLPrimitiveType(const Mesh::PrimitiveMode &aPri
     }
 }
 
-void Mesh::draw(const GFXuint aShaderProgramHandle) const noexcept
+void Mesh::draw(const GFXuint aShaderProgramHandle) const
 {
     glBindBuffer( GL_ARRAY_BUFFER, m_VertexBufferHandle);
     
@@ -81,7 +81,7 @@ void Mesh::draw(const GFXuint aShaderProgramHandle) const noexcept
     }
 }
 
-void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType) noexcept
+void Mesh::updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType)
 {
     m_VertexFormat = aNewVertexFormat;
     m_VertexCount  = static_cast<GFXsizei>(aNewVertexData.size()/aNewVertexFormat.getSumOfAttributeComponents());
@@ -139,7 +139,7 @@ Mesh::Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat
 , m_PrimitiveMode(aPrimitiveMode)
 {}
 
-Mesh::~Mesh() noexcept
+Mesh::~Mesh()
 {
     if (m_VertexBufferHandle > 0)
         glDeleteBuffers(1, &m_VertexBufferHandle);
@@ -148,7 +148,7 @@ Mesh::~Mesh() noexcept
         glDeleteBuffers(1, &m_IndexBufferHandle);
 }
 
-Mesh::Mesh(Mesh&& a) noexcept
+Mesh::Mesh(Mesh&& a)
 {
     m_Name               = std::move(a.m_Name);
     m_IndexBufferHandle  = std::move(a.m_IndexBufferHandle);
@@ -163,12 +163,12 @@ Mesh::Mesh(Mesh&& a) noexcept
 }
 
 // Accessors
-std::string const &Mesh::getName()const noexcept
+std::string const &Mesh::getName()const
 {
     return m_Name;
 }
 
-GFXuint Mesh::getHandle()const noexcept
+GFXuint Mesh::getHandle()const
 {
     return m_VertexBufferHandle;
 }

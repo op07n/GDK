@@ -24,7 +24,7 @@ namespace GDK
          */
         class GameObject final : public std::enable_shared_from_this<GameObject>
         {
-            friend std::ostream &operator<< (std::ostream &, const ECS::GameObject &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const ECS::GameObject &);
             friend GDK::ECS::Scene;
             
             // Data members
@@ -37,28 +37,28 @@ namespace GDK
             Math::Vector3    m_Scale    = {1.f,1.f,1.f};
             Math::Quaternion m_Rotation = Math::Quaternion::Identity;
             
-            void update() const noexcept;
-            void fixedUpdate() const noexcept;
+            void update() const;
+            void fixedUpdate() const;
             
         public:
             // Accessors
-            std::string getName() const noexcept;
-            Math::Vector3 getPosition() const noexcept;
-            Math::Vector3 getScale() const noexcept;
-            Math::Quaternion getRotation() const noexcept;
-            std::weak_ptr<Scene> getScene() const noexcept;
-            std::weak_ptr<Component> getComponent(const size_t aIndex) const noexcept;
-            size_t getComponentCount() const noexcept;
+            std::string getName() const;
+            Math::Vector3 getPosition() const;
+            Math::Vector3 getScale() const;
+            Math::Quaternion getRotation() const;
+            std::weak_ptr<Scene> getScene() const;
+            std::weak_ptr<Component> getComponent(const size_t aIndex) const;
+            size_t getComponentCount() const;
             
-            void setName(const std::string &aName) noexcept;
-            void setPosition(const Math::Vector3 &) noexcept;
-            void setPosition(const float aX, const float aY, const float aZ) noexcept;
-            void setScale(const Math::Vector3 &) noexcept;
-            void setRotation(const Math::Quaternion &) noexcept;
+            void setName(const std::string &aName);
+            void setPosition(const Math::Vector3 &);
+            void setPosition(const float aX, const float aY, const float aZ);
+            void setScale(const Math::Vector3 &);
+            void setRotation(const Math::Quaternion &);
             
             // Public methods
             template<class T>
-            std::weak_ptr<T> addComponent() noexcept
+            std::weak_ptr<T> addComponent()
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
@@ -88,7 +88,7 @@ namespace GDK
             }
             
             template<class T>
-            void removeComponent() noexcept
+            void removeComponent()
             {
                 static_assert(std::is_base_of<Component, T>::value == true, "T must be a kind of component");
                 
@@ -109,7 +109,7 @@ namespace GDK
             }
             
             template<class T>
-            std::weak_ptr<T> getComponent() const noexcept
+            std::weak_ptr<T> getComponent() const
             {
                 for (auto component : m_Components)
                     if (std::dynamic_pointer_cast<T>(component))
@@ -119,7 +119,7 @@ namespace GDK
             }
             
             template<class T>
-            std::vector<std::weak_ptr<T>> getComponents() const noexcept
+            std::vector<std::weak_ptr<T>> getComponents() const
             {
                 std::vector<std::weak_ptr<T>> components;
                 
@@ -131,20 +131,20 @@ namespace GDK
             }
             
             // Mutating operators
-            GameObject &operator=(const GameObject &) noexcept = delete;
-            GameObject &operator=(GameObject &&) noexcept = delete;
+            GameObject &operator=(const GameObject &) = delete;
+            GameObject &operator=(GameObject &&) = delete;
             
             // Constructors, destructors
         private:
-            GameObject(const std::weak_ptr<Scene> &aScene) noexcept;
-            GameObject() noexcept = delete;
-            GameObject(const GameObject &) noexcept = delete;
-            GameObject(GameObject &&) noexcept = delete;
+            GameObject(const std::weak_ptr<Scene> &aScene);
+            GameObject() = delete;
+            GameObject(const GameObject &) = delete;
+            GameObject(GameObject &&) = delete;
         public:
-            ~GameObject() noexcept = default;
+            ~GameObject() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const ECS::GameObject &) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::GameObject &);
     }
 }
 

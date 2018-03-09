@@ -35,24 +35,24 @@ namespace GDK
             
         public:
             // Iterators
-            iterator begin() noexcept {return m_Vector.begin();}
-            const_iterator begin() const noexcept {return m_Vector.begin();}
-            iterator end() noexcept {return m_Vector.end();}
-            const_iterator end() const noexcept {return m_Vector.end();}
-            reverse_iterator rbegin() noexcept {return m_Vector.rbegin();}
-            const_reverse_iterator rbegin() const noexcept {return m_Vector.rbegin();}
-            const_iterator cbegin() const noexcept {return m_Vector.cbegin();}
-            const_iterator cend() const noexcept {return m_Vector.cend();}
-            const_reverse_iterator crbegin() const noexcept {return m_Vector.crbegin();}
-            const_reverse_iterator crend() const noexcept {return m_Vector.crend();}
+            iterator begin() {return m_Vector.begin();}
+            const_iterator begin() const {return m_Vector.begin();}
+            iterator end() {return m_Vector.end();}
+            const_iterator end() const {return m_Vector.end();}
+            reverse_iterator rbegin() {return m_Vector.rbegin();}
+            const_reverse_iterator rbegin() const {return m_Vector.rbegin();}
+            const_iterator cbegin() const {return m_Vector.cbegin();}
+            const_iterator cend() const {return m_Vector.cend();}
+            const_reverse_iterator crbegin() const {return m_Vector.crbegin();}
+            const_reverse_iterator crend() const {return m_Vector.crend();}
             
             // Capacity
-            size_type size() const noexcept {return m_Vector.size();}
-            size_type max_size() const noexcept {return m_Vector.max_size();}
+            size_type size() const {return m_Vector.size();}
+            size_type max_size() const {return m_Vector.max_size();}
             void resize (size_type n) {return m_Vector.resize(n);}
             void resize (size_type n, const value_type& val) {return m_Vector.resize(n,val);}
-            size_type capacity() const noexcept {m_Vector.capacity();}
-            bool empty() const noexcept {return m_Vector.empty();}
+            size_type capacity() const {m_Vector.capacity();}
+            bool empty() const {return m_Vector.empty();}
             void reserve (size_type n) {m_Vector.reserve(n);}
             void shrink_to_fit(){m_Vector.shrink_to_fit();}
             
@@ -79,13 +79,13 @@ namespace GDK
             
             // Mutating operators
             auth_vector& operator=(const auth_vector &) = delete;
-            auth_vector& operator=(auth_vector &&) noexcept = delete;
+            auth_vector& operator=(auth_vector &&) = delete;
             
             // Constructors, destructors
-            auth_vector() noexcept = default;
+            auth_vector() = default;
             auth_vector(const auth_vector&) = delete;
-            auth_vector(auth_vector&&) noexcept = default;
-            ~auth_vector() noexcept = default;
+            auth_vector(auth_vector&&) = default;
+            ~auth_vector() = default;
         };
     }
 }

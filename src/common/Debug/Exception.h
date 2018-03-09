@@ -17,18 +17,18 @@ namespace GDK
      */
     class Exception : public std::runtime_error
     {
-        std::string toString(std::ostringstream &sstream) noexcept
+        std::string toString(std::ostringstream &sstream)
         {
             return sstream.str();
         }
         
-        std::string toString(std::ostringstream &&sstream) noexcept
+        std::string toString(std::ostringstream &&sstream)
         {
             return sstream.str();
         }
         
         template<typename First, typename ...Rest>
-        std::string toString(std::ostringstream &sstream, First &&first, Rest &&...rest) noexcept
+        std::string toString(std::ostringstream &sstream, First &&first, Rest &&...rest)
         {
             sstream << first;
             toString(sstream, std::forward<Rest>(rest)...);
@@ -36,7 +36,7 @@ namespace GDK
         }
         
         template<typename First, typename ...Rest>
-        std::string toString(std::ostringstream &&sstream, First &&first, Rest &&...rest) noexcept
+        std::string toString(std::ostringstream &&sstream, First &&first, Rest &&...rest)
         {
             sstream << first;
             toString(sstream, std::forward<Rest>(rest)...);
@@ -45,12 +45,12 @@ namespace GDK
         
     public:
         // Mutating operators
-        Exception &operator=(const Exception &) noexcept = default;
-        Exception &operator=(Exception &&) noexcept = default;
+        Exception &operator=(const Exception &) = default;
+        Exception &operator=(Exception &&) = default;
         
         // Constructors, destructors
         template<typename First, typename ...Rest>
-        Exception(const char aTag[], First &&first, Rest &&...rest) noexcept
+        Exception(const char aTag[], First &&first, Rest &&...rest)
         : std::runtime_error(std::string(aTag).append(": ").append([&first]()
         {
             std::ostringstream sstream;
@@ -60,12 +60,12 @@ namespace GDK
         .append(toString(std::ostringstream(), std::forward<Rest>(rest)...)))
         {}
         
-        Exception(const Exception &) noexcept = default;
-        Exception(Exception &&) noexcept = default;
-        virtual ~Exception() noexcept = default;
+        Exception(const Exception &) = default;
+        Exception(Exception &&) = default;
+        virtual ~Exception() = default;
     };
 
-    std::ostream &operator<< (std::ostream &, const Exception &) noexcept;
+    std::ostream &operator<< (std::ostream &, const Exception &);
 }
 
 #endif /* GDK_EXCEPTION_H  */

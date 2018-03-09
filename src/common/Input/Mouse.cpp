@@ -17,7 +17,7 @@ using namespace Input;
 
 static constexpr char TAG[] = "Mouse";
 
-std::ostream &GDK::Input::operator<<(std::ostream &s, const Input::Mouse &a) noexcept
+std::ostream &GDK::Input::operator<<(std::ostream &s, const Input::Mouse &a)
 {
     s.clear(); s
     << "{"
@@ -33,11 +33,11 @@ std::ostream &GDK::Input::operator<<(std::ostream &s, const Input::Mouse &a) noe
     return s;
 }
     
-Mouse::Mouse(const GFX::Window &aWindow) noexcept
+Mouse::Mouse(const GFX::Window &aWindow)
 : m_HandleToGLFWWindow(aWindow.getHandleToGLFWWindow())
 {}
 
-static inline int glfwMouseButtonFromButton(const Mouse::Button &a) noexcept
+static inline int glfwMouseButtonFromButton(const Mouse::Button &a)
 {
     switch(a)
     {

@@ -20,7 +20,7 @@ namespace GDK
          */
         class Mesh final
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::Mesh &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::Mesh &);
             
         public:
             /*!
@@ -61,12 +61,12 @@ namespace GDK
             
         public:
             // Accessors
-            std::string const &getName() const noexcept;
-            GFXuint getHandle() const noexcept;
+            std::string const &getName() const;
+            GFXuint getHandle() const;
             
             // Public functions
-            void draw(const GFXuint aShaderProgramHandle) const noexcept;
-            void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic) noexcept;
+            void draw(const GFXuint aShaderProgramHandle) const;
+            void updateVertexData(const std::vector<GFXfloat> &aNewVertexData, const VertexFormat &aNewVertexFormat, const Mesh::Type &aNewType = Type::Dynamic);
             
             // Mutating operators
             Mesh &operator=(const Mesh &) = delete;
@@ -76,11 +76,11 @@ namespace GDK
             Mesh(const std::string &aName, const Mesh::Type &aType, const VertexFormat &aVertexFormat, const std::vector<GFXfloat> &aVertexData, const std::vector<GFXushort> &aIndexData = std::vector<GFXushort>(), const PrimitiveMode &aPrimitiveMode = PrimitiveMode::Triangles);
             Mesh() = delete;
             Mesh(const Mesh &) = delete;
-            Mesh(Mesh &&) noexcept;
-            ~Mesh() noexcept;
+            Mesh(Mesh &&);
+            ~Mesh();
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::Mesh &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::Mesh &);
     }
 }
 

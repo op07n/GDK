@@ -13,7 +13,7 @@ using namespace ECS;
 
 static constexpr char TAG[] = "GameObject";
 
-std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a) noexcept
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a)
 {
     (void)a;
     
@@ -26,11 +26,11 @@ std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::GameObject &a) no
     return s;
 }
 
-GameObject::GameObject(const std::weak_ptr<Scene> &aScene) noexcept
+GameObject::GameObject(const std::weak_ptr<Scene> &aScene)
 : m_MyScene(aScene)
 {}
 
-void GameObject::update() const noexcept
+void GameObject::update() const
 {
     for (auto component : m_Components)
     {
@@ -44,7 +44,7 @@ void GameObject::update() const noexcept
     }
 }
 
-void GameObject::fixedUpdate() const noexcept
+void GameObject::fixedUpdate() const
 {
     for (auto component : m_Components)
     {
@@ -59,64 +59,64 @@ void GameObject::fixedUpdate() const noexcept
     }
 }
 
-std::weak_ptr<Component> GameObject::getComponent(const size_t aIndex) const noexcept
+std::weak_ptr<Component> GameObject::getComponent(const size_t aIndex) const
 {
     return m_Components[aIndex];
 }
 
-size_t  GameObject::getComponentCount() const noexcept
+size_t  GameObject::getComponentCount() const
 {
     return m_Components.size();
 }
 
-std::string GameObject::getName() const noexcept
+std::string GameObject::getName() const
 {
     return m_Name;
 }
 
-std::weak_ptr<Scene> GameObject::getScene() const noexcept
+std::weak_ptr<Scene> GameObject::getScene() const
 {
     return m_MyScene;
 }
 
-void GameObject::setName(const std::string &aName) noexcept
+void GameObject::setName(const std::string &aName)
 {
     m_Name = aName;
 }
 
-void GameObject::setPosition(const Math::Vector3 &aPosition) noexcept
+void GameObject::setPosition(const Math::Vector3 &aPosition)
 {
     m_Position = aPosition;
 }
 
-void GameObject::setPosition(const float aX,const float aY, const float aZ) noexcept
+void GameObject::setPosition(const float aX,const float aY, const float aZ)
 {
     m_Position.x = aX;
     m_Position.y = aY;
     m_Position.z = aZ;
 }
 
-void GameObject::setScale(const Math::Vector3 &aScale) noexcept
+void GameObject::setScale(const Math::Vector3 &aScale)
 {
     m_Scale = aScale;
 }
 
-void GameObject::setRotation(const Math::Quaternion &aRotation) noexcept
+void GameObject::setRotation(const Math::Quaternion &aRotation)
 {
     m_Rotation = aRotation;
 }
 
-Math::Vector3 GameObject::getPosition() const noexcept
+Math::Vector3 GameObject::getPosition() const
 {
     return m_Position;
 }
 
-Math::Vector3 GameObject::getScale() const noexcept
+Math::Vector3 GameObject::getScale() const
 {
     return m_Scale;
 }
 
-Math::Quaternion GameObject::getRotation() const noexcept
+Math::Quaternion GameObject::getRotation() const
 {
     return m_Rotation;
 }

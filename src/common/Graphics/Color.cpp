@@ -25,7 +25,7 @@ const Color Color::CornflowerBlue
 );
 
 //operators
-std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Color &a) noexcept
+std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Color &a)
 {
     s.clear(); s
     << "{"
@@ -39,14 +39,14 @@ std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Color &a) noexce
 }
 
 //ctors
-Color::Color() noexcept
+Color::Color()
 : r(0.)
 , g(0.)
 , b(0.)
 , a(1.)
 {}
 
-Color::Color(const float aR, const float aG, const float aB, const float aA) noexcept
+Color::Color(const float aR, const float aG, const float aB, const float aA)
 : r(aR)
 , g(aG)
 , b(aB)

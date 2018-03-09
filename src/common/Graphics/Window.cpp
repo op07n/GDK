@@ -18,7 +18,7 @@ static constexpr char TAG[] = "Window";
 
 int s_InstanceCount = 0;
 
-std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Window &a) noexcept
+std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Window &a)
 {
     s.clear(); s
     << "{"
@@ -115,7 +115,7 @@ Window::Window(const ConstructionParameters &aParams)
     ++s_InstanceCount;
 }
     
-Window::Window(Window &&a) noexcept
+Window::Window(Window &&a)
 {
     m_Title              = a.m_Title;
     m_HandleToGLFWWindow = a.m_HandleToGLFWWindow;
@@ -125,7 +125,7 @@ Window::Window(Window &&a) noexcept
     m_OnWantsToClose     = a.m_OnWantsToClose;
 }
     
-Window::~Window() noexcept
+Window::~Window()
 {
     if (m_HandleToGLFWWindow.get() != nullptr)
         --s_InstanceCount;
@@ -162,23 +162,23 @@ void Window::update()
     }
 }
 
-std::string Window::getTitle()const noexcept
+std::string Window::getTitle()const
 {
     return m_Title;
 }
 
-void Window::setTitle(const std::string& aTitle) noexcept
+void Window::setTitle(const std::string& aTitle)
 {
     m_Title = aTitle;
     glfwSetWindowTitle(m_HandleToGLFWWindow.get(),aTitle.c_str());
 }
 
-std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const noexcept
+std::weak_ptr<GLFWwindow> Window::getHandleToGLFWWindow() const
 {
     return std::weak_ptr<GLFWwindow>(m_HandleToGLFWWindow);
 }
 
-Math::IntVector2 Window::getFramebufferSize() const noexcept
+Math::IntVector2 Window::getFramebufferSize() const
 {
     Math::IntVector2 frameBufferSize;
     glfwGetWindowSize(m_HandleToGLFWWindow.get(), &frameBufferSize.x, &frameBufferSize.y);

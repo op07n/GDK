@@ -19,7 +19,7 @@ using namespace GFX;
 
 static constexpr auto TAG = "Camera";
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Camera &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Camera &a)
 {
     s.clear(); s
     << "{"
@@ -35,7 +35,7 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::Camera &a) noexce
     return s;
 }
 
-Camera::Camera() noexcept
+Camera::Camera()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_SCISSOR_TEST);   
@@ -93,51 +93,51 @@ void Camera::draw(const Math::IntVector2 &aFrameBufferSize)
     }
 }
 
-void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation) noexcept
+void Camera::setViewMatrix(const Math::Vector3 &aWorldPos, const Math::Quaternion &aRotation)
 {
     m_ViewMatrix.setIdentity();
     m_ViewMatrix.rotate({aRotation.toEuler() * -1.f});
     m_ViewMatrix.translate(aWorldPos * -1.f);
 }
 
-void Camera::setViewportPosition(const Math::Vector2 &a) noexcept
+void Camera::setViewportPosition(const Math::Vector2 &a)
 {
     m_ViewportPosition = a;
 }
 
-void Camera::setViewportPosition(const float x, const float y) noexcept
+void Camera::setViewportPosition(const float x, const float y)
 {
     m_ViewportPosition.x = x;
     m_ViewportPosition.y = y;
 }
 
-Math::Vector2 Camera::getViewportPosition() const noexcept
+Math::Vector2 Camera::getViewportPosition() const
 {
     return m_ViewportPosition;
 }
 
-void Camera::setViewportSize(const Math::Vector2 &a) noexcept
+void Camera::setViewportSize(const Math::Vector2 &a)
 {
     m_ViewportSize = a;
 }
     
-void Camera::setViewportSize(const float x, const float y) noexcept
+void Camera::setViewportSize(const float x, const float y)
 {
     m_ViewportSize.x = x;
     m_ViewportSize.y = y;
 }
 
-Math::Vector2 Camera::getViewportSize() const noexcept
+Math::Vector2 Camera::getViewportSize() const
 {
     return m_ViewportSize;
 }
 
-const Math::Mat4x4 &Camera::getProjectionMatrix() const noexcept
+const Math::Mat4x4 &Camera::getProjectionMatrix() const
 {
     return m_ProjectionMatrix;
 }
 
-const Math::Mat4x4 &Camera::getViewMatrix() const noexcept
+const Math::Mat4x4 &Camera::getViewMatrix() const
 {
     return m_ViewMatrix;
 }

@@ -8,7 +8,7 @@
 using namespace GDK;
 using namespace ECS;
 
-std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::SceneGraph &a) noexcept
+std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::SceneGraph &a)
 {
     (void)a;
     
@@ -21,6 +21,6 @@ std::ostream& GDK::ECS::operator<<(std::ostream &s, const ECS::SceneGraph &a) no
     return s;
 }
 
-SceneGraph::SceneGraph(Scene *a) noexcept
+SceneGraph::SceneGraph(Scene *a)
 : m_MyScene(a)
 {}

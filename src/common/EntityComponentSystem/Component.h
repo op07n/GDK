@@ -23,7 +23,7 @@ namespace GDK
          */
         class Component : public std::enable_shared_from_this<Component>
         {
-            friend std::ostream &operator<< (std::ostream &, const ECS::Component &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const ECS::Component &);
             friend GDK::ECS::GameObject;
       
             // Data members
@@ -53,7 +53,7 @@ namespace GDK
             
         public:
             // Accessors
-            std::weak_ptr<GameObject> getGameObject() const noexcept;
+            std::weak_ptr<GameObject> getGameObject() const;
             
             // Mutating operators
             Component &operator=(const Component &) = delete;
@@ -61,15 +61,15 @@ namespace GDK
       
         protected:
             // Constructors, destructors
-            Component() noexcept = default;
+            Component() = default;
         private:
             Component(const Component &) = delete;
             Component(Component &&) = delete;
         public:
-            virtual ~Component() noexcept = default;
+            virtual ~Component() = default;
         };
 
-        std::ostream &operator<< (std::ostream &, const ECS::Component &) noexcept;
+        std::ostream &operator<< (std::ostream &, const ECS::Component &);
     }
 }
 

@@ -7,7 +7,7 @@
 
 using namespace GDK;
 
-std::ostream &GDK::operator<<(std::ostream &stream, const Exception &aException) noexcept
+std::ostream &GDK::operator<<(std::ostream &stream, const Exception &aException)
 {
     stream.clear();
     stream << aException.what();

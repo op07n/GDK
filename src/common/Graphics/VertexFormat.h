@@ -25,7 +25,7 @@ namespace GDK
          */
         class VertexFormat final
         {
-            friend std::ostream &operator<< (std::ostream &, const GFX::VertexFormat &) noexcept;
+            friend std::ostream &operator<< (std::ostream &, const GFX::VertexFormat &);
     
             // Data members
             std::vector<VertexAttribute> m_Format = {};
@@ -33,15 +33,15 @@ namespace GDK
             
         public:
             // Public methods
-            void enableAttributes(const GFXuint aShaderProgramHandle) const noexcept;
-            int getSumOfAttributeComponents() const noexcept;
+            void enableAttributes(const GFXuint aShaderProgramHandle) const;
+            int getSumOfAttributeComponents() const;
             
             // Mutating operators
             VertexFormat& operator=(const VertexFormat &) = default;
             VertexFormat& operator=(VertexFormat &&) = default;
       
             // Constructors, destructors
-            VertexFormat(const std::vector<VertexAttribute> &aAttributes) noexcept;
+            VertexFormat(const std::vector<VertexAttribute> &aAttributes);
             VertexFormat() = delete;
             VertexFormat(const VertexFormat &) = default;
             VertexFormat(VertexFormat &&) = default;
@@ -53,7 +53,7 @@ namespace GDK
             static const VertexFormat Pos3;
         };
 
-        std::ostream &operator<< (std::ostream &, const GFX::VertexFormat &) noexcept;
+        std::ostream &operator<< (std::ostream &, const GFX::VertexFormat &);
     }
 }
 

@@ -32,7 +32,7 @@ VertexFormat const VertexFormat::Pos3(
     {"a_Position",3}
 });
 
-std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::VertexFormat &a) noexcept
+std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::VertexFormat &a)
 {
     (void)a;
     
@@ -43,7 +43,7 @@ std::ostream &GDK::GFX::operator<<(std::ostream &s, const GFX::VertexFormat &a) 
     return s;
 }
 
-VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes) noexcept
+VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes)
 : m_Format(aAttributes)
 , m_SumOfAttributeComponents(([aAttributes]() -> int
 {
@@ -57,7 +57,7 @@ VertexFormat::VertexFormat(const std::vector<VertexAttribute> &aAttributes) noex
 })())
 {}
 
-void VertexFormat::enableAttributes(const GFXuint aShaderProgramHandle) const noexcept
+void VertexFormat::enableAttributes(const GFXuint aShaderProgramHandle) const
 {
     int attributeOffset = 0;
     
@@ -72,7 +72,7 @@ void VertexFormat::enableAttributes(const GFXuint aShaderProgramHandle) const no
     }
 }
 
-int VertexFormat::getSumOfAttributeComponents() const noexcept
+int VertexFormat::getSumOfAttributeComponents() const
 {
     return m_SumOfAttributeComponents;
 }

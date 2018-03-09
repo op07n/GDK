@@ -10,7 +10,7 @@ using namespace ECS;
 
 static constexpr char TAG[] = "SceneManager";
 
-std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::SceneManager &a) noexcept
+std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::SceneManager &a)
 {
     (void)a;
     
@@ -23,7 +23,7 @@ std::ostream &GDK::ECS::operator<<(std::ostream &s, const ECS::SceneManager &a) 
     return s;
 }
 
-std::weak_ptr<Scene> SceneManager::addScene(const std::string &aName) noexcept
+std::weak_ptr<Scene> SceneManager::addScene(const std::string &aName)
 {
     auto newScene = std::make_shared<Scene>(Scene(aName));
     m_Scenes.insert({aName,newScene});
@@ -54,7 +54,7 @@ void SceneManager::draw(const Math::IntVector2 &aFrameBufferSize)
         pair.second->draw(aFrameBufferSize);
 }
 
-void SceneManager::remove(const std::string &aName) noexcept
+void SceneManager::remove(const std::string &aName)
 {
     m_Scenes.erase(aName);
 }
