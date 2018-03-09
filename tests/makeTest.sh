@@ -2,9 +2,7 @@
 
 if [ -z ${1+x} ]; then echo "arg1 is unset: name of test"; exit 1; fi
 
-mkdir "${1}_test"
-
-cat << EOF > ${1}_test/${1}_test.cpp
+cat << EOF > ${1}_test.cpp
 #include "test.h"
 
 #include "Path/To/${1}.h"

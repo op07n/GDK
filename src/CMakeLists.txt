@@ -42,6 +42,9 @@ endfunction()
 
 #==========================================================================================
 
+#Debug
+#create_unit_test("debug_log_test" "common/Debug/Logger.cpp")
+
 #Memory
 create_unit_test("default_ptr_test")
 create_unit_test("lazy_ptr_test")
