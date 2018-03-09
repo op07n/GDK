@@ -169,11 +169,15 @@ TEST_START
     if (shader.getName() == "123123") test_succeeded();
 }},
 
-/*
-{ "Example", [&]()
+{ "Move ctor", [&]()
 {
-    
+    glGetProgramiv_WillSucceed = true;
+
+    auto shader1 = ShaderProgram("1", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+
+    const auto shader2 = std::move(shader1);
+
+    if (shader2.getName() == "1") test_succeeded();
 }},
-*/
 
 TEST_END
