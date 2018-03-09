@@ -17,7 +17,7 @@ TEST_START
 
 { "operator<<", [&]()
 {
-    auto sstream = std::stringstream();
+    std::stringstream sstream;
 
     const auto color = Color::Green;
 
