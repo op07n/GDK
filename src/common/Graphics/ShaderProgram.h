@@ -27,12 +27,12 @@ namespace GDK
             GLuint m_ProgramHandle = 0;
             
         public: // Public interface
-            ///Setup the shader for drawing, emit a handle for use by meshes
-            GLuint draw() const;
+            /// Installs a program object as part of current rendering state
+            GLuint useProgram() const;
             
             // Accessors
             std::string getName() const;
-            GLuint getHandle() const;
+            //GLuint getHandle() const;
             
             // Mutating operators
             ShaderProgram &operator=(const ShaderProgram &) = delete;

@@ -84,7 +84,7 @@ ShaderProgram::~ShaderProgram()
     if (m_ProgramHandle > 0) glDeleteProgram(m_ProgramHandle);
 }
 
-GLuint ShaderProgram::draw() const 
+GLuint ShaderProgram::useProgram() const 
 {
     glUseProgram(m_ProgramHandle);
     //glDrawCalls();
@@ -97,7 +97,7 @@ std::string ShaderProgram::getName() const
     return m_Name;
 }
     
-GLuint ShaderProgram::getHandle() const 
+/*GLuint ShaderProgram::getHandle() const 
 {
     return m_ProgramHandle;
-}
+}*/

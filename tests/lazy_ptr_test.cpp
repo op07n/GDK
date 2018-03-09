@@ -5,6 +5,11 @@
 using namespace GDK;
 using namespace Memory;
 
+void test_init_variables()
+{
+    
+}
+
 TEST_START
 { "dereference operator", [&]()
 {

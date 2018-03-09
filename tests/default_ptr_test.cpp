@@ -5,6 +5,11 @@
 using namespace GDK;
 using namespace Memory;
 
+void test_init_variables()
+{
+    
+}
+
 using data_type = const std::string;
 
 static inline const default_ptr<data_type> createDefaultPtr(const std::shared_ptr<data_type> &aDefaultValue, const std::shared_ptr<data_type> &aVolatileValue)

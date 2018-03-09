@@ -5,10 +5,10 @@
 using namespace GDK;
 using namespace GFX;
 
-//-- OpenGL mocks
-GLint glCreateShader_value =  1;
-GLuint glCreateProgram_value = 1;
 bool glGetProgramiv_WillSucceed = true;
+
+//-- OpenGL mocks
+
 
 using GLint = int;
 using GLsizei = int;
@@ -22,7 +22,7 @@ void glLinkProgram(GLuint program){}
 
 void glAttachShader(GLuint program, GLuint shader){}
 
-GLuint glCreateShader(GLenum shaderType){return glCreateShader_value;}
+GLuint glCreateShader(GLenum shaderType){return 1;}
 
 void glGetProgramiv(GLuint program, GLenum pname, GLint* param){ *param = glGetProgramiv_WillSucceed ? GL_TRUE : GL_FALSE; }
 
@@ -30,7 +30,7 @@ void glShaderSource(GLuint shader, GLsizei count, const GLchar * const *string, 
 
 void glCompileShader(GLuint shader){}
 
-GLuint glCreateProgram(){return glCreateProgram_value;}
+GLuint glCreateProgram(){return 1;}
 
 void glDeleteProgram(GLuint program){}
 
@@ -106,6 +106,19 @@ void main()
 )V0G0N";
 
 TEST_START
+{ "operator<<", [&]()
+{
+    glGetProgramiv_WillSucceed = true;
+
+    std::ostringstream message;
+
+    const auto shader = ShaderProgram("asdfasdf", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+    
+    message << shader;
+
+    if (message.str().length()) test_succeeded();
+}},
+
 { "Ctor: Successful construction", [&]()
 {
     glGetProgramiv_WillSucceed = true;
@@ -134,6 +147,26 @@ TEST_START
     {
         test_succeeded();
     }
+}},
+
+{ "useProgram", [&]()
+{
+    glGetProgramiv_WillSucceed = true;
+
+    const auto shader = ShaderProgram("qwerty", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+
+    shader.useProgram();
+
+    test_succeeded();
+}},
+
+{ "Example", [&]()
+{
+    glGetProgramiv_WillSucceed = true;
+
+    const auto shader = ShaderProgram("123123", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+
+    if (shader.getName() == "123123") test_succeeded();
 }},
 
 /*
