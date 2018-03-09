@@ -34,13 +34,13 @@ namespace GDK
             
             std::function<void(const std::string &)> m_LoggingBehaviourCallback;
             
-            void log(std::ostringstream &stringStream) noexcept
+            void log(std::ostringstream &stringStream)
             {
                 m_LoggingBehaviourCallback(stringStream.str());
             }
             
             template<typename First, typename ...Rest>
-            void log(std::ostringstream &stringStream, First &&first, Rest &&...rest) noexcept
+            void log(std::ostringstream &stringStream, First &&first, Rest &&...rest)
             {
                 stringStream << first;
                 log(stringStream, std::forward<Rest>(rest)...);
@@ -48,7 +48,7 @@ namespace GDK
             
         public:
             template<typename First, typename ...Rest>
-            void log(First &&first, Rest &&...rest) noexcept
+            void log(First &&first, Rest &&...rest)
             {
                 std::ostringstream stringStream;
                 stringStream << first;
@@ -58,15 +58,15 @@ namespace GDK
             
             // Mutating operators
             Logger &operator=(const Logger &) = default;
-            Logger &operator=(Logger &&) noexcept = default;
+            Logger &operator=(Logger &&) = default;
             
             // Constructors & destructors
             /// Change log behavior by passing a function pointer to your own logging function.
             /// Default behaviour is for the logger to display the debug message via std::clog
-            Logger(const std::function<void(const std::string &)> &aLoggingBehaviourCallback = nullptr) noexcept;
+            Logger(const std::function<void(const std::string &)> &aLoggingBehaviourCallback = nullptr);
             Logger(const Logger &) = default;
             Logger(Logger &&) = default;
-            ~Logger() noexcept = default;
+            ~Logger() = default;
         };
         
         template<typename ...Args>

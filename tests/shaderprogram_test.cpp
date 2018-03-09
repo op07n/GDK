@@ -55,7 +55,7 @@ Logger Logger::s_GDKErrorLogger
     }
 );
 
-Logger::Logger(const std::function<void(const std::string &)> &aLoggingBehaviourCallback) noexcept
+Logger::Logger(const std::function<void(const std::string &)> &aLoggingBehaviourCallback)
 : m_LoggingBehaviourCallback
 (
     aLoggingBehaviourCallback == nullptr? [](const std::string &aMessage)
@@ -68,12 +68,12 @@ Logger::Logger(const std::function<void(const std::string &)> &aLoggingBehaviour
 
 //-- GLH mocks
 namespace GLH {
-std::string GetShaderInfoLog(const GLuint aShaderStageHandle) noexcept
+std::string GetShaderInfoLog(const GLuint aShaderStageHandle)
 {   
     return "Infolog";
 }
 
-std::string GetProgramInfoLog(const GLuint aShaderProgramHandle) noexcept
+std::string GetProgramInfoLog(const GLuint aShaderProgramHandle)
 {
     return "programlog";
 }
