@@ -19,7 +19,7 @@ matrix:
           make
           make test
           cd ..
-          coveralls --exclude tests
+          coveralls --exclude build --exclude docs --exclude libs --exclude tests --exclude workspace
           
     - os: linux
       compiler: gcc
