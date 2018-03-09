@@ -12,25 +12,56 @@ static constexpr auto TAG = "DebugLogTest";
 TEST_START
 { "Log", [&]()
 {
-    std::stringstream buffer;
-    std::streambuf * old = std::cout.rdbuf(buffer.rdbuf());
+    auto *const pclogrdbuf = std::clog.rdbuf();    
+    
+    std::stringstream sstream;
+    std::clog.rdbuf(sstream.rdbuf());
 
-    std::cout << "Bla" << std::endl;
+    Debug::log(TAG, "Hi", 123, 1.2f, false);
+    
+    std::clog.rdbuf(pclogrdbuf);
 
-    std::string text = buffer.str();
-
-    //std::stringstream buffer;
-    //std::cout.rdbuf(buffer.rdbuf());
-
-    //Debug::log(TAG, "This"," is a ","message: ",10.56f);
+    if (sstream.str() == "D/DebugLogTest: Hi1231.20\n") test_succeeded();
 }},
 
 { "Error", [&]()
 {
-    //std::stringstream buffer;
-    //std::cout.rdbuf(buffer.rdbuf());
+    auto *const pclogrdbuf = std::cerr.rdbuf();    
+    
+    std::stringstream sstream;
+    std::cerr.rdbuf(sstream.rdbuf());
 
-    //Debug::error(TAG, 15,"/",4,": ","blabla...",false);
+    Debug::error(TAG, "Thin" "k", " hard: ", 0.266f, false);
+    
+    std::cerr.rdbuf(pclogrdbuf);
+
+    if (sstream.str() == "E/DebugLogTest: Think hard: 0.2660\n") test_succeeded();
 }},
+
+{ "User-defined logger", [&]()
+{
+    auto logger = Debug::Logger([](const std::string &aMessage)
+    {
+        std::cout << "Custom/" << aMessage << std::endl;
+    });
+
+    auto *const pclogrdbuf = std::cout.rdbuf();    
+    
+    std::stringstream sstream;
+    std::cout.rdbuf(sstream.rdbuf());
+
+    logger.log("qwerty");
+    
+    std::cout.rdbuf(pclogrdbuf);
+
+    if (sstream.str() == "Custom/qwerty\n") test_succeeded();
+}},
+
+/*
+{ "Example", [&]()
+{
+
+}},
+*/
 
 TEST_END
