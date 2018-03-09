@@ -38,6 +38,16 @@ std::ostream &GDK::GFX::operator<< (std::ostream &s, const GFX::Color &a)
     return s;
 }
 
+bool Color::operator==(const Color &aOther) const
+{
+    return
+        r == aOther.r &&
+        g == aOther.g &&
+        b == aOther.b &&
+        a == aOther.a
+    ;
+}
+
 //ctors
 Color::Color()
 : r(0.)

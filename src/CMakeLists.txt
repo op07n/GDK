@@ -7,6 +7,7 @@ enable_testing()
 configure_file(cmake.h.in cmake.h @ONLY)
 
 SET(TEST_DIR "../tests")
+SET(LIBS_DIR "../libs")
 
 #[[!
  \brief boilerplate for creating a unit test
@@ -35,8 +36,8 @@ function(create_unit_test ...)
     )
     add_test("${ARGV0}" ${PROJECT_NAME})
     target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-    target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/test_framework")
-    target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/refactor_this")
+    target_include_directories(${PROJECT_NAME} PRIVATE "${LIBS_DIR}/test_framework")
+    target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/mocks")
     target_include_directories(${PROJECT_NAME} PRIVATE "common")
 endfunction()
 
@@ -53,7 +54,8 @@ create_unit_test("dynamic_pool_test")
 #...
 
 #Graphics
-create_unit_test("shaderprogram_test" "common/Graphics/ShaderProgram.cpp")
+create_unit_test("graphics_shaderprogram_test" "common/Graphics/ShaderProgram.cpp")
+create_unit_test("graphics_color_test" "common/Graphics/Color.cpp")
 #...
 
 project("GDK")

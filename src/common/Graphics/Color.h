@@ -26,6 +26,9 @@ namespace GDK
             Color(Color &&) = default;
             ~Color() = default;
             
+            // Non-mutating operators
+            bool operator==(const Color &aOther) const;
+
             // Mutating operators
             Color& operator=(const Color &aColor) = default;
             Color& operator=(Color &&aColor) = default;
