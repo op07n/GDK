@@ -24,7 +24,7 @@ void glAttachShader(GLuint program, GLuint shader){}
 
 GLuint glCreateShader(GLenum shaderType){return glCreateShader_value;}
 
-void glGetProgramiv(GLuint program, GLenum pname, GLint* param){ glGetProgramiv_WillSucceed ? *param = GL_TRUE : GL_FALSE; }
+void glGetProgramiv(GLuint program, GLenum pname, GLint* param){ *param = glGetProgramiv_WillSucceed ? GL_TRUE : GL_FALSE; }
 
 void glShaderSource(GLuint shader, GLsizei count, const GLchar * const *string, const GLint *length){}
 
@@ -108,6 +108,8 @@ void main()
 TEST_START
 { "Ctor: Successful construction", [&]()
 {
+    glGetProgramiv_WillSucceed = true;
+
     try
     {
         const auto shader = ShaderProgram("MyFancyShader", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
@@ -122,9 +124,11 @@ TEST_START
 
 { "Ctor: Failed construction", [&]()
 {
+    glGetProgramiv_WillSucceed = false;
+
     try
     {
-        const auto shader = ShaderProgram("MyFancyShader", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
+        const auto shader = ShaderProgram("qwerty", VERTEX_SHADER_SOURCE, FRAGMENT_SHADER_SOURCE);
     }
     catch (std::exception ex)
     {

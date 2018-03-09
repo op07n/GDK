@@ -26,7 +26,7 @@ function(create_unit_test ...)
     project("${ARGV0}")
     add_executable(${PROJECT_NAME}
         "${sourceList}"
-        "${TEST_DIR}/${ARGV0}.cpp" #"${TEST_DIR}/${ARGV0}/${ARGV0}.cpp"
+        "${TEST_DIR}/${ARGV0}.cpp"
     )
     target_compile_features(${PROJECT_NAME} PRIVATE
         cxx_variadic_templates
@@ -35,7 +35,6 @@ function(create_unit_test ...)
     )
     add_test("${ARGV0}" ${PROJECT_NAME})
     target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-    #target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/${ARGV0}")
     target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/test_framework")
     target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/refactor_this")
     target_include_directories(${PROJECT_NAME} PRIVATE "common")
@@ -51,8 +50,7 @@ create_unit_test("dynamic_pool_test")
 #...
 
 #Graphics
-create_unit_test("shaderprogram_test" "common/Graphics/ShaderProgram.cpp"
-)
+create_unit_test("shaderprogram_test" "common/Graphics/ShaderProgram.cpp")
 #...
 
 project("GDK")
