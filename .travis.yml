@@ -30,9 +30,9 @@ matrix:
       env: Documentation generation
       script:
         - |
-          doxygen --version
           cd docs
           ./generate-documents.sh
+          CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
           mv html ~
           cd ..
           git fetch --all
@@ -42,7 +42,7 @@ matrix:
           git add --all; git commit -m "Docs for COMMIT HASH"
           git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@github.com/jfcameron/GDK.git
           git push --force --set-upstream origin-pages gh-pages
-
+          printenv
           
     - os: linux
       compiler: gcc
