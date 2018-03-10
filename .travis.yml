@@ -31,6 +31,12 @@ matrix:
       script:
         - |
           doxygen --version
+          cd docs
+          ./generate-documents.sh
+          mv html ~
+          cd ..
+          git checkout -b gh-pages
+          git status && ls ~
           
     - os: linux
       compiler: gcc
