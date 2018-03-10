@@ -38,13 +38,13 @@ function(create_unit_test ...)
     target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
     target_include_directories(${PROJECT_NAME} PRIVATE "${LIBS_DIR}/test_framework")
     target_include_directories(${PROJECT_NAME} PRIVATE "${TEST_DIR}/mocks")
-    target_include_directories(${PROJECT_NAME} PRIVATE "common")
+    target_include_directories(${PROJECT_NAME} PRIVATE ".")
 endfunction()
 
 #==========================================================================================
 
 #Debug
-create_unit_test("debug_log_test" "common/Debug/Logger.cpp")
+create_unit_test("debug_log_test" "Debug/Logger.cpp")
 
 #Memory
 create_unit_test("default_ptr_test")
@@ -54,8 +54,8 @@ create_unit_test("dynamic_pool_test")
 #...
 
 #Graphics
-create_unit_test("graphics_shaderprogram_test" "common/Graphics/ShaderProgram.cpp")
-create_unit_test("graphics_color_test" "common/Graphics/Color.cpp")
+create_unit_test("graphics_shaderprogram_test" "Graphics/ShaderProgram.cpp")
+create_unit_test("graphics_color_test" "Graphics/Color.cpp")
 #...
 
 project("GDK")

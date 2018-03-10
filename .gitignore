@@ -14,3 +14,6 @@ workspace/*
 docs/*
 !docs/generate-documents.sh
 !docs/.config
+
+build/*
+!build/.keep
