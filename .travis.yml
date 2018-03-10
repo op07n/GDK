@@ -22,6 +22,10 @@ matrix:
           coveralls --exclude tests
 
     - os: linux
+      addons:
+        apt:
+          packages:
+            - doxygen
       compiler: gcc
       env: Documentation generation
       script:
