@@ -20,6 +20,13 @@ matrix:
           make test
           cd ..
           coveralls --exclude tests
+
+    - os: linux
+      compiler: gcc
+      env: Documentation generation
+      script:
+        - |
+          doxygen --version
           
     - os: linux
       compiler: gcc
