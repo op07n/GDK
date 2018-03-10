@@ -39,11 +39,11 @@ matrix:
           git checkout -b gh-pages
           git add --all; git commit -m "Docs for COMMIT HASH"
 
-          git remote add origin-pages https://${GH_TOKEN}@github.com/jfcameron/GDK.git > /dev/null 2>&1
+          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@github.com/jfcameron/GDK.git > /dev/null 2>&1
           git push --set-upstream origin-pages gh-pages
 
           git status && ls ~
-          echo "Token is.... ${GH_TOKEN}"
+          echo "Token is.... ${GITHUB_PUBLIC_REPO_TOKEN}"
           
     - os: linux
       compiler: gcc
