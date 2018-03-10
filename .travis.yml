@@ -35,7 +35,6 @@ matrix:
           ./generate-documents.sh
           mv html ~
           cd ..
-          git fetch --all
           git checkout gh-pages
           git status && ls ~
           
