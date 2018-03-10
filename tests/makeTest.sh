@@ -8,7 +8,7 @@ cat << EOF > ${1}_test.cpp
 
 #include "Path/To/${1}.h"
 
-ussing namespace GDK;
+using namespace $(basename $(git config --get remote.origin.url | sed -e "s/^https:\/\///" -e "s/.git$//"));
 
 TEST_START
 { "Example", [&]()
