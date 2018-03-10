@@ -39,8 +39,8 @@ matrix:
           git checkout -b gh-pages
           
           cp -rf ~/html/* .
-          git add --all; git commit -m "Docs for COMMIT HASH"
-          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@github.com/jfcameron/GDK.git
+          git add --all; git commit -m "Docs for ${CURRENT_COMMIT_HASH}"
+          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git push --force --set-upstream origin-pages gh-pages
           printenv
           
