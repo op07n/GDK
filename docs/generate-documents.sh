@@ -58,7 +58,7 @@ PROJECT_BRIEF          = Documentation
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = icon.png
+PROJECT_LOGO           = .config/icon.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
