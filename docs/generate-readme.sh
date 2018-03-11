@@ -1,7 +1,5 @@
 #/bin/usr/env bash
 
-PROJECT_NAME="MyProject"
-
 GeneratePlatformsBadge()
 {
     local output="![](https://img.shields.io/badge/platforms-"
@@ -17,9 +15,12 @@ GeneratePlatformsBadge()
     echo "${output}-lightgrey.svg)"
 }
 
+PROJECT_NAME="$(git config --get remote.origin.url | sed -e "s/^https:\/\///" -e "s@.*/@@" -e "s/\..*//")"
 PLATFORMS_BADGE=$(GeneratePlatformsBadge MacOS Ubuntu Win64)
-echo $PLATFORMS_BADGE
-#echo "![](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg)"
+
+
+TRAVIS_CI_BADGE="![](https://travis-ci.org/jfcameron/GDK.svg?branch=master)"
+APPVEYOR_BADGE="![](https://ci.appveyor.com/api/projects/status/github/jfcameron/GDK)"
 
 ########################################
 
@@ -32,8 +33,8 @@ ${PLATFORMS_BADGE} ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg
 
 | VM OS | Compiler | Status | Logs | Builds |
 | --- | --- | --- | --- | --- |
-| Ubuntu | g++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | [Linux](https://jfcameron.github.io/GDK/build/linux.zip) |
-| Macos | clang++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | [Macos](https://jfcameron.github.io/GDK/build/osx.zip) |
+| Ubuntu | g++ | ${TRAVIS_CI_BADGE} | https://travis-ci.org/jfcameron/GDK | [Linux](https://jfcameron.github.io/GDK/build/linux.zip) |
+| Macos | clang++ | ${TRAVIS_CI_BADGE} | https://travis-ci.org/jfcameron/GDK | [Macos](https://jfcameron.github.io/GDK/build/osx.zip) |
 | Win64 | MSVC | ![](https://ci.appveyor.com/api/projects/status/sxivr8m9r1tjggis/branch/master?svg=true) | https://ci.appveyor.com/project/jfcameron/gdk | [Win64](https://jfcameron.github.io/GDK/build/win64.zip) |
 
 Documentation: https://jfcameron.github.io/GDK/

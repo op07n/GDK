@@ -1,4 +1,4 @@
-# MyProject
+# GDK
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
 ## CI Information:
