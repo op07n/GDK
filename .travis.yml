@@ -53,14 +53,13 @@ matrix:
           make
           ctest --extra-verbose
 
-          cd ..;zip -r ~/ubuntu.zip build -x build/.keep
+          cd ..;zip -r ~/ubuntu_${CURRENT_COMMIT_HASH}.zip build -x build/.keep
           
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git fetch --all
-          git checkout -b gh-pages
-          git pull;git clean -fxd;git reset --hard
-          mv ~/ubuntu.zip ./build
-          git add ./build/ubuntu.zip; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
+          git checkout -b gh-pages;git pull origin gh-pages;git clean -fxd;git reset --hard
+          mv ~/ubuntu_${CURRENT_COMMIT_HASH}.zip ./build
+          git add ./build/ubuntu_${CURRENT_COMMIT_HASH}.zip; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
           git push --set-upstream origin gh-pages
 
     - os: osx
