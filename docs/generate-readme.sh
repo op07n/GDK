@@ -7,7 +7,11 @@ GeneratePlatformsBadge()
     local output="![](https://img.shields.io/badge/platforms-"
 
     for platform in $*; do 
-        output+="%20${platform}%20|"
+        ${output}+="%20${platform}%20"
+
+        if [ "${platform}" != "${@: -1}" ]; then
+            ${output}+="|"
+        fi
     done
 
     echo "${output}-lightgrey.svg)"
