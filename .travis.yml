@@ -46,7 +46,7 @@ matrix:
           
     - os: linux
       compiler: gcc
-      env: Build & Run Unit Tests
+      env: Build, Test & Deploy
       script:
         - |
           cd workspace
@@ -66,7 +66,7 @@ matrix:
 
     - os: osx
       compiler: clang
-      env: Build & Run Unit Tests
+      env: Build, Test & Deploy
       script:
         - |
           cd workspace
@@ -83,3 +83,7 @@ matrix:
           mv ~/${TRAVIS_OS_NAME}.zip ./build
           git add ./build/${TRAVIS_OS_NAME}.zip; git commit -m "${TRAVIS_OS_NAME} build for ${CURRENT_COMMIT_HASH}"
           git push --force --set-upstream origin gh-pages
+
+before_script:
+  - |
+    echo "This is a thing its happeing before script"
