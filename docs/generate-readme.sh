@@ -22,7 +22,9 @@ PLATFORMS_BADGE=$(GeneratePlatformsBadge MacOS Ubuntu Win64)
 TRAVIS_CI_BADGE="![](https://travis-ci.org/jfcameron/GDK.svg?branch=master)"
 APPVEYOR_BADGE="![](https://ci.appveyor.com/api/projects/status/github/jfcameron/GDK)"
 
-RELATIVE_PATH_OF_THIS_SCRIPT=echo ${PROJECT_NAME}$(echo $(pwd)/${0#"./"} | sed -e "s@.*${PROJECT_NAME}@@")
+RELATIVE_PATH_OF_THIS_SCRIPT=$(echo ${PROJECT_NAME}$(echo $(pwd)/${0#"./"} | sed -e "s@.*${PROJECT_NAME}@@"))
+
+echo ${RELATIVE_PATH_OF_THIS_SCRIPT}
 
 ########################################
 
