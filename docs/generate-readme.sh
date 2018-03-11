@@ -1,13 +1,30 @@
 #/bin/usr/env bash
 
-PROJECT_NAME=MyProject
+PROJECT_NAME="MyProject"
+
+GeneratePlatformsBadge()
+{
+    local output="![](https://img.shields.io/badge/platforms-"
+
+    for platform in $*; do 
+        output+="%20${platform}%20|"
+    done
+
+    echo "${output}-lightgrey.svg)"
+}
+
+PLATFORMS_BADGE=$(GeneratePlatformsBadge MacOS Ubuntu Win64)
+
+echo "![](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg)"
+
+########################################
 
 Readme=$(cat << README
 # ${PROJECT_NAME}
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
 ## CI Information:
-![](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
+${PLATFORMS_BADGE} ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
 
 | VM OS | Compiler | Status | Logs | Builds |
 | --- | --- | --- | --- | --- |
