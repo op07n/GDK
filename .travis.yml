@@ -37,6 +37,7 @@ matrix:
           cd ..
           git fetch --all
           git checkout -b gh-pages
+          git pull;git clean -fxd;git reset --hard
           cp -rf ~/html/* .
           git add --all; git commit -m "Docs for ${CURRENT_COMMIT_HASH}"
           git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
@@ -57,7 +58,7 @@ matrix:
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git fetch --all
           git checkout -b gh-pages
-          git pull
+          git pull;git clean -fxd;git reset --hard
           mv ~/ubuntu.zip ./build
           git add ./build/ubuntu.zip; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
           git push --set-upstream origin gh-pages
