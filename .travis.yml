@@ -59,7 +59,7 @@ matrix:
           git checkout -b gh-pages
           mv ~/ubuntu.zip ./build
           git add ./build/ubuntu.zip; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
-          git push
+          git push --set-upstream origin gh-pages
 
     - os: osx
       compiler: clang
