@@ -6,7 +6,7 @@ Readme=$(cat << README
 # ${PROJECT_NAME}
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
-## Description:
+## CI Information:
 ![](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
 
 | VM OS | Compiler | Status | Logs | Builds |
@@ -18,6 +18,7 @@ Readme=$(cat << README
 Documentation: https://jfcameron.github.io/GDK/
 Coverage: https://coveralls.io/github/jfcameron/GDK
 
+## Description:
 Library for multiplatform game development in C++ (C++11)
 
 ### Math
