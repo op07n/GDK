@@ -52,6 +52,9 @@ matrix:
           make
           ctest --extra-verbose
 
+          cd ..;zip -r ~/ubuntu.zip build -x build/.keep
+          ls ~
+
     - os: osx
       compiler: clang
       env: Build & Run Unit Tests

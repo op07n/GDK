@@ -8,6 +8,7 @@ configure_file(cmake.h.in cmake.h @ONLY)
 
 SET(TEST_DIR "../tests")
 SET(LIBS_DIR "../libs")
+SET(BUILD_DIR "../build")
 
 #[[!
  \brief boilerplate for creating a unit test
@@ -66,6 +67,11 @@ target_compile_features(${PROJECT_NAME} PRIVATE
     cxx_variadic_templates
     cxx_nullptr
     cxx_lambdas
+)
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${BUILD_DIR}"
+    LIBRARY_OUTPUT_DIRECTORY "${BUILD_DIR}"
+    RUNTIME_OUTPUT_DIRECTORY "${BUILD_DIR}"
 )
 target_include_directories(${PROJECT_NAME} PRIVATE ".")
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})

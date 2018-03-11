@@ -11,6 +11,7 @@
 | Win64 | MSVC | ![](https://ci.appveyor.com/api/projects/status/sxivr8m9r1tjggis/branch/master?svg=true) | https://ci.appveyor.com/project/jfcameron/gdk |
 
 Documentation: https://jfcameron.github.io/GDK/
+Coverage: https://coveralls.io/github/jfcameron/GDK
 
 Library for multiplatform game development in C++ (C++11)
 
