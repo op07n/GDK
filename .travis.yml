@@ -44,10 +44,7 @@ matrix:
           git push --force --set-upstream origin gh-pages
           
     - os: linux
-      compiler: 
-        - |
-          gcc
-          clang
+      compiler: gcc
       env: Build, Test & Deploy
       script:
         - |
