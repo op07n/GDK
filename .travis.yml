@@ -54,7 +54,7 @@ matrix:
 
           cd ..;zip -r ~/ubuntu.zip build -x build/.keep
           
-          git remote set origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
+          git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git fetch --all
           git checkout -b gh-pages
           mv ~/ubuntu.zip ./build
