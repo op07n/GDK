@@ -37,11 +37,11 @@ matrix:
           cd ..
           git fetch --all
           git checkout -b gh-pages
-          git pull;git clean -fxd;git reset --hard
+          git pull origin gh-pages;git clean -fxd;git reset --hard
           cp -rf ~/html/* .
           git add --all; git commit -m "Docs for ${CURRENT_COMMIT_HASH}"
           git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
-          git push --force --set-upstream origin-pages gh-pages
+          git push --set-upstream origin-pages gh-pages
           
     - os: linux
       compiler: gcc
@@ -53,6 +53,7 @@ matrix:
           make
           ctest --extra-verbose
 
+          CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
           cd ..;zip -r ~/ubuntu_${CURRENT_COMMIT_HASH}.zip build -x build/.keep
           
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
