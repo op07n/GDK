@@ -54,13 +54,12 @@ matrix:
           ctest --extra-verbose
 
           CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
-          cd ..;zip -r ~/ubuntu_${CURRENT_COMMIT_HASH}.zip build -x build/.keep
-          
+          cd ..;touch build/${CURRENT_COMMIT_HASH};zip -r ~/${TRAVIS_OS_NAME}.zip build -x build/.keep
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git fetch --all
           git checkout -b gh-pages;git pull origin gh-pages;git clean -fxd;git reset --hard
-          mv ~/ubuntu_${CURRENT_COMMIT_HASH}.zip ./build
-          git add ./build/ubuntu_${CURRENT_COMMIT_HASH}.zip; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
+          mv ~/${TRAVIS_OS_NAME}.zip ./build
+          git add ./build/${TRAVIS_OS_NAME}.zip; git commit -m "${TRAVIS_OS_NAME} build for ${CURRENT_COMMIT_HASH}"
           git push --set-upstream origin gh-pages
 
     - os: osx
@@ -73,9 +72,11 @@ matrix:
           make
           ctest --extra-verbose
 
-          #cd ..;zip -r ~/macos.zip build -x build/.keep
-          #git checkout -b gh-pages
-          #mv ~/macos.zip ./build
-          #git add ./build/macos.zip; git commit -m "Macos build for ${CURRENT_COMMIT_HASH}"
-          #git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
-          #git push --force --set-upstream origin-pages gh-pages
+          CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
+          cd ..;touch build/${CURRENT_COMMIT_HASH};zip -r ~/${TRAVIS_OS_NAME}.zip build -x build/.keep
+          git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
+          git fetch --all
+          git checkout -b gh-pages;git pull origin gh-pages;git clean -fxd;git reset --hard
+          mv ~/${TRAVIS_OS_NAME}.zip ./build
+          git add ./build/${TRAVIS_OS_NAME}.zip; git commit -m "${TRAVIS_OS_NAME} build for ${CURRENT_COMMIT_HASH}"
+          git push --set-upstream origin gh-pages
