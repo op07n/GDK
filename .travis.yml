@@ -53,11 +53,13 @@ matrix:
           ctest --extra-verbose
 
           cd ..;zip -r ~/ubuntu.zip build -x build/.keep
+          
+          git remote set origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
+          git fetch --all
           git checkout -b gh-pages
           mv ~/ubuntu.zip ./build
-          git add --all; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
-          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
-          git push --force --set-upstream origin-pages gh-pages
+          git add ./build/ubuntu.zip; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
+          git push
 
     - os: osx
       compiler: clang
@@ -69,9 +71,9 @@ matrix:
           make
           ctest --extra-verbose
 
-          cd ..;zip -r ~/macos.zip build -x build/.keep
-          git checkout -b gh-pages
-          mv ~/macos.zip ./build
-          git add --all; git commit -m "Macos build for ${CURRENT_COMMIT_HASH}"
-          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
-          git push --force --set-upstream origin-pages gh-pages
+          #cd ..;zip -r ~/macos.zip build -x build/.keep
+          #git checkout -b gh-pages
+          #mv ~/macos.zip ./build
+          #git add ./build/macos.zip; git commit -m "Macos build for ${CURRENT_COMMIT_HASH}"
+          #git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
+          #git push --force --set-upstream origin-pages gh-pages
