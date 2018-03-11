@@ -34,7 +34,6 @@ matrix:
         - |
           cd docs
           ./generate-documents.sh
-          CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
           mv html ~
           cd ..
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
@@ -45,7 +44,10 @@ matrix:
           git push --force --set-upstream origin gh-pages
           
     - os: linux
-      compiler: gcc
+      compiler: 
+        - |
+          gcc
+          clang
       env: Build, Test & Deploy
       script:
         - |
@@ -55,7 +57,6 @@ matrix:
           ctest --extra-verbose
       after_success:
         - |
-          CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
           cd ..;touch build/${CURRENT_COMMIT_HASH};zip -r ~/${TRAVIS_OS_NAME}.zip build -x build/.keep
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git fetch --all
@@ -75,7 +76,6 @@ matrix:
           ctest --extra-verbose
       after_success:
         - |
-          CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
           cd ..;touch build/${CURRENT_COMMIT_HASH};zip -r ~/${TRAVIS_OS_NAME}.zip build -x build/.keep
           git remote set-url --push origin https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
           git fetch --all
@@ -84,6 +84,6 @@ matrix:
           git add ./build/${TRAVIS_OS_NAME}.zip; git commit -m "${TRAVIS_OS_NAME} build for ${CURRENT_COMMIT_HASH}"
           git push --force --set-upstream origin gh-pages
 
-before_script:
+before_script: 
   - |
-    echo "This is a thing its happeing before script"
+    CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
