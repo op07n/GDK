@@ -16,8 +16,9 @@ install:
   - git submodule update --init --recursive
 
 before_build:
-  - cd workspace
-  - cmake ../src -G "Visual Studio 15 2017 Win64" -DCMAKE_CXX_FLAGS="/W4 /EHsc /Ot"
+  - |
+    cd workspace
+    cmake ../src -G "Visual Studio 15 2017 Win64" -DCMAKE_CXX_FLAGS="/W4 /EHsc /Ot"
 
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\workspace\ALL_BUILD.vcxproj
@@ -25,5 +26,7 @@ build:
   verbosity: minimal #detailed
 
 test_script:
-  - cd Release
-  - for /r "." %%a in (*.exe) do echo "Executing %%a" & %%a && echo ----
+  - |
+    cd Release
+    for /r "." %%a in (*.exe) do echo "Executing %%a" & %%a && echo ----
+    dir
