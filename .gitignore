@@ -14,6 +14,7 @@ workspace/*
 docs/*
 !docs/generate-documents.sh
 !docs/.config
+!docs/generate-readme.sh
 
 build/*
 !build/.keep
