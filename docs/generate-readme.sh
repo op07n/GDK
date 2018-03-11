@@ -1,7 +1,9 @@
 #/bin/usr/env bash
 
+PROJECT_NAME=MyProject
+
 Readme=$(cat << README
-# GDK
+# ${PROJECT_NAME}
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
 ## Description:
