@@ -7,10 +7,10 @@ GeneratePlatformsBadge()
     local output="![](https://img.shields.io/badge/platforms-"
 
     for platform in $*; do 
-        ${output}+="%20${platform}%20"
+        output+="%20${platform}%20"
 
         if [ "${platform}" != "${@: -1}" ]; then
-            ${output}+="|"
+            output+="|"
         fi
     done
 
@@ -18,8 +18,8 @@ GeneratePlatformsBadge()
 }
 
 PLATFORMS_BADGE=$(GeneratePlatformsBadge MacOS Ubuntu Win64)
-
-echo "![](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg)"
+echo $PLATFORMS_BADGE
+#echo "![](https://img.shields.io/badge/platforms-win64%20|%20macos%20|%20ubuntu%20-lightgrey.svg)"
 
 ########################################
 

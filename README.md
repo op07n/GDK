@@ -2,7 +2,7 @@
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
 ## CI Information:
-![](https://img.shields.io/badge/platforms--lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
+![](https://img.shields.io/badge/platforms-%20MacOS%20|%20Ubuntu%20|%20Win64%20-lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
 
 | VM OS | Compiler | Status | Logs | Builds |
 | --- | --- | --- | --- | --- |
