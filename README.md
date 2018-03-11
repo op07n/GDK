@@ -6,9 +6,9 @@
 
 | VM OS | Compiler | Status | Logs | Builds |
 | --- | --- | --- | --- | --- |
-| Ubuntu | g++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | https://jfcameron.github.io/GDK/build/linux.zip |
-| Macos | clang++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | https://jfcameron.github.io/GDK/build/osx.zip |
-| Win64 | MSVC | ![](https://ci.appveyor.com/api/projects/status/sxivr8m9r1tjggis/branch/master?svg=true) | https://ci.appveyor.com/project/jfcameron/gdk | NA |
+| Ubuntu | g++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | [Linux](https://jfcameron.github.io/GDK/build/linux.zip) |
+| Macos | clang++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | [Macos](https://jfcameron.github.io/GDK/build/osx.zip) |
+| Win64 | MSVC | ![](https://ci.appveyor.com/api/projects/status/sxivr8m9r1tjggis/branch/master?svg=true) | https://ci.appveyor.com/project/jfcameron/gdk | [Win64](https://jfcameron.github.io/GDK/build/win64.zip) |
 
 Documentation: https://jfcameron.github.io/GDK/
 Coverage: https://coveralls.io/github/jfcameron/GDK
