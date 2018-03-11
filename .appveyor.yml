@@ -29,4 +29,4 @@ test_script:
   - |
     cd Release
     for /r "." %%a in (*.exe) do echo "Executing %%a" & %%a && echo ----
-    dir
+    cd ../.. & dir /s
