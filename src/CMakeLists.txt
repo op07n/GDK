@@ -59,4 +59,16 @@ create_unit_test("graphics_color_test" "Graphics/Color.cpp")
 #...
 
 project("GDK")
+add_library (${PROJECT_NAME} STATIC 
+    "Graphics/ShaderProgram.cpp"
+)
+target_compile_features(${PROJECT_NAME} PRIVATE
+    cxx_variadic_templates
+    cxx_nullptr
+    cxx_lambdas
+)
+target_include_directories(${PROJECT_NAME} PRIVATE ".")
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE "${LIBS_DIR}/glew/include/GL")
+    
 #...
