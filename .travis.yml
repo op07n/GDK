@@ -53,7 +53,11 @@ matrix:
           ctest --extra-verbose
 
           cd ..;zip -r ~/ubuntu.zip build -x build/.keep
-          ls ~
+          git checkout -b gh-pages
+          mv ~/ubuntu.zip ./build
+          git add --all; git commit -m "Ubuntu build for ${CURRENT_COMMIT_HASH}"
+          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
+          git push --force --set-upstream origin-pages gh-pages
 
     - os: osx
       compiler: clang
@@ -64,3 +68,10 @@ matrix:
           cmake ../src -DCMAKE_CXX_FLAGS="-pedantic -Weverything -Wno-c++98-compat -Ofast -flto -funroll-loops -m64 -march=native"
           make
           ctest --extra-verbose
+
+          cd ..;zip -r ~/macos.zip build -x build/.keep
+          git checkout -b gh-pages
+          mv ~/macos.zip ./build
+          git add --all; git commit -m "Macos build for ${CURRENT_COMMIT_HASH}"
+          git remote add origin-pages https://${GITHUB_PUBLIC_REPO_TOKEN}@$(git config --get remote.origin.url | sed -e "s/^https:\/\///")
+          git push --force --set-upstream origin-pages gh-pages
