@@ -41,8 +41,10 @@ ${PLATFORMS_BADGE} ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg
 | Macos | clang++ | ${TRAVIS_CI_BADGE} | https://travis-ci.org/jfcameron/GDK | [Macos](https://jfcameron.github.io/GDK/build/osx.zip) |
 | Win64 | MSVC | ${APPVEYOR_BADGE} | https://ci.appveyor.com/project/jfcameron/gdk | [Win64](https://jfcameron.github.io/GDK/build/win64.zip) |
 
-Documentation: https://jfcameron.github.io/GDK/
-Coverage: https://coveralls.io/github/jfcameron/GDK
+| Serivce | URL |
+| --- | --- |
+| Documentation | https://jfcameron.github.io/GDK |
+| Coverage | https://coveralls.io/github/jfcameron/GDK |
 
 ## Description:
 Library for multiplatform game development in C++ (C++11)
