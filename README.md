@@ -4,6 +4,8 @@
 # GDK
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
+<img src="http://jfcameron.github.io/Github/GitSync/Screenshot.png" width="100%">
+
 ## CI Information:
 ![](https://img.shields.io/badge/platforms-%20MacOS%20|%20Ubuntu%20|%20Win64%20-lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
 

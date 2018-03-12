@@ -32,6 +32,8 @@ Readme=$(cat << README
 # ${PROJECT_NAME}
 ![alt tag](http://jfcameron.github.io/Github/GDK/EarlyRender.png "")
 
+<img src="http://jfcameron.github.io/Github/GitSync/Screenshot.png" width="100%">
+
 ## CI Information:
 ${PLATFORMS_BADGE} ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
 
