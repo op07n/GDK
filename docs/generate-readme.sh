@@ -10,7 +10,7 @@ SUPPORTED_PLATFORM_LIST=(
 )
 
 PREVIEW_IMAGE_LIST=(
-    http://jfcameron.github.io/Github/GDK/EarlyRender.png http://jfcameron.github.io/Github/GDK/EarlyRender.png
+    http://jfcameron.github.io/Github/GDK/EarlyRender.png
 )
 
 README=$(cat << README
