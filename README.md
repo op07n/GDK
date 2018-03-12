@@ -5,7 +5,7 @@
 <img src="http://jfcameron.github.io/Github/GDK/EarlyRender.png" width="100%"><img src="http://jfcameron.github.io/Github/GDK/EarlyRender.png" width="100%">
 
 ## CI Information:
-![](https://img.shields.io/badge/platforms-%20osx%20|%20android%20|%20gameboy%20|%20psp1%20-lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
+![](https://img.shields.io/badge/platforms-%20MacOS%20|%20Win64%20|%20Ubuntu%20-lightgrey.svg) ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
 
 | VM OS | Compiler | Status | Logs | Builds |
 | --- | --- | --- | --- | --- |

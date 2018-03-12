@@ -3,8 +3,15 @@
 # ===========================
 # USER DEFINED README SECTION
 # ===========================
-SUPPORTED_PLATFORM_LIST=(osx android gameboy psp1)
-PREVIEW_IMAGE_LIST=(http://jfcameron.github.io/Github/GDK/EarlyRender.png http://jfcameron.github.io/Github/GDK/EarlyRender.png)
+SUPPORTED_PLATFORM_LIST=(
+    MacOS
+    Win64
+    Ubuntu
+)
+
+PREVIEW_IMAGE_LIST=(
+    http://jfcameron.github.io/Github/GDK/EarlyRender.png http://jfcameron.github.io/Github/GDK/EarlyRender.png
+)
 
 README=$(cat << README
 ## Description:
