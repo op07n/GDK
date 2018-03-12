@@ -13,7 +13,7 @@
 | Macos | clang++ | ![](https://travis-ci.org/jfcameron/GDK.svg?branch=master) | https://travis-ci.org/jfcameron/GDK | [Macos](https://jfcameron.github.io/GDK/build/osx.zip) |
 | Win64 | MSVC | ![](https://ci.appveyor.com/api/projects/status/github/jfcameron/GDK) | https://ci.appveyor.com/project/jfcameron/GDK | [Win64](https://jfcameron.github.io/GDK/build/win64.zip) |
 
-| Serivce | URL |
+| Service | URL |
 | --- | --- |
 | Documentation | https://jfcameron.github.io/GDK |
 | Coverage | https://coveralls.io/github/jfcameron/GDK |

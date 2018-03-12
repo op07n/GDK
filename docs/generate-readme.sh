@@ -116,7 +116,7 @@ ${PLATFORMS_BADGE} ${COVERALLS_BADGE}
 | Macos | clang++ | ${TRAVIS_CI_BADGE} | ${TRAVIS_CI_PROJECT_LINK} | [Macos](https://jfcameron.github.io/${PROJECT_NAME}/build/osx.zip) |
 | Win64 | MSVC | ${APPVEYOR_BADGE} | ${APPVEYOR_PROJECT_LINK} | [Win64](https://jfcameron.github.io/${PROJECT_NAME}/build/win64.zip) |
 
-| Serivce | URL |
+| Service | URL |
 | --- | --- |
 | Documentation | https://jfcameron.github.io/${PROJECT_NAME} |
 | Coverage | https://coveralls.io/github/jfcameron/${PROJECT_NAME} |
