@@ -26,14 +26,20 @@ GeneratePreviewImages() #http://jfcameron.github.io/Github/GDK/EarlyRender.png
     echo "${output}"
 }
 
-PREVIEW_IMAGES="$(GeneratePreviewImages http://jfcameron.github.io/Github/GDK/EarlyRender.png)"
+#Autos
 PROJECT_NAME="$(git config --get remote.origin.url | sed -e "s/^https:\/\///" -e "s@.*/@@" -e "s/\..*//")"
-PLATFORMS_BADGE=$(GeneratePlatformsBadge MacOS Ubuntu Win64)
-
 RELATIVE_PATH_OF_THIS_SCRIPT=$(echo ${PROJECT_NAME}$(echo $(pwd)/${0#"./"} | sed -e "s@.*${PROJECT_NAME}@@"))
 
 TRAVIS_CI_BADGE="![](https://travis-ci.org/jfcameron/${PROJECT_NAME}.svg?branch=master)"
 APPVEYOR_BADGE="![](https://ci.appveyor.com/api/projects/status/github/jfcameron/${PROJECT_NAME})"
+COVERALLS_BADGE="![](https://coveralls.io/repos/github/jfcameron/${PROJECT_NAME}/badge.svg?branch=master)"
+
+TRAVIS_CI_PROJECT_LINK="https://travis-ci.org/jfcameron/${PROJECT_NAME}"
+APPVEYOR_PROJECT_LINK="https://ci.appveyor.com/project/jfcameron/${PROJECT_NAME}"
+
+#User input
+PREVIEW_IMAGES="$(GeneratePreviewImages http://jfcameron.github.io/Github/GDK/EarlyRender.png)"
+PLATFORMS_BADGE=$(GeneratePlatformsBadge MacOS Ubuntu Win64)
 
 ########################################
 
@@ -45,18 +51,18 @@ Readme=$(cat << README
 ${PREVIEW_IMAGES}
 
 ## CI Information:
-${PLATFORMS_BADGE} ![](https://coveralls.io/repos/github/jfcameron/GDK/badge.svg?branch=master)
+${PLATFORMS_BADGE} ${COVERALLS_BADGE}
 
 | VM OS | Compiler | Status | Logs | Builds |
 | --- | --- | --- | --- | --- |
-| Ubuntu | g++ | ${TRAVIS_CI_BADGE} | https://travis-ci.org/jfcameron/GDK | [Linux](https://jfcameron.github.io/GDK/build/linux.zip) |
-| Macos | clang++ | ${TRAVIS_CI_BADGE} | https://travis-ci.org/jfcameron/GDK | [Macos](https://jfcameron.github.io/GDK/build/osx.zip) |
-| Win64 | MSVC | ${APPVEYOR_BADGE} | https://ci.appveyor.com/project/jfcameron/gdk | [Win64](https://jfcameron.github.io/GDK/build/win64.zip) |
+| Ubuntu | g++ | ${TRAVIS_CI_BADGE} | ${TRAVIS_CI_PROJECT_LINK} | [Linux](https://jfcameron.github.io/${PROJECT_NAME}/build/linux.zip) |
+| Macos | clang++ | ${TRAVIS_CI_BADGE} | ${TRAVIS_CI_PROJECT_LINK} | [Macos](https://jfcameron.github.io/${PROJECT_NAME}/build/osx.zip) |
+| Win64 | MSVC | ${APPVEYOR_BADGE} | ${APPVEYOR_PROJECT_LINK} | [Win64](https://jfcameron.github.io/${PROJECT_NAME}/build/win64.zip) |
 
 | Serivce | URL |
 | --- | --- |
-| Documentation | https://jfcameron.github.io/GDK |
-| Coverage | https://coveralls.io/github/jfcameron/GDK |
+| Documentation | https://jfcameron.github.io/${PROJECT_NAME} |
+| Coverage | https://coveralls.io/github/jfcameron/${PROJECT_NAME} |
 
 ## Description:
 Library for multiplatform game development in C++ (C++11)
