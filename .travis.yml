@@ -40,7 +40,7 @@ matrix:
           git fetch --all
           git checkout -b gh-pages;git pull origin gh-pages;git clean -fxd;git reset --hard
           cp -rf ~/html/* .
-          git add --all;git reset build;git reset images;git commit -m "Docs for ${CURRENT_COMMIT_HASH}"
+          git add --all;git reset build;git reset images;git reset .gitignore;git commit -m "Docs for ${CURRENT_COMMIT_HASH}"
           git push --force --set-upstream origin gh-pages
           
     - os: linux
