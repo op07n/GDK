@@ -10,7 +10,7 @@ SUPPORTED_PLATFORM_LIST=(
 )
 
 PREVIEW_IMAGE_LIST=(
-    http://jfcameron.github.io/Github/GDK/EarlyRender.png
+    EarlyRender.png
 )
 
 README=$(cat << README
@@ -78,7 +78,7 @@ GenerateReadme()
         local output=""
 
         for ImageURL in $*; do 
-            output+="<img src=\"${ImageURL}\" width=\"100%\">"
+            output+="<img src=\"http://jfcameron.github.io/Github/GDK/${ImageURL}\" width=\"100%\">"
         done
 
         echo "${output}"
