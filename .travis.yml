@@ -84,3 +84,4 @@ matrix:
 before_script: 
   - |
     CURRENT_COMMIT_HASH="$(git rev-parse HEAD)"
+ 
