@@ -78,7 +78,7 @@ GenerateReadme()
         local output=""
 
         for ImageURL in $*; do 
-            output+="<img src=\"http://jfcameron.github.io/Github/GDK/${ImageURL}\" width=\"100%\">"
+            output+="<img src=\"http://jfcameron.github.io/${PROJECT_NAME}/images/${ImageURL}\" width=\"100%\">"
         done
 
         echo "${output}"
