@@ -52,7 +52,11 @@ namespace GDK
 
             ///Destroy all managed objects
             void clear(){m_Map.clear();}
-            
+
+            ///Removes resources with a reference count of 1
+            //@Warn UNIMPLEMENTED
+            void trim();
+                      
             // Mutating operators
             resource_manager &operator=(const resource_manager &) = delete;
             resource_manager &operator=(resource_manager &&) = delete;
