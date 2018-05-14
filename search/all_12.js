@@ -8,7 +8,7 @@ var searchData=
   ['texturemanager',['TextureManager',['../class_g_d_k_1_1_g_f_x_1_1_texture_manager.html',1,'GDK::GFX']]],
   ['textureuniformcollection',['TextureUniformCollection',['../class_g_d_k_1_1_g_f_x_1_1_texture_uniform_collection.html',1,'GDK::GFX']]],
   ['touchproxy',['TouchProxy',['../classb2_broad_phase.html#a67b296431ebbc7b44037f21d645d9166',1,'b2BroadPhase']]],
-  ['trim',['trim',['../class_g_d_k_1_1_memory_1_1dynamic__pool.html#a05924424a7e93a6f35a5858d82cc9f36',1,'GDK::Memory::dynamic_pool']]],
+  ['trim',['trim',['../class_g_d_k_1_1_memory_1_1dynamic__pool.html#a05924424a7e93a6f35a5858d82cc9f36',1,'GDK::Memory::dynamic_pool::trim()'],['../class_g_d_k_1_1_memory_1_1resource__manager.html#aae0ac855bbe8857ef19b7df3e315a07a',1,'GDK::Memory::resource_manager::trim()']]],
   ['type',['Type',['../class_g_d_k_1_1_e_c_s_1_1_physics2_d_1_1_collider.html#a9558b33ae7e167413941b45db8c18275',1,'GDK::ECS::Physics2D::Collider::Type()'],['../class_g_d_k_1_1_e_c_s_1_1_physics2_d_1_1_rigidbody.html#a08b603cc5331ceb3b7b59f0ffbb4441a',1,'GDK::ECS::Physics2D::Rigidbody::Type()'],['../class_g_d_k_1_1_g_f_x_1_1_mesh.html#ac7982380f47cf54fb36c8c5eaefa55eb',1,'GDK::GFX::Mesh::Type()'],['../structb2_body_def.html#a89cc3ad1873908042b002147b3861381',1,'b2BodyDef::type()'],['../structb2_joint_def.html#a470f2879b24adb05facbd49f338856fb',1,'b2JointDef::type()']]],
   ['typea',['typeA',['../structb2_contact_feature.html#a3361b651f0a88fb60ec6aba9f4921cc2',1,'b2ContactFeature']]],
   ['typeb',['typeB',['../structb2_contact_feature.html#abb74afd6ee5b60834a3f8e2616182bdf',1,'b2ContactFeature']]]
