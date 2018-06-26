@@ -5,16 +5,3 @@
 
 # Macos
 *.DS_Store
-
-# Repository layout
-workspace/*
-!workspace/generate.sh
-!workspace/test.sh
-
-docs/*
-!docs/generate-documents.sh
-!docs/.config
-!docs/generate-readme.sh
-
-build/*
-!build/.keep
